@@ -1,7 +1,7 @@
 module ApplicationHelper
   def team_pictures(team)
     team.users.map do |user|
-      image_tag(user.image)
+      image_tag(user.image, :title => user.name)
     end.join(" ").html_safe
   end
 

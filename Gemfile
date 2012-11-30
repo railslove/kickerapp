@@ -9,6 +9,7 @@ gem 'mysql2'
 gem "omniauth"
 gem "omniauth-twitter"
 gem 'haml'
+gem 'heroku'
 
 
 # Gems used only for assets and not required

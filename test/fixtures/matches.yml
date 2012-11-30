@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  crawling: false
+  team_one_id: 1
+  team_two_id: 1
+
+two:
+  crawling: false
+  team_one_id: 1
+  team_two_id: 1

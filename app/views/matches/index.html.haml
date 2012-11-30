@@ -1,0 +1,5 @@
+%h1= link_to "Alle Spiele", matches_path
+%ul.teams
+  - @matches.each do |match|
+    %li
+      = render "match", :match => match

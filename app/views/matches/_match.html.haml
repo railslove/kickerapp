@@ -1,0 +1,12 @@
+.match{:class => match.crawling? ? "crawling" : ""}
+  .date
+    = l(match.date, :format => :short)
+  .teams
+    .winner
+      = team_pictures match.winner_score.team
+    .score
+      = match.winner_score.goals
+      = ":"
+      = match.loser_score.goals
+    .loser
+      = team_pictures match.loser_score.team

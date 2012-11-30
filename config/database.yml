@@ -1,0 +1,19 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: kicker_development
+  username: root
+  password:
+#test: &TEST
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: kicker_test
+  username: root
+  password:
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: kicker_production
+  username: root
+  password:

@@ -1,0 +1,6 @@
+%h1= "Spiele von #{@user.name}"
+
+%ul.teams
+  - @user.matches.each do |match|
+    %li
+      = render "matches/match", :match => match

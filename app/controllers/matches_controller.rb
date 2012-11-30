@@ -1,6 +1,4 @@
 class MatchesController < ApplicationController
-  # GET /matches
-  # GET /matches.json
   def index
     if params[:user_id]
       @matches = User.find(params[:user_id]).matches
@@ -14,19 +12,6 @@ class MatchesController < ApplicationController
     end
   end
 
-  # GET /matches/1
-  # GET /matches/1.json
-  def show
-    @match = Match.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @match }
-    end
-  end
-
-  # GET /matches/new
-  # GET /matches/new.json
   def new
     @match = Match.new
 
@@ -36,13 +21,10 @@ class MatchesController < ApplicationController
     end
   end
 
-  # GET /matches/1/edit
   def edit
     @match = Match.find(params[:id])
   end
 
-  # POST /matches
-  # POST /matches.json
   def create
     @match = Match.new(:date => Date.today, :crawling => params[:crawling])
     @team1 = Team.find_or_create_with_score(@match, params[:team1],params[:team1][:goals] > params[:team2][:goals])
@@ -59,8 +41,6 @@ class MatchesController < ApplicationController
     end
   end
 
-  # PUT /matches/1
-  # PUT /matches/1.json
   def update
     @match = Match.find(params[:id])
 
@@ -75,8 +55,6 @@ class MatchesController < ApplicationController
     end
   end
 
-  # DELETE /matches/1
-  # DELETE /matches/1.json
   def destroy
     @match = Match.find(params[:id])
     @match.destroy

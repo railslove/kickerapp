@@ -1,0 +1,6 @@
+%ul.user_list
+  - User.all.each do |user|
+    %li
+      = link_to user do
+        = image_tag(user.image)
+        %span.balanace= match_balance(user)

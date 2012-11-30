@@ -8,20 +8,15 @@
     = csrf_meta_tags
   %body{:class => [controller_name], :id => "#{controller_name}_#{action_name}"}
     #wrapper
-      .navbar.navbar-inverse
+      .navbar.navbar-inverse.navbar-fixed-top
         .navbar-inner
           .container
-            .top-nav
-              = link_to "Kicker Krabbel Zähler",  root_path, :id => "logo", :class => 'brand'
-              %ul.user_list.pull-left
-                - User.all.each do |user|
-                  %li
-                    = link_to matches_path(:user_id => user.id) do
-                      %span.balanace= match_balance(user)
-                      = image_tag(user.image)
-              %ul.pull-right
+            = link_to "Kicker Krabbel Zähler",  root_path, :id => "logo", :class => 'brand'
+            .nav-collapse.collapse
+              %ul.nav
                 %li= link_to "Twitter login", "/auth/twitter"
                 %li= link_to "Neues Match", new_match_path
+                %li= link_to "Teams", teams_path
 
 
 
@@ -31,7 +26,10 @@
           .flash{ :class => key.to_s }
             = value
       .container#main-content
-        = yield
+        .main
+          = yield
+        .sidebar
+          = render "users/list"
 
     %footer
 

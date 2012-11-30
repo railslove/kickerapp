@@ -1,6 +1,6 @@
 CrawlingCounter::Application.routes.draw do
   resources :teams
-
+  resources :users
   resources :matches
 
   match "/auth/:provider/callback" => "sessions#create"

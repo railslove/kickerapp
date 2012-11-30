@@ -1,0 +1,6 @@
+%h1 Teams
+
+%ul.teams
+  - @teams.each do |team|
+    - if team.matches.any?
+      %li= render "team", :team => team

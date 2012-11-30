@@ -3,12 +3,16 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :teams
   has_many :matches, :through => :teams
 
-  def wins
-    teams.map{|t| t.wins}.flatten
+  def wins(crawls = false)
+    matches = teams.map{|t| t.wins}.flatten
+    matches = matches.select(&:crawling?) if crawls.present?
+    matches
   end
 
-  def loses
-    teams.map{|t| t.loses}.flatten
+  def loses(crawls = false)
+    matches = teams.map{|t| t.loses}.flatten
+    matches = matches.select(&:crawling?) if crawls
+    matches
   end
 
   def self.create_with_omniauth(auth)

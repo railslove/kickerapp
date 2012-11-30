@@ -4,4 +4,8 @@ class MatchScore < ActiveRecord::Base
 
   belongs_to :team
   belongs_to :match
+
+  scope :wins, where(:win => true)
+  scope :loses, where(:win => false)
+
 end

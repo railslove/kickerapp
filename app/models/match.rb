@@ -6,6 +6,8 @@ class Match < ActiveRecord::Base
 
   default_scope :order => "created_at DESC"
 
+  scope :crawls, where(:crawling => true)
+
   def winner_score
     match_scores.where(:win => true).first
   end

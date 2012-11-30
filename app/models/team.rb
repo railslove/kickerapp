@@ -9,11 +9,15 @@ class Team < ActiveRecord::Base
   end
 
   def wins
-    match_scores.where(:win => true).map(&:match)
+    match_scores.wins.map(&:match)
   end
 
   def loses
-    match_scores.where(:win => false).map(&:match)
+    match_scores.loses.map(&:match)
+  end
+
+  def record
+    "#{self.match_scores.wins.count} - #{self.match_scores.loses.count}"
   end
 
   def self.find_or_create_with_score(match,params,win)

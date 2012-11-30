@@ -1,5 +1,17 @@
 ul
+  list-style: none
+
+ul.teams, .navbar ul
   +horizontal-list
+.team
+  border: 1px solid black
+  +border-radius(5px)
+  padding: 10px
+  .record
+    text-align: center
+    font-size: 24px
+    margin: 10px 0
+
 .match
   border: 1px solid black
   +border-radius(5px)
@@ -25,15 +37,23 @@ h1
   margin: 10px 0
 .user_list
   li
+    padding: 5px
+    border: 1px solid black
+    margin-bottom: 10px
     img
-      width: 60px
+      width: 65px
+      margin-right: 5px
     .balanace
-      position: absolute
-      background-color: black
-      opacity: 0.5
-      color: white
-      padding: 5px 10px
-      +border-radius(5px)
-      font-weight: bold
-      margin-left: 10px
-      margin-top: 25px
+      font-size: 20px
+
+.container.flash_messages
+  margin-top: 40px
+#main-content
+  +pie-clearfix
+  .main
+    width: 780px
+    float: left
+  .sidebar
+    margin-top: 57px
+    width: 160px
+    float: right

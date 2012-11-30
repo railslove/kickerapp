@@ -8,19 +8,22 @@
     = csrf_meta_tags
   %body{:class => [controller_name], :id => "#{controller_name}_#{action_name}"}
     #wrapper
-      %header.container
-        %nav
-          .top-nav
-            %ul.pull-right
-              %li= link_to "Twitter login", "/auth/twitter"
-              %li= link_to "Neues Match", new_match_path
-          = link_to "",  root_path, :id => "logo"
+      .navbar.navbar-inverse
+        .navbar-inner
+          .container
+            .top-nav
+              = link_to "Kicker Krabbel Zähler",  root_path, :id => "logo", :class => 'brand'
+              %ul.user_list.pull-left
+                - User.all.each do |user|
+                  %li
+                    = link_to matches_path(:user_id => user.id) do
+                      %span.balanace= match_balance(user)
+                      = image_tag(user.image)
+              %ul.pull-right
+                %li= link_to "Twitter login", "/auth/twitter"
+                %li= link_to "Neues Match", new_match_path
 
-        %ul.user_list
-          - User.all.each do |user|
-            %li
-              %span.balanace= match_balance(user)
-              =link_to image_tag(user.image), matches_path(:user_id => user.id)
+
 
 
       .container.flash_messages

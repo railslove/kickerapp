@@ -15,6 +15,10 @@ gem 'heroku'
 # Gems used only for assets and not required
 # in production environments by default.
 
+group :production do
+  gem "pg"
+end
+
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'compass-rails'

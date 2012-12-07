@@ -3,16 +3,16 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :teams
   has_many :matches, :through => :teams
 
-  def wins(crawls = false)
-    matches = teams.map{|t| t.wins}.flatten
-    matches = matches.select(&:crawling?) if crawls.present?
-    matches
+  def number_of_wins
+    teams.sum(:number_of_wins)
   end
 
-  def loses(crawls = false)
-    matches = teams.map{|t| t.loses}.flatten
-    matches = matches.select(&:crawling?) if crawls
-    matches
+  def number_of_loses
+    teams.sum(:number_of_loses)
+  end
+
+  def quote
+    QuoteCalculator.win_lose_quote(number_of_wins, number_of_loses)
   end
 
   def self.create_with_omniauth(auth)

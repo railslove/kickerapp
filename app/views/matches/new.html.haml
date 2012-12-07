@@ -1,16 +1,23 @@
 =form_for @match do |f|
   %h1 Neues Match
-  = select_tag "team1[user][]", options_for_select(User.all.map{ |u| [u.name,u.id] }), :include_blank => true
-  = select_tag "team1[user][]", options_for_select(User.all.map{ |u| [u.name,u.id] }), :include_blank => true
-  = text_field_tag "team1[goals]"
-  .versus
-    VS
-  = select_tag "team2[user][]", options_for_select(User.all.map{ |u| [u.name,u.id] }), :include_blank => true
-  = select_tag "team2[user][]", options_for_select(User.all.map{ |u| [u.name,u.id] }), :include_blank => true
-  = text_field_tag "team2[goals]"
-  .crawling
-    %label
-      = check_box_tag :crawling
-      Wurde gekrabbelt?
+  .team_inputs
+    %h2 Team 1
+    .team_members
+      = select_tag "team1[users][]", options_for_select(User.all.map{ |u| [u.name,u.id] }), :include_blank => true
+      = select_tag "team1[users][]", options_for_select(User.all.map{ |u| [u.name,u.id] }), :include_blank => true
+    .sets
+      = text_field_tag "team1[set1]", '', tabindex: 1
+      = text_field_tag "team1[set2]", '', tabindex: 3
+      = text_field_tag "team1[set3]", '', tabindex: 5
+
+  .team_inputs
+    %h2.align-right Team 2
+    .sets
+      = text_field_tag "team2[set1]", '', tabindex: 2
+      = text_field_tag "team2[set2]", '', tabindex: 4
+      = text_field_tag "team2[set3]", '', tabindex: 6
+    .team_members
+      = select_tag "team2[users][]", options_for_select(User.all.map{ |u| [u.name,u.id] }), :include_blank => true
+      = select_tag "team2[users][]", options_for_select(User.all.map{ |u| [u.name,u.id] }), :include_blank => true
   .actions
     = f.submit "Ergebnis übermitteln", :class => "btn btn-primary"

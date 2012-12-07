@@ -5,7 +5,11 @@ module ApplicationHelper
     end.join(" ").html_safe
   end
 
-  def match_balance(user)
-    "#{user.wins.count} - #{user.loses.count}"
+  def percentage number_between_0_and_1
+    "#{(number_between_0_and_1 * 100).round}%"
+  end
+
+  def match_balance(wins, loses)
+    "(#{wins} - #{loses})"
   end
 end

@@ -1,6 +1,13 @@
 %h1 Teams
 
-%ul.teams
-  - @teams.each do |team|
-    - if team.matches.any?
-      %li= render "team", :team => team
+%table.table.table-striped.table-bordered
+  %thead
+    %tr
+      %td
+      %td Team
+      %td Spiele
+      %td Siege
+      %td Niederlagen
+
+  %tbody
+    = render :partial => "team_for_table", :collection => @teams

@@ -8,4 +8,10 @@ class MatchScore < ActiveRecord::Base
   scope :wins, where(:win => true)
   scope :loses, where(:win => false)
 
+  after_create :calculate_wins_and_loses
+
+  def calculate_wins_and_loses
+    team.update_scores(win)
+  end
+
 end

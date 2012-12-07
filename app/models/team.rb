@@ -4,29 +4,34 @@ class Team < ActiveRecord::Base
   has_many :matches, :through => :match_scores
   has_and_belongs_to_many :users
 
+  delegate :wins, :to => :match_scores
+  delegate :loses, :to => :match_scores
+
+  scope :ranked, order("quote DESC")
+
   def name
-    users.map(&:name).join(" und ")
-  end
-
-  def wins
-    match_scores.wins.map(&:match)
-  end
-
-  def loses
-    match_scores.loses.map(&:match)
+    users.map(&:name).join(" & ")
   end
 
   def record
-    "#{self.match_scores.wins.count} - #{self.match_scores.loses.count}"
+    "#{number_of_wins} - #{number_of_loses}"
   end
 
-  def self.find_or_create_with_score(match,params,win)
-    team = find_by_users(params[:user])
-    unless team.present?
+  def update_scores(win)
+    win ? update_attribute(:number_of_wins, number_of_wins + 1) : update_attribute(:number_of_loses, number_of_loses + 1)
+    calculate_quote
+  end
+
+  def calculate_quote
+    update_attribute(:quote, QuoteCalculator.win_lose_quote(number_of_wins, number_of_loses))
+  end
+
+  def self.find_or_create_with_score(user_params)
+    team = find_by_users(user_params)
+    if team.nil?
       team = Team.create
-      team.user_ids = params[:user]
+      team.user_ids = user_params
     end
-    team.match_scores.create(:match => match, :goals => params[:goals], :win => win)
     team
   end
 

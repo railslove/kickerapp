@@ -1,6 +1,8 @@
 %ul.user_list
-  - User.all.each do |user|
+  - User.all.sort{ |u1,u2| u2.quote <=> u1.quote }.each do |user|
     %li
       = link_to user, :title => user.name do
         = image_tag(user.image)
-        %span.balanace= match_balance(user)
+        %span.user_game_info
+          .quote= percentage user.quote
+          .balanace= match_balance(user.number_of_wins, user.number_of_loses)

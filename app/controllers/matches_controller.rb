@@ -26,18 +26,13 @@ class MatchesController < ApplicationController
   end
 
   def create
-    @match = Match.new(:date => Date.today, :crawling => params[:crawling])
-    @team1 = Team.find_or_create_with_score(@match, params[:team1],params[:team1][:goals] > params[:team2][:goals])
-    @team2 = Team.find_or_create_with_score(@match, params[:team2],params[:team1][:goals] < params[:team2][:goals])
+    team1 = Team.find_or_create_with_score(params[:team1][:users])
+    team2 = Team.find_or_create_with_score(params[:team2][:users])
+    Match.create_from_params(params, team1, team2)
 
     respond_to do |format|
-      if @match.save
-        format.html { redirect_to matches_path, notice: 'Match was successfully created.' }
-        format.json { render json: @match, status: :created, location: @match }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @match.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to matches_path, notice: 'Match was successfully created.' }
+      format.json { render json: @match, status: :created, location: @match }
     end
   end
 

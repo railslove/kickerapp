@@ -63,7 +63,7 @@ h1
 .team_inputs
   float: left
   select
-    display: block
+    width: 160px
   .team_members, .sets
     float: left
 .actions
@@ -86,3 +86,19 @@ h1
     margin-top: 57px
     width: 160px
     float: right
+.user_selector
+  width: 330px
+  +pie-clearfix
+  .picture_selector
+    float: left
+    cursor: pointer
+    margin: 0 5px 5px 0
+    border: 1px solid #666
+    opacity: 0.6
+    &.blocked
+      opacity: 0.3
+      cursor: auto
+      pointer-events: none
+    &.active
+      border-color: #57B63B
+      opacity: 1

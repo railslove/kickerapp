@@ -1,0 +1,4 @@
+.user_selector
+  - User.all.each do |user|
+    .picture_selector{:"data-id" => user.id, :"data-name" => user.name}
+      = image_tag(user.image)

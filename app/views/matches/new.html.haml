@@ -2,9 +2,12 @@
   %h1 Neues Match
   .team_inputs
     %h2 Team 1
-    .team_members
-      = select_tag "team1[users][]", options_for_select(User.all.map{ |u| [u.name,u.id] }), :include_blank => true
-      = select_tag "team1[users][]", options_for_select(User.all.map{ |u| [u.name,u.id] }), :include_blank => true
+    .team_members{ :"data-member-count" => 0 }
+      =render "user_selector"
+      .selects
+        = select_tag "team1[users][]", options_for_select(User.all.map{ |u| [u.name,u.id] }), :include_blank => true, :"data-member-id" => 1
+        = select_tag "team1[users][]", options_for_select(User.all.map{ |u| [u.name,u.id] }), :include_blank => true, :"data-member-id" => 2
+
     .sets
       = text_field_tag "team1[set1]", '', tabindex: 1
       = text_field_tag "team1[set2]", '', tabindex: 3
@@ -16,8 +19,10 @@
       = text_field_tag "team2[set1]", '', tabindex: 2
       = text_field_tag "team2[set2]", '', tabindex: 4
       = text_field_tag "team2[set3]", '', tabindex: 6
-    .team_members
-      = select_tag "team2[users][]", options_for_select(User.all.map{ |u| [u.name,u.id] }), :include_blank => true
-      = select_tag "team2[users][]", options_for_select(User.all.map{ |u| [u.name,u.id] }), :include_blank => true
+    .team_members{ :"data-member-count" => 0 }
+      =render "user_selector"
+      .selects
+        = select_tag "team2[users][]", options_for_select(User.all.map{ |u| [u.name,u.id] }), :include_blank => true, :"data-member-id" => 1
+        = select_tag "team2[users][]", options_for_select(User.all.map{ |u| [u.name,u.id] }), :include_blank => true, :"data-member-id" => 2
   .actions
     = f.submit "Ergebnis übermitteln", :class => "btn btn-primary"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121206195552) do
+ActiveRecord::Schema.define(:version => 20121207095250) do
 
   create_table "match_scores", :force => true do |t|
     t.integer  "match_id"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20121206195552) do
     t.integer  "number_of_wins",  :default => 0
     t.integer  "number_of_loses", :default => 0
     t.float    "quote",           :default => 0.0
+    t.integer  "number_of_games", :default => 0
   end
 
   create_table "teams_users", :id => false, :force => true do |t|

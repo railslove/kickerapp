@@ -1,6 +1,26 @@
 %h1= "Spiele von #{@user.name}"
 
-%ul.teams
-  - @user.matches.each do |match|
-    %li
-      = render "matches/match", :match => match
+%ul.nav.nav-tabs
+  %li.active= link_to "Spiele", "#games", :"data-toggle" => 'tab'
+  %li= link_to "Teams", "#teams", :"data-toggle" => 'tab'
+
+.tab-content
+  #games.tab-pane.active
+    %ul.teams
+      - @user.matches.each do |match|
+        %li
+          = render "matches/match", :match => match
+  #teams.tab-pane
+    %h1 Teams
+
+    %table.table.table-striped.table-bordered
+      %thead
+        %tr
+          %td
+          %td Team
+          %td Spiele
+          %td Siege
+          %td Niederlagen
+
+      %tbody
+        = render :partial => "teams/team_for_table", :collection => @user.teams

@@ -8,6 +8,7 @@ class Team < ActiveRecord::Base
   delegate :loses, :to => :match_scores
 
   scope :ranked, order("quote DESC, number_of_games DESC")
+  #scope :doubles, joins(:teams_users).where
 
   def name
     users.map(&:name).join(" & ")

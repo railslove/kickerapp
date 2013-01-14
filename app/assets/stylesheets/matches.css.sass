@@ -62,10 +62,14 @@ h1
   text-align: center
 .team_inputs
   float: left
+  width: 390px
+  position: relative
   select
-    width: 160px
+    width: 140px
   .team_members, .sets
     float: left
+    &.team1
+      width: 320px
 .actions
   clear: both
 .sets
@@ -74,6 +78,12 @@ h1
   input
     width: 30px
     display: block
+  &.float
+    position: absolute
+    right: 0
+    margin-right: -15px
+    input
+      float: left
 
 .container.flash_messages
   margin-top: 40px
@@ -86,6 +96,9 @@ h1
     margin-top: 57px
     width: 160px
     float: right
+h4.top
+  position: absolute
+  margin-top: -25px
 .user_selector
   width: 330px
   +pie-clearfix

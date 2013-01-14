@@ -1,9 +1,9 @@
 class MatchesController < ApplicationController
   def index
     if params[:user_id]
-      @matches = User.find(params[:user_id]).matches
+      @matches = User.find(params[:user_id]).matches.last(20)
     else
-      @matches = Match.all
+      @matches = Match.all.last(20)
     end
 
     respond_to do |format|

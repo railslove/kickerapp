@@ -28,4 +28,11 @@ class Match < ActiveRecord::Base
       match.match_scores.create(team: team2, goals: params[:team2][set], win: (params[:team1][set] < params[:team2][set]) )
     end
   end
+
+  def self.create_from_api(team1_with_score, team2_with_score, crawling)
+    match = self.create(date: Date.today, crawling: crawling)
+    match.match_scores.create(team: team1_with_score.last, goals: team1_with_score.first, win:  team1_with_score.first > team2_with_score.first)
+    match.match_scores.create(team: team2_with_score.last, goals: team2_with_score.first, win:  team1_with_score.first < team2_with_score.first)
+    match
+  end
 end

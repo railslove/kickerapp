@@ -1,16 +1,29 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.6'
+gem 'rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
 gem "omniauth"
 gem "omniauth-twitter"
 gem 'haml'
 gem 'heroku'
 
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'pry-debugger'
+  gem 'mysql2'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
+  gem 'quiet_assets'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -18,6 +31,7 @@ gem 'heroku'
 group :production do
   gem "pg"
 end
+
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'

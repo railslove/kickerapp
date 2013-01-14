@@ -2,6 +2,10 @@ CrawlingCounter::Application.routes.draw do
   resources :teams
   resources :users
   resources :matches
+  namespace :api do
+    resources :matches
+  end
+
 
   match "/auth/:provider/callback" => "sessions#create"
 

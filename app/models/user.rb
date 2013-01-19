@@ -11,8 +11,12 @@ class User < ActiveRecord::Base
     teams.sum(:number_of_loses)
   end
 
-  def quote
-    QuoteCalculator.win_lose_quote(number_of_wins, number_of_loses)
+  def set_elo_quote(match)
+    win = match.win_for_user?(self) ? 1 : 0
+    partner = match.team_for_user(self).partner(self)
+    opponent_quote = match.opponent_team_for_user(self).elo_quote
+    self.quote = QuoteCalculator.elo_quote(quote, opponent_quote , win, partner.quote )
+    self.save
   end
 
   def self.create_with_omniauth(auth)

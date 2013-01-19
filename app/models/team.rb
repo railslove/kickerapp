@@ -27,6 +27,18 @@ class Team < ActiveRecord::Base
     update_attribute(:quote, QuoteCalculator.win_lose_quote(number_of_wins, number_of_loses))
   end
 
+  def elo_quote
+    self.users.sum(:quote) / self.users.count
+  end
+
+  def partner(user)
+    if self.users.count > 1
+      self.users.where("id != #{user.id}").first
+    else
+      return nil
+    end
+  end
+
   def self.find_or_create_with_score(user_params)
     team = find_by_users(user_params)
     if team.nil?

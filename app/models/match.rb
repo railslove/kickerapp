@@ -9,7 +9,7 @@ class Match < ActiveRecord::Base
 
   scope :crawls, where(:crawling => true)
 
-  after_save :calculate_user_quotes
+  after_create :calculate_user_quotes
 
   def winner_score
     match_scores.where(:win => true).first

@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
     win = match.win_for_user?(self) ? 1 : 0
     partner = match.team_for_user(self).partner(self)
     opponent_quote = match.opponent_team_for_user(self).elo_quote
-    self.quote = QuoteCalculator.elo_quote(quote, opponent_quote , win, partner.quote )
+    self.quote = QuoteCalculator.elo_quote(quote, opponent_quote , win, partner.try(:quote) )
     self.save
   end
 

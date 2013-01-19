@@ -9,8 +9,6 @@ class Match < ActiveRecord::Base
 
   scope :crawls, where(:crawling => true)
 
-  after_create :calculate_user_quotes
-
   def winner_score
     match_scores.where(:win => true).first
   end
@@ -41,6 +39,7 @@ class Match < ActiveRecord::Base
       match = self.create(:date => Date.today, :crawling => (params[:crawling] && params[:crawling][set].present?) || ((params[:team1][set].to_i-params[:team2][set].to_i).abs == 6) )
       match.match_scores.create(team: team1, goals: params[:team1][set], win: (params[:team1][set] > params[:team2][set]) )
       match.match_scores.create(team: team2, goals: params[:team2][set], win: (params[:team1][set] < params[:team2][set]) )
+      match.calculate_user_quotes
     end
   end
 
@@ -48,6 +47,7 @@ class Match < ActiveRecord::Base
     match = self.create(date: Date.today, crawling: crawling)
     match.match_scores.create(team: team1_with_score.last, goals: team1_with_score.first, win:  team1_with_score.first > team2_with_score.first)
     match.match_scores.create(team: team2_with_score.last, goals: team2_with_score.first, win:  team1_with_score.first < team2_with_score.first)
+    match.calculate_user_quotes
     match
   end
 end

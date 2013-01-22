@@ -37,8 +37,8 @@ class Match < ActiveRecord::Base
     [:set1, :set2, :set3].each do |set|
       next unless params[:team1][set].present? && params[:team2][set].present?
       match = self.create(:date => Date.today, :crawling => (params[:crawling] && params[:crawling][set].present?) || ((params[:team1][set].to_i-params[:team2][set].to_i).abs == 6) )
-      match.match_scores.create(team: team1, goals: params[:team1][set], win: (params[:team1][set] > params[:team2][set]) )
-      match.match_scores.create(team: team2, goals: params[:team2][set], win: (params[:team1][set] < params[:team2][set]) )
+      match.match_scores.create(team: team1, goals: params[:team1][set], win: (params[:team1][set].to_i > params[:team2][set].to_i) )
+      match.match_scores.create(team: team2, goals: params[:team2][set], win: (params[:team1][set].to_i < params[:team2][set].to_i) )
       match.calculate_user_quotes
     end
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130119003117) do
+ActiveRecord::Schema.define(:version => 20130125224328) do
 
   create_table "match_scores", :force => true do |t|
     t.integer  "match_id"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20130119003117) do
     t.string   "name"
     t.string   "image"
     t.integer  "quote",      :default => 1200
+    t.integer  "ranking",    :default => 0
   end
 
 end

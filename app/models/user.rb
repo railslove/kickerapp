@@ -11,20 +11,7 @@ class User < ActiveRecord::Base
     teams.sum(:number_of_loses)
   end
 
-  def ranking
-    if self.updated_at <= 1.day.ago
-      'icon-minus'
-    elsif quote > quote_before
-      'icon-arrow-up'
-    elsif quote < quote_before
-      'icon-arrow-down'
-    else
-      'icon-minus'
-    end
-  end
-
   def set_elo_quote(match)
-    self.quote_before = quote
     win = match.win_for_user?(self) ? 1 : 0
     partner = match.team_for_user(self).partner(self)
     opponent_quote = match.opponent_team_for_user(self).elo_quote
@@ -38,6 +25,13 @@ class User < ActiveRecord::Base
       user.uid = auth["uid"]
       user.name = auth["info"]["name"]
       user.image = auth['info']['image']
+    end
+  end
+
+  def self.update_ranking
+    find_each do |user|
+      user.ranking = User.order("quote DESC").index(user)
+      user.save
     end
   end
 end

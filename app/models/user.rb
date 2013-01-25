@@ -11,7 +11,20 @@ class User < ActiveRecord::Base
     teams.sum(:number_of_loses)
   end
 
+  def ranking
+    if self.updated_at <= 1.day.ago
+      'icon-minus'
+    elsif quote > quote_before
+      'icon-arrow-up'
+    elsif quote < quote_before
+      'icon-arrow-down'
+    else
+      'icon-minus'
+    end
+  end
+
   def set_elo_quote(match)
+    self.quote_before = quote
     win = match.win_for_user?(self) ? 1 : 0
     partner = match.team_for_user(self).partner(self)
     opponent_quote = match.opponent_team_for_user(self).elo_quote

@@ -6,11 +6,13 @@
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
+    %link{rel: 'shortcut icon', href: '/favicon.png'}
   %body{:class => [controller_name], :id => "#{controller_name}_#{action_name}"}
     #wrapper
       .navbar.navbar-inverse.navbar-fixed-top
         .navbar-inner
           .container
+            = image_tag "/favicon.png", :class => "pull-left football"
             = link_to "Railslove Kicker",  root_path, :id => "logo", :class => 'brand'
             .nav-collapse.collapse
               %ul.nav

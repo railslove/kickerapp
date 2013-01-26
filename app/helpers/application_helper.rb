@@ -18,7 +18,7 @@ module ApplicationHelper
       'icon-minus'
     elsif user.ranking > index
       'icon-arrow-up'
-    else user.ranking < index
+    elsif user.ranking < index
       'icon-arrow-down'
     end
   end
@@ -28,7 +28,7 @@ module ApplicationHelper
       "Position gehalten"
     elsif user.ranking > index
       "Aufgestiegen\n von Platz #{user.ranking+1} auf Platz #{index+1}"
-    else user.ranking < index
+    elsif user.ranking < index
       "Abgestiegen\n von Platz #{user.ranking+1} auf Platz #{index+1}"
     end
   end

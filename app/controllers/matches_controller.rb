@@ -28,8 +28,8 @@ class MatchesController < ApplicationController
   def create
     team1 = Team.find_or_create_with_score(params[:team1][:users])
     team2 = Team.find_or_create_with_score(params[:team2][:users])
+    User.update_ranking
     Match.create_from_params(params, team1, team2)
-
     respond_to do |format|
       format.html { redirect_to matches_path, notice: 'Match was successfully created.' }
       format.json { render json: @match, status: :created, location: @match }

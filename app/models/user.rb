@@ -27,4 +27,11 @@ class User < ActiveRecord::Base
       user.image = auth['info']['image']
     end
   end
+
+  def self.update_ranking
+    find_each do |user|
+      user.ranking = User.order("quote DESC").index(user)
+      user.save
+    end
+  end
 end

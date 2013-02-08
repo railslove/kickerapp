@@ -12,26 +12,30 @@
       .navbar.navbar-inverse.navbar-fixed-top
         .navbar-inner
           .container
-            = image_tag "/favicon.png", :class => "pull-left football"
-            = link_to "Railslove Kicker",  root_path, :id => "logo", :class => 'brand'
+            %button.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            =link_to root_path, :id => "logo", :class => 'brand' do
+              = image_tag "/favicon.png", :class => "football"
+              = "Railslove Kicker"
             .nav-collapse.collapse
               %ul.nav
-                %li= link_to "Login", "/auth/twitter"
                 %li= link_to "Neues Match", new_match_path
-                %li= link_to "Teams", teams_path
-
-
-
+                %li= link_to "Spielerranking", users_path, class: "only_mobile"
+                %li= link_to "Teamranking", teams_path
+                %li= link_to "Login", "/auth/twitter"
 
       .container.flash_messages
         - flash.each do |key, value|
           .flash{ :class => key.to_s }
             = value
       .container#main-content
-        .main
-          = yield
-        .sidebar
-          = render "users/list"
+        .row
+          .main.span10
+            = yield
+          .sidebar.span2
+            = render "users/list"
 
     %footer
 

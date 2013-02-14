@@ -25,7 +25,6 @@ class MatchesController < ApplicationController
   end
 
   def create
-    binding.pry
     team1 = Team.find_or_create_with_score(params[:team1][:users])
     team2 = Team.find_or_create_with_score(params[:team2][:users])
     User.update_ranking

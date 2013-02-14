@@ -8,7 +8,13 @@ $ ->
     $(".team_members select").find("option[value='#{value}']").attr('disabled','disabled')
     $(@).find("option[value='#{value}']").removeAttr('disabled')
 
-  $(".user_selector .picture_selector").click ->
+  if $(".no_mobile:visible").length > 0
+    $(".no_mobile input").attr("disabled","disabled")
+
+  if $(".only_mobile:visible").length > 0
+    $(".only_mobile input").attr("disabled","disabled")
+
+  $(".picture_selector").click ->
     $team = $(@).closest(".team_members")
     $pic = $(@)
     player_count = $team.data("member-count")

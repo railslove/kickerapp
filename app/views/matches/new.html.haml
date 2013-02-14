@@ -1,8 +1,26 @@
 =form_for @match do |f|
   %h1 Neues Match
-  .only_mobile.mobile_team_selector
+  .team_inputs
     %h2 Team 1
-    =render "user_selector"
+    .team_members.team1{ :"data-member-count" => 0 }
+      .mobile_team_selector
+        =render "user_selector"
+      .selects
+        = select_tag "team1[users][]", options_for_select(User.all.map{ |u| [u.name,u.id] }), :include_blank => true, :"data-member-id" => 1
+        = select_tag "team1[users][]", options_for_select(User.all.map{ |u| [u.name,u.id] }), :include_blank => true, :"data-member-id" => 2
+
+    .sets.float.no_mobile
+      %h4.top
+        Krabbeln?
+      .row
+        = text_field_tag "team1[set1]", '', tabindex: 1
+        = check_box_tag "crawling[set1]", true
+      .row
+        = text_field_tag "team1[set2]", '', tabindex: 3
+        = check_box_tag "crawling[set2]", true
+      .row
+        = text_field_tag "team1[set3]", '', tabindex: 5
+        = check_box_tag "crawling[set3]", true
   .only_mobile.sets.mobile_sets
     .float_row
       = text_field_tag "team1[set1]", '', tabindex: 1
@@ -16,38 +34,16 @@
       = text_field_tag "team2[set1]", '', tabindex: 2
       = text_field_tag "team2[set2]", '', tabindex: 4
       = text_field_tag "team2[set3]", '', tabindex: 6
-  .only_mobile.mobile_team_selector
-    %h2 Team 2
-    =render "user_selector"
-  .team_inputs.no_mobile
-    %h2 Team 1
-    .team_members.team1{ :"data-member-count" => 0 }
-      =render "user_selector"
-      .selects
-        = select_tag "team1[users][]", options_for_select(User.all.map{ |u| [u.name,u.id] }), :include_blank => true, :"data-member-id" => 1
-        = select_tag "team1[users][]", options_for_select(User.all.map{ |u| [u.name,u.id] }), :include_blank => true, :"data-member-id" => 2
-
-    .sets.float
-      %h4.top
-        Krabbeln?
-      .row
-        = text_field_tag "team1[set1]", '', tabindex: 1
-        = check_box_tag "crawling[set1]", true
-      .row
-        = text_field_tag "team1[set2]", '', tabindex: 3
-        = check_box_tag "crawling[set2]", true
-      .row
-        = text_field_tag "team1[set3]", '', tabindex: 5
-        = check_box_tag "crawling[set3]", true
-
-  .team_inputs.no_mobile
-    %h2.align-right Team 2
-    .sets
+  .team_inputs
+    %h2.align-right.no_mobile Team 2
+    %h2.only_mobile Team 2
+    .sets.no_mobile
       = text_field_tag "team2[set1]", '', tabindex: 2
       = text_field_tag "team2[set2]", '', tabindex: 4
       = text_field_tag "team2[set3]", '', tabindex: 6
     .team_members{ :"data-member-count" => 0 }
-      =render "user_selector"
+      .mobile_team_selector
+        =render "user_selector"
       .selects
         = select_tag "team2[users][]", options_for_select(User.all.map{ |u| [u.name,u.id] }), :include_blank => true, :"data-member-id" => 1
         = select_tag "team2[users][]", options_for_select(User.all.map{ |u| [u.name,u.id] }), :include_blank => true, :"data-member-id" => 2

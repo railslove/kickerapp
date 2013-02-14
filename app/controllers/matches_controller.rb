@@ -14,7 +14,6 @@ class MatchesController < ApplicationController
 
   def new
     @match = Match.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @match }
@@ -26,6 +25,7 @@ class MatchesController < ApplicationController
   end
 
   def create
+    binding.pry
     team1 = Team.find_or_create_with_score(params[:team1][:users])
     team2 = Team.find_or_create_with_score(params[:team2][:users])
     User.update_ranking

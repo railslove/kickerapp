@@ -2,7 +2,7 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.where("number_of_games > 10").ranked
+    @teams = Team.ranked
 
     respond_to do |format|
       format.html # index.html.erb

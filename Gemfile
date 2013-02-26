@@ -9,7 +9,7 @@ gem "omniauth"
 gem "omniauth-twitter"
 gem 'haml'
 gem 'heroku'
-
+gem 'psych'
 
 group :development, :test do
   gem 'rspec-rails'

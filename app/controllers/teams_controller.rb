@@ -2,7 +2,7 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.ranked
+    @teams = Team.ranked.select{|t| t.users.count > 1}
 
     respond_to do |format|
       format.html # index.html.erb

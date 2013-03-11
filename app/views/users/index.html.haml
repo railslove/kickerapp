@@ -19,7 +19,8 @@
             %i{ :class => current_ranking(user, index), :title => ranking_title(user, index) }
         %td
           = match_balance(user.number_of_wins, user.number_of_loses)
-          .balance_bar
-            .quote
-              = "#{((user.number_of_wins.to_f / user.number_of_games)* 100).to_i}%"
-            = balance_bar(user.number_of_games, user.number_of_wins, user.number_of_loses)
+          - if user.number_of_wins.present? && user.number_of_games.present?
+            .balance_bar
+              .quote
+                = "#{((user.number_of_wins.to_f / user.number_of_games)* 100).to_i}%"
+              = balance_bar(user.number_of_games, user.number_of_wins, user.number_of_loses)

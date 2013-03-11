@@ -13,7 +13,7 @@
           .balanace
             = match_balance(user.number_of_wins, user.number_of_loses)
 
-        - if user.number_of_wins.present? && user.number_of_games.present?
+        - if user.number_of_wins.present? && user.number_of_games.present? && user.number_of_games.to_i > 0
           .balance_bar
             .quote
               = "#{((user.number_of_wins.to_f / user.number_of_games)* 100).to_i}%"

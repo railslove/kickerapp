@@ -5,7 +5,7 @@
   %td= team_for_table.number_of_wins
   %td= team_for_table.number_of_loses
   %td.balance_bar
-    - if team_for_table.number_of_wins.present? && team_for_table.number_of_games.present? && team_for_table.number_of_games.to_i > 0 && team_for_table.number_of_wins > 0
+    - if team_for_table.number_of_wins.present? && team_for_table.number_of_games.present? && team_for_table.number_of_games.to_i > 0
       .quote
         = "#{((team_for_table.number_of_wins.to_f / team_for_table.number_of_games)* 100).to_i}%"
       = balance_bar(team_for_table.number_of_games, team_for_table.number_of_wins, team_for_table.number_of_loses)

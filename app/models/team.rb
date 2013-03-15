@@ -20,6 +20,7 @@ class Team < ActiveRecord::Base
 
   def update_scores(win)
     win ? update_attribute(:number_of_wins, number_of_wins + 1) : update_attribute(:number_of_loses, number_of_loses + 1)
+    update_attribute(:number_of_games, number_of_games + 1)
     calculate_quote
   end
 

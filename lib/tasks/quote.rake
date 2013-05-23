@@ -11,11 +11,11 @@ namespace :quote do
   task :weekly_substraction => :environment do
    User.all.each do |user|
     last_match = user.matches.any? ? (Date.today - user.matches.first.created_at.to_date).to_i : 0
-    if last_match > 7 && user.quote > 1010
+    if last_match > 100 && user.quote > 1010
       old = user.quote
-      user.quote = old - 5
+      user.quote = old - 2
       user.save
-      p "#{user.name} lost 5 points (#{old} - #{user.quote})"
+      p "#{user.name} lost 2 points (#{old} - #{user.quote})"
     end
    end
   end

@@ -20,6 +20,9 @@ class User < ActiveRecord::Base
     partner = match.team_for_user(self).partner(self)
     opponent_quote = match.opponent_team_for_user(self).elo_quote
     self.quote = QuoteCalculator.elo_quote(quote, opponent_quote , win, partner.try(:quote) )
+    if match.crawling == true
+      self.quote += 10
+    end
     self.save
   end
 

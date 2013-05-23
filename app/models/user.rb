@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
     opponent_quote = match.opponent_team_for_user(self).elo_quote
     self.quote = QuoteCalculator.elo_quote(quote, opponent_quote , win, partner.try(:quote) )
     if match.crawling == true
-      self.quote += 10
+      self.quote = match.win_for_user?(self) ? self.quote + 5 : self.quote - 5
     end
     self.save
   end

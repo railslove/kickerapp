@@ -11,7 +11,7 @@ namespace :quote do
   task :weekly_substraction => :environment do
    User.all.each do |user|
     last_match = user.matches.any? ? (Date.today - user.matches.first.created_at.to_date).to_i : 0
-    if last_match > 100 && user.quote > 1010
+    if last_match > 7 && user.quote > 1010
       old = user.quote
       user.quote = old - 2
       user.save

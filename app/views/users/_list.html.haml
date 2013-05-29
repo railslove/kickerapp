@@ -1,7 +1,7 @@
 %ul.user_list
   - User.order("quote DESC").each_with_index do |user, index|
     - if user.matches.any? && user.matches.first.created_at > 1.month.ago
-      %li
+      %li{class: (Date.today - user.matches.first.created_at.to_date).to_i > 6 ? 'red' : ''}
         = link_to user, :title => user.name do
           = image_tag(user.image)
           %span.user_game_info

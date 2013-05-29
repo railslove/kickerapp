@@ -1,1 +1,1 @@
-rvm use ruby-1.9.3-p125@crawling_counter --create
+rvm use ruby-1.9.3-p125-perf@crawling_counter --create

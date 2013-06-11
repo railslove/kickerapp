@@ -21,19 +21,6 @@
       .row
         = text_field_tag "team1[set3]", '', tabindex: 5
         = check_box_tag "crawling[set3]", true
-  .only_mobile.sets.mobile_sets
-    .float_row
-      = text_field_tag "team1[set1]", '', tabindex: 1
-      = text_field_tag "team1[set2]", '', tabindex: 3
-      = text_field_tag "team1[set3]", '', tabindex: 5
-    .float_row
-      = check_box_tag "crawling[set1]", true
-      = check_box_tag "crawling[set2]", true
-      = check_box_tag "crawling[set3]", true
-    .float_row
-      = text_field_tag "team2[set1]", '', tabindex: 2
-      = text_field_tag "team2[set2]", '', tabindex: 4
-      = text_field_tag "team2[set3]", '', tabindex: 6
   .team_inputs
     %h2.align-right.no_mobile Team 2
     %h2.only_mobile Team 2

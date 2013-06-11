@@ -8,6 +8,7 @@
   color: $black
   padding: $padding
   position: relative
+  min-width: 100px
   .m-match--date
     font-size: 18px
     margin-bottom: 5px
@@ -25,8 +26,13 @@
     +single-box-shadow
     z-index: 1
   .m-match--winner
+    &.as-single
+      margin-left: 25px
   .m-match--looser
     opacity: 0.6
+    &.as-single
+      margin-left: 25px
   &.as-crawling
     .m-match--score
       background-color: $gold
+

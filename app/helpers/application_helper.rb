@@ -15,11 +15,11 @@ module ApplicationHelper
 
   def current_ranking(user, index)
     if user.ranking == index || user.ranking.nil?
-      'icon-minus'
+      'as-neutral'
     elsif user.ranking > index
-      'icon-arrow-up'
+      'as-positive'
     elsif user.ranking < index
-      'icon-arrow-down'
+      'as-negative'
     end
   end
 

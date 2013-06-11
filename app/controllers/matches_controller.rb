@@ -3,7 +3,7 @@ class MatchesController < ApplicationController
     if params[:user_id]
       @matches = User.find(params[:user_id]).matches.first(18)
     else
-      @matches = Match.all.first(18)
+      @matches = Match.all.first(28)
     end
 
     respond_to do |format|

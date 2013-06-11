@@ -1,22 +1,19 @@
-%ul.user_list
-  - User.order("quote DESC").each_with_index do |user, index|
-    - if user.matches.any? && user.matches.first.created_at > 1.month.ago
-      %li
-        = link_to user, :title => user.name do
+%ul.m-user-list
+  - User.order("quote DESC").select{|user| user.matches.any? && user.matches.first.created_at > 1.month.ago}.each_with_index do |user, index|
+    %li.m-user.m-user-list--item
+      = link_to user, :title => user.name do
+        .m-user--image
+          .m-user--image--position= index + 1
           = image_tag(user.image)
-          %span.user_game_info
-            .quote= user.quote
-            %span.ranking
-              - if index == 0
-                %i.icon-star{ :title => ranking_title(user, index) }
-              - else
-                %i{ :class => current_ranking(user, index), :title => ranking_title(user, index) }
-            .balanace
-              = match_balance(user.number_of_wins, user.number_of_loses)
-
-          - if user.number_of_wins.present? && user.number_of_games.present? && user.number_of_games.to_i > 0
-            .balance_bar
-              .quote
-                = "#{((user.number_of_wins.to_f / user.number_of_games)* 100).to_i}%"
-              = balance_bar(user.number_of_games, user.number_of_wins, user.number_of_loses)
+        %div
+          .m-user--quote= user.quote
+          / %span.ranking
+          /   - if index == 0
+          /     %i.icon-star{ :title => ranking_title(user, index) }
+          /   - else
+          /     %i{ :class => current_ranking(user, index), :title => ranking_title(user, index) }
+          .m-user--balanace
+            - if user.number_of_wins.present? && user.number_of_games.present? && user.number_of_games.to_i > 0
+              = "#{((user.number_of_wins.to_f / user.number_of_games)* 100).to_i}%"
+            = match_balance(user.number_of_wins, user.number_of_loses)
 

@@ -6,9 +6,9 @@
 
 .tab-content
   #games.tab-pane.active
-    %ul.teams
+    %ul.m-match-list
       - @user.matches.each do |match|
-        %li
+        %li.m-match-list--item
           = render "matches/match", :match => match
   #teams.tab-pane
     %h1 Teams

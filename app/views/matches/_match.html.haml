@@ -1,12 +1,11 @@
-.match{:class => match.crawling? ? "crawling" : "", id: "match_#{match.id}"}
-  .date
+.m-match{:class => match.crawling? ? "as-crawling" : "", id: "match_#{match.id}"}
+  .m-match--date
     = l(match.date, :format => :short)
-  .teams
-    .winner
-      = team_pictures match.winner_score.team if match.winner_score
-    .score
-      = match.winner_score.goals if match.winner_score
-      = ":"
-      = match.loser_score.goals if match.loser_score
-    .loser
-      = team_pictures match.loser_score.team if match.loser_score
+  .m-match--winner
+    = team_pictures match.winner_score.team if match.winner_score
+  .m-match--score
+    = match.winner_score.goals if match.winner_score
+    = ":"
+    = match.loser_score.goals if match.loser_score
+  .m-match--looser
+    = team_pictures match.loser_score.team if match.loser_score

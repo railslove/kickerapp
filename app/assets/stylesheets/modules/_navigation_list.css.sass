@@ -1,0 +1,18 @@
+%m-navigation-list
+  +horizontal-list
+  .m-navigation-list--item
+    text-transform: uppercase
+    font-size: 12px
+    font-weight: bold
+    font-weight: normal
+    &:hover
+      text-decoration: underline
+
+.m-navigation-list
+  @extend %m-navigation-list
+
+.m-navigation-list_right
+  @extend %m-navigation-list
+  position: absolute
+  right: 0
+  bottom: $padding

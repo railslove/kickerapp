@@ -1,0 +1,32 @@
+.m-match-list
+  .m-match-list--item
+    float: left
+    margin: 0 $padding $padding 0
+
+.m-match
+  background-color: $white
+  color: $black
+  padding: $padding
+  position: relative
+  .m-match--date
+    font-size: 16px
+    margin-bottom: 5px
+    text-align: center
+  .m-match--score
+    position: absolute
+    background-color: rgba(50, 50, 50, 0.85)
+    color: $white
+    font-size: 20px
+    width: 60px
+    text-align: center
+    left: 50%
+    margin-left: -30px
+    margin-top: -17px
+    +single-box-shadow
+    z-index: 1
+  .m-match--winner
+  .m-match--looser
+    opacity: 0.6
+  &.as-crawling
+    .m-match--score
+      background-color: $gold

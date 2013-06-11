@@ -10,6 +10,8 @@ gem "omniauth-twitter"
 gem 'haml'
 gem 'heroku'
 gem 'psych'
+gem "breakpoint"
+
 
 group :development, :test do
   gem 'rspec-rails'

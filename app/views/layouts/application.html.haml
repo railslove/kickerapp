@@ -1,41 +1,31 @@
 !!! 5
 %html
   %head
-    %title= "Kicker Counter"
+    %title= "Railslove Kicker"
     %meta{ :name => "viewport", :content => "width=device-width" }
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
     %link{rel: 'shortcut icon', href: '/favicon.png'}
   %body{:class => [controller_name], :id => "#{controller_name}_#{action_name}"}
-    #wrapper
-      .navbar.navbar-inverse.navbar-fixed-top
-        .navbar-inner
-          .container
-            %button.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
-              %span.icon-bar
-              %span.icon-bar
-              %span.icon-bar
-            =link_to root_path, :id => "logo", :class => 'brand' do
-              = image_tag "/favicon.png", :class => "football"
-              = "Kicker Counter"
-            .nav-collapse.collapse
-              %ul.nav
-                %li= link_to "Neues Match", new_match_path
-                %li= link_to "Spielerranking", users_path, class: "only_mobile"
-                %li= link_to "Teamranking", teams_path
-                %li= link_to "Login", "/auth/twitter"
-
-      .container.flash_messages
+    .l-header
+      .l-header--content
+        =link_to root_path, :class => 'm-logo' do
+          = "Railslove Kicker"
+        %ul.m-navigation-list_right
+          %li.m-navigation-list--item= link_to "Neues Match", new_match_path
+          %li.m-navigation-list--item= link_to "Spielerranking", users_path, class: "only_mobile"
+          %li.m-navigation-list--item= link_to "Teamranking", teams_path
+          %li.m-navigation-list--item= link_to "Login", "/auth/twitter"
+    .l-content
+      .flash_messages
         - flash.each do |key, value|
           .flash{ :class => key.to_s }
             = value
-      .container#main-content
-        .row
-          .main.span10
-            = yield
-          .span2
-            .sidebar= render "users/list"
+      .l-content--main
+        = yield
+      .l-content--sidebar
+        = render "users/list"
 
-    %footer
+    %footer.l-footer
 

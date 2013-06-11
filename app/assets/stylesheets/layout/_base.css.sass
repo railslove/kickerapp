@@ -4,12 +4,10 @@
   a
     color: $white
   .l-header--content
-    width: $content-width
-    margin: 0 auto
+    +layout_width($content-width)
     position: relative
 .l-content
-  width: $content-width
-  margin: 0 auto
+  +layout_width($content-width)
   position: relative
   .l-content--main
     width: $content-width - 150px

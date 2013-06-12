@@ -11,6 +11,7 @@
 /db/*.sqlite3
 
 .rvmrc
+.DS_Store
 
 # Ignore all logfiles and tempfiles.
 /log/*.log

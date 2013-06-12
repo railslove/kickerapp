@@ -29,4 +29,4 @@
         = select_tag "team2[users][]", options_for_select(User.all.map{ |u| [u.name,u.id] }), :include_blank => true, :"data-member-id" => 1
         = select_tag "team2[users][]", options_for_select(User.all.map{ |u| [u.name,u.id] }), :include_blank => true, :"data-member-id" => 2
   .actions
-    = f.submit "Ergebnis übermitteln", :class => "btn btn-primary"
+    = f.submit "Ergebnis übermitteln", :class => "m-button"

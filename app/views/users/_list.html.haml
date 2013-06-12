@@ -1,6 +1,6 @@
 %ul.m-user-list
   - User.order("quote DESC").select{|user| user.matches.any? && user.matches.first.created_at > 1.month.ago}.each_with_index do |user, index|
-    %li.m-user.m-user-list--item
+    %li.m-user.m-user-list--item{id: user.name.parameterize}
       = link_to user, :title => user.name do
         .m-user--image
           .m-user--image--position= index + 1

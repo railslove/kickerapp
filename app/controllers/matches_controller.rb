@@ -3,8 +3,9 @@ class MatchesController < ApplicationController
     if params[:user_id]
       @matches = User.find(params[:user_id]).matches.first(18)
     else
-      @matches = Match.all.first(28)
+      @matches = Match.first(24)
     end
+    @match_count = Match.all.count
 
     respond_to do |format|
       format.html # index.html.erb

@@ -1,4 +1,7 @@
-%h2.m-headline= "Alle Spiele"
+%h2
+  .m-headline
+    = "Neue Spiele"
+    .m-headline--small= "(insgesamt #{@match_count})"
 %ul.m-match-list
   - @matches.each do |match|
     %li.m-match-list--item

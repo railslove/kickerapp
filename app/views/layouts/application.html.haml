@@ -14,9 +14,9 @@
           = "Railslove Kicker"
         %ul.m-navigation-list_right
           %li.m-navigation-list--item= link_to "Neues Match", new_match_path
-          %li.m-navigation-list--item= link_to "Spielerranking", users_path, class: "only_mobile"
+          / %li.m-navigation-list--item= link_to "Spielerranking", users_path, class: "only_mobile"
           %li.m-navigation-list--item= link_to "Teamranking", teams_path
-          %li.m-navigation-list--item= link_to "Login", "/auth/twitter"
+          %li.m-navigation-list--item= link_to "SignUp", "/auth/twitter"
     .l-content
       .flash_messages
         - flash.each do |key, value|

@@ -1,4 +1,4 @@
-.user_selector
-  - User.all.each do |user|
-    .picture_selector{:"data-id" => user.id, :"data-name" => user.name}
+.m-icon-list
+  - User.order("quote DESC").each do |user|
+    .m-icon-list--icon{data: {id: user.id, name: user.name, behavior: "picture_selector"} }
       = image_tag(user.image)

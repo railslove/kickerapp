@@ -1,7 +1,7 @@
 !!! 5
 %html
   %head
-    %title= "Railslove Kicker"
+    %title= "Interactive Cologne -  Kicker"
     %meta{ :name => "viewport", :content => "width=device-width" }
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
@@ -11,11 +11,11 @@
     .l-header
       .l-header--content
         =link_to root_path, :class => 'm-logo' do
-          = "Railslove Kicker"
+          = "Interactive Cologne -  Kicker"
         %ul.m-navigation-list_right
           %li.m-navigation-list--item= link_to "Neues Match", new_match_path
           / %li.m-navigation-list--item= link_to "Spielerranking", users_path, class: "only_mobile"
-          %li.m-navigation-list--item= link_to "Teamranking", teams_path
+          / %li.m-navigation-list--item= link_to "Teamranking", teams_path
           %li.m-navigation-list--item= link_to "SignUp", "/auth/twitter"
     .l-content
       .flash_messages
@@ -26,6 +26,4 @@
         = yield
       .l-content--sidebar
         = render "users/list"
-
-    %footer.l-footer
-
+    %header

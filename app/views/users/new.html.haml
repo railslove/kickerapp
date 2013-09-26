@@ -1,0 +1,13 @@
+.m-row
+  .m-row--left
+    = form_for @user, class: 'm-form' do |f|
+      .m-form--row
+        = f.label :name, class: 'm-label'
+        = f.text_field :name, class: 'm-input'
+      .m-form--row
+        = f.label :image, "Avatar-Url", class: 'm-label'
+        = f.text_field :image, class: 'm-input'
+      .m-form--row
+        = f.submit "Spieler Anlegen", class: 'm-button'
+  .m-row--right
+    = link_to "Neuer Spieler per Twitter", "/auth/twitter", class: 'm-button'

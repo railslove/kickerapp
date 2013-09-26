@@ -1,11 +1,10 @@
 require 'spec_helper'
 
 describe Team do
+  let(:team) { FactoryGirl.create(:team) }
+  let(:user1) { FactoryGirl.create(:user) }
+  let(:user2) { FactoryGirl.create(:user) }
   describe "#find_or_create" do
-    let(:team) { FactoryGirl.create(:team) }
-    let(:user1) { FactoryGirl.create(:user) }
-    let(:user2) { FactoryGirl.create(:user) }
-
     it "fetches the correct team from the db" do
       team.player1 = user1
       team.player2 = user2
@@ -20,10 +19,6 @@ describe Team do
   end
 
   describe ".users" do
-    let(:team) { FactoryGirl.create(:team) }
-    let(:user1) { FactoryGirl.create(:user) }
-    let(:user2) { FactoryGirl.create(:user) }
-
     it "returns the correct users" do
       team.player1 = user1
       team.player2 = user2
@@ -36,6 +31,14 @@ describe Team do
       team.player2 = user2
       team.save
       expect(team.users).to eq([user2])
+    end
+  end
+
+  describe ".elo_quote" do
+    it "adds up user quotes and divides correctly" do
+      user1.update_attributes(quote: 1300)
+      team.update_attributes(player1_id: user1.id, player2_id: user2.id)
+      expect(team.elo_quote).to eql(((1300 + 1200)/ 2).round)
     end
   end
 end

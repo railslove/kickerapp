@@ -18,8 +18,16 @@ class Team < ActiveRecord::Base
     team
   end
 
+  def elo_quote
+    users.sum(&:quote) / users.size
+  end
+
   def users
     [player1, player2].compact
+  end
+
+  def double?
+    self.users.size > 1
   end
 
   private

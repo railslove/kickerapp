@@ -1,0 +1,26 @@
+.m-ranking
+  .m-ranking--item
+    border-bottom: 1px solid $grey
+    padding-bottom: $padding
+    margin-bottom: $padding
+    +fade_in(".m-ranking--item--place", 0.25s)
+    a
+      color: $black
+      &:hover
+        text-decoration: none
+    .m-ranking--item--image
+      float: left
+      margin-right: $padding
+    .m-ranking--item--place
+      position: absolute
+      font-size: 40px
+      text-align: center
+      width: 54px
+      height: 54px
+      background: rgba(255, 255, 255, 0.75)
+    .m-ranking--item--score
+      font-size: 33px
+    .m-ranking--item--balance
+      font-size: 12px
+    &:last-child
+      border-bottom: none

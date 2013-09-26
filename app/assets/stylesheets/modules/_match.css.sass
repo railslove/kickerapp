@@ -1,0 +1,27 @@
+.m-match-list
+  .m-match
+    float: left
+    margin-right: $padding
+    margin-bottom: $padding
+.m-match
+  border: 1px solid $light-grey
+  padding: $padding
+  position: relative
+  .m-match--date
+    margin-bottom: $padding
+  .m-match--team
+    img
+      margin-right: 2px
+    &.as-winner
+      margin-bottom: $margin
+  .m-match--score
+    font-size: 30px
+    text-align: center
+    background-color: rgba(0,0,0,0.8)
+    padding: 2px 5px
+    color: $white
+    position: absolute
+    margin-top: -36px
+    margin-left: 10px
+    .m-match--score--difference
+      font-size: 16px

@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :user do
     number_of_wins 1
     number_of_looses 1
-    quote 1
+    quote 1200
     name "MyString"
   end
 end

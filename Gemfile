@@ -4,7 +4,7 @@ ruby '1.9.3'
 
 gem 'airbrake'
 gem 'coffee-rails'
-gem 'compass-rails'
+gem 'compass-rails', github: 'milgner/compass-rails', branch: 'rails4'
 gem 'jquery-rails'
 gem 'pg'
 gem 'rails', '>= 4.0.0'
@@ -13,6 +13,10 @@ gem 'sass-rails'
 gem 'newrelic_rpm'
 gem 'haml-rails'
 gem 'uglifier'
+gem 'kaminari'
+
+gem "omniauth"
+gem "omniauth-twitter"
 
 group :development do
   gem 'better_errors'

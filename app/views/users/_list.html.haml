@@ -1,0 +1,8 @@
+.m-ranking
+  - User.ranked.each_with_index do |user, index|
+    .m-ranking--item{title: user.name}
+      = link_to user_path(user) do
+        .m-ranking--item--place= index + 1
+        .m-ranking--item--image= user_image(user)
+        .m-ranking--item--score= user.quote
+        .m-ranking--item--balance= user_balance(user)

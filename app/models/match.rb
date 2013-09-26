@@ -3,15 +3,33 @@ class Match < ActiveRecord::Base
   belongs_to :winner_team, class_name: "Team"
   belongs_to :looser_team, class_name: "Team"
 
+  default_scope lambda {order("date DESC")}
+
+  after_create :calculate_user_quotes
+
   def self.create_from_set(set_params)
     winner_score = max_score(set_params)
     looser_score = min_score(set_params)
     winner_team = Team.find_or_create(user_ids_for_score(set_params, winner_score))
     looser_team = Team.find_or_create(user_ids_for_score(set_params, looser_score))
-    match = Match.new(winner_team: winner_team, looser_team: looser_team, date: Date.today)
+    match = Match.new(winner_team: winner_team, looser_team: looser_team, date: Time.now)
     match.score = match.score_for_set(winner_score, looser_score)
     match.crawling = match.crawling_for_set(set_params)
     match.save ? match : nil
+  end
+
+  def win_for?(user)
+    winner_team.users.map(&:id).include?(user.id)
+  end
+
+  def calculate_user_quotes
+    self.users.each { |user| user.set_elo_quote(self)}
+    winner_team.update_attributes(number_of_wins: winner_team.number_of_wins + 1)
+    looser_team.update_attributes(number_of_looses: looser_team.number_of_looses + 1)
+  end
+
+  def users
+    winner_team.users + looser_team.users
   end
 
   def score_for_set(winner_score, looser_score)

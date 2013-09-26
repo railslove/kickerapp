@@ -3,10 +3,15 @@
   %head
     %meta{:charset => "utf-8"}/
     %meta{:content => "NOODP", :name => "ROBOTS"}/
-    %title = page_title
+    %title= @page_title || "Kicker App"
     = stylesheet_link_tag :application, :media => 'all'
     = csrf_meta_tags
   %body{class: controller_name, id: "#{controller_name}_#{action_name}"}
+    = render 'layouts/header'
     = render 'layouts/flashes'
-    = yield
+    .l-content-wrapper
+      .l-content
+        = yield
+      .l-sidebar
+        = render 'users/list'
     = render 'layouts/javascript'

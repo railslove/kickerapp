@@ -1,0 +1,13 @@
+- @matches.each do |match|
+  %li.m-match
+    .m-match--date
+      = l(match.date, :format => :short)
+    .m-match--team.as-winner
+      - match.winner_team.users.each do |user|
+        %span.m-match--team--member{title: user.name}= user_image(user)
+    .m-match--score
+      = match.score
+      %span.m-match--score--difference= "(+#{match.difference})"
+    .m-match--team
+      - match.looser_team.users.each do |user|
+        %span.m-match--team--member{title: user.name}= user_image(user)

@@ -1,3 +1,11 @@
 =layout_width($width)
   width: $width
   margin: 0 auto
+
+=fade_in($element, $duration: 0.75s)
+  #{$element}
+    opacity: 0
+    +single-transition(opacity, $duration, ease-in-out)
+  &:hover
+    #{$element}
+      opacity: 1

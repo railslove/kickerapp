@@ -1,0 +1,26 @@
+.m-user-list
+  +pie-clearfix
+  .m-user
+    float: left
+    margin-right: 3px
+    margin-bottom: 3px
+    cursor: pointer
+    opacity: 0.75
+    &:hover, &.as-selected
+      opacity: 1
+    &.as-disabled
+      opacity: 0.5
+      pointer-events: none
+  input
+    display: none
+  .selects
+    clear: both
+.m-user
+  border: 1px solid $grey
+  padding: 2px
+  width: 54px
+  height: 54px
+
+img.m-user-image
+  width: 48px
+  height: 48px

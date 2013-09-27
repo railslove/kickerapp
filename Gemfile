@@ -14,6 +14,7 @@ gem 'newrelic_rpm'
 gem 'haml-rails'
 gem 'uglifier'
 gem 'kaminari'
+gem 'rails_12factor'
 
 gem "omniauth"
 gem "omniauth-twitter"

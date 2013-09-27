@@ -3,6 +3,11 @@
 class MatchesController < ApplicationController
   def index
     @matches = Match.all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.atom
+      format.json { render json: @matches }
+    end
   end
 
   def new

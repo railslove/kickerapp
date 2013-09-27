@@ -59,6 +59,19 @@ class Match < ActiveRecord::Base
     set_params[:crawling]
   end
 
+  # For Rss
+
+  def title
+    "#{winner_team.name} vs. #{looser_team.name}"
+  end
+
+  def content
+    c = "Klare Angelegenheit. "
+    c += self.score
+    c += " Es wurde gekrabbelt!" if self.crawling.present?
+    c
+  end
+
   private
 
   def self.max_score(set_params)

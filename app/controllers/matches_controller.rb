@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class MatchesController < ApplicationController
   def index
     @matches = Match.all
@@ -9,7 +11,47 @@ class MatchesController < ApplicationController
 
   def create
     create_matches_from_params(params)
-    redirect_to matches_path, notice: "Spiele wurden eingetragen"
+    redirect_to matches_path, notice: "Spiele wurden eingetragen."
+  end
+
+  def edit
+    @match = Match.find(params[:id])
+  end
+
+  def update
+    @match = Match.find(params[:id])
+    if params[:winner_score].to_i < params[:looser_score].to_i
+      @match.score = @match.score_for_set(params[:looser_score], params[:winner_score])
+      @match.revert_points
+      @match.swap_teams
+      @match.calculate_user_quotes
+    else
+      @match.score = @match.score_for_set(params[:winner_score], params[:looser_score])
+    end
+    if @match.save
+      redirect_to matches_path, notice: "Satz gespeichert."
+    else
+      flash.now[:alert] = "Satz konnte nicht gespeichert werden."
+      render :edit
+    end
+  end
+
+  def destroy
+    @match = Match.find(params[:id])
+    @match.revert_points
+    @match.destroy
+    redirect_to matches_path, notice: "Dieser Satz wurde gelöscht."
+  end
+
+  def shuffle
+    @match = Match.new
+    @teams = Team.shuffle(params[:user_ids])
+    flash.now[:notice] = "Es spielen #{@teams.first.name} gegen #{@teams.last.name}"
+    render :new
+  end
+
+  def shuffle_select
+
   end
 
   private

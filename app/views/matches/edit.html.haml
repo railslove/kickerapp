@@ -1,0 +1,21 @@
+%h2.m-headline Ergebnis des Satzes ändern
+
+= form_tag match_path(@match), method: :patch, class: 'm-form' do |f|
+  .m-form--row
+    .m-user-list
+      - @match.winner_team.users.each do |user|
+        .m-user.as-selected{title: user.name}= user_image(user)
+      .score= "+#{@match.difference}"
+  .m-form--row
+    = text_field_tag :winner_score, @match.score.split(":").first, class: 'm-input as-short'
+    = ":"
+    / = check_box_tag :crawling, @match.crawling, @match.crawling
+    = text_field_tag :looser_score, @match.score.split(":").last, class: 'm-input as-short'
+  .m-form--row
+    .m-user-list
+      - @match.looser_team.users.each do |user|
+        .m-user.as-selected{title: user.name}= user_image(user)
+      .score= "-#{@match.difference}"
+  .m-form--row
+    = submit_tag "Match ändern", class: 'm-button'
+    = link_to "Löschen", match_path(@match), method: :delete, confirm: "Match wirklich löschen?", class: "m-link as-negative"

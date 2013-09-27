@@ -1,0 +1,9 @@
+= form_tag shuffle_matches_path do
+  %h3 Spieler wählen
+  .m-user-list{data: {behaviour: :shuffle_select, count: 0 }}
+    - User.all.each do |user|
+      .m-user{title: user.name, data: {value: user.id}}= user_image(user)
+  - 4.times do |i|
+    = text_field_tag "user_ids[]", "", data: {player: "#{i}"}
+  .m-form--row
+    = submit_tag "Teams auslosen", class: 'm-button'

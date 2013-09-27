@@ -14,6 +14,8 @@
       margin-right: 2px
     &.as-winner
       margin-bottom: $margin
+    .m-match--team--member:first-child
+      margin-right: $padding
   .m-match--score
     font-size: 30px
     text-align: center
@@ -22,6 +24,13 @@
     color: $white
     position: absolute
     margin-top: -36px
-    margin-left: 10px
+    margin-left: 15px
     .m-match--score--difference
       font-size: 16px
+  .m-match--actions
+    +pie-clearfix
+    .m-match--actions--delete, .m-match--actions--edit
+      float: left
+    .m-match--actions--edit
+      margin-right: 5px
+  +fade_in(".m-match--actions", 0.5s)

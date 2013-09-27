@@ -28,6 +28,25 @@ class Match < ActiveRecord::Base
     looser_team.update_attributes(number_of_looses: looser_team.number_of_looses + 1)
   end
 
+  def revert_points
+    winner_team.users.each do |winner|
+      winner.update_attributes(quote: (winner.quote - self.difference))
+    end
+    winner_team.update_attribute(:number_of_wins, winner_team.number_of_wins - 1)
+
+    looser_team.users.each do |looser|
+      looser.update_attributes(quote: (looser.quote + self.difference))
+    end
+    looser_team.update_attribute(:number_of_looses, looser_team.number_of_looses - 1)
+    self.save
+  end
+
+  def swap_teams
+    old_winner = self.winner_team
+    self.winner_team = self.looser_team
+    self.looser_team = old_winner
+  end
+
   def users
     winner_team.users + looser_team.users
   end

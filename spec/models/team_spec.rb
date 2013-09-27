@@ -18,6 +18,20 @@ describe Team do
     end
   end
 
+  describe "#shuffle" do
+
+    it "returns an empty array if not exactly 4 user ids present" do
+      expect(Team.shuffle([1,2,3])).to eq([])
+    end
+
+    it "selects two teams for four players" do
+      user3 = FactoryGirl.create(:user, quote: 1400)
+      user4 = FactoryGirl.create(:user, quote: 1000)
+      teams = Team.shuffle([user1.id, user2.id, user3.id, user4.id])
+      expect(teams.first.users).to include(user3)
+    end
+  end
+
   describe ".users" do
     it "returns the correct users" do
       team.player1 = user1

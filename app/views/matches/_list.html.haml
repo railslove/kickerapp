@@ -11,3 +11,8 @@
     .m-match--team
       - match.looser_team.users.each do |user|
         %span.m-match--team--member{title: user.name}= user_image(user)
+    .m-match--actions
+      .m-match--actions--edit
+        = link_to "Ändern", edit_match_path(match), class: "m-link"
+      .m-match--actions--delete
+        = link_to "Löschen", match_path(match), method: :delete, confirm: "Match wirklich löschen?", class: "m-link as-negative"

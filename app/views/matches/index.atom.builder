@@ -1,6 +1,6 @@
 atom_feed do |feed|
   feed.title "Railslove Kicker Matches"
-  feed.updated @matches.first.date
+  feed.updated @matches.first.present? ? @matches.first.date : Date.today
 
   @matches.each do |match|
     feed.entry match do |entry|

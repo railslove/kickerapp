@@ -32,12 +32,12 @@ class Match < ActiveRecord::Base
     winner_team.users.each do |winner|
       winner.update_attributes(quote: (winner.quote - self.difference))
     end
-    winner_team.update_attribute(:number_of_wins, winner_team.number_of_wins - 1)
+    winner_team.update_attributes(number_of_wins: winner_team.number_of_wins - 1)
 
     looser_team.users.each do |looser|
       looser.update_attributes(quote: (looser.quote + self.difference))
     end
-    looser_team.update_attribute(:number_of_looses, looser_team.number_of_looses - 1)
+    looser_team.update_attributes(number_of_looses: looser_team.number_of_looses - 1)
     self.save
   end
 

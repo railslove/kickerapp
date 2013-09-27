@@ -34,7 +34,7 @@ class Team < ActiveRecord::Base
   end
 
   def elo_quote
-    users.sum(&:quote) / users.size
+    self.users.sum(&:quote) / self.users.size
   end
 
   def users

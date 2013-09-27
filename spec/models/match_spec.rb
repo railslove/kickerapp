@@ -37,17 +37,20 @@ describe Match do
   describe ".revert_points" do
     before do
       @match = Match.new(difference: 5)
-      @match.winner_team = FactoryGirl.create(:team, number_of_wins: 10)
-      @match.looser_team = FactoryGirl.create(:team, number_of_looses: 10)
+      @match.winner_team = FactoryGirl.create(:team, number_of_wins: 5)
+      @match.looser_team = FactoryGirl.create(:team, number_of_looses: 5)
+      @match.save
     end
 
     it 'subtracts the difference for the winner team' do
       @match.winner_team.player1 = FactoryGirl.create(:user)
+      @match.looser_team.player1 = FactoryGirl.create(:user)
       @match.revert_points
       expect(@match.winner_team.users.select{|u| u.quote == 1195}.count).to eq(1)
     end
 
     it 'adds the difference for the looser team' do
+      @match.winner_team.player1 = FactoryGirl.create(:user)
       @match.looser_team.player1 = FactoryGirl.create(:user)
       @match.revert_points
       expect(@match.looser_team.users.select{|u| u.quote == 1205}.count).to eq(1)
@@ -57,8 +60,8 @@ describe Match do
       @match.looser_team.player1 = FactoryGirl.create(:user)
       @match.winner_team.player1 = FactoryGirl.create(:user)
       @match.revert_points
-      expect(@match.winner_team.number_of_wins).to eq(9)
-      expect(@match.looser_team.number_of_looses).to eq(9)
+      expect(@match.winner_team.number_of_wins).to eq(5)
+      expect(@match.looser_team.number_of_looses).to eq(5)
     end
   end
 

@@ -4,7 +4,7 @@ ruby '1.9.3'
 
 gem 'airbrake'
 gem 'coffee-rails'
-gem 'compass-rails', github: 'milgner/compass-rails', branch: 'rails4'
+gem 'compass-rails', branch: 'rails4'
 gem 'jquery-rails'
 gem 'pg'
 gem 'rails', '>= 4.0.0'

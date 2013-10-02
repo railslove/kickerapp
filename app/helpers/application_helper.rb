@@ -6,7 +6,7 @@ module ApplicationHelper
 
   def user_balance(user)
     percentage = user.win_percentage
-    "#{percentage}% (#{user.number_of_games})"
+    "#{percentage}% (#{user.number_of_games} games)"
   end
 
 end

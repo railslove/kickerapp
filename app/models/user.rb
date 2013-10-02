@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
       quote_change = win ? quote_change + 5 : quote_change - 5
     end
     self.quote = self.quote + quote_change
+    win == 1 ? self.number_of_wins += 1 : self.number_of_looses += 1
     match.update_attributes(difference: quote_change.abs) unless match.difference > 0
     self.save
   end

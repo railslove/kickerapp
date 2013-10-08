@@ -1,12 +1,18 @@
 class User < ActiveRecord::Base
-  has_many :teams
-
   scope :ranked, lambda { order("quote DESC") }
 
   validates :name, presence: true
 
   def number_of_games
     number_of_wins + number_of_looses
+  end
+
+  def teams
+    Team.for_user(self.id)
+  end
+
+  def matches
+    self.teams.map{|team| team.matches}.flatten
   end
 
   def win_percentage

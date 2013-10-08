@@ -7,6 +7,9 @@ class Match < ActiveRecord::Base
 
   after_create :calculate_user_quotes
 
+  scope :for_team, lambda { |team_id| where("(winner_team_id = #{team_id} OR looser_team_id = #{team_id})")}
+
+
   def self.create_from_set(set_params)
     winner_score = max_score(set_params)
     looser_score = min_score(set_params)

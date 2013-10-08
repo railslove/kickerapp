@@ -1,9 +1,13 @@
 class Team < ActiveRecord::Base
-  has_many :matches
   belongs_to :player1, class_name: "User"
   belongs_to :player2, class_name: "User"
 
+  scope :for_user, lambda { |user1_id| where("(player1_id = #{user1_id} OR player2_id = #{user1_id})")}
   scope :for_users, lambda { |user1_id, user2_id| where("(player1_id = #{user1_id} OR player2_id = #{user1_id}) AND (player1_id = #{user2_id} OR player2_id = #{user2_id})")}
+
+  def matches
+    Match.for_team(self.id)
+  end
 
   def self.shuffle(user_ids)
     return [] unless user_ids.size == 4

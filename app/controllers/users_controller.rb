@@ -13,6 +13,11 @@ class UsersController < ApplicationController
     redirect_to root_url, :notice => "Neuer Spieler #{user.name} angelegt!"
   end
 
+  def show
+    @user = User.find(params[:id])
+    @matches = @user.matches
+  end
+
   private
 
   def user_params

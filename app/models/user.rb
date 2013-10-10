@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   end
 
   def matches
-    self.teams.map{|team| team.matches}.flatten
+    self.teams.map{|team| team.matches}.flatten.sort{|x,y| y.date <=> x.date}
   end
 
   def win_percentage

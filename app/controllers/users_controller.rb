@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @matches = @user.matches
+    @matches = @user.matches.order("date desc")
   end
 
   private

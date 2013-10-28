@@ -3,7 +3,7 @@
   .m-user-list{data: {count: 0}}
     .m-headline Team 1
     - team1 = @teams.present? ? @teams.first : nil
-    - User.all.each do |user|
+    - User.ranked.each do |user|
       .m-user{title: user.name, data: {value: user.id}, class: ("as-selected" if team1 && team1.users.include?(user)) }= user_image(user)
     .selects
       = select_tag "team1[]", options_for_select(User.all.map{|user|[user.name, user.id]}, team1.try(:users).try(:first).try(:id)), data: {player: 0}, include_blank: true
@@ -18,7 +18,7 @@
   .m-user-list{data: {count: 0}}
     .m-headline Team 2
     - team2 = @teams.present? ? @teams.last : nil
-    - User.all.each do |user|
+    - User.ranked.each do |user|
       .m-user{title: user.name, data: {value: user.id}, class: ("as-selected" if team2 && team2.users.include?(user)) }= user_image(user)
     / = text_field_tag "team2[]", "", data: {player: 0}
     / = text_field_tag "team2[]", "", data: {player: 1}

@@ -212,7 +212,7 @@ DEPENDENCIES
   capistrano-ext
   capybara-webkit (>= 1.0.0)
   coffee-rails
-  compass-rails (~> 2.0.alpha.0)
+  compass-rails
   database_cleaner
   factory_girl_rails
   haml-rails

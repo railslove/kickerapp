@@ -4,7 +4,7 @@ ruby '1.9.3'
 
 gem 'airbrake'
 gem 'coffee-rails'
-gem "compass-rails", "~> 2.0.alpha.0"
+gem "compass-rails"
 gem 'jquery-rails'
 gem 'pg'
 gem 'rails', '>= 4.0.0'

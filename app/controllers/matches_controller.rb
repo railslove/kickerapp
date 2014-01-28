@@ -2,7 +2,7 @@
 
 class MatchesController < ApplicationController
   def index
-    @matches = Match.all
+    @matches = Match.limit(30)
     respond_to do |format|
       format.html # index.html.erb
       format.atom

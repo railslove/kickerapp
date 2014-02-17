@@ -8,3 +8,20 @@
       color: $white
     &:last-child
       margin-right: 0
+    &.as-mobile-only
+      display: none
+  @media screen and (max-width: 760px)
+    display: none
+    width: 100%
+    .m-navigation--item
+      margin-right: 0
+      float: none
+      text-align: center
+      &.as-mobile-only
+        display: block
+.m-navigation-trigger
+  display: none
+  cursor: pointer
+  @media screen and (max-width: 760px)
+    display: block
+    float: right

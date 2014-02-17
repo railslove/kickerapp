@@ -1,6 +1,9 @@
 =layout_width($width)
   width: $width
   margin: 0 auto
+  @media screen and (max-width: 760px)
+    width: 100%
+    padding: 0 $padding
 
 =fade_in($element, $duration: 0.75s)
   #{$element}
@@ -9,3 +12,4 @@
   &:hover
     #{$element}
       opacity: 1
+

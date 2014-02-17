@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  scope :ranked, lambda { order("quote DESC") }
+  scope :ranked, lambda { order("quote DESC").where("updated_at > ?", Time.now - 2.weeks) }
 
   validates :name, presence: true
 

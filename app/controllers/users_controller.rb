@@ -18,6 +18,10 @@ class UsersController < ApplicationController
     @matches = @user.matches
   end
 
+  def index
+
+  end
+
   private
 
   def user_params

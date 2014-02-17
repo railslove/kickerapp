@@ -26,7 +26,26 @@ class Match < ActiveRecord::Base
   end
 
   def calculate_user_quotes
-    self.users.each { |user| user.set_elo_quote(self)}
+    quote_change = QuoteCalculator.elo_quote(winner_team.elo_quote, looser_team.elo_quote , 1 )
+    if self.crawling == true
+      quote_change = quote_change + 5
+    end
+
+    self.difference = quote_change
+    self.save
+
+    self.winner.each do |winner|
+      winner.quote = winner.quote + quote_change
+      winner.number_of_wins += 1
+      winner.save
+    end
+
+    self.looser.each do |looser|
+      looser.quote = looser.quote - quote_change
+      looser.number_of_looses += 1
+      looser.save
+    end
+
     winner_team.update_attributes(number_of_wins: winner_team.number_of_wins + 1)
     looser_team.update_attributes(number_of_looses: looser_team.number_of_looses + 1)
   end
@@ -73,6 +92,15 @@ class Match < ActiveRecord::Base
     c += self.score
     c += " Es wurde gekrabbelt!" if self.crawling.present?
     c
+  end
+
+  def winner
+    self.winner_team.users
+  end
+
+
+  def looser
+    self.looser_team.users
   end
 
   private

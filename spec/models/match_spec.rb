@@ -46,14 +46,14 @@ describe Match do
       @match.winner_team.player1 = FactoryGirl.create(:user)
       @match.looser_team.player1 = FactoryGirl.create(:user)
       @match.revert_points
-      expect(@match.winner_team.users.select{|u| u.quote == 1195}.count).to eq(1)
+      expect(@match.winner_team.users.select{|u| u.quote == 1192}.count).to eq(1)
     end
 
     it 'adds the difference for the looser team' do
       @match.winner_team.player1 = FactoryGirl.create(:user)
       @match.looser_team.player1 = FactoryGirl.create(:user)
       @match.revert_points
-      expect(@match.looser_team.users.select{|u| u.quote == 1205}.count).to eq(1)
+      expect(@match.looser_team.users.select{|u| u.quote == 1208}.count).to eq(1)
     end
 
     it "updates the counts for the teams" do

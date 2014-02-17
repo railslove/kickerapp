@@ -3,6 +3,6 @@ FactoryGirl.define do
     score "6:3"
     crawling false
     date Date.today
-    difference 0
+    difference 1
   end
 end

@@ -17,7 +17,7 @@ class Match < ActiveRecord::Base
     looser_team = Team.find_or_create(user_ids_for_score(set_params, looser_score))
     match = Match.new(winner_team: winner_team, looser_team: looser_team, date: Time.now)
     match.score = match.score_for_set(winner_score, looser_score)
-    match.crawling = match.crawling_for_set(set_params)
+    match.crawling = (winner_score - looser_score >= 6) || match.crawling_for_set(set_params)
     match.save ? match : nil
   end
 

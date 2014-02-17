@@ -15,8 +15,9 @@
     display: none
   .selects
     clear: both
-    select
-      width: 100%
+    @media screen and (max-width: 760px)
+      select
+        width: 100%
 .m-user
   border: 1px solid $grey
   padding: 2px

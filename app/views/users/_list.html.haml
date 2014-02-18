@@ -1,5 +1,6 @@
 .m-ranking
-  - User.ranked.each_with_index do |user, index|
+  - users = User.ranked.select{|user| user.matches.first.date > 2.weeks.ago }
+  - users.each_with_index do |user, index|
     .m-ranking--item{title: user.name}
       = link_to user_path(user) do
         .m-ranking--item--place= index + 1

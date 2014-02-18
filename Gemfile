@@ -15,9 +15,11 @@ gem 'haml-rails'
 gem 'uglifier'
 gem 'kaminari'
 gem 'rails_12factor'
+gem 'breakpoint'
 
 gem "omniauth"
 gem "omniauth-twitter"
+gem "omniauth-facebook"
 
 group :development do
   gem 'better_errors'
@@ -28,6 +30,7 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails', '>= 2.14'
+  gem 'jazz_hands'
 end
 
 group :test do

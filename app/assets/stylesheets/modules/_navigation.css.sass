@@ -10,18 +10,33 @@
       margin-right: 0
     &.as-mobile-only
       display: none
-  @media screen and (max-width: 760px)
+  +breakpoint($mobile)
     display: none
     width: 100%
     .m-navigation--item
       margin-right: 0
       float: none
       text-align: center
+      font-weight: bold
+      padding: $padding 0
       &.as-mobile-only
         display: block
 .m-navigation-trigger
   display: none
   cursor: pointer
-  @media screen and (max-width: 760px)
+  position: relative
+  width: 30px
+  height: 30px
+  &:before
+    content: ""
+    position: absolute
+    left: 0
+    top: 10px
+    width: 30px
+    height: 3px
+    background: white
+    cursor: pointer
+    box-shadow: 0 6px 0 0 white, 0 12px 0 0 white
+  +breakpoint($mobile)
     display: block
     float: right

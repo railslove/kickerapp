@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Match < ActiveRecord::Base
 
   belongs_to :winner_team, class_name: "Team"
@@ -81,6 +83,10 @@ class Match < ActiveRecord::Base
     set_params[:crawling]
   end
 
+  def scores
+    score.split(":").map{|s| s.to_i}
+  end
+
   # For Rss
 
   def title
@@ -88,7 +94,13 @@ class Match < ActiveRecord::Base
   end
 
   def content
-    c = "Klare Angelegenheit. "
+    c = if self.scores.first - self.scores.last > 3
+      "Klare Angelegenheit. "
+    elsif self.scores.first > 6
+      "In der Verlängerung. "
+    else
+      "Knappe Sache. "
+    end
     c += self.score
     c += " Es wurde gekrabbelt!" if self.crawling.present?
     c

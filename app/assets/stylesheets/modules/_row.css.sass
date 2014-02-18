@@ -8,3 +8,9 @@
     float: right
     width: 50%
     padding-left: $padding
+  +breakpoint($mobile)
+    .m-row--left, .m-row--right
+      width: 100%
+      float: none
+      padding: 0
+      margin-bottom: $padding

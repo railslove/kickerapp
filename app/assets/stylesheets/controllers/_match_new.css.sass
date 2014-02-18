@@ -1,4 +1,4 @@
-#matches_new
+#matches_new, #matches_shuffle
   #new_match
     +pie-clearfix
   .m-user-list
@@ -11,7 +11,7 @@
       margin-bottom: $padding
   .m-button
     margin-top: $margin
-  @media screen and (max-width: 760px)
+  +breakpoint($mobile)
     .m-user-list
       width: 92px
       .m-user

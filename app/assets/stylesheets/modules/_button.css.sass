@@ -1,4 +1,4 @@
-.m-button
+%m-button, .m-button
   font-size: 18px
   border: none
   background-color: $green
@@ -10,3 +10,15 @@
   &:hover
     background-color: shade($green, 10%)
     text-decoration: none
+
+.m-button_twitter
+  @extend %m-button
+  background-color: $twitter-color
+  &:hover
+    background-color: shade($twitter-color, 10%)
+
+.m-button_facebook
+  @extend %m-button
+  background-color: $facebook-color
+  &:hover
+    background-color: shade($facebook-color, 10%)

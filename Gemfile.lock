@@ -253,6 +253,9 @@ GEM
       haml
       rails (>= 3.1)
       sass (~> 3.2)
+    spring (1.1.1)
+    spring-commands-rspec (1.0.1)
+      spring (>= 0.9.1)
     sprockets (2.10.1)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -311,5 +314,7 @@ DEPENDENCIES
   sass-rails
   shoulda-matchers
   smurfville
+  spring
+  spring-commands-rspec
   timecop
   uglifier

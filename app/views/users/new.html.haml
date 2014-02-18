@@ -10,4 +10,7 @@
       .m-form--row
         = f.submit "Spieler Anlegen", class: 'm-button'
   .m-row--right
-    = link_to "Neuer Spieler per Twitter", "/auth/twitter", class: 'm-button_twitter'
+    %p
+      = link_to "Neuer Spieler per Twitter", "/auth/twitter", class: 'm-button_twitter'
+    %p
+    = link_to "Neuer Spieler per Facebook", "/auth/facebook", class: 'm-button_facebook'

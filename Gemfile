@@ -7,7 +7,7 @@ gem 'coffee-rails'
 gem "compass-rails"
 gem 'jquery-rails'
 gem 'pg'
-gem 'rails', '>= 4.1.0.rc1'
+gem 'rails', '>= 4.0.3'
 gem 'quiet_assets'
 gem 'sass-rails'
 gem 'newrelic_rpm'

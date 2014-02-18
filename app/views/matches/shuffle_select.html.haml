@@ -1,8 +1,11 @@
 = form_tag shuffle_matches_path do
   %h3 Spieler wählen
+  - users = User.ranked
   .m-user-list{data: {behaviour: :shuffle_select, count: 0 }}
-    - User.all.each do |user|
-      .m-user{title: user.name, data: {value: user.id}}= user_image(user)
+    - users.select{|user| user.matches.any? && user.matches.first.date > 2.weeks.ago }.each do |user|
+      .m-user{title: user.name, data: {value: user.id} }= user_image(user)
+    - users.select{|user| !user.matches.any? || user.matches.first.date <= 2.weeks.ago }.each do |user|
+      .m-user{title: user.name, data: {value: user.id} }= user_image(user)
   .hidden_inputs
     - 4.times do |i|
       = text_field_tag "user_ids[]", "", data: {player: "#{i}"}

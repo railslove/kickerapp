@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     else
       user = User.create(user_params)
     end
-    redirect_to root_url, :notice => "Neuer Spieler #{user.name} angelegt!"
+    redirect_to new_match_url, :notice => "Neuer Spieler #{user.name} angelegt!"
   end
 
   def show

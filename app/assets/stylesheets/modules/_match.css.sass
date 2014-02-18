@@ -35,9 +35,10 @@
       margin-right: 5px
   +fade_in(".m-match--actions", 0.5s)
   &.as-crawling
-    background-color: tint($green, 30%)
+    background-color: $green
+    color: $white
     .m-link
-      color: $black
+      color: $white
   +breakpoint($mobile)
     &:nth-child(2n)
       margin-right: 0

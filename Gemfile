@@ -1,13 +1,13 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3'
+ruby '2.1.0'
 
 gem 'airbrake'
 gem 'coffee-rails'
 gem "compass-rails"
 gem 'jquery-rails'
 gem 'pg'
-gem 'rails', '>= 4.0.0'
+gem 'rails', '>= 4.1.0.rc1'
 gem 'quiet_assets'
 gem 'sass-rails'
 gem 'newrelic_rpm'

@@ -31,3 +31,7 @@ rerun.txt
 tags
 tmp/*
 tmp/**/*
+
+/.ruby-version
+
+/.ruby-gemset

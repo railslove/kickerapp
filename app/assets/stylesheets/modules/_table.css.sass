@@ -1,0 +1,16 @@
+.m-table
+  .m-table--head
+    td
+      background: $green
+      color: $white
+      +breakpoint($mobile)
+        font-weight: bold
+  .m-table--body
+  .m-table--row
+    &:nth-child(2n)
+      background: tint($light-grey, 80%)
+  td
+    padding: 5px
+    &.m-user-list
+      +breakpoint($mobile)
+        display: none

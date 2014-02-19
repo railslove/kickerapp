@@ -6,6 +6,8 @@ class Team < ActiveRecord::Base
   scope :for_single_user, lambda { |user1_id| where("(player1_id = #{user1_id} AND player2_id IS NULL)")}
   scope :for_users, lambda { |user1_id, user2_id| where("(player1_id = #{user1_id} OR player2_id = #{user1_id}) AND (player1_id = #{user2_id} OR player2_id = #{user2_id})")}
 
+  scope :ranked, lambda { where('number_of_wins > 0 OR number_of_looses > 0')}
+
   def matches
     Match.for_team(self.id)
   end
@@ -61,6 +63,23 @@ class Team < ActiveRecord::Base
   def name
     self.users.map(&:name).join(" & ")
   end
+
+  def number_of_games
+    number_of_wins + number_of_looses
+  end
+
+  def percentage
+    if number_of_games > 0
+      (number_of_wins.to_f / number_of_games * 100).round
+    else
+      0
+    end
+  end
+
+  def value
+    (percentage * Math.log10(number_of_games)).round
+  end
+
 
   private
 

@@ -4,7 +4,8 @@
     .m-navigation-trigger
     .m-navigation
       .m-navigation--item.as-mobile-only= link_to "Alle Spiele", root_path
-      .m-navigation--item.as-mobile-only= link_to "Ranking", users_path
       .m-navigation--item= link_to "Neues Match", new_match_path
+      .m-navigation--item.as-mobile-only= link_to "Ranking", users_path
+      .m-navigation--item= link_to "Team Ranking", teams_path
       .m-navigation--item= link_to "Zufall Teams",shuffle_select_matches_path
       .m-navigation--item= link_to "Neuen Spieler hinzufügen", new_user_path

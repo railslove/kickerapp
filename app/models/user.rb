@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  scope :ranked, lambda { order("quote DESC").where("updated_at > ?", Time.now - 2.weeks) }
+  scope :ranked, lambda { order("quote DESC") }
 
   validates :name, presence: true
 
@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
 
   def matches
     self.teams.map{|team| team.matches}.flatten.sort{|x,y| y.date <=> x.date}
+  end
+
+  def active?
+    self.matches.any? && self.matches.first.date > 2.weeks.ago
   end
 
   def win_percentage

@@ -22,6 +22,10 @@ class UsersController < ApplicationController
 
   end
 
+  def teams
+    @teams = Team.ranked.sort_by(&:value).reverse
+  end
+
   private
 
   def user_params

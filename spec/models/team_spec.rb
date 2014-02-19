@@ -55,4 +55,15 @@ describe Team do
       expect(team.elo_quote).to eql(((1300 + 1200)/ 2).round)
     end
   end
+
+  describe '.percentage' do
+    context 'has games' do
+      let(:team) {FactoryGirl.build(:team, number_of_wins: 2, number_of_looses: 2)}
+      specify{ expect(team.percentage).to eql(50) }
+    end
+    context 'no games' do
+      let(:team) {FactoryGirl.build(:team, number_of_wins: 0, number_of_looses: 0)}
+      specify{ expect(team.percentage).to eql(0) }
+    end
+  end
 end

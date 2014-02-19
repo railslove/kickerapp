@@ -60,4 +60,27 @@ describe User do
       end
     end
   end
+
+  describe ".active?" do
+    let(:user) { FactoryGirl.create(:user, number_of_wins: 3, number_of_looses: 7) }
+    context "is active" do
+      specify do
+        match = FactoryGirl.build(:match, date: 1.week.ago)
+        user.stub(:matches).and_return([match])
+        expect(user.active?).to be_true
+      end
+    end
+
+    context 'not active' do
+      it "has no matches" do
+        expect(user.active?).to be_false
+      end
+
+      it 'has old matches' do
+        match = FactoryGirl.build(:match, date: 3.week.ago)
+        user.stub(:matches).and_return([match])
+        expect(user.active?).to be_false
+      end
+    end
+  end
 end

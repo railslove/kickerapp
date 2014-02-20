@@ -4,9 +4,12 @@ class Team < ActiveRecord::Base
 
   scope :for_user, lambda { |user1_id| where("(player1_id = #{user1_id} OR player2_id = #{user1_id})")}
   scope :for_single_user, lambda { |user1_id| where("(player1_id = #{user1_id} AND player2_id IS NULL)")}
+  scope :for_doubles, lambda { where("(player1_id IS NOT NULL AND player2_id IS NOT NULL)")}
+
   scope :for_users, lambda { |user1_id, user2_id| where("(player1_id = #{user1_id} OR player2_id = #{user1_id}) AND (player1_id = #{user2_id} OR player2_id = #{user2_id})")}
 
-  scope :ranked, lambda { where('number_of_wins > 0 OR number_of_looses > 0')}
+
+  scope :ranked, lambda { where('number_of_wins > 1 OR number_of_looses > 1')}
 
   def matches
     Match.for_team(self.id)

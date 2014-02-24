@@ -1,3 +1,4 @@
+= link_to "Neue Liga anlegen", new_league_path, class: 'm-button margin-bottom'
 
 %table.m-table
   %thead.m-table--head
@@ -14,4 +15,4 @@
         %td= league.matches.count
         %td= league.users.count
         %td= "#{league.users.first.try(:name)} (#{league.users.first.try(:quote)})"
-        %td= "#{league.teams.first.try(:name)} (#{league.teams.first.try(:value)})"
+        %td= "#{league.teams.first.try(:name)}"

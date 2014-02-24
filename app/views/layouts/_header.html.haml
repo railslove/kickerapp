@@ -1,6 +1,10 @@
 .l-header-wrapper
   .l-header
-    .m-logo= link_to (league? ? "#{current_league.name}" : "Kicker App"), root_path
+    .m-logo
+      - if league?
+        = link_to current_league.name, league_path(current_league)
+      - else
+        = link_to "Kicker App", root_path
     .m-navigation-trigger
     .m-navigation
       - if league?

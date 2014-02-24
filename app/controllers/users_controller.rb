@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def create
     auth = request.env["omniauth.auth"]
     if auth.present?
-      user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
+      user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth, current_league)
     else
       league = League.find_by!(slug: params[:league_id])
       user = User.create(user_params.merge({league_id: current_league.id}))

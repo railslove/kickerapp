@@ -40,11 +40,13 @@ class User < ActiveRecord::Base
     self.save
   end
 
-  def self.create_with_omniauth(auth)
+  def self.create_with_omniauth(auth, league = nil)
     create! do |user|
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.name = auth["info"]["name"]
+      user.league_id = league.id
+      user.email = auth["info"]["email"]
       user.image = auth['info']['image']
     end
   end

@@ -1,7 +1,11 @@
 module ApplicationHelper
 
   def user_image(user)
-    image_tag(user.image.present? ? user.image : "default_user.png", class: 'm-user-image')
+    if user.image.present?
+      image_tag(user.image, class: 'm-user-image')
+    else
+      gravatar_image_tag(user.email, class: 'm-user-image', :gravatar => { :default => asset_url('default_user.png'), size: 48 })
+    end
   end
 
   def user_balance(user)
@@ -14,11 +18,11 @@ module ApplicationHelper
   end
 
   def facebook_connect_path(league)
-    "/auth/facebook?state=#{league.slug}"
+    "/auth/facebook"
   end
 
   def twitter_connect_path(league)
-    "/auth/twitter?state=#{league.id}"
+    "/auth/twitter"
   end
 
 end

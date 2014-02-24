@@ -2,5 +2,7 @@
 
 FactoryGirl.define do
   factory :league do
+    name "Railslove"
+    slug 'railslove'
   end
 end

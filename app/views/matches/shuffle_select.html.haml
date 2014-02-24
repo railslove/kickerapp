@@ -1,5 +1,5 @@
 = form_tag shuffle_league_matches_path(current_league) do
-  %h3 Spieler wählen
+  %h3 Bitte 4 Spieler wählen
   - users = current_league.users.ranked
   .m-user-list{data: {behaviour: :shuffle_select, count: 0 }}
     - users.select{|user| user.matches.any? && user.matches.first.date > 2.weeks.ago }.each do |user|

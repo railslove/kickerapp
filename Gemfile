@@ -19,8 +19,6 @@ gem 'breakpoint'
 
 gem 'gravatar_image_tag'
 
-gem "airbrake"
-
 gem "omniauth"
 gem "omniauth-twitter"
 gem "omniauth-facebook"

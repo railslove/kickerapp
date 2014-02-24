@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  belongs_to :league
+
   scope :ranked, lambda { order("quote DESC") }
 
   validates :name, presence: true

@@ -1,12 +1,14 @@
 Kickerapp::Application.routes.draw do
-  resources :matches do
-    post :shuffle, on: :collection
-    get :shuffle_select, on: :collection
+  resources :leagues, :path => '' do
+    resources :matches do
+      post :shuffle, on: :collection
+      get :shuffle_select, on: :collection
+    end
+    resources :users
+    resources :teams, only: [:index]
   end
-  resources :users
 
-  get '/teams' => 'users#teams', as: :teams
-
+  resources :matches, only: [:show]
   get "/auth/:provider/callback" => "users#create"
-  root :to => 'matches#index'
+  root :to => 'leagues#index'
 end

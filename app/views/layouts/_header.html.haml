@@ -1,11 +1,14 @@
 .l-header-wrapper
   .l-header
-    .m-logo= link_to "Railslove Kicker", root_path
+    .m-logo= link_to (league? ? "#{current_league.name}" : "Kicker App"), root_path
     .m-navigation-trigger
     .m-navigation
-      .m-navigation--item.as-mobile-only= link_to "Alle Spiele", root_path
-      .m-navigation--item= link_to "Neues Match", new_match_path
-      .m-navigation--item.as-mobile-only= link_to "Ranking", users_path
-      .m-navigation--item= link_to "Team Ranking", teams_path
-      .m-navigation--item= link_to "Zufall Teams",shuffle_select_matches_path
-      .m-navigation--item= link_to "Neuen Spieler hinzufügen", new_user_path
+      - if league?
+        .m-navigation--item.as-mobile-only= link_to "Alle Spiele", league_path(current_league)
+        .m-navigation--item= link_to "Neues Match", new_league_match_path(current_league)
+        .m-navigation--item.as-mobile-only= link_to "Ranking", league_users_path(current_league)
+        .m-navigation--item= link_to "Team Ranking", league_teams_path(current_league)
+        .m-navigation--item= link_to "Zufall Teams",shuffle_select_league_matches_path(current_league)
+        .m-navigation--item= link_to "Neuen Spieler hinzufügen", new_league_user_path(current_league)
+      - else
+        .m-navigation--item= link_to "Neue Liga", new_league_path

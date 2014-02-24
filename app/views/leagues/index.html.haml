@@ -1,0 +1,17 @@
+
+%table.m-table
+  %thead.m-table--head
+    %tr.m-table--row
+      %td Name
+      %td Anzahl Spiele
+      %td Anzahl Spieler
+      %td Bester Spieler
+      %td Bestes Team
+  %tbody.m-table--body
+    - @leagues.each do |league|
+      %tr.m-table--row
+        %td= link_to league.name, league_path(league), class: 'm-link'
+        %td= league.matches.count
+        %td= league.users.count
+        %td= "#{league.users.first.try(:name)} (#{league.users.first.try(:quote)})"
+        %td= "#{league.teams.first.try(:name)} (#{league.teams.first.try(:value)})"

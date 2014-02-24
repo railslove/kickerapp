@@ -18,5 +18,6 @@
       .l-content
         = yield
       .l-sidebar
-        = render 'users/list'
+        - if league?
+          = render 'users/list'
     = render 'layouts/javascript'

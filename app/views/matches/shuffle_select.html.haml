@@ -1,4 +1,4 @@
-= form_tag shuffle_matches_path do
+= form_tag shuffle_league_matches_path(current_league) do
   %h3 Spieler wählen
   - users = User.ranked
   .m-user-list{data: {behaviour: :shuffle_select, count: 0 }}

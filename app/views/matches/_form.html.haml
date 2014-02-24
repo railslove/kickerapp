@@ -1,5 +1,5 @@
-= form_for @match, class: 'm-form' do |f|
-  - users = User.ranked
+= form_for @match, url: league_matches_path(current_league, @match), class: 'm-form' do |f|
+  - users = current_league.users.ranked
   .m-user-list{data: {count: 0}}
     .m-headline Team 1
     - team1 = @teams.present? ? @teams.first : nil

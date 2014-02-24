@@ -2,6 +2,8 @@ class Team < ActiveRecord::Base
   belongs_to :player1, class_name: "User"
   belongs_to :player2, class_name: "User"
 
+  belongs_to :league
+
   scope :for_user, lambda { |user1_id| where("(player1_id = #{user1_id} OR player2_id = #{user1_id})")}
   scope :for_single_user, lambda { |user1_id| where("(player1_id = #{user1_id} AND player2_id IS NULL)")}
   scope :for_doubles, lambda { where("(player1_id IS NOT NULL AND player2_id IS NOT NULL)")}
@@ -42,10 +44,12 @@ class Team < ActiveRecord::Base
       team = Team.new
       team.player1_id = user_ids.first
       team.player2_id = user_ids.last
+      team.league = users.first.league
       team.save
     elsif team.nil? && users.size == 1
       team = Team.new
       team.player1_id = user_ids.first
+      team.league = users.first.league
       team.save
     end
     team

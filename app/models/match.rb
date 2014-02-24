@@ -1,9 +1,9 @@
-# encoding: utf-8
-
 class Match < ActiveRecord::Base
 
   belongs_to :winner_team, class_name: "Team"
   belongs_to :looser_team, class_name: "Team"
+
+  belongs_to :league
 
   default_scope lambda {order("date DESC")}
 
@@ -17,9 +17,9 @@ class Match < ActiveRecord::Base
     looser_score = min_score(set_params)
     winner_team = Team.find_or_create(user_ids_for_score(set_params, winner_score))
     looser_team = Team.find_or_create(user_ids_for_score(set_params, looser_score))
-    match = Match.new(winner_team: winner_team, looser_team: looser_team, date: Time.now)
+    match = Match.new(winner_team: winner_team, looser_team: looser_team, date: Time.now, league_id: set_params[:league_id])
     match.score = match.score_for_set(winner_score, looser_score)
-    match.crawling = (winner_score - looser_score >= 6) || match.crawling_for_set(set_params)
+    match.crawling = match.crawling_for_set(set_params)
     match.save ? match : nil
   end
 
@@ -94,16 +94,7 @@ class Match < ActiveRecord::Base
   end
 
   def content
-    c = if self.scores.first - self.scores.last > 3
-      "Klare Angelegenheit. "
-    elsif self.scores.first > 6
-      "In der Verlängerung. "
-    else
-      "Knappe Sache. "
-    end
-    c += self.score
-    c += " Es wurde gekrabbelt!" if self.crawling.present?
-    c
+    CommentGenerator.random(self.scores.first, self.scores.last, self.crawling)
   end
 
   def winner

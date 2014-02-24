@@ -1,6 +1,8 @@
 # encoding: utf-8
 
 class MatchesController < ApplicationController
+  before_filter :require_league
+
   def index
     @matches = Match.limit(30)
     respond_to do |format|
@@ -16,7 +18,7 @@ class MatchesController < ApplicationController
 
   def create
     create_matches_from_params(params)
-    redirect_to matches_path, notice: "Spiele wurden eingetragen."
+    redirect_to league_path(current_league), notice: "Spiele wurden eingetragen."
   end
 
   def edit
@@ -34,7 +36,7 @@ class MatchesController < ApplicationController
       @match.score = @match.score_for_set(params[:winner_score], params[:looser_score])
     end
     if @match.save
-      redirect_to matches_path, notice: "Satz gespeichert."
+      redirect_to league_path(current_league), notice: "Satz gespeichert."
     else
       flash.now[:alert] = "Satz konnte nicht gespeichert werden."
       render :edit
@@ -45,7 +47,7 @@ class MatchesController < ApplicationController
     @match = Match.find(params[:id])
     @match.revert_points
     @match.destroy
-    redirect_to matches_path, notice: "Dieser Satz wurde gelöscht."
+    redirect_to league_matches_path(current_league), notice: "Dieser Satz wurde gelöscht."
   end
 
   def shuffle
@@ -55,8 +57,13 @@ class MatchesController < ApplicationController
       flash.now[:notice] = "Es spielen #{@teams.first.name} gegen #{@teams.last.name}"
       render :new
     else
-      redirect_to shuffle_select_matches_path, alert: "Bitte wähle 4 Spieler aus!"
+      redirect_to shuffle_select_league_matches_path(current_league), alert: "Bitte wähle 4 Spieler aus!"
     end
+  end
+
+  def show
+    @match = Match.find(params[:id])
+    redirect_to league_path(@match.league)
   end
 
   def shuffle_select
@@ -66,6 +73,7 @@ class MatchesController < ApplicationController
   private
 
   def create_matches_from_params(params)
+    league = League.find_by!(slug: params[:league_id])
     3.times do |i| #Three possible sets
       set = params["set#{i+1}"]
       if set.first.present? && set.last.present? # If the set has been played
@@ -74,6 +82,7 @@ class MatchesController < ApplicationController
           result_params[user_id] = set.first.to_i
           result_params[params["team2"][index]] = set.last.to_i
         end
+        result_params[:league_id] = league.id.to_s
         Match.create_from_set(result_params)
       end
     end

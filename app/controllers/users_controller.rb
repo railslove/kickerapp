@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_filter :require_league
+
   def new
     @user = User.new
   end
@@ -8,9 +11,10 @@ class UsersController < ApplicationController
     if auth.present?
       user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
     else
-      user = User.create(user_params)
+      league = League.find_by!(slug: params[:league_id])
+      user = User.create(user_params.merge({league_id: current_league.id}))
     end
-    redirect_to new_match_url, :notice => "Neuer Spieler #{user.name} angelegt!"
+    redirect_to new_league_match_url(current_league), :notice => "Neuer Spieler #{user.name} in der Liga #{current_league.name} angelegt!"
   end
 
   def show

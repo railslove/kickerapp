@@ -62,8 +62,7 @@ class MatchesController < ApplicationController
   end
 
   def show
-    @match = Match.find(params[:id])
-    redirect_to league_path(@match.league)
+    redirect_to league_path(current_league)
   end
 
   def shuffle_select

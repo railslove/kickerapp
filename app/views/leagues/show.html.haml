@@ -1,2 +1,6 @@
-%ul.m-match-list
-  = render "matches/list", matches: @matches
+- if @matches.any?
+  %ul.m-match-list
+    = render "matches/list", matches: @matches
+- else
+  .m-big-notice
+    Noch keine Spiele eingetragen. Ab an den Kicker!

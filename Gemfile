@@ -17,6 +17,8 @@ gem 'kaminari'
 gem 'rails_12factor'
 gem 'breakpoint'
 
+gem 'gravatar_image_tag'
+
 gem "omniauth"
 gem "omniauth-twitter"
 gem "omniauth-facebook"
@@ -27,6 +29,7 @@ group :development do
   gem 'smurfville'
   gem 'spring'
   gem "spring-commands-rspec"
+  gem 'fontello_rails_converter'
 end
 
 group :development, :test do

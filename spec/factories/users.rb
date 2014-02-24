@@ -6,5 +6,6 @@ FactoryGirl.define do
     number_of_looses 1
     quote 1200
     name "MyString"
+    email 'peter@pan.de'
   end
 end

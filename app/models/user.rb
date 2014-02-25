@@ -26,6 +26,16 @@ class User < ActiveRecord::Base
     QuoteCalculator.win_loose_quote(self.number_of_wins, self.number_of_looses)
   end
 
+  def short_name
+    return '' unless self.name.present?
+    s = self.name.split(' ')
+    if s.length > 1
+      s.map{|name| name[0]}.join()
+    else
+      s.first[0..1]
+    end
+  end
+
   def set_elo_quote(match)
     win = match.win_for?(self) ? 1 : 0
     team_quote = win == 1 ? match.winner_team.elo_quote : match.looser_team.elo_quote

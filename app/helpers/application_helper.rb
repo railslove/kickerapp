@@ -4,7 +4,10 @@ module ApplicationHelper
     if user.image.present?
       image_tag(user.image, class: 'm-user-image')
     else
-      gravatar_image_tag(user.email, class: 'm-user-image', :gravatar => { :default => asset_url('default_user.png'), size: 48 })
+      content_tag :div, class: 'm-user-image as-default' do
+        user.short_name
+      end
+      # gravatar_image_tag(user.email, class: 'm-user-image', :gravatar => { :default => asset_url('default_user.png'), size: 48 })
     end
   end
 

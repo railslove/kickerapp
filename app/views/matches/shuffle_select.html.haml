@@ -1,5 +1,7 @@
 = form_tag shuffle_league_matches_path(current_league) do
   %h3 Bitte 4 Spieler wählen
+  %p.hide-mobile
+    %small Die Wahrscheinlichkeit für ein Team aus stärkstem und schwächsten Spieler beträgt 50%, stärkster und drittstärkster 33% und stärkster und zweistärkster 17%.
   - users = current_league.users.ranked
   .m-user-list{data: {behaviour: :shuffle_select, count: 0 }}
     - users.select{|user| user.matches.any? && user.matches.first.date > 2.weeks.ago }.each do |user|

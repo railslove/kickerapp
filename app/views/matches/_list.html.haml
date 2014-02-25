@@ -1,5 +1,5 @@
 - @matches.each do |match|
-  %li.m-match{class: [match.crawling? ? "as-crawling" : '']}
+  %li.m-match{class: [match.crawling? ? "as-crawling" : ''], data: {id: match.id}}
     .m-match--date
       = l(match.date, :format => :short)
     .m-match--team.as-winner

@@ -83,4 +83,23 @@ describe User do
       end
     end
   end
+
+  describe ".short_name" do
+    let(:user) {FactoryGirl.build(:user, name: nil)}
+    context "empty name" do
+      specify{ expect(user.short_name).to eq('') }
+    end
+    context "name without whitespace" do
+      specify do
+        user.name = 'something'
+        expect(user.short_name).to eq('so')
+      end
+    end
+    context "name with at least one whitespace" do
+      specify do
+        user.name = 'Clark Kent'
+        expect(user.short_name).to eq('CK')
+      end
+    end
+  end
 end

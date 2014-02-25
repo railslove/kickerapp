@@ -94,7 +94,7 @@ class Match < ActiveRecord::Base
   end
 
   def content
-    CommentGenerator.random(self.scores.first, self.scores.last, self.crawling)
+    CommentGenerator.random(self.scores.first, self.scores.last, self.crawling, (self.id % 3 == 0))
   end
 
   def winner

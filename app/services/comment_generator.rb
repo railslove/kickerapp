@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class CommentGenerator
-  def self.random(winner_goals, looser_goals, crawling = false)
+  def self.random(winner_goals, looser_goals, crawling = false, add_quotation = false)
     difference = (looser_goals - winner_goals).abs
     content = ''
     case difference
@@ -18,7 +18,7 @@ class CommentGenerator
     end
     content += "#{winner_goals}:#{looser_goals}. "
     content += " Es wurde gekrabbelt! " if crawling.present?
-    content += quotation
+    content += quotation if add_quotation
     content
   end
 
@@ -38,7 +38,10 @@ class CommentGenerator
       'Thomas Häßler: Wir wollten kein Gegentor kassieren. Das hat auch bis zum Gegentor ganz gut geklappt.',
       'Stefan Effenberg: Die Situation ist aussichtslos, aber nicht kritisch.',
       'Berti Vogts: Ich glaube, daß der Tabellenerste jederzeit den Spitzenreiter schlagen kann.',
-      'Hans Krankl: Wir müssen gewinnen, alles andere ist primar.'
+      'Hans Krankl: Wir müssen gewinnen, alles andere ist primar.',
+      'Theo Zwanziger: Die Breite an der Spitze ist dichter geworden.',
+      'Bryan Robson: Würden wir jede Woche so spielen, wären unsere Leistungen nicht so schwankend.',
+      'Berti Vogts: Wir haben ein Abstimmungsproblem – das müssen wir automatisieren.'
     ]
     quotations.sample
   end

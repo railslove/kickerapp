@@ -2,7 +2,7 @@ class LeaguesController < ApplicationController
 
   def index
     clear_current_league
-    @leagues = League.all
+    @leagues = League.order(:name)
   end
 
   def new

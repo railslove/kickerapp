@@ -14,3 +14,10 @@
     &.hide-mobile
       +breakpoint($mobile)
         display: none
+  &.as-full-column
+    +breakpoint($mobile)
+      font-weight: bold
+      width: 100%
+      td
+        width: 100%
+        text-align: center

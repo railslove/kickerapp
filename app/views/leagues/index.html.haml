@@ -1,11 +1,11 @@
 = link_to "Neue Liga anlegen", new_league_path, class: 'm-button margin-bottom'
 
-%table.m-table
+%table.m-table.as-full-column
   %thead.m-table--head
     %tr.m-table--row
       %td Name
       %td.hide-mobile Anzahl Spiele
-      %td.hide-mobile Anzahl Spieler
+      %td Anzahl Spieler
       %td.hide-mobile Bester Spieler
       %td.hide-mobile Bestes Team
   %tbody.m-table--body
@@ -13,6 +13,6 @@
       %tr.m-table--row
         %td= link_to league.name, league_path(league), class: 'm-link'
         %td.hide-mobile= league.matches.count
-        %td.hide-mobile= league.users.count
-        %td.hide-mobile= "#{league.users.first.try(:name)} (#{league.users.first.try(:quote)})"
-        %td.hide-mobile= "#{league.teams.first.try(:name)}"
+        %td= league.users.count
+        %td.hide-mobile= league.users.ranked.first.try(:name)
+        %td.hide-mobile= league.teams.for_doubles.ranked.sort_by(&:value).reverse.first.try(:name)

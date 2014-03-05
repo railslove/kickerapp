@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class UsersController < ApplicationController
 
   before_filter :require_league
@@ -24,6 +26,20 @@ class UsersController < ApplicationController
 
   def index
 
+  end
+
+  def edit
+    @user = User.find(params[:id])
+    redirect_to league_url(current_league) if @user.provider.present?
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to new_league_match_url(current_league), :notice => "Spieler #{@user.name} in der Liga #{current_league.name} geändert!"
+    else
+      render :edit, alert: 'User konnte nicht gespeichert werden'
+    end
   end
 
   def teams

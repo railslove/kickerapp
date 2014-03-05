@@ -1,0 +1,14 @@
+.m-row
+  .m-row--left
+    = form_for @user, url: league_user_path(current_league, @user), class: 'm-form' do |f|
+      .m-form--row
+        = f.label :name, class: 'm-label'
+        = f.text_field :name, class: 'm-input', required: true
+      .m-form--row
+        = f.label :email, class: 'm-label'
+        = f.email_field :email, class: 'm-input', required: true
+      .m-form--row
+        = f.label :image, class: 'm-label'
+        = f.text_field :image, class: 'm-input', required: true
+      .m-form--row
+        = f.submit "Spieler Updaten", class: 'm-button'

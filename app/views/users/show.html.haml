@@ -1,2 +1,5 @@
+%p
+  = link_to "Spieler bearbeiten", edit_league_user_path(current_league, @user), class: 'm-button'
+
 %ul.m-match-list
   = render "matches/list", matches: @matches

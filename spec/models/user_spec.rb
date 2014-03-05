@@ -34,13 +34,15 @@ describe User do
       end
       it "calculates without crawling" do
         match = double(win_for?: true, winner_team: double("w_team", elo_quote: 1200), looser_team: double("l_team", elo_quote: 1200), crawling: false, difference: 5)
-        subject.set_elo_quote(match)
+          subject.set_elo_quote(match)
         expect(subject.quote).to eql(1205)
+        expect(subject.winning_streak).to eql(1)
       end
       it "calculates with crawling (+5)" do
         match = double(win_for?: true, winner_team: double("w_team", elo_quote: 1200), looser_team: double("l_team", elo_quote: 1200), crawling: true, difference: 5)
         subject.set_elo_quote(match)
         expect(subject.quote).to eql(1210)
+        expect(subject.number_of_crawls).to eql(1)
       end
       it "updates the difference on a match" do
         match = FactoryGirl.create(:match, winner_team: FactoryGirl.create(:team), looser_team: FactoryGirl.create(:team))

@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @matches = @user.matches
+    @matches = @user.matches.first(5)
   end
 
   def index

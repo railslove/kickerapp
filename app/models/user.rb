@@ -43,9 +43,23 @@ class User < ActiveRecord::Base
     quote_change = QuoteCalculator.elo_quote(team_quote, opponent_quote , win )
     if match.crawling == true
       quote_change = win ? quote_change + 5 : quote_change - 5
+      if win == 1
+        self.number_of_crawls += 1
+      else
+        self.number_of_crawlings += 1
+      end
     end
+
     self.quote = self.quote + quote_change
-    win == 1 ? self.number_of_wins += 1 : self.number_of_looses += 1
+
+    if win == 1
+      self.number_of_wins += 1
+      self.winning_streak += 1
+    else
+      self.number_of_looses += 1
+      self.winning_streak = 0
+    end
+
     match.update_attributes(difference: quote_change.abs) unless match.difference > 0
     self.save
   end

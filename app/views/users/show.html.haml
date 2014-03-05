@@ -1,5 +1,42 @@
 %p
   = link_to "Spieler bearbeiten", edit_league_user_path(current_league, @user), class: 'm-button'
 
-%ul.m-match-list
-  = render "matches/list", matches: @matches
+.m-profile-basics
+  %h4 Basics
+  .m-user.as-selected= user_image(@user)
+  .m-profile-basics--values
+    .m-profile-basics--value= "Name: #{@user.name}"
+    .m-profile-basics--value= "Elo Wert: #{@user.quote}"
+    .m-profile-basics--value= "Spiele: #{@user.number_of_games}"
+
+
+.m-profile-stats
+  %h4 Aktuelle Statistiken
+  .m-profile-stats--stat= "Siege: #{@user.number_of_wins}"
+  .m-profile-stats--stat= "Niederlage: #{@user.number_of_looses}"
+  .m-profile-stats--stat= "Krabbeln lassen: #{@user.number_of_crawls}"
+  .m-profile-stats--stat= "Gekrabbelt: #{@user.number_of_crawlings}"
+  .m-profile-stats--stat= "Aktueller Siegesserie: #{@user.winning_streak} Spiele"
+.badges
+
+.m-profile-teams
+  .m-profile-teams--best
+    %h4 Bestes Team:
+    -team = @user.teams.for_doubles.ranked.sort_by(&:value).reverse.first
+    .m-user-list
+      .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
+      .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
+
+    = team.name
+  .m-profile-teams--worst
+    %h4 Schlechtestes Team:
+    -team = @user.teams.for_doubles.ranked.sort_by(&:value).first
+    .m-user-list
+      .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
+      .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
+
+    = team.name
+.last-matches
+  %h4 Letzte Spiele
+  %ul.m-match-list
+    = render "matches/list"

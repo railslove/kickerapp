@@ -8,3 +8,19 @@
   +breakpoint($mobile)
     margin-top: 30px
     font-size: 42px
+
+
+#stats
+  +pie-clearfix
+  #games
+    float: left
+    width: 45%
+    height: 300px
+  #crawls
+    float: left
+    width: 50%
+    height: 300px
+  +breakpoint($mobile)
+    #games, #crawls
+      width: 100%
+      float: none

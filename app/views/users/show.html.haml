@@ -1,32 +1,20 @@
 %p
   = link_to "Spieler bearbeiten", edit_league_user_path(current_league, @user), class: 'm-button'
 
-.m-profile-basics
-  %h4 Basics
-  .m-user.as-selected= user_image(@user)
-  .m-profile-basics--values
-    .m-profile-basics--value= "Name: #{@user.name}"
-    .m-profile-basics--value= "Elo Wert: #{@user.quote}"
-    .m-profile-basics--value= "Spiele: #{@user.number_of_games}"
-
-
-.m-profile-stats
-  %h4 Aktuelle Statistiken
-  .m-profile-stats--stat= "Siege: #{@user.number_of_wins}"
-  .m-profile-stats--stat= "Niederlage: #{@user.number_of_looses}"
-  .m-profile-stats--stat= "Krabbeln lassen: #{@user.number_of_crawls}"
-  .m-profile-stats--stat= "Gekrabbelt: #{@user.number_of_crawlings}"
-  .m-profile-stats--stat= "Aktueller Siegesserie: #{@user.winning_streak} Spiele"
-.badges
-
 .m-profile-teams
+  .m-profile-basics
+    %h4 Basics
+    .m-user.as-selected= user_image(@user)
+    .m-profile-basics--values
+      .m-profile-basics--value= "Name: #{@user.name}"
+      .m-profile-basics--value= "Elo Wert: #{@user.quote}"
+      .m-profile-basics--value= "Siegesserie: #{@user.winning_streak} Spiele"
   .m-profile-teams--best
     %h4 Bestes Team:
     -team = @user.teams.for_doubles.ranked.sort_by(&:value).reverse.first
     .m-user-list
       .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
       .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
-
     = team.name
   .m-profile-teams--worst
     %h4 Schlechtestes Team:
@@ -34,8 +22,15 @@
     .m-user-list
       .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
       .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
-
     = team.name
+
+.m-profile-stats
+  %h4 Aktuelle Statistiken
+  #stats{ data: { games: [ ["Siege", @user.number_of_wins], ["Niederlagen", @user.number_of_looses]] , crawls: [ ["Krabbeln lassen", @user.number_of_crawls], ["Gekrabbelt", @user.number_of_crawlings]]} }
+    #games
+    #crawls
+.badges
+
 .last-matches
   %h4 Letzte Spiele
   %ul.m-match-list

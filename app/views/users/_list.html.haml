@@ -1,18 +1,10 @@
 .m-ranking
   - users = current_league.users.ranked.select{|user| user.active? }
-  - if users.any?
-    - users.each_with_index do |user, index|
-      .m-ranking--item{title: user.name}
-        = link_to league_user_path(current_league, user) do
-          .m-ranking--item--place= index + 1
-          .m-ranking--item--image= user_image(user)
-          .m-ranking--item--score= user.quote
-          .m-ranking--item--balance= user_balance(user)
-  - else
-    - current_league.users.ranked.each_with_index do |user, index|
-      .m-ranking--item{title: user.name}
-        = link_to league_user_path(current_league, user) do
-          .m-ranking--item--place= index + 1
-          .m-ranking--item--image= user_image(user)
-          .m-ranking--item--score= user.name
-          .m-ranking--item--balance= user.email
+  - users.each_with_index do |user, index|
+    .m-ranking--item{title: user.name}
+      = link_to league_user_path(current_league, user) do
+        .m-ranking--item--place= index + 1
+        .m-ranking--item--image= user_image(user)
+        .m-ranking--item--score= user.quote
+        .m-ranking--item--balance= user_balance(user)
+

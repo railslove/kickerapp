@@ -9,29 +9,32 @@
       .m-profile-basics--value= "Name: #{@user.name}"
       .m-profile-basics--value= "Elo Wert: #{@user.quote}"
       .m-profile-basics--value= "Siegesserie: #{@user.winning_streak} Spiele"
-  .m-profile-teams--best
-    %h4 Bestes Team:
-    -team = @user.teams.for_doubles.ranked.sort_by(&:value).reverse.first
-    .m-user-list
-      .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
-      .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
-    = team.name
-  .m-profile-teams--worst
-    %h4 Schlechtestes Team:
-    -team = @user.teams.for_doubles.ranked.sort_by(&:value).first
-    .m-user-list
-      .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
-      .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
-    = team.name
+  - if @user.teams.any?
+    .m-profile-teams--best
+      %h4 Bestes Team:
+      -team = @user.teams.for_doubles.ranked.sort_by(&:value).reverse.first
+      .m-user-list
+        .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
+        .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
+      = team.name
+    .m-profile-teams--worst
+      %h4 Schlechtestes Team:
+      -team = @user.teams.for_doubles.ranked.sort_by(&:value).first
+      .m-user-list
+        .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
+        .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
+      = team.name
 
-.m-profile-stats
-  %h4 Aktuelle Statistiken
-  #stats{ data: { games: [ ["Siege", @user.number_of_wins], ["Niederlagen", @user.number_of_looses]] , crawls: [ ["Krabbeln lassen", @user.number_of_crawls], ["Gekrabbelt", @user.number_of_crawlings]]} }
-    #games
-    #crawls
-.badges
 
-.last-matches
-  %h4 Letzte Spiele
-  %ul.m-match-list
-    = render "matches/list"
+- if @user.number_of_games > 0
+  .m-profile-stats
+    %h4 Aktuelle Statistiken
+    #stats{ data: { games: [ ["Siege", @user.number_of_wins], ["Niederlagen", @user.number_of_looses]] , crawls: [ ["Krabbeln lassen", @user.number_of_crawls], ["Gekrabbelt", @user.number_of_crawlings]]} }
+      #games
+      #crawls
+  .badges
+
+  .last-matches
+    %h4 Letzte Spiele
+    %ul.m-match-list
+      = render "matches/list"

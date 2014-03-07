@@ -11,19 +11,21 @@
       .m-profile-basics--value= "Siegesserie: #{@user.winning_streak} Spiele"
   - if @user.teams.any?
     .m-profile-teams--best
-      %h4 Bestes Team:
       -team = @user.teams.for_doubles.ranked.sort_by(&:value).reverse.first
-      .m-user-list
-        .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
-        .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
-      = team.name
+      - if team.present?
+        %h4 Bestes Team:
+        .m-user-list
+          .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
+          .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
+        = team.name
     .m-profile-teams--worst
+      - team = @user.teams.for_doubles.ranked.sort_by(&:value).first
       %h4 Schlechtestes Team:
-      -team = @user.teams.for_doubles.ranked.sort_by(&:value).first
-      .m-user-list
-        .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
-        .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
-      = team.name
+      - if team.present?
+        .m-user-list
+          .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
+          .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
+        = team.name
 
 
 - if @user.number_of_games > 0

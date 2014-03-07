@@ -39,7 +39,7 @@ describe User do
         expect(subject.winning_streak).to eql(1)
       end
       it "calculates with crawling (+5)" do
-        match = double(win_for?: true, winner_team: double("w_team", elo_quote: 1200), looser_team: double("l_team", elo_quote: 1200), crawling: true, difference: 5)
+        match = double(win_for?: true, winner_team: double("w_team", elo_quote: 1200), looser_team: double("l_team", elo_quote: 1200), crawling: true, difference: 10)
         subject.set_elo_quote(match)
         expect(subject.quote).to eql(1210)
         expect(subject.number_of_crawls).to eql(1)

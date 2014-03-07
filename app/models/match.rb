@@ -29,6 +29,7 @@ class Match < ActiveRecord::Base
 
   def calculate_user_quotes
     quote_change = QuoteCalculator.elo_quote(winner_team.elo_quote, looser_team.elo_quote , 1 )
+
     if self.crawling == true
       quote_change = quote_change + 5
     end
@@ -36,16 +37,8 @@ class Match < ActiveRecord::Base
     self.difference = quote_change
     self.save
 
-    self.winner.each do |winner|
-      winner.quote = winner.quote + quote_change
-      winner.number_of_wins += 1
-      winner.save
-    end
-
-    self.looser.each do |looser|
-      looser.quote = looser.quote - quote_change
-      looser.number_of_looses += 1
-      looser.save
+    self.users.each do |user|
+      user.set_elo_quote(self)
     end
 
     winner_team.update_attributes(number_of_wins: winner_team.number_of_wins + 1)

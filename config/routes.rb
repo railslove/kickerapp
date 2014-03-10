@@ -1,5 +1,6 @@
 Kickerapp::Application.routes.draw do
   resources :leagues, :path => '' do
+    get :badges, on: :member
     resources :matches do
       post :shuffle, on: :collection
       get :shuffle_select, on: :collection

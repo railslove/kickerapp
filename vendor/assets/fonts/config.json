@@ -7,6 +7,30 @@
   "ascent": 850,
   "glyphs": [
     {
+      "uid": "d17030afaecc1e1c22349b99f3c4992a",
+      "css": "star-empty",
+      "code": 59394,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "ab656e280958018a7859eba9a1eabbc7",
+      "css": "award",
+      "code": 59395,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "8aa99bc60f3553bb3e31b73dd6e744c8",
+      "css": "rocket",
+      "code": 59396,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "46120eb259799eab0dac0691137e5706",
+      "css": "medkit",
+      "code": 59397,
+      "src": "fontawesome"
+    },
+    {
       "uid": "d090355c31f497b61d676416c1fd39fb",
       "css": "twitter",
       "code": 59393,

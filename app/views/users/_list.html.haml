@@ -7,4 +7,12 @@
         .m-ranking--item--image= user_image(user)
         .m-ranking--item--score= user.quote
         .m-ranking--item--balance= user_balance(user)
-
+        .m-ranking--item--badge
+          - if user.top_crawler?
+            %i.icon-star-empty{title: t('badges.top_crawler')}
+          - if user.worst_crawler?
+            %i.icon-medkit{title: t('badges.worst_crawler')}
+          - if user.most_wins?
+            %i.icon-award{title: t('badges.most_wins')}
+          - if user.longest_winning_streak?
+            %i.icon-rocket{title: t('badges.longest_winning_streak', wins: user.winning_streak)}

@@ -30,6 +30,10 @@ class LeaguesController < ApplicationController
     end
   end
 
+  def badges
+    @league = League.find_by!(slug: params[:id])
+  end
+
   private
 
   def league_params

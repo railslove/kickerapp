@@ -1,0 +1,27 @@
+.m-badge
+  display: block
+  border: 3px solid $green
+  background: rgba($green, 0.3)
+  padding: $padding
+  margin: 0 $margin $margin 0
+  .m-badge--logo
+    font-size: 40px
+  &.as-bad
+    border-color: $red
+    background: rgba($red, 0.3)
+    hr
+      border-color: $red
+  .m-badge--logo, .m-badge--image
+    float: left
+  .m-badge--title
+    clear: both
+  hr
+    border-color: $green
+.m-badge-list
+  +pie-clearfix
+  .m-badge
+    float: left
+    width: 380px
+    +breakpoint($mobile)
+      width: 100%
+      +box-sizing(border-box)

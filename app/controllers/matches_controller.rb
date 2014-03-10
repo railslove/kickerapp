@@ -85,5 +85,6 @@ class MatchesController < ApplicationController
         Match.create_from_set(result_params)
       end
     end
+    league.update_badges
   end
 end

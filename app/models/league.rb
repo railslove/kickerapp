@@ -16,4 +16,29 @@ class League < ActiveRecord::Base
     self.slug = self.slug.downcase.parameterize
   end
 
+  def update_badges
+    self.users.update_all(most_wins: false, top_crawler: false, worst_crawler: false, longest_winning_streak: false)
+
+    most_wins.update_attribute(:most_wins, true) if most_wins.number_of_wins > 0
+    top_crawler.update_attribute(:top_crawler, true) if top_crawler.number_of_crawls > 0
+    worst_crawler.update_attribute(:worst_crawler, true) if worst_crawler.number_of_crawlings > 0
+    longest_winning_streak.update_attribute(:longest_winning_streak, true) if longest_winning_streak.winning_streak > 0
+  end
+
+  def top_crawler
+    self.users.order('number_of_crawls desc').order('updated_at desc').first
+  end
+
+  def most_wins
+    self.users.order('number_of_wins desc').order('updated_at desc').first
+  end
+
+  def worst_crawler
+    self.users.order('number_of_crawlings desc').order('updated_at desc').first
+  end
+
+  def longest_winning_streak
+    self.users.order('winning_streak desc').order('updated_at desc').first
+  end
+
 end

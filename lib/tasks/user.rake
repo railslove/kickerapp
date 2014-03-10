@@ -22,4 +22,11 @@ namespace :users do
       p user.winning_streak
     end
   end
+
+  desc "Set Badges"
+  task :set_badges => :environment do
+    League.all.each do |league|
+      league.update_badges
+    end
+  end
 end

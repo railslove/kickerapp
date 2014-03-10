@@ -15,4 +15,4 @@
       .m-match--actions--edit
         = link_to "Ändern", edit_league_match_path(current_league, match), class: "m-link"
       .m-match--actions--delete
-        = link_to "Löschen", league_match_path(current_league, match), method: :delete, confirm: "Match wirklich löschen?", class: "m-link as-negative"
+        = link_to "Löschen", league_match_path(current_league, match), method: :delete, data: {confirm: "Match wirklich löschen?" }, class: "m-link as-negative"

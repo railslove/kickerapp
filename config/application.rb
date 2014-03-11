@@ -23,6 +23,10 @@ module Kickerapp
       generate.view_specs false
     end
 
+    # make sure that vendor fonts are precompiled by the asset pipeline.  same thing that the fontello_rails_converter gem does, but like this we don't need to load it in production
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
+    config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

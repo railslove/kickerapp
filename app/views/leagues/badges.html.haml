@@ -1,5 +1,6 @@
 .m-badge-list
   - user = @league.top_crawler
+
   - if user.present?
     .m-badge
       .m-badge--image
@@ -12,15 +13,17 @@
         = user.name
 
   - user = @league.worst_crawler
-  .m-badge.as-bad
-    .m-badge--image
-      = user_image(user)
-    .m-badge--logo
-      %i.icon-medkit= user.number_of_crawlings
-    .m-badge--title= t('badges.worst_crawler')
-    %hr
-    .m-badge--user
-      = user.name
+
+  - if user.present?
+    .m-badge.as-bad
+      .m-badge--image
+        = user_image(user)
+      .m-badge--logo
+        %i.icon-medkit= user.number_of_crawlings
+      .m-badge--title= t('badges.worst_crawler')
+      %hr
+      .m-badge--user
+        = user.name
 
   - user = @league.most_wins
 
@@ -36,6 +39,7 @@
         = user.name
 
   - user = @league.longest_winning_streak
+
   - if user.present?
     .m-badge
       .m-badge--image

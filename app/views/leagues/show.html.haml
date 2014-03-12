@@ -5,12 +5,13 @@
   .m-big-notice
     Noch keine Spiele eingetragen. Ab an den Kicker!
 
-  %h3 Eingetragene Spieler:
-  .m-ranking
-    - current_league.users.ranked.each_with_index do |user, index|
-      .m-ranking--item{title: user.name}
-        = link_to league_user_path(current_league, user) do
-          .m-ranking--item--place= index + 1
-          .m-ranking--item--image= user_image(user)
-          .m-ranking--item--score= user.name
-          .m-ranking--item--balance= user.email
+  - if current_league.users.any?
+    %h3 Eingetragene Spieler:
+    .m-ranking
+      - current_league.users.ranked.each_with_index do |user, index|
+        .m-ranking--item{title: user.name}
+          = link_to league_user_path(current_league, user) do
+            .m-ranking--item--place= index + 1
+            .m-ranking--item--image= user_image(user)
+            .m-ranking--item--score= user.name
+            .m-ranking--item--balance= user.email

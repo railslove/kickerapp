@@ -80,6 +80,10 @@ class Match < ActiveRecord::Base
     score.split(":").map{|s| s.to_i}
   end
 
+  def active_user_ranking
+    league.users.reload.ranked.select{ |u| u.active? }
+  end
+
   # For Rss
 
   def title

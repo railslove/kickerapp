@@ -82,7 +82,7 @@ class MatchesController < ApplicationController
           result_params[params["team2"][index]] = set.last.to_i
         end
         result_params[:league_id] = league.id.to_s
-        Match.create_from_set(result_params)
+        HistoryEntry.track(Match.create_from_set(result_params))
       end
     end
     league.update_badges

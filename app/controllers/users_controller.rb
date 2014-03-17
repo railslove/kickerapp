@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @history_entries = @user.history_entries.last(60)
+    @history_entries = @user.history_entries.order('date').last(100)
     @matches = @user.matches.first(5)
   end
 

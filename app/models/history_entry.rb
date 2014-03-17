@@ -4,12 +4,13 @@ class HistoryEntry < ActiveRecord::Base
   belongs_to :match
 
   def self.track(match)
+    ranking = match.active_user_ranking.map(&:id)
     match.users.each do |user|
       user.history_entries.create(
         league_id: match.league_id,
         match_id: match.id,
         quote: user.quote,
-        rank: match.active_user_ranking.map(&:id).index(user.id)+1
+        rank: ranking.index(user.id)+1
       )
     end
   end

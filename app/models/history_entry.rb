@@ -10,16 +10,17 @@ class HistoryEntry < ActiveRecord::Base
         league_id: match.league_id,
         match_id: match.id,
         quote: user.quote,
+        date: match.date,
         rank: ranking.index(user.id) ? ranking.index(user.id)+1 : nil
       )
     end
   end
 
   def ranks
-    [created_at.to_date, rank]
+    [date, rank]
   end
 
   def quotes
-    [created_at.to_date, quote]
+    [date, quote]
   end
 end

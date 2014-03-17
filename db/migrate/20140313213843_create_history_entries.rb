@@ -6,7 +6,6 @@ class CreateHistoryEntries < ActiveRecord::Migration
       t.references :match, index: true
       t.integer :quote
       t.integer :rank
-
       t.timestamps
     end
   end

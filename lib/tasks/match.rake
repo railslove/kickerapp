@@ -7,7 +7,7 @@ namespace :match do
     Match.unscoped.order("date ASC").each do |match|
       p match.date
       match.calculate_user_quotes
-      HistoryEntry.track(match)
+      # HistoryEntry.track(match)
       p match.difference
     end
   end

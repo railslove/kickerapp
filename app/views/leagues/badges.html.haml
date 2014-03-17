@@ -4,7 +4,8 @@
   - if user.present?
     .m-badge
       .m-badge--image
-        = user_image(user)
+        = link_to league_user_path(current_league, user) do
+          = user_image(user)
       .m-badge--logo
         %i.icon-star-empty= user.number_of_crawls
       .m-badge--title= t('badges.top_crawler')
@@ -17,7 +18,8 @@
   - if user.present?
     .m-badge.as-bad
       .m-badge--image
-        = user_image(user)
+        = link_to league_user_path(current_league, user) do
+          = user_image(user)
       .m-badge--logo
         %i.icon-medkit= user.number_of_crawlings
       .m-badge--title= t('badges.worst_crawler')
@@ -30,7 +32,8 @@
   - if user.present?
     .m-badge
       .m-badge--image
-        = user_image(user)
+        = link_to league_user_path(current_league, user) do
+          = user_image(user)
       .m-badge--logo
         %i.icon-award= user.number_of_wins
       .m-badge--title= t('badges.most_wins')
@@ -43,7 +46,8 @@
   - if user.present?
     .m-badge
       .m-badge--image
-        = user_image(user)
+        = link_to league_user_path(current_league, user) do
+          = user_image(user)
       .m-badge--logo
         %i.icon-rocket= user.winning_streak
       .m-badge--title= t('badges.longest_winning_streak', wins: user.winning_streak)

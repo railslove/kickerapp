@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
   belongs_to :league
+  has_many :history_entries
 
   scope :ranked, lambda { order("quote DESC") }
 

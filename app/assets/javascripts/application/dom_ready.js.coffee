@@ -82,3 +82,35 @@ $ ->
         data: crawls
       ]
 
+  if $("#history").length
+    rankings = $("#history").data('rankings')
+    quotes   = $("#history").data('quotes')
+
+    $("#history").highcharts
+      title:
+        text: "Spiel Historie"
+      chart:
+        plotBackgroundColor: null
+        plotBorderWidth: 0
+        plotShadow: false
+        alignTicks: true
+      tooltip:
+        shared: true
+        crosshairs: [true,false]
+        style:
+          fontSize: '14px'
+          padding: '10px'
+      xAxis:
+        title:
+          text: "Spiele"
+        tickLength: 0
+        labels:
+          enabled: false
+      yAxis: [
+        { title: { text: "Ranking" }, format: '{value+1}', reversed: true, allowDecimals: false, tickInterval: 1 }
+        { title: { text: "Quote" }, opposite: true }
+      ]
+      series: [
+        { name: 'Ranking', data: rankings, yAxis: 0 }
+        { name: 'Quote', data: quotes, yAxis: 1 }
+      ]

@@ -10,7 +10,7 @@ class HistoryEntry < ActiveRecord::Base
         league_id: match.league_id,
         match_id: match.id,
         quote: user.quote,
-        rank: ranking.index(user.id)+1
+        rank: ranking.index(user.id) ? ranking.index(user.id)+1 : nil
       )
     end
   end

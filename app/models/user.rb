@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 
   scope :ranked, lambda { order("quote DESC") }
 
+
   validates :name, presence: true
 
   def number_of_games
@@ -16,11 +17,12 @@ class User < ActiveRecord::Base
   end
 
   def matches
-    self.teams.map{|team| team.matches}.flatten.sort{|x,y| y.date <=> x.date}
+    team_ids = teams.pluck(:id)
+    Match.where("winner_team_id IN (?) OR looser_team_id IN (?)", team_ids, team_ids)
   end
 
   def active?
-    self.matches.any? && self.matches.first.date > 2.weeks.ago
+    matches.where("date > ?", 2.weeks.ago).any?
   end
 
   def win_percentage

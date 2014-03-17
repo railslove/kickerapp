@@ -64,23 +64,25 @@ describe User do
   end
 
   describe ".active?" do
-    let(:user) { FactoryGirl.create(:user, number_of_wins: 3, number_of_looses: 7) }
+    let!(:user) { FactoryGirl.create(:user, number_of_wins: 3, number_of_looses: 7) }
+    let!(:user2) { FactoryGirl.create(:user, number_of_wins: 3, number_of_looses: 7) }
+    let!(:team) { FactoryGirl.create(:team, player1_id: user.id) }
+    let!(:team2) { FactoryGirl.create(:team, player1_id: user2.id) }
+    let!(:match) { FactoryGirl.create(:match, winner_team_id: team.id, looser_team_id: team2.id, date: 1.week.ago) }
     context "is active" do
       specify do
-        match = FactoryGirl.build(:match, date: 1.week.ago)
-        user.stub(:matches).and_return([match])
         expect(user.active?).to be_true
       end
     end
 
     context 'not active' do
       it "has no matches" do
+        team.update_attribute(:player1_id, nil)
         expect(user.active?).to be_false
       end
 
       it 'has old matches' do
-        match = FactoryGirl.build(:match, date: 3.week.ago)
-        user.stub(:matches).and_return([match])
+        match.update_attribute(:date, 3.weeks.ago)
         expect(user.active?).to be_false
       end
     end

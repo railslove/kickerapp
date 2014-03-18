@@ -17,12 +17,13 @@ class League < ActiveRecord::Base
   end
 
   def update_badges
-    self.users.update_all(most_wins: false, top_crawler: false, worst_crawler: false, longest_winning_streak: false)
+    self.users.update_all(most_wins: false, top_crawler: false, worst_crawler: false, longest_winning_streak: false, most_wins: false)
 
     most_wins.update_attribute(:most_wins, true) if most_wins && most_wins.number_of_wins > 0
     top_crawler.update_attribute(:top_crawler, true) if top_crawler && top_crawler.number_of_crawls > 0
     worst_crawler.update_attribute(:worst_crawler, true) if worst_crawler && worst_crawler.number_of_crawlings > 0
     longest_winning_streak.update_attribute(:longest_winning_streak, true) if longest_winning_streak && longest_winning_streak.winning_streak > 0
+    most_teams.update_attribute(:most_teams, true) if most_teams
   end
 
   def top_crawler
@@ -39,6 +40,18 @@ class League < ActiveRecord::Base
 
   def longest_winning_streak
     self.users.order('winning_streak desc').order('updated_at desc').first
+  end
+
+  def most_teams
+    self.users.sort_by{ |u| u.teams.count }.last
+  end
+
+  def last_one
+    active_user_ranking.last
+  end
+
+  def active_user_ranking
+    users.reload.ranked.select{ |u| u.active? }
   end
 
 end

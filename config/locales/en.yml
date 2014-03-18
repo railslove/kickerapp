@@ -13,4 +13,6 @@ en:
     longest_winning_streak: '%{wins} wins in a row'
     top_crawler: 'Lässt die Gegner kriechen'
     worst_crawler: 'Kennt den Tisch von unten wie kein anderer'
+    last_one: 'Die rote Laterne'
     most_wins: "So viele Siege hat keiner"
+    most_teams: 'Ist sich für nichts zu schade. Meisten Teams.'

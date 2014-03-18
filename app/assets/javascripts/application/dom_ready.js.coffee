@@ -94,6 +94,10 @@ $ ->
         plotBorderWidth: 0
         plotShadow: false
         alignTicks: true
+      plotOptions:
+        line:
+          marker:
+            enabled: false
       tooltip:
         shared: true
         crosshairs: [true,false]

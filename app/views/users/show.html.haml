@@ -14,19 +14,20 @@
       -team = @user.teams.for_doubles.ranked.sort_by(&:value).reverse.first
       - if team.present?
         %h4 Bestes Team:
-        .m-user-list
-          .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
-          .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
-        = team.name
+        = link_to [current_league, team] do
+          .m-user-list
+            .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
+            .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
+          = team.name
     .m-profile-teams--worst
       - team = @user.teams.for_doubles.ranked.sort_by(&:value).first
-      %h4 Schlechtestes Team:
       - if team.present?
-        .m-user-list
-          .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
-          .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
-        = team.name
-
+        %h4 Schlechtestes Team:
+        = link_to [current_league, team] do
+          .m-user-list
+            .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
+            .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
+          = team.name
 
 - if @user.number_of_games > 0
   .m-profile-stats

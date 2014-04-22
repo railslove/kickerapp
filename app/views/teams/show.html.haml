@@ -1,0 +1,23 @@
+%h1= @team.name
+.m-user-list= render @team.users
+
+%table.m-table
+  %thead.m-table--head
+    %tr.m-table--row
+      %td Datum
+      %td.number Ergebnis
+      %td.hide-mobile
+      %td Gegner
+      %td.number Punkte
+  %tbody.m-table--body
+    - @matches.each do |match|
+      - opponent = match.opponent_team(@team)
+      %tr.m-table--row
+        %td= l match.date, format: :short
+        %td.number= match.score_for_team(@team)
+        %td.hide-mobile.m-user-list= render opponent.users
+        %td= opponent.name
+        %td.number.m-score= colored_difference(match.signed_difference_for_team(@team))
+
+%p
+  = paginate @matches

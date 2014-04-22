@@ -28,4 +28,8 @@ module ApplicationHelper
     "/auth/twitter"
   end
 
+  def colored_difference(difference)
+    content_tag(:span, difference, class: "m-score__#{difference > 0 ? 'positive' : 'negative'}")
+  end
+
 end

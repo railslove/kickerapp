@@ -1,0 +1,36 @@
+%h1= @team.name
+.m-user-list
+  .m-user.as-selected{title: @team.users.first.name}= user_image(@team.users.first)
+  .m-user.as-selected{title: @team.users.last.name}= user_image(@team.users.last) if @team.double?
+
+%table.m-table
+  %thead.m-table--head
+    %tr.m-table--row
+      %td Datum
+      %td.number Ergebnis
+      %td.hide-mobile
+      %td Gegner
+      %td.number Punkte
+  %tbody.m-table--body
+    - @matches.each do |match|
+      - opponent = match.opponent_team(@team)
+      %tr.m-table--row
+        %td= l match.date, format: :short
+        %td.number
+          - if match.winner_team?(@team)
+            = match.score
+          - else
+            = match.scores.reverse.join(':')
+        %td.hide-mobile.m-user-list
+          .m-user.as-selected{title: opponent.users.first.name}= user_image(opponent.users.first)
+          .m-user.as-selected{title: opponent.users.last.name}= user_image(opponent.users.last) if opponent.double?
+        %td= opponent.name
+
+        %td.number.m-score
+          - if match.winner_team?(@team)
+            %span.m-score__negative= match.difference
+          - else
+            %span.m-score__positive= "-#{match.difference}"
+
+%p
+  = paginate @matches

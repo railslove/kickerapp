@@ -6,7 +6,7 @@ Kickerapp::Application.routes.draw do
       get :shuffle_select, on: :collection
     end
     resources :users
-    resources :teams, only: [:index]
+    resources :teams, only: [:index, :show]
   end
 
   resources :matches, only: [:show]

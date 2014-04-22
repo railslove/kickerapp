@@ -27,6 +27,14 @@ class Match < ActiveRecord::Base
     winner_team.users.map(&:id).include?(user.id)
   end
 
+  def winner_team?(team)
+    winner_team_id == team.id
+  end
+
+  def opponent_team(team)
+    winner_team == team ? looser_team : winner_team
+  end
+
   def calculate_user_quotes
     quote_change = QuoteCalculator.elo_quote(winner_team.elo_quote, looser_team.elo_quote , 1 )
 

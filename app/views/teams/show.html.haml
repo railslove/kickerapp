@@ -1,7 +1,5 @@
 %h1= @team.name
-.m-user-list
-  .m-user.as-selected{title: @team.users.first.name}= user_image(@team.users.first)
-  .m-user.as-selected{title: @team.users.last.name}= user_image(@team.users.last) if @team.double?
+.m-user-list= render @team.users
 
 %table.m-table
   %thead.m-table--head
@@ -16,21 +14,10 @@
       - opponent = match.opponent_team(@team)
       %tr.m-table--row
         %td= l match.date, format: :short
-        %td.number
-          - if match.winner_team?(@team)
-            = match.score
-          - else
-            = match.scores.reverse.join(':')
-        %td.hide-mobile.m-user-list
-          .m-user.as-selected{title: opponent.users.first.name}= user_image(opponent.users.first)
-          .m-user.as-selected{title: opponent.users.last.name}= user_image(opponent.users.last) if opponent.double?
+        %td.number= match.score_for_team(@team)
+        %td.hide-mobile.m-user-list= render opponent.users
         %td= opponent.name
-
-        %td.number.m-score
-          - if match.winner_team?(@team)
-            %span.m-score__negative= match.difference
-          - else
-            %span.m-score__positive= "-#{match.difference}"
+        %td.number.m-score= colored_difference(match.signed_difference_for_team(@team))
 
 %p
   = paginate @matches

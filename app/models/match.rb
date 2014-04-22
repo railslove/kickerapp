@@ -111,6 +111,16 @@ class Match < ActiveRecord::Base
     self.looser_team.users
   end
 
+  # Make stuff more attractive for displaying it
+
+  def score_for_team(team)
+    winner_team?(team) ? score : scores.reverse.join(':')
+  end
+
+  def signed_difference_for_team(team)
+    winner_team?(team) ? difference : -1 * difference
+  end
+
   private
 
   def self.max_score(set_params)

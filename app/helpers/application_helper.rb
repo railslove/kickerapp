@@ -29,7 +29,7 @@ module ApplicationHelper
   end
 
   def colored_difference(difference)
-    content_tag(:span, difference, class: "m-score__#{difference > 0 ? 'positive' : 'negative'}")
+    content_tag(:span, difference, class: "m-score as-#{difference > 0 ? 'positive' : 'negative'}")
   end
 
 end

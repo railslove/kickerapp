@@ -1,6 +1,6 @@
 %h2.m-headline Ergebnis des Satzes ändern
 
-= form_tag match_path(@match), method: :patch, class: 'm-form' do |f|
+= form_tag league_match_path(@match.league, @match), method: :patch, class: 'm-form' do |f|
   .m-form--row
     .m-user-list
       - @match.winner_team.users.each do |user|

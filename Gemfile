@@ -5,6 +5,7 @@ ruby '2.1.0'
 gem 'airbrake'
 gem 'coffee-rails'
 gem "compass-rails"
+gem 'rails-i18n'
 gem 'jquery-rails'
 gem 'pg'
 gem 'rails', '>= 4.0.3'

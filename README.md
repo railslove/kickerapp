@@ -1,12 +1,12 @@
-You look great in Suspenders
-============================
+Kicker app
+==========
 
-Use the following guides for getting things done, programming well, and
-programming in style.
+A wonderful application to allow your team / company determine who plays best.
+It features a variation of infamous chess ranking algorythm
+[ELO](http://en.wikipedia.org/wiki/Elo_rating_system). The algoythm is changed,
+as we are allowing team and single player games.
 
-* [Protocol](http://github.com/thoughtbot/guides/blob/master/protocol)
-* [Best Practices](http://github.com/thoughtbot/guides/blob/master/best-practices)
-* [Style](http://github.com/thoughtbot/guides/blob/master/style)
+Find a working installation at: http://kicker.railslove.com/
 
 
 Setup development

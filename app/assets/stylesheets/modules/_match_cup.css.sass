@@ -1,35 +1,54 @@
 .m-match-cup
   border-collapse: collapse
+  .as-right
+    text-align: right
 
-.m-match-cup__match
+.m-match-cup--match
   &.as-crawling
     background-color: $light-green
-    .m-match-cup__numbers
+    .m-match-cup--numbers
       border-top: 4px solid $green
 
-
-.m-match-cup__day
+.m-match-cup--day
   background-color: $lighter-grey
   margin: $margin * 2 0 $margin / 2
   padding: $padding / 2 $padding
   font-size: 1.25rem
 
-.m-match-cup__team
+.m-match-cup--team
   white-space: nowrap
   .m-user
     display: inline-block
 
-.m-match-cup__team_name
+.m-match-cup--team_name
   padding: $padding / 2 $padding
 
-.m-match-cup__numbers
+.m-match-cup--numbers
   text-align: center
   padding: $padding / 2 $padding * 2
 
-.m-match-cup__score
+.m-match-cup--score
   font-size: 2rem
   padding: 0 $padding / 2
 
-.m-match-cup__score__difference
+.as-negative .m-match-cup--score
+  color: $red
+
+.as-positive .m-match-cup--score
+  color: $green
+
+.m-match-cup--score--difference
   font-size: 0.675rem
   margin-top: 0.1rem
+
+.as-negative .m-match-cup--score--difference span
+  background-color: $red
+  color: #fff
+  padding: 2px 5px
+  border-radius: 2px
+
+.as-positive .m-match-cup--score--difference span
+  background-color: $green
+  color: #fff
+  padding: 2px 5px
+  border-radius: 2px

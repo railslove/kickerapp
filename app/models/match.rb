@@ -114,11 +114,18 @@ class Match < ActiveRecord::Base
   # Make stuff more attractive for displaying it
 
   def score_for_team(team)
+    team ||= winner_team
     winner_team?(team) ? score : scores.reverse.join(':')
   end
 
   def signed_difference_for_team(team)
+    team ||= winner_team
     winner_team?(team) ? difference : -1 * difference
+  end
+
+  def teams_with_primary_first(primary)
+    primary ||= winner_team
+    [primary, opponent_team(primary)]
   end
 
   private

@@ -2,6 +2,6 @@
   .team-header--members= render @team.users
   %h1.team-header--name= @team.name
 
-= render partial: 'matches/cup', matches: @matches
+= render 'matches/cup', matches: @matches, primary: @team
 
 %p= paginate @matches

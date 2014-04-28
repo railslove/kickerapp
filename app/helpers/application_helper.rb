@@ -30,7 +30,6 @@ module ApplicationHelper
 
   def positive_negative(difference)
     "as-#{difference > 0 ? 'positive' : 'negative'}"
-    # content_tag(:span, difference, class: "m-score ")
   end
 
   def signed(number)

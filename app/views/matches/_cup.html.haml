@@ -1,0 +1,21 @@
+%table.m-match-cup
+  - @matches.group_by{ |m| m.date.to_date }.each do |date, matches|
+    %thead
+      %tr
+        %td{ colspan: 5 }
+          .m-match-cup__day= l(date, format: :with_weekday)
+    %tbody
+      - matches.each do |match|
+        %tr.m-match-cup__match{ class: [match.crawling? ? 'as-crawling' : ''] }
+          %td.m-match-cup__team
+            = render match.winner_team.users
+          %td.m-match-cup__team_name.hide-mobile= match.winner_team.name
+          %td.m-match-cup__numbers
+            .m-match-cup__score= match.score
+            .m-match-cup__score__difference.m-score__positive
+              +
+              = match.difference
+          %td.m-match-cup__team_name.hide-mobile{ style: 'text-align: right' }
+            = match.looser_team.name
+          %td.m-match-cup__team{ style: 'text-align: right' }
+            = render match.looser_team.users

@@ -7,14 +7,15 @@
     %tbody
       - matches.each do |match|
         - left, right = match.teams_with_primary_first(local_assigns[:primary])
-        %tr.m-match-cup--match{ class: [(match.crawling? ? 'as-crawling' : ''), local_assigns[:primary].present? ? positive_negative(match.signed_difference_for_team(local_assigns[:primary])) : ''].join(' ') }
+        - diff = match.signed_difference_for_team(local_assigns[:primary])
+        %tr.m-match-cup--match{ class: match_css_classes(match, diff) }
           %td.m-match-cup--team
             = render left.users
           %td.m-match-cup--team_name.hide-mobile= left.name
           %td.m-match-cup--numbers
             .m-match-cup--score= match.score_for_team(local_assigns[:primary])
             .m-match-cup--score--difference.m-score--positive
-              %span= signed(match.signed_difference_for_team(local_assigns[:primary]))
+              %span= signed(diff)
           %td.m-match-cup--team_name.hide-mobile.as-right
             = right.name
           %td.m-match-cup--team.as-right

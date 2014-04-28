@@ -36,4 +36,10 @@ module ApplicationHelper
     sprintf("%+d", number)
   end
 
+  def match_css_classes(match, difference)
+    css = [positive_negative(difference)]
+    css << 'as-crawling' if match.crawling?
+    css.join(' ')
+  end
+
 end

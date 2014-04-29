@@ -6,14 +6,16 @@
 .m-match-cup--match
   &.as-crawling
     background-color: $light-green
-    .m-match-cup--numbers
-      border-top: 4px solid $green
 
-.m-match-cup--day
+.m-match-cup--day--data
   background-color: $lighter-grey
   margin: $margin * 2 0 $margin / 2
   padding: $padding / 2 $padding
   font-size: 1.25rem
+
+.m-match-cup--day:first-child
+  .m-match-cup--day--data
+    margin-top: 0
 
 .m-match-cup--team
   white-space: nowrap

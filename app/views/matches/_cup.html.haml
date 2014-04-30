@@ -1,0 +1,23 @@
+%table.m-match-cup
+  - matches.group_by{ |m| m.date.to_date }.each do |date, matches|
+    %thead.m-match-cup--day
+      %tr
+        %td{ colspan: 5 }
+          .m-match-cup--day--data= l(date, format: :with_weekday)
+    %tbody
+      - matches.each do |match|
+        - left, right = match.teams_with_primary_first(local_assigns[:primary])
+        - diff = match.signed_difference_for_team(local_assigns[:primary])
+        %tr.m-match-cup--match{ class: match_css_classes(match, diff) }
+          %td.m-match-cup--team
+            = render left.users
+          %td.m-match-cup--team_name.hide-mobile{ style: 'width: 30%' }
+            = left.name
+          %td.m-match-cup--numbers
+            .m-match-cup--score= match.score_for_team(local_assigns[:primary])
+            .m-match-cup--score--difference.m-score--positive
+              %span= signed(diff)
+          %td.m-match-cup--team_name.hide-mobile.as-right{ style: 'width: 30%' }
+            = right.name
+          %td.m-match-cup--team.as-right
+            = render right.users

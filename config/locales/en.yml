@@ -11,8 +11,8 @@ en:
       short: '%B %d'
   badges:
     longest_winning_streak: '%{wins} wins in a row'
-    top_crawler: 'Lässt die Gegner kriechen'
-    worst_crawler: 'Kennt den Tisch von unten wie kein anderer'
-    last_one: 'Die rote Laterne'
-    most_wins: "So viele Siege hat keiner"
-    most_teams: 'Ist sich für nichts zu schade. Meisten Teams.'
+    top_crawler: 'Gets opponents under the table'
+    worst_crawler: 'Second home under the table'
+    last_one: 'Last one'
+    most_wins: "No one wins more often"
+    most_teams: 'Plays with every one. Most partners.'

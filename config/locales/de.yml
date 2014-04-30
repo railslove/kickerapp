@@ -1,0 +1,17 @@
+de:
+  date:
+    formats:
+      with_weekday: '%a %d.%m.%y'
+
+  time:
+    formats:
+      date: '%b %-d, %Y'
+      short: '%B %d'
+
+  badges:
+    longest_winning_streak: '%{wins} Siege in Folge'
+    top_crawler: 'Lässt die Gegner kriechen'
+    worst_crawler: 'Kennt den Tisch von unten wie kein anderer'
+    last_one: 'Die rote Laterne'
+    most_wins: "So viele Siege hat keiner"
+    most_teams: 'Ist sich für nichts zu schade. Meisten Teams.'

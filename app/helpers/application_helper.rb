@@ -28,8 +28,18 @@ module ApplicationHelper
     "/auth/twitter"
   end
 
-  def colored_difference(difference)
-    content_tag(:span, difference, class: "m-score as-#{difference > 0 ? 'positive' : 'negative'}")
+  def positive_negative(difference)
+    "as-#{difference > 0 ? 'positive' : 'negative'}"
+  end
+
+  def signed(number)
+    sprintf("%+d", number)
+  end
+
+  def match_css_classes(match, difference)
+    css = [positive_negative(difference)]
+    css << 'as-crawling' if match.crawling?
+    css.join(' ')
   end
 
 end

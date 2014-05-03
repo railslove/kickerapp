@@ -17,6 +17,7 @@ gem 'uglifier'
 gem 'kaminari'
 gem 'rails_12factor'
 gem 'breakpoint'
+gem 'foundation-rails'
 
 gem 'gravatar_image_tag'
 

@@ -31,8 +31,11 @@
 
 - if @user.number_of_games > 0
   .m-profile-stats
+
+    %h4= t('.history')
+    #history{ data: { rankings: @history_entries.map(&:ranks).to_json, quotes: @history_entries.map(&:quotes).to_json, lowest_rank: @lowest_rank } }
+
     %h4 Aktuelle Statistiken
-    #history{ data: { rankings: @history_entries.map(&:ranks).to_json, quotes: @history_entries.map(&:quotes).to_json } }
     #stats{ data: { games: [ ["Siege", @user.number_of_wins], ["Niederlagen", @user.number_of_looses]] , crawls: [ ["Krabbeln lassen", @user.number_of_crawls], ["Gekrabbelt", @user.number_of_crawlings]]} }
       #games
       #crawls

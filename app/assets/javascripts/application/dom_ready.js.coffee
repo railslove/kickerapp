@@ -85,10 +85,11 @@ $ ->
   if $("#history").length
     rankings = $("#history").data('rankings')
     quotes   = $("#history").data('quotes')
+    lowestRank = $("#history").data('lowest-rank')
 
     $("#history").highcharts
       title:
-        text: "Spiel Historie"
+        text: null
       chart:
         plotBackgroundColor: null
         plotBorderWidth: 0
@@ -111,10 +112,10 @@ $ ->
         labels:
           enabled: false
       yAxis: [
-        { title: { text: "Ranking" }, format: '{value+1}', reversed: true, allowDecimals: false, tickInterval: 1 }
-        { title: { text: "Quote" }, opposite: true }
+        { title: null, format: '{value+1}', reversed: true, allowDecimals: false, tickInterval: 1, gridLineColor: '#f5f5f5', min: 1, max: lowestRank }
+        { title: null, opposite: true, gridLineColor: '#f5f5f5' }
       ]
       series: [
-        { name: 'Ranking', data: rankings, yAxis: 0 }
-        { name: 'Quote', data: quotes, yAxis: 1 }
+        { name: 'Platzierung', data: rankings, yAxis: 0 }
+        { name: 'Punkte', data: quotes, yAxis: 1 }
       ]

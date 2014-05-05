@@ -1,4 +1,5 @@
 class League < ActiveRecord::Base
+  has_many :history_entries
   has_many :matches
   has_many :teams
   has_many :users

@@ -15,3 +15,7 @@ de:
     last_one: 'Die rote Laterne'
     most_wins: "So viele Siege hat keiner"
     most_teams: 'Ist sich für nichts zu schade. Meisten Teams.'
+
+  users:
+    show:
+      history: "Spielistorie (letzte 100 Spiele)"

@@ -23,6 +23,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @history_entries = @user.history_entries.order('date').last(100)
     @matches = @user.matches.first(5)
+    @lowest_rank = current_league.history_entries.maximum(:rank)
   end
 
   def index

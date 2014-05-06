@@ -27,7 +27,7 @@
       .m-badge--user
         = user.name
 
-  - user = @league.most_wins
+  - user = @league.longest_winning_streak_ever
 
   - if user.present?
     .m-badge
@@ -35,8 +35,8 @@
         = link_to league_user_path(current_league, user) do
           = user_image(user)
       .m-badge--logo
-        %i.icon-award= user.number_of_wins
-      .m-badge--title= t('badges.most_wins')
+        %i.icon-award= user.longest_winning_streak_games
+      .m-badge--title= t('badges.longest_winning_streak_ever', wins: user.winning_streak)
       %hr
       .m-badge--user
         = user.name
@@ -49,7 +49,7 @@
           = user_image(user)
       .m-badge--logo
         %i.icon-rocket= user.winning_streak
-      .m-badge--title= t('badges.longest_winning_streak', wins: user.winning_streak)
+      .m-badge--title= t('badges.longest_winning_streak', wins: user.longest_winning_streak_games)
       %hr
       .m-badge--user
         = user.name

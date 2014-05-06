@@ -15,6 +15,7 @@ de:
     last_one: 'Die rote Laterne'
     most_wins: "So viele Siege hat keiner"
     most_teams: 'Ist sich für nichts zu schade. Meisten Teams.'
+    longest_winning_streak_ever: 'Die längste Siegesserie ever (%{wins})'
 
   users:
     show:

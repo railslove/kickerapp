@@ -57,6 +57,9 @@ class User < ActiveRecord::Base
     if win == 1
       self.number_of_wins += 1
       self.winning_streak += 1
+      if self.winning_streak > self.longest_winning_streak_games
+        self.longest_winning_streak_games = self.winning_streak
+      end
     else
       self.number_of_looses += 1
       self.winning_streak = 0

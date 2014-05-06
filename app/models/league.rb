@@ -25,22 +25,24 @@ class League < ActiveRecord::Base
     worst_crawler.update_attribute(:worst_crawler, true) if worst_crawler && worst_crawler.number_of_crawlings > 0
     longest_winning_streak.update_attribute(:longest_winning_streak, true) if longest_winning_streak && longest_winning_streak.winning_streak > 0
     most_teams.update_attribute(:most_teams, true) if most_teams
+    longest_winning_streak_ever.update_attribute(:longest_winning_streak_ever, true) if longest_winning_streak_ever
+
   end
 
   def top_crawler
-    self.users.order('number_of_crawls desc').order('updated_at desc').first
+    self.users.order('number_of_crawls desc').order('updated_at desc').take
   end
 
   def most_wins
-    self.users.order('number_of_wins desc').order('updated_at desc').first
+    self.users.order('number_of_wins desc').order('updated_at desc').take
   end
 
   def worst_crawler
-    self.users.order('number_of_crawlings desc').order('updated_at desc').first
+    self.users.order('number_of_crawlings desc').order('updated_at desc').take
   end
 
   def longest_winning_streak
-    self.users.order('winning_streak desc').order('updated_at desc').first
+    self.users.order('winning_streak desc').order('updated_at desc').take
   end
 
   def most_teams
@@ -49,6 +51,10 @@ class League < ActiveRecord::Base
 
   def last_one
     active_user_ranking.last
+  end
+
+  def longest_winning_streak_ever
+    self.users.order('longest_winning_streak_games desc').take
   end
 
   def active_user_ranking

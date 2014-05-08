@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       league = League.find_by!(slug: params[:league_id])
       user = User.create(user_params.merge({league_id: current_league.id}))
     end
-    redirect_to new_league_match_url(current_league), :notice => "Neuer Spieler #{user.name} in der Liga #{current_league.name} angelegt!"
+    redirect_to new_league_match_url(current_league), notice: "Neuer Spieler #{user.name} in der Liga #{current_league.name} angelegt!"
   end
 
   def show
@@ -32,13 +32,12 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    redirect_to league_url(current_league) if @user.provider.present?
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      redirect_to new_league_match_url(current_league), :notice => "Spieler #{@user.name} in der Liga #{current_league.name} geändert!"
+      redirect_to new_league_match_url(current_league), notice: "Spieler #{@user.name} in der Liga #{current_league.name} geändert!"
     else
       render :edit, alert: 'User konnte nicht gespeichert werden'
     end

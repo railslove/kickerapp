@@ -6,7 +6,7 @@ namespace :match do
     Team.update_all(number_of_wins: 0, number_of_looses: 0)
     HistoryEntry.delete_all
     League.all.each do |league|
-      Match.unscoped.where(league_id: league.id).reorder("date ASC, id ASC").each do |match|
+      Match.where(league_id: league.id).reorder("date ASC, id ASC").each do |match|
         p match.date, league.name
         match.calculate_user_quotes
         HistoryEntry.track(match)

@@ -18,7 +18,7 @@ class League < ActiveRecord::Base
   end
 
   def update_badges
-    self.users.update_all(most_wins: false, top_crawler: false, worst_crawler: false, longest_winning_streak: false, most_teams: false )
+    self.users.update_all(most_wins: false, top_crawler: false, worst_crawler: false, longest_winning_streak: false, most_teams: false, longest_winning_streak_ever: false )
 
     most_wins.update_attribute(:most_wins, true) if most_wins && most_wins.number_of_wins > 0
     top_crawler.update_attribute(:top_crawler, true) if top_crawler && top_crawler.number_of_crawls > 0

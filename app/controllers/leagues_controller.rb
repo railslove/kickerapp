@@ -1,5 +1,7 @@
 class LeaguesController < ApplicationController
 
+  before_filter :before_filter :require_league, only: [:badges]
+
   def index
     clear_current_league
     @leagues = League.order(:name)

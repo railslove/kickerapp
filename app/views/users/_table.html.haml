@@ -12,20 +12,18 @@
           %i.icon-rocket
           Aktuelle Serie
       %td
-        = link_to badges_league_path(current_league, order: 'number_of_crawlings') do
+        = link_to badges_league_path(current_league, order: 'number_of_crawls') do
           %i.icon-star-empty
           Krabbel lassen
       %td
-        = link_to badges_league_path(current_league, order: 'number_of_crawls') do
+        = link_to badges_league_path(current_league, order: 'number_of_crawlings') do
           %i.icon-medkit
-            Gekrabbelt
+          Gekrabbelt
 
   %tbody.m-table--body
     - @users.each_with_index do |user, i|
       %tr.m-table--row
         %td= i+1
         %td= link_to user.name, [current_league, user]
-        %td= user.longest_winning_streak_games
-        %td= user.winning_streak
-        %td= user.number_of_crawls
-        %td= user.number_of_crawlings
+        - rows = %w(longest_winning_streak_games winning_streak number_of_crawls number_of_crawlings).each do |attr|
+          %td{class: ('as-current' if @order == attr)}= user.send(attr)

@@ -22,8 +22,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @history_entries = @user.history_entries.order('date').last(100)
-    @matches = @user.matches.first(5)
+    @matches = @user.matches.first(20)
     @lowest_rank = current_league.history_entries.maximum(:rank)
+    wins = @matches.select{|m| m.win_for?(@user)}
+    looses = @matches - wins
+    @trend = wins.sum(&:difference) - looses.sum(&:difference)
   end
 
   def index

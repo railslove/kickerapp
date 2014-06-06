@@ -1,6 +1,6 @@
 development: &default
   adapter: postgresql
-  database: kickerapp_development
+  database: kicker_prod
   encoding: utf8
   min_messages: warning
   pool: 5

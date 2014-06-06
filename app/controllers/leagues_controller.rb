@@ -32,6 +32,9 @@ class LeaguesController < ApplicationController
 
   def badges
     @league = League.find_by!(slug: params[:id])
+    order = params[:order] || 'longest_winning_streak_games'
+    @users = @league.users.order("#{order} desc").select{|user| user.active? }
+
   end
 
   private

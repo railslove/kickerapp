@@ -9,9 +9,6 @@
       .m-badge--logo
         %i.icon-star-empty= user.number_of_crawls
       .m-badge--title= t('badges.top_crawler')
-      %hr
-      .m-badge--user
-        = user.name
 
   - user = @league.worst_crawler
 
@@ -23,9 +20,6 @@
       .m-badge--logo
         %i.icon-medkit= user.number_of_crawlings
       .m-badge--title= t('badges.worst_crawler')
-      %hr
-      .m-badge--user
-        = user.name
 
   - user = @league.longest_winning_streak_ever
 
@@ -37,9 +31,7 @@
       .m-badge--logo
         %i.icon-award= user.longest_winning_streak_games
       .m-badge--title= t('badges.longest_winning_streak_ever', wins: user.winning_streak)
-      %hr
-      .m-badge--user
-        = user.name
+
 
   - user = @league.longest_winning_streak
   - if user.present?
@@ -50,9 +42,7 @@
       .m-badge--logo
         %i.icon-rocket= user.winning_streak
       .m-badge--title= t('badges.longest_winning_streak', wins: user.longest_winning_streak_games)
-      %hr
-      .m-badge--user
-        = user.name
+
 
   - user = @league.most_teams
   - if user.present?
@@ -63,9 +53,7 @@
       .m-badge--logo
         %i.icon-users= user.teams.count
       .m-badge--title= t('badges.most_teams')
-      %hr
-      .m-badge--user
-        = user.name
+
 
   - user = @league.active_user_ranking.last
   - if user.present?
@@ -76,6 +64,5 @@
       .m-badge--logo
         %i.icon-lightbulb
       .m-badge--title= t('badges.last_one')
-      %hr
-      .m-badge--user
-        = user.name
+
+= render 'users/table'

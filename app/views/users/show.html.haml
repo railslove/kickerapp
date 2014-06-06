@@ -11,8 +11,11 @@
       .m-profile-basics--value= "Aktuelle Siegesserie: #{@user.winning_streak} Spiele"
       .m-profile-basics--value= "Längste Siegesserie: #{@user.longest_winning_streak_games} Spiele"
       .m-profile-basics--value
-        %span{class: @trend > 0 ? 'as-positive' : 'as-negative'}= "Aktueller Trend: #{@trend}"
-        (Letzten 20 Spiele)
+        - if @trend > 0
+          %span.as-positive= "Trend: +#{@trend} Punkte"
+        - else
+          %span.as-negative= "Trend: #{@trend} Punkte"
+        (20 Spiele)
   - if @user.teams.any?
     .m-profile-teams--best
       -team = @user.teams.for_doubles.ranked.sort_by(&:value).reverse.first

@@ -8,7 +8,8 @@
     .m-profile-basics--values
       .m-profile-basics--value= "Name: #{@user.name}"
       .m-profile-basics--value= "Elo Wert: #{@user.quote}"
-      .m-profile-basics--value= "Siegesserie: #{@user.winning_streak} Spiele"
+      .m-profile-basics--value= "Aktuelle Siegesserie: #{@user.winning_streak} Spiele"
+      .m-profile-basics--value= "Längste Siegesserie: #{@user.longest_winning_streak_games} Spiele"
   - if @user.teams.any?
     .m-profile-teams--best
       -team = @user.teams.for_doubles.ranked.sort_by(&:value).reverse.first

@@ -7,9 +7,11 @@
     %meta{name: 'apple-mobile-web-app-title', content: 'Kicker App'}
     %title= @page_title || "Kicker App"
     = stylesheet_link_tag :application, :media => 'all'
+    = javascript_include_tag 'vendor/modernizr'
     = csrf_meta_tags
     %link{rel: 'apple-touch-icon-precomposed', href: '/apple-touch-icon-precomposed.png'}
     %link{rel: 'shortcut icon', href: '/favicon.png', type: 'image/png'}
+
 
   %body{class: controller_name, id: "#{controller_name}_#{action_name}"}
     = render 'layouts/header'

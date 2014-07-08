@@ -1,19 +1,23 @@
-.l-header-wrapper
-  .l-header
-    .m-logo
-      - if league?
-        = link_to current_league.name, league_path(current_league)
-      - else
-        = link_to "Kicker App", root_path
-    .m-navigation-trigger
-    .m-navigation
-      - if league?
-        .m-navigation--item.as-mobile-only= link_to "Alle Spiele", league_path(current_league)
-        .m-navigation--item= link_to "Neues Match", new_league_match_path(current_league)
-        .m-navigation--item.as-mobile-only= link_to "Ranking", league_users_path(current_league)
-        .m-navigation--item= link_to "Team Ranking", league_teams_path(current_league)
-        .m-navigation--item= link_to "Badges", badges_league_path(current_league)
-        .m-navigation--item= link_to "Zufall Teams",shuffle_select_league_matches_path(current_league)
-        .m-navigation--item= link_to "Neuen Spieler hinzufügen", new_league_user_path(current_league)
-      - else
-        .m-navigation--item= link_to "Neue Liga", new_league_path
+.contain-to-grid.sticky
+  %nav.top-bar{ data: { topbar: true } }
+    %ul.title-area
+      %li.name
+        %h1
+          - if league?
+            = link_to current_league.name, league_path(current_league)
+          - else
+            = link_to "Kicker App", root_path
+        %li.toggle-topbar.menu-icon
+          = link_to '#' do
+            %span Menu
+
+    %section.top-bar-section
+      %ul.right
+        - if league?
+          %li= link_to "Neues Match", new_league_match_path(current_league)
+          %li= link_to "Team Ranking", league_teams_path(current_league)
+          %li= link_to "Badges", badges_league_path(current_league)
+          %li= link_to "Zufall Teams",shuffle_select_league_matches_path(current_league)
+          %li= link_to "Neuen Spieler hinzufügen", new_league_user_path(current_league)
+        - else
+          %li= link_to "Neue Liga", new_league_path

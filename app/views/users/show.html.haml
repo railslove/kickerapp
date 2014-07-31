@@ -18,7 +18,10 @@
         (20 Spiele)
       .m-profile-basics--value
         - biggest_quote = @user.history_entries.order('quote desc').take.quote
+        - lowest_quote = @user.history_entries.order('quote asc').take.quote
         = "Höchststand: #{biggest_quote} Punkte (#{@user.quote - biggest_quote})"
+      .m-profile-basics--value
+        = "Tiefstand: #{lowest_quote} Punkte (+#{@user.quote - lowest_quote})"
   - if @user.teams.any?
     .m-profile-teams--best
       -team = @user.teams.for_doubles.ranked.sort_by(&:value).reverse.first

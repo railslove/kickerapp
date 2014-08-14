@@ -2,8 +2,8 @@ Kicker app
 ==========
 
 A wonderful application to allow your team / company determine who plays best.
-It features a variation of infamous chess ranking algorythm
-[ELO](http://en.wikipedia.org/wiki/Elo_rating_system). The algoythm is changed,
+It features a variation of infamous chess ranking algorithm
+[ELO](http://en.wikipedia.org/wiki/Elo_rating_system). The algorithm is changed,
 as we are allowing team and single player games.
 
 Find a working installation at: http://kicker.railslove.com/

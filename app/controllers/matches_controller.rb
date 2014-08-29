@@ -4,7 +4,6 @@ class MatchesController < ApplicationController
   before_filter :require_league
   has_mobile_fu
   has_mobile_fu_for :new, :create
-  before_filter :force_mobile_format
 
   def index
     @matches = Match.limit(30)

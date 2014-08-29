@@ -15,8 +15,8 @@ gem 'newrelic_rpm'
 gem 'haml-rails'
 gem 'uglifier'
 gem 'kaminari'
-gem 'rails_12factor'
 gem 'breakpoint'
+gem 'mobile-fu'
 
 gem 'gravatar_image_tag'
 
@@ -47,7 +47,6 @@ group :test do
   gem 'timecop'
 end
 
-group :deploy do
-  gem "capistrano"
-  gem "capistrano-ext"
+group :production do
+  gem 'rails_12factor'
 end

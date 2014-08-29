@@ -2,6 +2,9 @@
 
 class MatchesController < ApplicationController
   before_filter :require_league
+  has_mobile_fu
+  has_mobile_fu_for :new, :create
+  before_filter :force_mobile_format
 
   def index
     @matches = Match.limit(30)
@@ -18,7 +21,11 @@ class MatchesController < ApplicationController
 
   def create
     create_matches_from_params(params)
-    redirect_to league_path(current_league), notice: "Spiele wurden eingetragen."
+    if is_mobile_device?
+      redirect_to new_league_match_path(current_league)
+    else
+      redirect_to league_path(current_league), notice: "Spiele wurden eingetragen."
+    end
   end
 
   def edit
@@ -86,5 +93,9 @@ class MatchesController < ApplicationController
       end
     end
     league.update_badges
+  end
+
+  def force_mobile_html
+    session[:mobile_view] = true
   end
 end

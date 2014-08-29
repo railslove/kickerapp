@@ -1,0 +1,39 @@
+.m-scoring
+  +clearfix
+  position: relative
+  height: 200px
+  .m-scoring--team
+    float: left
+    width: 30%
+    height: 100%
+    color: $white
+    position: relative
+    &.as-orange
+      background: $orange
+    &.as-yellow
+      background: $yellow
+    .m-scoring--team--back
+      @extend %m-button
+      width: 100%
+      position: absolute
+      bottom: 0
+      text-align: center
+  .m-scoring--count
+    width: 40%
+    float: left
+    position: relative
+    text-align: center
+    background: $lighter-grey
+    .m-scoring--count--numbers
+      input
+        display: inline
+        font-size: 50px
+        width: 60px
+        padding: $padding
+        text-align: center
+        border: none
+        background: transparent
+    .m-scoring--count--button
+      @extend %m-button
+      width: 100%
+

@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "NOODP", :name => "ROBOTS"}/
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1"}
+    %meta{name: 'apple-mobile-web-app-title', content: 'Kicker App'}
+    %title= @page_title || "Kicker App"
+    = stylesheet_link_tag :application, :media => 'all'
+    = csrf_meta_tags
+    %link{rel: 'apple-touch-icon-precomposed', href: '/apple-touch-icon-precomposed.png'}
+    %link{rel: 'shortcut icon', href: '/favicon.png', type: 'image/png'}
+
+  %body{class: controller_name, id: "#{controller_name}_#{action_name}"}
+    .l-content-wrapper
+      = yield
+      = image_tag('footermann.png')
+
+    = render 'layouts/javascript'

@@ -1,0 +1,37 @@
+.c-landing
+  .c-landing--header
+    = link_to image_tag('landingpage_button.png'), new_league_path, class: 'c-landing--header--button'
+    .c-landing--header--headbox
+      = image_tag('logo.png')
+      Kostenlos eine eigene Liga anlegen, Freunde und Kollegen als Mitspieler hinzufügen und gegeneinander um die besten Plätze kickern.
+      = image_tag('line.png')
+  .c-landing--headline
+    .c-landing--headline-head
+      %i.c-landing--headline--icon.icon-star
+      Badges
+    .c-landing--headline--text= t('landing.texts.badges')
+  .c-landing--badges
+    - User::BADGES.each do |badge|
+      .c-landing--badge{ class: "as-#{badge}" }
+        .m-badge-icon{ class: "as-#{badge}" }
+          %i
+        .c-landing--badge--text
+          = t("badges.descriptions.#{badge}")
+  .c-landing--headline
+    .c-landing--headline-head
+      %i.c-landing--headline--icon.icon-star
+      Features
+    .c-landing--feature
+      .c-landing--feature--image= image_tag('statistiken.png')
+      .c-landing--feature--text Bla
+    .c-landing--feature
+      .c-landing--feature--text Blub
+      .c-landing--feature--image= image_tag('ranking.png')
+    .c-landing--feature
+      .c-landing--feature--image= image_tag('teams.png')
+      .c-landing--feature--text Bla
+  .c-landing--headline
+    .c-landing--headline-head
+      %i.c-landing--headline--icon.icon-star
+      Wertung
+    .c-landing--headline--text= t('landing.texts.evaluation')

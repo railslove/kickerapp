@@ -25,3 +25,42 @@
     +breakpoint($mobile)
       width: 100%
       +box-sizing(border-box)
+
+= badgecolor($color)
+  background: $color
+  i
+    color: tint($color, 80%)
+
+.m-badge-icon
+  width: 100px
+  height: 100px
+  border-radius: 100%
+  background: $black
+  text-align: center
+  padding-top: 12px
+  i
+    font-size: 60px
+    color: $white
+  &.as-crawling
+    +badgecolor($orange)
+    i
+      @extend %icon-star
+  &.as-longest_winning
+    +badgecolor($yellow)
+    i
+      @extend %icon-award
+  &.as-most_teams
+    +badgecolor($light-green)
+    i
+      @extend %icon-users
+  &.as-winning_streak
+    +badgecolor($blue)
+    i
+      @extend %icon-rocket
+  &.as-last_one
+    +badgecolor($red)
+    i
+      @extend %icon-lightbulb
+  &.as-crawler
+    +badgecolor($pink)
+

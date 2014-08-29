@@ -1,4 +1,6 @@
 Kickerapp::Application.routes.draw do
+  root :to => 'pages#landing'
+
   resources :leagues, :path => '' do
     get :badges, on: :member
     resources :matches do
@@ -11,5 +13,5 @@ Kickerapp::Application.routes.draw do
 
   resources :matches, only: [:show]
   get "/auth/:provider/callback" => "users#create"
-  root :to => 'leagues#index'
+
 end

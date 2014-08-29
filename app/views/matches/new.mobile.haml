@@ -1,0 +1,23 @@
+= form_for @match, url: league_matches_path(current_league) do |f|
+  = hidden_field_tag 'set2[]'
+  = hidden_field_tag 'set3[]'
+  = hidden_field_tag 'team1[]', User.first.id
+  = hidden_field_tag 'team2[]', User.last.id
+  .m-scoring
+    .m-scoring--team.as-orange{ data: { behavior: 'counter', target: 'team1-counter' } }
+      Hallo
+      .m-scoring--team--back{ data: { behavior: 'minus-counter', target: 'team1-counter' } }
+        = "- 1"
+    .m-scoring--count
+      .m-scoring--count--numbers
+        %span{ data: { behavior: 'team1-counter'} }
+          = text_field_tag "set1[]", 0
+        = ':'
+        %span{ data: { behavior: 'team2-counter'} }
+          = text_field_tag "set1[]", 1
+      %button.m-scoring--count--button Satz beendet
+      = link_to 'Match-Übersicht', league_path(current_league), class: 'm-scoring--count--button'
+    .m-scoring--team.as-yellow{ data: { behavior: 'counter', target: 'team2-counter' } }
+      Du
+      .m-scoring--team--back{ data: { behavior: 'minus-counter', target: 'team2-counter' } }
+        = "- 1"

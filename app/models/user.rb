@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
 
   scope :ranked, lambda { order("quote DESC") }
 
-
   validates :name, presence: true
+
+  BADGES = %w{ crawling longest_winning most_teams winning_streak last_one crawler }
 
   def number_of_games
     number_of_wins + number_of_looses

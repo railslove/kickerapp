@@ -6,7 +6,7 @@
         .m-ranking--item--place= index + 1
         .m-ranking--item--image= user_image(user)
         .m-ranking--item--score= user.quote
-        .m-ranking--item--balance= user_balance(user)
+        .m-ranking--item--balance= user.name
         .m-ranking--item--badge
           - if user.top_crawler?
             %i.icon-star-empty{title: t('badges.top_crawler')}

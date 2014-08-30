@@ -1,4 +1,8 @@
 $ ->
+  $('select').selectize({
+    addPrecedence: true
+    })
+
   $("[data-value]").click ->
     $user = $(@)
     $team = $(@).parents(".m-user-list")

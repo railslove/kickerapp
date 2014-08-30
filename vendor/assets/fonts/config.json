@@ -43,6 +43,18 @@
       "src": "fontawesome"
     },
     {
+      "uid": "bbd66ef66bb8fa9edde54d9a90b89150",
+      "css": "user",
+      "code": 59403,
+      "src": "entypo"
+    },
+    {
+      "uid": "6274e0601f2feef7eced89146e708de0",
+      "css": "user-add",
+      "code": 59401,
+      "src": "entypo"
+    },
+    {
       "uid": "d090355c31f497b61d676416c1fd39fb",
       "css": "twitter",
       "code": 59393,
@@ -59,6 +71,12 @@
       "css": "lightbulb",
       "code": 59399,
       "src": "typicons"
+    },
+    {
+      "uid": "55e2ff85b1c459c383f46da6e96014b0",
+      "css": "plus",
+      "code": 59402,
+      "src": "elusive"
     }
   ]
 }

@@ -1,0 +1,36 @@
+.m-league-list
+  +clearfix
+  .m-league
+    float: left
+    width: 305px
+    margin: 0 $margin $margin 0
+    &:nth-child(3n)
+      margin-right: 0
+.m-league
+  display: block
+  color: $white
+  text-align: center
+  .m-league--header
+    background: $blue
+    padding: $padding
+    text-transform: uppercase
+    height: 43px
+  .m-league--body
+    background: $light-blue
+    padding: $padding
+    height: 150px
+  .m-league--fact
+    font-size: 36px
+  .m-league--icon
+    font-size: 36px
+    color: $blue
+  &:hover
+    text-decoration: none
+    .m-league--body
+      background: $blue
+    .m-league--icon
+      color: $white
+  &.as-new
+    .m-league--icon
+      margin-top: 40px
+      display: block

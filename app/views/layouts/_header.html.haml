@@ -14,6 +14,8 @@
         .m-navigation--item= link_to "Team Ranking", league_teams_path(current_league)
         .m-navigation--item= link_to "Badges", badges_league_path(current_league)
         .m-navigation--item= link_to "Zufall Teams",shuffle_select_league_matches_path(current_league)
-        .m-navigation--item= link_to "Neuen Spieler hinzufügen", new_league_user_path(current_league)
+        .m-navigation--item
+          = link_to new_league_user_path(current_league) do
+            %i.icon-user-add
       - else
         .m-navigation--item= link_to "Neue Liga", new_league_path

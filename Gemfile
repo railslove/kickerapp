@@ -24,6 +24,8 @@ gem "omniauth"
 gem "omniauth-twitter"
 gem "omniauth-facebook"
 
+gem 'rails_admin'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'

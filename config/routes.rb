@@ -1,7 +1,10 @@
 Kickerapp::Application.routes.draw do
   root :to => 'pages#landing'
 
-  resources :leagues, :path => '' do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  get 'ligen' => "leagues#index", as: 'ligen'
+
+  resources :leagues, except: [:index], :path => '' do
     get :badges, on: :member
     resources :matches do
       post :shuffle, on: :collection
@@ -10,6 +13,7 @@ Kickerapp::Application.routes.draw do
     resources :users
     resources :teams, only: [:index, :show]
   end
+
 
   resources :matches, only: [:show]
   get "/auth/:provider/callback" => "users#create"

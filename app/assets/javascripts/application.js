@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.finger
+//= require selectize.min
 //= require highcharts
 //= require_tree ./application

@@ -27,6 +27,11 @@ class UsersController < ApplicationController
     wins = @matches.select{|m| m.win_for?(@user)}
     looses = @matches - wins
     @trend = wins.sum(&:difference) - looses.sum(&:difference)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @user }
+    end
   end
 
   def index

@@ -28,7 +28,12 @@ class LeaguesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.atom
-      format.json { render json: @matches }
+      format.json {
+        render json: @matches, include: {
+          winner_team: { only: [:player1, :player2], include: {player1: {only: [:name, :image]}, player2: {only: [:name, :image]}} },
+          looser_team: { only: [:player1, :player2], include: {player1: {only: [:name, :image]}, player2: {only: [:name, :image]}} }
+        }
+      }
     end
   end
 

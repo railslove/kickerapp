@@ -34,6 +34,7 @@
     = hidden_field_tag 'set2[]'
     = hidden_field_tag 'set3[]'
     .m-scoring{ data: { behavior: 'mobile-scoring' }, class: ('as-visible' if params[:created]) }
+      .m-scoring--close{ data: { behavior: 'mobile-scoring-close' }} x
       .m-scoring--team.as-top{ data: { behavior: 'counter', target: 'team1-counter' } }
         TOR!!!
         .m-scoring--team--back{ data: { behavior: 'minus-counter', target: 'team1-counter' } }
@@ -45,7 +46,7 @@
           = ':'
           %span{ data: { behavior: 'team2-counter'} }
             = text_field_tag "set1[]", 0
-        %button.m-scoring--count--button.as-secondary.m-button Satz beendet
+        %button.m-scoring--count--button.as-secondary.m-button Satz eintragen!
       .m-scoring--team.as-bottom{ data: { behavior: 'counter', target: 'team2-counter' } }
         TOR!!!
         .m-scoring--team--back{ data: { behavior: 'minus-counter', target: 'team2-counter' } }

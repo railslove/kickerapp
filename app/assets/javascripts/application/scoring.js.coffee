@@ -1,4 +1,7 @@
 $ ->
+  $('[data-behavior=mobile-scoring-close]').on 'tap', ->
+    $('[data-behavior=mobile-scoring]').hide()
+    false
   $('[data-behavior=init-mobile-scoring]').on 'tap', ->
     $('[data-behavior=mobile-scoring]').show()
     false

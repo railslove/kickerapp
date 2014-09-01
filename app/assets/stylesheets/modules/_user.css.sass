@@ -13,11 +13,15 @@
       pointer-events: none
   input
     display: none
-  .selects
-    clear: both
-    +breakpoint($mobile)
-      select
-        width: 100%
+.selects
+  clear: both
+  .m-user-select
+    float: left
+    &:first-child
+      margin-right: $padding
+  +breakpoint($mobile)
+    select
+      width: 100%
 .m-user
   border: 1px solid $grey
   padding: 2px
@@ -39,3 +43,26 @@
     text-shadow: 0 0 3px $black
     background: image-url('default_user.png') no-repeat center center
     background-size: 48px 48px
+
+.m-user-select
+  width: 150px
+  height: 150px
+  border: 1px solid $white
+  background: $blue
+  background-size: cover
+  position: relative
+  margin-bottom: 50px
+  .selectize-control
+    position: absolute
+    bottom: -40px
+    width: 100%
+  &:before
+    @extend %icon-plus
+    display: block
+    color: $white
+    font-size: 40px
+    margin-left: calc(50% - 20px)
+    margin-top: calc(50% - 20px)
+  &.has-image
+    &:before
+      display: none

@@ -1,3 +1,16 @@
+=colored($color)
+  .m-league--header
+    background: $color
+  .m-league--body
+    background: tint($color, 60%)
+  .m-league--icon
+    font-size: 36px
+    color: $color
+  &:hover
+    .m-league--body
+      background: $color
+      .m-league--icon
+        color: $white
 .m-league-list
   +clearfix
   .m-league
@@ -6,28 +19,37 @@
     margin: 0 $margin $margin 0
     &:nth-child(3n)
       margin-right: 0
+    &:nth-child(6n+2)
+      +colored($yellow)
+    &:nth-child(6n+3)
+      +colored($orange)
+    &:nth-child(6n+4)
+      +colored($red)
+    &:nth-child(6n+5)
+      +colored($pink)
+    &:nth-child(6n+6)
+      +colored($green)
 .m-league
   display: block
   color: $white
   text-align: center
+  +colored($blue)
   .m-league--header
-    background: $blue
     padding: $padding
     text-transform: uppercase
     height: 43px
   .m-league--body
-    background: $light-blue
     padding: $padding
     height: 150px
+    text-shadow: 0 0 3px $dark-grey
   .m-league--fact
     font-size: 36px
   .m-league--icon
     font-size: 36px
-    color: $blue
   &:hover
     text-decoration: none
     .m-league--body
-      background: $blue
+      text-shadow: none
     .m-league--icon
       color: $white
   &.as-new

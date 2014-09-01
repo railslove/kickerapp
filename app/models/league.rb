@@ -61,4 +61,8 @@ class League < ActiveRecord::Base
     users.reload.ranked.select{ |u| u.active? }
   end
 
+  def number_of_games
+    matches.count
+  end
+
 end

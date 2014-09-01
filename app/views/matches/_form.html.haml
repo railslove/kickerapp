@@ -1,29 +1,50 @@
 - images = {}
 - current_league.users.each{ |user| images[user.id] = user.image}
 %div{ data: { images: images.to_json } }
-
 = form_for @match, url: league_matches_path(current_league, @match), class: 'm-form' do |f|
   .m-team-select
     .m-headline Team 1
     - team1 = @teams.present? ? @teams.first : nil
     .selects
       .m-user-select{ data: { behavior: 'user-select-box' } }
-        = select_tag "team1[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, team1.try(:users).try(:first).try(:id)), data: {player: 0, placeholder: 'Spieler', behavior: 'user-select'}, include_blank: true
+        = select_tag "team1[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, team1.try(:users).try(:first).try(:id)), data: {player: 0, placeholder: 'Spieler', behavior: 'user-select', styling: ('custom-select' if !is_mobile_device?)}, include_blank: true
       .m-user-select{ data: { behavior: 'user-select-box' } }
-        = select_tag "team1[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, team1.try(:users).try(:last).try(:id)), data: {player: 1, placeholder: 'Spieler', behavior: 'user-select'}, include_blank: true
+        = select_tag "team1[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, team1.try(:users).try(:last).try(:id)), data: {player: 1, placeholder: 'Spieler', behavior: 'user-select', styling: ('custom-select' if !is_mobile_device?)}, include_blank: true
 
   .input-rows
-    - 3.times do |i|
-      .m-form--row
-        = text_field_tag "set#{i+1}[]", '', class: 'm-input as-short', tabindex: i * 2 + 1
-        = check_box_tag "crawling#{i+1}"
-        = text_field_tag "set#{i+1}[]", '', class: 'm-input as-short', tabindex: i * 2 + 2
-    = f.submit "Eintragen", class: "m-button"
+    - unless is_mobile_device?
+      - 3.times do |i|
+        .m-form--row
+          = text_field_tag "set#{i+1}[]", '', class: 'm-input as-short', tabindex: i * 2 + 1
+          = check_box_tag "crawling#{i+1}"
+          = text_field_tag "set#{i+1}[]", '', class: 'm-input as-short', tabindex: i * 2 + 2
+      = f.submit "Eintragen", class: "m-button"
+  - if is_mobile_device?
+    .m-button.c-mobile-start{ data: { behavior: 'init-mobile-scoring' } } Spiel starten
   .m-team-select
     .m-headline Team 2
     - team2 = @teams.present? ? @teams.last : nil
     .selects
       .m-user-select{ data: { behavior: 'user-select-box' } }
-        = select_tag "team2[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, team2.try(:users).try(:first).try(:id)), data: {player: 0, placeholder: 'Spieler', behavior: 'user-select'}, include_blank: true
+        = select_tag "team2[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, team2.try(:users).try(:first).try(:id)), data: {player: 0, placeholder: 'Spieler', behavior: 'user-select', styling: ('custom-select' if !is_mobile_device?)}, include_blank: true
       .m-user-select{ data: { behavior: 'user-select-box' } }
-        = select_tag "team2[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, team2.try(:users).try(:last).try(:id)), data: {player: 1, placeholder: 'Spieler', behavior: 'user-select'}, include_blank: true
+        = select_tag "team2[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, team2.try(:users).try(:last).try(:id)), data: {player: 1, placeholder: 'Spieler', behavior: 'user-select', styling: ('custom-select' if !is_mobile_device?)}, include_blank: true
+  - if is_mobile_device?
+    = hidden_field_tag 'set2[]'
+    = hidden_field_tag 'set3[]'
+    .m-scoring{ data: { behavior: 'mobile-scoring' } }
+      .m-scoring--team.as-top{ data: { behavior: 'counter', target: 'team1-counter' } }
+        .m-scoring--team--back{ data: { behavior: 'minus-counter', target: 'team1-counter' } }
+          = "- 1"
+      .m-scoring--count
+        .m-scoring--count--numbers
+          %span{ data: { behavior: 'team1-counter'} }
+            = text_field_tag "set1[]", 0
+          = ':'
+          %span{ data: { behavior: 'team2-counter'} }
+            = text_field_tag "set1[]", 0
+        %button.m-scoring--count--button.as-secondary.m-button Satz beendet
+        = link_to 'Match-Übersicht', league_path(current_league), class: 'm-scoring--count--button'
+      .m-scoring--team.as-bottom{ data: { behavior: 'counter', target: 'team2-counter' } }
+        .m-scoring--team--back{ data: { behavior: 'minus-counter', target: 'team2-counter' } }
+          = "- 1"

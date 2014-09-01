@@ -1,6 +1,6 @@
 $ ->
 
-  $('select').selectize({
+  $('[data-styling=custom-select]').selectize({
     addPrecedence: true
     })
 
@@ -12,4 +12,5 @@ $ ->
 
   $('body').on 'click', '[data-behavior=user-select-box]', ->
     selectize = $(@).find('select').data('selectize')
-    selectize.open()
+    if selectize
+      selectize.open()

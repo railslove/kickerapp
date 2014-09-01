@@ -1,4 +1,7 @@
 $ ->
+  $('[data-behavior=init-mobile-scoring]').on 'tap', ->
+    $('[data-behavior=mobile-scoring]').show()
+    false
   $('[data-behavior=counter]').on 'tap', ->
     input = $("[data-behavior=#{$(@).data('target')}] input")
     count = parseInt(input.val())

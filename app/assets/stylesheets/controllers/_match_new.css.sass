@@ -7,12 +7,20 @@
   .input-rows
     float: left
     width: 120px
-    margin-top: $margin
+    margin-top: 33px
+    .m-button
+      margin-top: $margin
     .m-form--row
       margin-bottom: $padding
-  .m-button
-    margin-top: $margin
+    +breakpoint($mobile)
+      display: none
   +breakpoint($mobile)
+    .l-header-wrapper
+      display: none
+    .c-mobile-start
+      margin-top: $margin
+    .m-team-select
+      width: 100%
     .m-user-list
       width: 92px
       .m-user

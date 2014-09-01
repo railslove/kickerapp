@@ -26,14 +26,9 @@ class LeaguesController < ApplicationController
     set_current_league
     @matches = @league.matches.limit(30)
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.atom
-      format.json {
-        render json: @matches, include: {
-          winner_team: { only: [:player1, :player2], include: {player1: {only: [:name, :image]}, player2: {only: [:name, :image]}} },
-          looser_team: { only: [:player1, :player2], include: {player1: {only: [:name, :image]}, player2: {only: [:name, :image]}} }
-        }
-      }
+      format.json
     end
   end
 

@@ -15,12 +15,14 @@ class MatchesController < ApplicationController
 
   def new
     @match = Match.new
+    @team1 = Team.find_or_create(params[:team1]) if params[:team1]
+    @team2 = Team.find_or_create(params[:team2]) if params[:team2]
   end
 
   def create
     create_matches_from_params(params)
     if is_mobile_device?
-      redirect_to new_league_match_path(current_league)
+      redirect_to new_league_match_path(current_league, team1: params["team1"], team2: params["team2"])
     else
       redirect_to league_path(current_league), notice: "Spiele wurden eingetragen."
     end
@@ -58,8 +60,10 @@ class MatchesController < ApplicationController
   def shuffle
     @match = Match.new
     if params[:user_ids].select{|id| id.present?}.size == 4
-      @teams = Team.shuffle(params[:user_ids])
-      flash.now[:notice] = "Es spielen #{@teams.first.name} gegen #{@teams.last.name}"
+      teams = Team.shuffle(params[:user_ids])
+      @team1 = teams.first
+      @team2 = teams.last
+      flash.now[:notice] = "Es spielen #{@team1.name} gegen #{@team2.name}"
       render :new
     else
       redirect_to shuffle_select_league_matches_path(current_league), alert: "Bitte wähle 4 Spieler aus!"

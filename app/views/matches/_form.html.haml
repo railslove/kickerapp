@@ -4,12 +4,11 @@
 = form_for @match, url: league_matches_path(current_league, @match), class: 'm-form' do |f|
   .m-team-select
     .m-headline Team 1
-    - team1 = @teams.present? ? @teams.first : nil
     .selects
-      .m-user-select{ data: { behavior: 'user-select-box' } }
-        = select_tag "team1[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, team1.try(:users).try(:first).try(:id)), data: {player: 0, placeholder: 'Spieler', behavior: 'user-select', styling: ('custom-select' if !is_mobile_device?)}, include_blank: true
-      .m-user-select{ data: { behavior: 'user-select-box' } }
-        = select_tag "team1[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, team1.try(:users).try(:last).try(:id)), data: {player: 1, placeholder: 'Spieler', behavior: 'user-select', styling: ('custom-select' if !is_mobile_device?)}, include_blank: true
+      .m-user-select{ data: { behavior: 'user-select-box' }, class: ('has-image' if @team1), style: ("background-image: url(#{@team1.try(:users).try(:first).try(:image)})") }
+        = select_tag "team1[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, @team1.try(:users).try(:first).try(:id)), data: {player: 0, placeholder: 'Spieler', behavior: 'user-select', styling: ('custom-select' if !is_mobile_device?)}, include_blank: true
+      .m-user-select{ data: { behavior: 'user-select-box' }, class: ('has-image' if @team1), style: ("background-image: url(#{@team1.try(:users).try(:last).try(:image)})") }
+        = select_tag "team1[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, @team1.try(:users).try(:last).try(:id)), data: {player: 1, placeholder: 'Spieler', behavior: 'user-select', styling: ('custom-select' if !is_mobile_device?)}, include_blank: true
 
   .input-rows
     - unless is_mobile_device?
@@ -25,10 +24,10 @@
     .m-headline Team 2
     - team2 = @teams.present? ? @teams.last : nil
     .selects
-      .m-user-select{ data: { behavior: 'user-select-box' } }
-        = select_tag "team2[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, team2.try(:users).try(:first).try(:id)), data: {player: 0, placeholder: 'Spieler', behavior: 'user-select', styling: ('custom-select' if !is_mobile_device?)}, include_blank: true
-      .m-user-select{ data: { behavior: 'user-select-box' } }
-        = select_tag "team2[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, team2.try(:users).try(:last).try(:id)), data: {player: 1, placeholder: 'Spieler', behavior: 'user-select', styling: ('custom-select' if !is_mobile_device?)}, include_blank: true
+      .m-user-select{ data: { behavior: 'user-select-box' }, class: ('has-image' if @team2), style: ("background-image: url(#{@team2.try(:users).try(:first).try(:image)})") }
+        = select_tag "team2[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, @team2.try(:users).try(:first).try(:id)), data: {player: 0, placeholder: 'Spieler', behavior: 'user-select', styling: ('custom-select' if !is_mobile_device?)}, include_blank: true
+      .m-user-select{ data: { behavior: 'user-select-box' }, class: ('has-image' if @team2), style: ("background-image: url(#{@team2.try(:users).try(:last).try(:image)})") }
+        = select_tag "team2[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, @team2.try(:users).try(:last).try(:id)), data: {player: 1, placeholder: 'Spieler', behavior: 'user-select', styling: ('custom-select' if !is_mobile_device?)}, include_blank: true
   - if is_mobile_device?
     = hidden_field_tag 'set2[]'
     = hidden_field_tag 'set3[]'

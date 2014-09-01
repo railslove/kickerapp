@@ -22,7 +22,7 @@ class MatchesController < ApplicationController
   def create
     create_matches_from_params(params)
     if is_mobile_device?
-      redirect_to new_league_match_path(current_league, team1: params["team1"], team2: params["team2"])
+      redirect_to new_league_match_path(current_league, team1: params["team1"], team2: params["team2"], created: true)
     else
       redirect_to league_path(current_league), notice: "Spiele wurden eingetragen."
     end
@@ -63,6 +63,7 @@ class MatchesController < ApplicationController
       teams = Team.shuffle(params[:user_ids])
       @team1 = teams.first
       @team2 = teams.last
+      params[:created] = true
       flash.now[:notice] = "Es spielen #{@team1.name} gegen #{@team2.name}"
       render :new
     else

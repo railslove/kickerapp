@@ -32,7 +32,7 @@
   - if is_mobile_device?
     = hidden_field_tag 'set2[]'
     = hidden_field_tag 'set3[]'
-    .m-scoring{ data: { behavior: 'mobile-scoring' } }
+    .m-scoring{ data: { behavior: 'mobile-scoring' }, class: ('as-visible' if params[:created]) }
       .m-scoring--team.as-top{ data: { behavior: 'counter', target: 'team1-counter' } }
         .m-scoring--team--back{ data: { behavior: 'minus-counter', target: 'team1-counter' } }
           = "- 1"

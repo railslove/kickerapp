@@ -63,7 +63,6 @@ class MatchesController < ApplicationController
       teams = Team.shuffle(params[:user_ids])
       @team1 = teams.first
       @team2 = teams.last
-      params[:created] = true
       flash.now[:notice] = "Es spielen #{@team1.name} gegen #{@team2.name}"
       render :new
     else

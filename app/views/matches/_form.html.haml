@@ -18,9 +18,10 @@
           = check_box_tag "crawling#{i+1}"
           = text_field_tag "set#{i+1}[]", '', class: 'm-input as-short', tabindex: i * 2 + 2
       = f.submit "Eintragen", class: "m-button"
-  - if is_mobile_device?
-    .m-button.as-secondary.c-mobile-start{ data: { behavior: 'init-mobile-scoring' } } Spiel starten
-    = link_to 'Match-Übersicht', league_path(current_league), class: 'm-button'
+  - if true#is_mobile_device?
+    .c-mobile-buttons
+      .m-button.as-secondary.c-mobile-start{ data: { behavior: 'init-mobile-scoring' } } Spiel starten
+      = link_to 'Match-Übersicht', league_path(current_league), class: 'm-button'
   .m-team-select
     .m-headline Team 2
     - team2 = @teams.present? ? @teams.last : nil

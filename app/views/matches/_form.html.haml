@@ -19,7 +19,8 @@
           = text_field_tag "set#{i+1}[]", '', class: 'm-input as-short', tabindex: i * 2 + 2
       = f.submit "Eintragen", class: "m-button"
   - if is_mobile_device?
-    .m-button.c-mobile-start{ data: { behavior: 'init-mobile-scoring' } } Spiel starten
+    .m-button.as-secondary.c-mobile-start{ data: { behavior: 'init-mobile-scoring' } } Spiel starten
+    = link_to 'Match-Übersicht', league_path(current_league), class: 'm-button'
   .m-team-select
     .m-headline Team 2
     - team2 = @teams.present? ? @teams.last : nil
@@ -43,7 +44,6 @@
           %span{ data: { behavior: 'team2-counter'} }
             = text_field_tag "set1[]", 0
         %button.m-scoring--count--button.as-secondary.m-button Satz beendet
-        = link_to 'Match-Übersicht', league_path(current_league), class: 'm-scoring--count--button'
       .m-scoring--team.as-bottom{ data: { behavior: 'counter', target: 'team2-counter' } }
         .m-scoring--team--back{ data: { behavior: 'minus-counter', target: 'team2-counter' } }
           = "- 1"

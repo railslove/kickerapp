@@ -1,7 +1,6 @@
 .m-match-list
   .m-match
     float: left
-    width: 130px
     margin-right: $padding
     margin-bottom: $padding
 .m-match
@@ -9,6 +8,7 @@
   padding: $padding
   position: relative
   background: $white
+  width: 130px
   .m-match--date
     margin-bottom: $padding
   .m-match--team
@@ -43,5 +43,6 @@
     .m-link
       color: $white
   +breakpoint($mobile)
+    width: 122px
     &:nth-child(2n)
       margin-right: 0

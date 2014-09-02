@@ -19,5 +19,5 @@
         = yield
       .l-sidebar
         - if league?
-          = render 'users/list'
+          = render 'users/list', users: current_league.users.ranked.select{|user| user.active? }
     = render 'layouts/javascript'

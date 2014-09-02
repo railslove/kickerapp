@@ -1,5 +1,4 @@
 .m-ranking
-  - users = current_league.users.ranked.select{|user| user.active? }
   - users.each_with_index do |user, index|
     .m-ranking--item{title: user.name}
       = link_to league_user_path(current_league, user) do

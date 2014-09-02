@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   def index
-
+    @users = current_league.users.ranked
   end
 
   def edit

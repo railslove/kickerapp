@@ -1,4 +1,4 @@
-json.array! @league.matches do |match|
+json.array! @matches do |match|
   json.(match, :score, :crawling, :difference)
   json.date I18n.l(match.date, format: :short)
   json.winner_team match.winner do |user|

@@ -17,6 +17,7 @@ gem 'uglifier'
 gem 'kaminari'
 gem 'breakpoint'
 gem 'mobile-fu'
+gem 'jbuilder'
 
 gem 'gravatar_image_tag'
 

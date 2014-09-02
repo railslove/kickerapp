@@ -5,6 +5,7 @@ class LeaguesController < ApplicationController
   def index
     clear_current_league
     @leagues = League.all.sort_by(&:number_of_games).reverse
+
   end
 
   def new
@@ -28,7 +29,7 @@ class LeaguesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.atom
-      format.json { render json: @matches }
+      format.json
     end
   end
 

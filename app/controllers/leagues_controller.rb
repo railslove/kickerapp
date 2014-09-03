@@ -5,7 +5,6 @@ class LeaguesController < ApplicationController
   def index
     clear_current_league
     @leagues = League.all.sort_by(&:number_of_games).reverse
-
   end
 
   def new

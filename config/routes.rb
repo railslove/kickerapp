@@ -4,6 +4,8 @@ Kickerapp::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'ligen' => "leagues#index", as: 'ligen'
 
+  get 'pebble_settings' => 'pages#pebble_settings'
+
   resources :leagues, except: [:index], :path => '' do
     get :badges, on: :member
     resources :matches do

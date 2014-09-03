@@ -1,0 +1,9 @@
+.m-row
+  .m-row--left
+    = form_tag '#', class: 'm-form', id: 'pebble_settings_form' do |f|
+      .m-form--row
+        = label_tag :league, 'Select League', class: 'm-label'
+        = select_tag :league, options_from_collection_for_select(@leagues, 'slug', 'name'), class: 'm-input', required: true
+      .m-form--row
+        = button_tag "Cancel", class: 'm-button', id: 'cancel'
+        = submit_tag "Save", class: 'm-button'

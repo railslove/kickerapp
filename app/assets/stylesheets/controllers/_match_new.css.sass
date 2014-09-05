@@ -1,14 +1,22 @@
 #matches_new, #matches_shuffle
   #new_match
     +pie-clearfix
+  .l-content-wrapper
+    padding: 0
   .c-mobile-buttons
     text-align: center
     .m-button
-      margin-top: $padding
-
+      width: 100%
+    .m-link
+      text-transform: uppercase
+      color: $blue
+      padding: 10px 0
+      display: block
+      background: $white
   .m-team-select
     width: 330px
     float: left
+    position: relative
   .input-rows
     float: left
     width: 120px
@@ -22,10 +30,15 @@
   +breakpoint($mobile)
     .l-header-wrapper
       display: none
-    .c-mobile-start
-      margin-top: $margin
     .m-team-select
       width: 100%
+      float: none
+      +clearfix
+      .m-headline
+        display: none
+    .m-user-select
+      width: 50%
+      margin-right: 0
     .m-user-list
       width: 92px
       .m-user

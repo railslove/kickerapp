@@ -15,6 +15,7 @@
     display: none
 .selects
   clear: both
+  position: relative
   .m-user-select
     float: left
     &:first-child
@@ -52,17 +53,20 @@
   background-size: cover
   position: relative
   margin-top: 40px
+  cursor: pointer
+  &:hover
+    background-color: $orange
   .selectize-control
     position: absolute
     top: -30px
     width: 100%
   &:before
-    @extend %icon-plus
+    @extend %icon-male
     display: block
     color: $white
-    font-size: 40px
-    margin-left: calc(50% - 20px)
-    margin-top: calc(50% - 20px)
+    font-size: 50px
+    margin-left: 70px
+    margin-top: 40px
   &.has-image
     &:before
       display: none
@@ -76,3 +80,22 @@
       position: absolute
       opacity: 0
       top: 0
+.m-user-select--icon
+  position: absolute
+  top: 40px
+  &:before
+    @extend %icon-plus
+    display: block
+    color: $white
+    font-size: 20px
+    margin-left: 50px
+    margin-top: 60px
+  &:last-child
+    left: 50%
+  +breakpoint($mobile)
+    top: 0
+
+.user-selection
+  +breakpoint($mobile)
+    .as-interactive
+      display: none

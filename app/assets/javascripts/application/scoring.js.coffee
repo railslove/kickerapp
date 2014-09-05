@@ -3,7 +3,7 @@ $ ->
     $('[data-behavior=mobile-scoring]').hide()
     false
   $('[data-behavior=init-mobile-scoring]').on 'tap', ->
-    $('[data-behavior=mobile-scoring]').show()
+    $('.as-interactive').show()
     false
   $('[data-behavior=counter]').on 'tap', ->
     input = $("[data-behavior=#{$(@).data('target')}] input")

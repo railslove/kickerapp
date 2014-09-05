@@ -4,6 +4,7 @@ $ ->
     false
   $('[data-behavior=init-mobile-scoring]').on 'tap', ->
     $('.as-interactive').show()
+    $('.m-team-select').addClass('with-overlay')
     false
   $('[data-behavior=counter]').on 'tap', ->
     input = $("[data-behavior=#{$(@).data('target')}] input")

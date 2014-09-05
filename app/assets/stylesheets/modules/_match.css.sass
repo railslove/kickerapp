@@ -3,6 +3,10 @@
     float: left
     margin-right: 50px
     margin-bottom: 20px
+  +breakpoint($mobile)
+    .m-match
+      margin-right: 0
+      margin-bottom: 10px
 .m-match
   position: relative
   +clearfix
@@ -69,6 +73,11 @@
       .m-match--score--difference
         font-size: 20px
   +breakpoint($mobile)
-    width: 122px
-    &:nth-child(2n)
-      margin-right: 0
+    .m-match--team
+      width: 50%
+      .m-match--team--member
+        width: 50%
+      &.as-winner
+        margin-right: 0
+    .m-match--score
+      margin-top: 40px

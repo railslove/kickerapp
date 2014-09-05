@@ -1,5 +1,7 @@
 = form_tag shuffle_league_matches_path(current_league) do
-  %h3 Bitte 4 Spieler wählen
+  .m-headlineBitte Erst 4 Spieler wählen und dann
+  .m-form--row
+    = submit_tag "Teams auslosen", class: 'm-button with-full-width as-secondary'
   %p.hide-mobile
     %small Die Wahrscheinlichkeit für ein Team aus stärkstem und schwächsten Spieler beträgt 50%, stärkster und drittstärkster 33% und stärkster und zweistärkster 17%.
   - users = current_league.users.ranked
@@ -11,5 +13,4 @@
   .hidden_inputs
     - 4.times do |i|
       = text_field_tag "user_ids[]", "", data: {player: "#{i}"}
-  .m-form--row
-    = submit_tag "Teams auslosen", class: 'm-button'
+

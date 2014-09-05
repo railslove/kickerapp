@@ -2,10 +2,8 @@
   +pie-clearfix
   .m-user
     float: left
-    margin-right: 3px
-    margin-bottom: 3px
     cursor: pointer
-    opacity: 0.5
+    opacity: 0.55
     &:hover, &.as-selected
       opacity: 1
     &.as-disabled
@@ -24,10 +22,10 @@
     select
       width: 100%
 .m-user
-  border: 1px solid $grey
-  padding: 2px
-  width: 54px
-  height: 54px
+  width: 80px
+  height: 80px
+  +breakpoint($mobile)
+    width: 25%
 
 .m-user-image
   width: 80px

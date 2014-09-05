@@ -1,9 +1,7 @@
 .m-ranking
   .m-ranking--item
-    border-bottom: 1px solid $grey
-    padding-bottom: $padding
-    margin-bottom: $padding
     +fade_in(".m-ranking--item--place", 0.25s)
+    clear: both
     a
       color: $black
       &:hover
@@ -11,34 +9,44 @@
     .m-ranking--item--image
       float: left
       margin-right: $padding
-      img
-        width: 50px
-        height: 50px
+      img, .m-user-image
+        width: 60px
+        height: 60px
     .m-ranking--item--place
       position: absolute
       font-size: 40px
       text-align: center
-      width: 50px
-      height: 50px
-      background: rgba(255, 255, 255, 0.75)
+      width: 60px
+      height: 60px
+      padding-top: 5px
+      background: $blue
+      color: $white
     .m-ranking--item--score
-      font-size: 20px
+      font-size: 18px
+      color: $blue
+      .m-ranking--item--score--quote
+        float: left
+        margin-right: 2px
     .m-ranking--item--balance
       font-size: 12px
       overflow: hidden
       text-overflow: ellipsis
       white-space: nowrap
+      padding-top: 25px
+      margin-bottom: 1px
     &:last-child
       border-bottom: none
     .m-ranking--item--badge
+      float: left
+      width: 20px
+      height: 20px
+      text-align: center
+      padding: 0
+      margin-right: 2px
       i
-        color: $light-green
-        text-shadow: 0 0 1px $black
-        font-size: 14px
-        margin-left: -5px
-        &.icon-medkit, &.icon-lightbulb
-          color: $red
-
+        position: relative
+        top: -3px
+        font-size: 12px
   +breakpoint($mobile)
     .m-ranking--item .m-ranking--item--place
       opacity: 1

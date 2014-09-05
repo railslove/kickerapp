@@ -1,47 +1,73 @@
 .m-match-list
   .m-match
     float: left
-    margin-right: $padding
-    margin-bottom: $padding
+    margin-right: 50px
+    margin-bottom: 20px
 .m-match
-  border: 1px solid $light-grey
-  padding: $padding
   position: relative
-  background: $white
-  width: 130px
-  .m-match--date
-    margin-bottom: $padding
+  +clearfix
   .m-match--team
+    border-top: 5px solid $red
+    float: left
+    +clearfix
+    .m-match--team--member
+      float: left
     img
-      margin-right: 2px
     &.as-winner
-      margin-bottom: $margin
-    .m-match--team--member:first-child
-      margin-right: $padding
+      border-color: $green
+      margin-right: 10px
   .m-match--score
-    font-size: 30px
+    background: $white
+    width: 50px
+    height: 50px
     text-align: center
-    background-color: rgba(0,0,0,0.8)
-    padding: 2px 5px
-    color: $white
+    border-radius: 100%
+    z-index: 1
+    color: $black
     position: absolute
-    margin-top: -36px
-    margin-left: 15px
+    left: calc(50% - 25px)
+    top: 20px
+    padding-top: 5px
+    transition: 0.1s ease-in-out all
     .m-match--score--difference
       font-size: 16px
+      color: $green
+      transition: 0.1s ease-in-out all
   .m-match--actions
     +pie-clearfix
-    font-size: 14px
-    .m-match--actions--delete, .m-match--actions--edit
-      float: left
-    .m-match--actions--edit
-      margin-right: 5px
+    text-align: center
+    clear: both
+    a
+      color: $black
   +fade_in(".m-match--actions", 0.5s)
+  &.as-single
+    margin-right: 210px
   &.as-crawling
-    background-color: $blue
-    color: $white
-    .m-link
-      color: $white
+    .m-match--team
+      position: relative
+      &:before
+        content: ''
+        background: rgba($red, 0.8) image-url('krabbel-icon-white.png') no-repeat center center
+        background-size: cover
+        border-radius: 100%
+        width: 30px
+        height: 30px
+        display: block
+        position: absolute
+        left: calc(50% - 15px)
+        top: calc(50% - 15px)
+      &.as-winner
+        &:before
+          background-color: rgba($green, 0.8)
+  &:hover
+    .m-match--score
+      width: 70px
+      height: 70px
+      font-size: 26px
+      top: 10px
+      left: calc(50% - 35px)
+      .m-match--score--difference
+        font-size: 20px
   +breakpoint($mobile)
     width: 122px
     &:nth-child(2n)

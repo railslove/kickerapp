@@ -1,16 +1,16 @@
 =colored($color)
+  color: shade($color, 20%)
   .m-league--header
     background: $color
   .m-league--body
-    background: tint($color, 60%)
+    background: tint($color, 50%)
   .m-league--icon
     font-size: 36px
-    color: $color
   &:hover
+    color: $white
     .m-league--body
       background: $color
-      .m-league--icon
-        color: $white
+
 .m-league-list
   +clearfix
   .m-league
@@ -38,20 +38,16 @@
     padding: $padding
     text-transform: uppercase
     height: 43px
+    color: $white
   .m-league--body
     padding: $padding
     height: 150px
-    text-shadow: 0 0 3px $dark-grey
   .m-league--fact
     font-size: 36px
   .m-league--icon
     font-size: 36px
   &:hover
     text-decoration: none
-    .m-league--body
-      text-shadow: none
-    .m-league--icon
-      color: $white
   &.as-new
     .m-league--icon
       margin-top: 40px

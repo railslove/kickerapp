@@ -8,6 +8,7 @@ class LeaguesController < ApplicationController
   end
 
   def new
+    clear_current_league
     @league = League.new
   end
 

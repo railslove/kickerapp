@@ -25,9 +25,10 @@
   .c-landing--feature
     .c-landing--feature--image= image_tag('statistiken.png')
     .c-landing--feature--text= t('features.stats')
-  .c-landing--feature
-    .c-landing--feature--text= t('features.ranking')
+  .c-landing--feature.as-switched
     .c-landing--feature--image= image_tag('ranking.png')
+    .c-landing--feature--text= t('features.ranking')
+
   .c-landing--feature
     .c-landing--feature--image= image_tag('teams.png')
     .c-landing--feature--text= t('features.teams')

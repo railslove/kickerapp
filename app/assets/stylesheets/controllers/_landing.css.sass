@@ -35,6 +35,10 @@
       background: $green
       position: relative
       z-index: 1
+    +breakpoint($mobile)
+      width: 100%
+      img
+        display: none
 .c-landing
   .c-landing--header
     background: $light-blue image-url('landingpage_header.png') no-repeat center center
@@ -61,8 +65,21 @@
       left: 450px
       top: 580px
     +breakpoint($mobile)
-      height: 300px
-      background-size: cover
+      height: 500px
+      background-size: 100%
+      background-position: bottom left
+      margin-bottom: 100px
+      .c-landing--header--league-button
+        left: 0
+        width: 100%
+        top: 510px
+        text-align: center
+      .c-landing--header--button
+        top: 250px
+        left: 0
+        width: 100%
+        img
+          width: 100%
   .c-landing--headline
     text-align: center
     font-weight: bold
@@ -162,8 +179,12 @@
       float: left
       width: 500px
       color: $white
+    &.as-switched
+      .c-landing--feature--image
+        float: right
     +breakpoint($mobile)
       width: 100%
+      font-size: 14px
       .c-landing--feature--image
       .c-landing--feature--text
         width: 100%

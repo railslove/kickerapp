@@ -3,22 +3,22 @@ source 'https://rubygems.org'
 ruby '2.1.1'
 
 gem 'airbrake'
-gem 'coffee-rails'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.0.0'
 gem "compass-rails"
 gem 'rails-i18n'
 gem 'jquery-rails'
 gem 'pg'
-gem 'rails', '>= 4.0.3'
+gem 'rails', '>= 4.1.0'
 gem 'quiet_assets'
-gem 'sass-rails'
+gem 'sass-rails', '~> 4.0.3'
 gem 'newrelic_rpm'
 gem 'haml-rails'
-gem 'uglifier'
 gem 'kaminari'
 gem 'breakpoint'
 gem 'mobile-fu'
 gem 'jbuilder'
-
+gem 'rack-tracker'
 gem 'gravatar_image_tag'
 
 gem "omniauth"

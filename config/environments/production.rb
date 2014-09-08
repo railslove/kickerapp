@@ -78,5 +78,9 @@ Kickerapp::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  config.action_mailer.default_url_options = { host: 'kickerapp.com' }
+  config.action_mailer.default_url_options = { host: 'kicker.cool' }
+
+  config.middleware.use(Rack::Tracker) do
+    handler :google_analytics, { tracker: 'UA-3621621-1' }
+  end
 end

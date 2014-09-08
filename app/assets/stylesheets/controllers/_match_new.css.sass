@@ -22,17 +22,14 @@
     width: 120px
     margin-top: 33px
     position: relative
-    input[type=checkbox]
-      position: relative
-      top: -10px
     .c-crawling
       position: absolute
       left: 43px
-      width: 18px
-      padding: 1px
-      background: $red
-      border-radius: 100%
       margin-top: 25px
+    input[type=checkbox]
+      position: relative
+      top: -10px
+
     .m-button
       margin-top: $margin
     .m-form--row
@@ -63,11 +60,20 @@
     .input-rows
       width: 110px
 
-
-
+.c-crawling
+  width: 18px
+  padding: 1px
+  background: $grey
+  border-radius: 100%
+  &.is-active
+    background: $red
 #matches_edit
   .score
     position: relative
     top: 14px
 .hidden_inputs
   display: none
+#matches_edit
+  .c-crawling
+    position: relative
+    top: 5px

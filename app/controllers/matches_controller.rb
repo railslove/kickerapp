@@ -34,14 +34,15 @@ class MatchesController < ApplicationController
 
   def update
     @match = Match.find(params[:id])
+    @match.revert_points
     if params[:winner_score].to_i < params[:looser_score].to_i
       @match.score = @match.score_for_set(params[:looser_score], params[:winner_score])
-      @match.revert_points
       @match.swap_teams
-      @match.calculate_user_quotes
     else
       @match.score = @match.score_for_set(params[:winner_score], params[:looser_score])
     end
+    @match.crawling = params[:crawling]
+    @match.calculate_user_quotes
     if @match.save
       redirect_to league_path(current_league), notice: "Satz gespeichert."
     else

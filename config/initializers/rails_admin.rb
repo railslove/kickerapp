@@ -9,6 +9,7 @@ RailsAdmin.config do |config|
     field :name
     field :slug
     field :created_at
+    field :users
   end
 
   # config.included_models = %w{

@@ -20,6 +20,7 @@
           = text_field_tag "set#{i+1}[]", '', class: 'm-input as-short', tabindex: i * 2 + 1
           = check_box_tag "crawling#{i+1}"
           = text_field_tag "set#{i+1}[]", '', class: 'm-input as-short', tabindex: i * 2 + 2
+          = image_tag('krabbel-icon-white.png', class: 'c-crawling', title: 'Checkbox auswählen, wenn gekrabbelt wurde')
       = f.submit "Eintragen", class: "m-button"
 
   - if is_mobile_device?

@@ -71,19 +71,19 @@ describe User do
     let!(:match) { FactoryGirl.create(:match, winner_team_id: team.id, looser_team_id: team2.id, date: 1.week.ago) }
     context "is active" do
       specify do
-        expect(user.active?).to be_true
+        expect(user.active?).to eql(true)
       end
     end
 
     context 'not active' do
       it "has no matches" do
         team.update_attribute(:player1_id, nil)
-        expect(user.active?).to be_false
+        expect(user.active?).to eql(false)
       end
 
       it 'has old matches' do
         match.update_attribute(:date, 3.weeks.ago)
-        expect(user.active?).to be_false
+        expect(user.active?).to eql(false)
       end
     end
   end

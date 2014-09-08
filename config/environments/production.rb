@@ -81,6 +81,6 @@ Kickerapp::Application.configure do
   config.action_mailer.default_url_options = { host: 'kicker.cool' }
 
   config.middleware.use(Rack::Tracker) do
-    handler :google_analytics, { tracker: 'UA-3621621-1' }
+    handler :google_analytics, { tracker: 'UA-54572112-1' }
   end
 end

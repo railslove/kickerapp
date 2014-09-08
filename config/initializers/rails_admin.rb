@@ -5,6 +5,12 @@ RailsAdmin.config do |config|
     end
   end
 
+  config.model League do
+    field :name
+    field :slug
+    field :created_at
+  end
+
   # config.included_models = %w{
   #   Match User Team League
   # }

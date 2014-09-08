@@ -14,6 +14,6 @@
   %body{class: controller_name, id: "#{controller_name}_#{action_name}"}
     .l-content-wrapper
       = yield
-      = image_tag('footermann.png')
+    %footer.l-footer= image_tag('footermann.png')
 
     = render 'layouts/javascript'

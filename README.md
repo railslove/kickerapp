@@ -6,8 +6,7 @@ It features a variation of infamous chess ranking algorithm
 [ELO](http://en.wikipedia.org/wiki/Elo_rating_system). The algorithm is changed,
 as we are allowing team and single player games.
 
-Find a working installation at: http://kicker.railslove.com/
-
+Find a working installation at: http://kicker.cool
 
 Setup development
 -----------------

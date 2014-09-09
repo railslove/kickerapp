@@ -18,8 +18,9 @@ gem 'kaminari'
 gem 'breakpoint'
 gem 'mobile-fu'
 gem 'jbuilder'
-gem 'rack-tracker'
+gem 'rack-tracker', git: 'https://github.com/stephanpavlovic/rack-tracker'
 gem 'gravatar_image_tag'
+gem 'redcarpet'
 
 gem "omniauth"
 gem "omniauth-twitter"

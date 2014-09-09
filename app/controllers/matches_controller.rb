@@ -43,6 +43,7 @@ class MatchesController < ApplicationController
     end
     @match.crawling = params[:crawling]
     @match.calculate_user_quotes
+    current_league.update_badges
     if @match.save
       redirect_to league_path(current_league), notice: "Satz gespeichert."
     else

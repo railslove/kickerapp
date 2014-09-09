@@ -30,7 +30,7 @@
           = user_image(user)
       .m-badge--logo
         %i.icon-award= user.longest_winning_streak_games
-      .m-badge--title= t('badges.longest_winning_streak_ever', wins: user.winning_streak)
+      .m-badge--title= t('badges.longest_winning_streak_ever', wins: user.longest_winning_streak_games)
 
 
   - user = @league.longest_winning_streak
@@ -41,7 +41,7 @@
           = user_image(user)
       .m-badge--logo
         %i.icon-rocket= user.winning_streak
-      .m-badge--title= t('badges.longest_winning_streak', wins: user.longest_winning_streak_games)
+      .m-badge--title= t('badges.longest_winning_streak', wins: user.winning_streak)
 
 
   - user = @league.most_teams

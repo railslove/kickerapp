@@ -42,4 +42,9 @@ module ApplicationHelper
     css.join(' ')
   end
 
+  def svg_tag(path)
+    file = File.open("#{Rails.root}/app/assets/images/#{path}", "rb")
+    raw(file.read)
+  end
+
 end

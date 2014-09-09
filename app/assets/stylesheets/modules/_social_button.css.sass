@@ -1,0 +1,70 @@
+=social-hover($color)
+  &:hover
+    background: $color
+    .a-social-button--text
+      color: $white
+    .svg-path
+      fill: $white
+  +breakpoint($mobile)
+    background: $color
+    color: $white
+    .svg-path
+      fill: $white
+  +breakpoint($mobile)
+    background: $color
+    .svg-path
+      fill: $white
+
+.a-social-buttons
+  margin-left: 0
+  margin-right: 0
+  +breakpoint($mobile)
+    width: 100%
+  +breakpoint($mobile)
+    width: 100%
+
+.a-social-button.a-social-button
+  padding: 0
+
+.a-social-button
+  border-top: 1px solid $grey
+  border-right: 1px solid $grey
+  text-align: center
+  transition: .2s ease-in-out background
+  position: relative
+  .a-social-button--link
+    position: relative
+    left: 0
+    top: 0
+    width: 100%
+    display: block
+    padding: $margin 0
+  .a-social-button--icon
+    display: inline
+    content: ''
+    width: 40px
+    height: 40px
+    margin-right: $padding
+    .svg-path
+      fill: $black
+  .a-social-button--text
+    display: inline
+    position: relative
+    top: -15px
+    text-decoration: underline
+    color: $black
+  &.as-facebook
+    +social-hover($facebook-blue)
+  &.as-twitter
+    +social-hover($twitter-blue)
+  &.as-google
+    +social-hover($google-red)
+  &.as-linkedin
+    +social-hover($linkedin-blue)
+  +breakpoint($mobile)
+    border: 2px solid $white
+    border-right: none
+    .a-social-button--icon
+      margin-right: 0
+    .a-social-button--text
+      display: none

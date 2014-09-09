@@ -2,7 +2,7 @@
   %ul.m-match-list
     = render "matches/list", matches: @matches
 - else
-  .m-big-notice
+  .m-big-notice.c-matches--match-notice
     .m-big-notice--text= t('matches.non_yet')
     .m-big-notice--button= link_to t('matches.new'), new_league_match_path(current_league), class: 'm-button'
   - if current_league.users.any?

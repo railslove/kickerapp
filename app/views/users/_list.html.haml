@@ -1,28 +1,39 @@
 Ranking
-.m-ranking
-  - users.each_with_index do |user, index|
-    .m-ranking--item{title: user.name}
-      = link_to league_user_path(current_league, user) do
-        .m-ranking--item--place= index + 1
-        .m-ranking--item--image= user_image(user)
-        .m-ranking--item--balance= user.name
-        .m-ranking--item--score
-          .m-ranking--item--score--quote= user.quote
-          - if user.top_crawler?
-            .m-badge-icon.as-crawling.m-ranking--item--badge
-              %i{title: t('badges.top_crawler')}
-          - if user.worst_crawler?
-            .m-badge-icon.as-crawler.m-ranking--item--badge
-              %i{title: t('badges.worst_crawler')}
-          - if user.longest_winning_streak_ever?
-            .m-badge-icon.as-winning_streak.m-ranking--item--badge
-              %i{title: t('badges.longest_winning_streak_ever', wins: user.longest_winning_streak_games)}
-          - if user.longest_winning_streak?
-            .m-badge-icon.as-longest_winning.m-ranking--item--badge
-              %i{title: t('badges.longest_winning_streak', wins: user.winning_streak)}
-          - if user.most_teams?
-            .m-badge-icon.as-most_teams.m-ranking--item--badge
-              %i{title: t('badges.most_teams')}
-          - if index + 1 == users.count
-            .m-badge-icon.as-last_one.m-ranking--item--badge
-              %i{title: t('badges.last_one')}
+- if users.any?
+  .m-ranking
+    - users.each_with_index do |user, index|
+      .m-ranking--item{title: user.name}
+        = link_to league_user_path(current_league, user) do
+          .m-ranking--item--place= index + 1
+          .m-ranking--item--image= user_image(user)
+          .m-ranking--item--balance= user.name
+          .m-ranking--item--score
+            .m-ranking--item--score--quote= user.quote
+            - if user.top_crawler?
+              .m-badge-icon.as-crawling.m-ranking--item--badge
+                %i{title: t('badges.top_crawler')}
+            - if user.worst_crawler?
+              .m-badge-icon.as-crawler.m-ranking--item--badge
+                %i{title: t('badges.worst_crawler')}
+            - if user.longest_winning_streak_ever?
+              .m-badge-icon.as-winning_streak.m-ranking--item--badge
+                %i{title: t('badges.longest_winning_streak_ever', wins: user.longest_winning_streak_games)}
+            - if user.longest_winning_streak?
+              .m-badge-icon.as-longest_winning.m-ranking--item--badge
+                %i{title: t('badges.longest_winning_streak', wins: user.winning_streak)}
+            - if user.most_teams?
+              .m-badge-icon.as-most_teams.m-ranking--item--badge
+                %i{title: t('badges.most_teams')}
+            - if index + 1 == users.count
+              .m-badge-icon.as-last_one.m-ranking--item--badge
+                %i{title: t('badges.last_one')}
+- else
+  .m-big-notice.as-secondary.c-matches--ranking-notice
+    - if current_league.users.any?
+      .m-big-notice--text
+        = t('ranking.inactive')
+      .m-big-notice--button= link_to t('matches.new'), new_league_match_path(current_league), class: 'm-button'
+    - else
+      .m-big-notice--text
+        = t('ranking.non_yet')
+      .m-big-notice--button= link_to t('users.new'), new_league_user_path(current_league), class: 'm-button'

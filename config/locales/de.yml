@@ -1,4 +1,6 @@
 de:
+  common:
+    imprint: Impressum
   date:
     formats:
       with_weekday: '%a %d.%m.%y'

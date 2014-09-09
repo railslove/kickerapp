@@ -8,12 +8,8 @@
     %title= @page_title || "Kicker App"
     = stylesheet_link_tag :application, :media => 'all'
     = csrf_meta_tags
-    %link{rel: 'apple-touch-icon-precomposed', href: '/apple-touch-icon-precomposed.png'}
-    %link{rel: 'shortcut icon', href: '/favicon.png', type: 'image/png'}
+    = render 'layouts/favicons'
 
   %body{class: controller_name, id: "#{controller_name}_#{action_name}"}
-    .l-content-wrapper
-      = yield
-    %footer.l-footer= image_tag('footermann.png')
-
+    = yield
     = render 'layouts/javascript'

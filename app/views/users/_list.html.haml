@@ -20,7 +20,7 @@ Ranking
                 %i{title: t('badges.longest_winning_streak_ever', wins: user.longest_winning_streak_games)}
             - if user.longest_winning_streak?
               .m-badge-icon.as-longest_winning.m-ranking--item--badge
-                %i{title: t('badges.longest_winning_streak', wins: user.winning_streak)}
+                %i{title: t('badges.longest_winning_streak', wins: user.longest_winning_streak_games)}
             - if user.most_teams?
               .m-badge-icon.as-most_teams.m-ranking--item--badge
                 %i{title: t('badges.most_teams')}

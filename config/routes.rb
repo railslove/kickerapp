@@ -6,6 +6,11 @@ Kickerapp::Application.routes.draw do
 
   get 'pebble_settings' => 'pages#pebble_settings'
 
+  resources :matches, only: [:show]
+  get "/auth/:provider/callback" => "users#create"
+
+  get 'imprint' => 'pages#imprint', as: 'imprint'
+
   resources :leagues, except: [:index], :path => '' do
     get :badges, on: :member
     resources :matches do
@@ -15,9 +20,5 @@ Kickerapp::Application.routes.draw do
     resources :users
     resources :teams, only: [:index, :show]
   end
-
-
-  resources :matches, only: [:show]
-  get "/auth/:provider/callback" => "users#create"
 
 end

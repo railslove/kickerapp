@@ -82,5 +82,6 @@ Kickerapp::Application.configure do
 
   config.middleware.use(Rack::Tracker) do
     handler :google_analytics, { tracker: 'UA-54572112-1' }
+    handler :vwo, { account_id: '64823' }
   end
 end

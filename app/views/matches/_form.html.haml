@@ -7,10 +7,12 @@
     .selects
       .m-user-select{ data: { behavior: 'user-select-box' }, class: ('has-image' if @team1), style: ("background-image: url(#{@team1.try(:users).try(:first).try(:image)})") }
         = select_tag "team1[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, @team1.try(:users).try(:first).try(:id)), data: {player: 0, placeholder: 'Spieler', behavior: 'user-select', styling: ('custom-select' if !is_mobile_device?)}, include_blank: true
-      .m-user-select--icon
+      - unless @team1.present?
+        .m-user-select--icon
       .m-user-select{ data: { behavior: 'user-select-box' }, class: ('has-image' if @team1), style: ("background-image: url(#{@team1.try(:users).try(:last).try(:image)})") }
         = select_tag "team1[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, @team1.try(:users).try(:last).try(:id)), data: {player: 1, placeholder: 'Spieler', behavior: 'user-select', styling: ('custom-select' if !is_mobile_device?)}, include_blank: true
-      .m-user-select--icon
+      - unless @team1.present?
+        .m-user-select--icon
     .m-scoring--team.as-top.as-interactive{ data: { behavior: 'counter', target: 'team1-counter' } }
       %i.icon-plus
   .input-rows
@@ -42,24 +44,15 @@
     .selects
       .m-user-select{ data: { behavior: 'user-select-box' }, class: ('has-image' if @team2), style: ("background-image: url(#{@team2.try(:users).try(:first).try(:image)})") }
         = select_tag "team2[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, @team2.try(:users).try(:first).try(:id)), data: {player: 0, placeholder: 'Spieler', behavior: 'user-select', styling: ('custom-select' if !is_mobile_device?)}, include_blank: true
-      .m-user-select--icon
+      - unless @team1.present?
+        .m-user-select--icon
       .m-user-select{ data: { behavior: 'user-select-box' }, class: ('has-image' if @team2), style: ("background-image: url(#{@team2.try(:users).try(:last).try(:image)})") }
         = select_tag "team2[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, @team2.try(:users).try(:last).try(:id)), data: {player: 1, placeholder: 'Spieler', behavior: 'user-select', styling: ('custom-select' if !is_mobile_device?)}, include_blank: true
-      .m-user-select--icon
+      - unless @team1.present?
+        .m-user-select--icon
   - if is_mobile_device?
     .c-mobile-buttons
       %button.as-secondary.m-button.as-interactive Satz eintragen!
       = link_to 'Zur Match Übersicht', league_path(current_league), class: 'm-link'
     = hidden_field_tag 'set2[]'
     = hidden_field_tag 'set3[]'
-    .m-scoring{ data: { behavior: 'mobile-scoring' }, class: ('as-visible' if params[:created]) }
-      .m-scoring--close{ data: { behavior: 'mobile-scoring-close' }} x
-      .m-scoring--team.as-top{ data: { behavior: 'counter', target: 'team1-counter' } }
-        TOR!!!
-        .m-scoring--team--back{ data: { behavior: 'minus-counter', target: 'team1-counter' } }
-          = "- 1"
-      .m-scoring--team.as-bottom{ data: { behavior: 'counter', target: 'team2-counter' } }
-        TOR!!!
-        .m-scoring--team--back{ data: { behavior: 'minus-counter', target: 'team2-counter' } }
-          = "- 1"
-

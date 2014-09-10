@@ -14,7 +14,10 @@ Setup development
 In order to get a local copy of production data, create a heroku db backup and
 import it into your local database:
 
-    # Create a new backuo
+    # Optionally log in
+    heroku login
+
+    # Create a new backup
     heroku pgbackups:capture --app crawlingcounter
 
     # Download the latest backup

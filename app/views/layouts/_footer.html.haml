@@ -1,0 +1,12 @@
+%footer.l-footer
+  .l-footer--wrapper
+    .karl-kicker{ data: { behavior: 'trigger-chat'} }
+      .karl-kicker--text= t('footer.karl_kicker_text')
+      = svg_tag('karl_kicker.svg')
+    .c-footer-content
+      %div= t('footer.created_by')
+      .c-footer--railslove= link_to image_tag('railslove_logo.svg'), 'http://www.railslove.com'
+      .c-footer-links
+        .c-footer-link= link_to t('common.imprint'), imprint_path, class: 'm-link'
+        .c-footer-link= link_to t('common.faq'), imprint_path, class: 'm-link'
+        .c-footer-link= link_to t('common.imprint'), imprint_path, class: 'm-link'

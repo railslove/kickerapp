@@ -1,0 +1,48 @@
+.l-footer
+  background: image-url('stange.svg') repeat-x left 128px
+  background-size: 1px 47px
+  position: relative
+  .l-footer--wrapper
+    width: 1152px
+    margin: 0 auto
+    position: relative
+    .karl-kicker
+      width: 360px
+      left: 800px
+      position: relative
+      cursor: pointer
+      .karl-kicker--text
+        position: absolute
+        font-size: $small-font-size
+        top: 110px
+        left: 20px
+        width: 170px
+      svg
+        height: 360px
+    .c-footer-content
+      text-align: center
+      color: $white
+      position: absolute
+      bottom: 0
+      z-index: 2
+      font-size: $small-font-size
+      width: 100%
+      text-transform: uppercase
+      .c-footer--railslove
+        margin-top: $margin
+        img
+          height: 30px
+      .c-footer-links
+        margin: $margin 0
+        .c-footer-link
+          display: inline-block
+          margin-right: $padding
+          a
+            font-size: $small-font-size
+            color: $white
+
+  +breakpoint($mobile)
+    width: 100%
+    img
+      display: none
+

@@ -31,6 +31,9 @@ de:
     ranking: Im Team Ranking kannst du dir ansehen mit welchem Teampartner du am besten spielst, wie eure vergangenen Spiele ausgegangen sind, welche Quota ihr gemeinsam erspielt habt und wie viele Spiele ihr schon zusammen bestritten habt
     stats: In der Spielerstatistik kannst du dir alle möglichen interessanten Infos über dich oder andere Spieler anschauen. Die Spielhistorie zeichnet den genauen Punkte- und Ranglistenstand der letzten 100 Spiele auf. Außerdem kannst du sehen wie viele Spiele gewonnen und verloren wurden und wie oft du andere krabbeln gelassen hast & selbst krabbeln musstest. Den Elo-Höchst- und Tiefstwert und deine längste Siegesserie findest du auch unter den Statistiken. 
     teams: "Wenn du mal keine Lust hast mit deinem üblichen Partner zu spielen, dann kann der Zufallsteamgenerator Abhilfe schaffen: einfach vier Spieler auswählen und zufällige Teams werden ausgelost."
+  footer:
+    created_by: Created with love by
+    karl_kicker_text: 'Gestatten, Karl Kicker! Kann ich irgendwie helfen?'
   landing:
     texts:
       badges: 'Jeder Spieler kann für "besondere" Leistungen einen Badge erobern, mache sind ganz leicht zu bekommen, andere schwieriger. Aber auf jeden Fall ist es immer ein großer Spaß von gegnerischen Spielern einen Badge zu erbeuten!'

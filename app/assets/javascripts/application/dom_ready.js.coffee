@@ -5,6 +5,9 @@ $ ->
     else
       $('.m-navigation').slideUp()
 
+  $('[data-behavior=trigger-chat]').click ->
+    $('#userlikeTab').trigger('click')
+
 
   games = $("#stats").data('games')
   crawls = $("#stats").data('crawls')

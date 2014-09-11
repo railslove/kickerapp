@@ -12,4 +12,5 @@
 
   %body{class: controller_name, id: "#{controller_name}_#{action_name}"}
     = yield
+    = render 'layouts/footer'
     = render 'layouts/javascript'

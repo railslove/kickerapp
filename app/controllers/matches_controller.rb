@@ -56,7 +56,7 @@ class MatchesController < ApplicationController
     @match = Match.find(params[:id])
     @match.revert_points
     @match.destroy
-    redirect_to league_matches_path(current_league), notice: "Dieser Satz wurde gelöscht."
+    redirect_to league_path(current_league), notice: "Dieser Satz wurde gelöscht."
   end
 
   def shuffle

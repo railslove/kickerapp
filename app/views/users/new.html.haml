@@ -1,5 +1,6 @@
 .m-row
   .m-row--left
+    %h3= t('.create_by_email')
     = form_for @user, url: league_users_path(current_league), class: 'm-form' do |f|
       .m-form--row
         = f.label :name, class: 'm-label'
@@ -9,10 +10,12 @@
         = f.email_field :email, class: 'm-input', required: true
       .m-form--row
         = f.label :image, class: 'm-label'
-        = f.text_field :image, class: 'm-input'
+        = f.text_field :image, class: 'm-input', placeholder: 'http://'
       .m-form--row
         = f.submit "Spieler Anlegen", class: 'm-button'
+
   .m-row--right
+    %h3= t('.create_via_oauth')
     %p
       = link_to twitter_connect_path(current_league), class: 'm-button_twitter' do
         %i.icon-twitter

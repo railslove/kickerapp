@@ -1,5 +1,7 @@
 de:
   common:
+    new_match: Spiel eintragen
+    new_user: Spieler hinzufügen
     imprint: Impressum
   date:
     formats:
@@ -34,12 +36,18 @@ de:
       badges: 'Jeder Spieler kann für "besondere" Leistungen einen Badge erobern, mache sind ganz leicht zu bekommen, andere schwieriger. Aber auf jeden Fall ist es immer ein großer Spaß von gegnerischen Spielern einen Badge zu erbeuten!'
       evaluation: Das Wertungssystem der App beruht auf einer leicht angewandelten Version der Elo-Zahl, welches ursprünglich für die Schach-Weltrangliste entwickelt wurde, aber mittlerweile vielfältig eingesetzt wird
   matches:
-    new: Spiel eintragen
     non_yet: 'Hier erscheinen eure Spiele, sobald ihr welche eingetragen habt.'
   ranking:
     inactive: 'Entweder habt ihr noch keine Spiele eingetragen oder das letzte Spiel ist länger als 2 Wochen her.'
     non_yet: 'Sobald Spieler eingetragen sind und sie das erste Spiel gemacht haben, erscheinen sie hier'
   users:
-    new: 'Spieler hinzufügen'
+    new:
+      create_by_email: Neuen User mit E-Mail-Adresse anlegen
+      create_via_oauth: 'Oder:'
     show:
       history: "Spielhistorie (letzte 100 Spiele)"
+
+  activerecord:
+    attributes:
+      user:
+        image: Avatar URL

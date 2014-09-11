@@ -32,8 +32,8 @@ Ranking
     - if current_league.users.any?
       .m-big-notice--text
         = t('ranking.inactive')
-      .m-big-notice--button= link_to t('matches.new'), new_league_match_path(current_league), class: 'm-button'
+      .m-big-notice--button= link_to t('common.new_match'), new_league_match_path(current_league), class: 'm-button'
     - else
       .m-big-notice--text
         = t('ranking.non_yet')
-      .m-big-notice--button= link_to t('users.new'), new_league_user_path(current_league), class: 'm-button'
+      .m-big-notice--button= link_to t('common.new_user'), new_league_user_path(current_league), class: 'm-button'

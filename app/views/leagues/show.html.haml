@@ -4,7 +4,7 @@
 - else
   .m-big-notice.c-matches--match-notice
     .m-big-notice--text= t('matches.non_yet')
-    .m-big-notice--button= link_to t('matches.new'), new_league_match_path(current_league), class: 'm-button'
+    .m-big-notice--button= link_to t('common.new_match'), new_league_match_path(current_league), class: 'm-button'
   - if current_league.users.any?
     %h3 Eingetragene Spieler:
     .m-ranking

@@ -7,7 +7,7 @@
     .m-user.as-selected= user_image(@user)
     .m-profile-basics--values
       .m-profile-basics--value= "Name: #{@user.name}"
-      .m-profile-basics--value= "Elo Wert: #{@user.quote}"
+      .m-profile-basics--value= "Elo Wert: #{@user.quota}"
       .m-profile-basics--value= "Aktuelle Siegesserie: #{@user.winning_streak} Spiele"
       .m-profile-basics--value= "Längste Siegesserie: #{@user.longest_winning_streak_games} Spiele"
       .m-profile-basics--value
@@ -18,11 +18,11 @@
         (20 Spiele)
       - if @user.history_entries.any?
         .m-profile-basics--value
-          - biggest_quote = @user.history_entries.order('quote desc').take.quote
-          - lowest_quote = @user.history_entries.order('quote asc').take.quote
-          = "Höchststand: #{biggest_quote} Punkte (#{@user.quote - biggest_quote})"
+          - biggest_quota = @user.history_entries.order('quota desc').take.quota
+          - lowest_quota = @user.history_entries.order('quota asc').take.quota
+          = "Höchststand: #{biggest_quota} Punkte (#{@user.quota - biggest_quota})"
         .m-profile-basics--value
-          = "Tiefstand: #{lowest_quote} Punkte (+#{@user.quote - lowest_quote})"
+          = "Tiefstand: #{lowest_quota} Punkte (+#{@user.quota - lowest_quota})"
   - if @user.teams.any?
     .m-profile-teams--best
       -team = @user.teams.for_doubles.ranked.sort_by(&:value).reverse.first
@@ -47,7 +47,7 @@
   .m-profile-stats
 
     %h4= t('.history')
-    #history{ data: { rankings: @history_entries.map(&:ranks).to_json, quotes: @history_entries.map(&:quotes).to_json, lowest_rank: @lowest_rank } }
+    #history{ data: { rankings: @history_entries.map(&:ranks).to_json, quotas: @history_entries.map(&:quotas).to_json, lowest_rank: @lowest_rank } }
 
     %h4 Aktuelle Statistiken
     #stats{ data: { games: [ ["Siege", @user.number_of_wins], ["Niederlagen", @user.number_of_looses]] , crawls: [ ["Krabbeln lassen", @user.number_of_crawls], ["Gekrabbelt", @user.number_of_crawlings]]} }

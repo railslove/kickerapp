@@ -19,7 +19,7 @@ class Team < ActiveRecord::Base
 
   def self.shuffle(user_ids)
     return [] unless user_ids.size == 4
-    users = User.where(id: user_ids).order("quote desc")
+    users = User.where(id: user_ids).order("quota desc")
     best_user = users.first
     users_to_select = []
     users[1..3].each_with_index do |user, index|
@@ -55,8 +55,8 @@ class Team < ActiveRecord::Base
     team
   end
 
-  def elo_quote
-    self.users.present? ? (self.users.sum(&:quote).to_f / self.users.size).round : 1200
+  def elo_quota
+    self.users.present? ? (self.users.sum(&:quota).to_f / self.users.size).round : 1200
   end
 
   def users

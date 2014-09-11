@@ -7,7 +7,7 @@ FactoryGirl.define do
     number_of_crawls 1
     number_of_crawlings 1
     winning_streak 1
-    quote 1200
+    quota 1200
     name "MyString"
     email 'peter@pan.de'
   end

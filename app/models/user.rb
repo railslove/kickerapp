@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   belongs_to :league
   has_many :history_entries
 
-  scope :ranked, lambda { order("quote DESC") }
+  scope :ranked, lambda { order("quota DESC") }
 
   validates :name, presence: true
 
@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   end
 
   def win_percentage
-    QuoteCalculator.win_loose_quote(self.number_of_wins, self.number_of_looses)
+    QuotaCalculator.win_loose_quota(self.number_of_wins, self.number_of_looses)
   end
 
   def short_name
@@ -40,10 +40,10 @@ class User < ActiveRecord::Base
     end
   end
 
-  def set_elo_quote(match)
+  def set_elo_quota(match)
     win = match.win_for?(self) ? 1 : 0
 
-    quote_change = (win == 1) ? match.difference : -1 * match.difference
+    quota_change = (win == 1) ? match.difference : -1 * match.difference
 
     if match.crawling == true
       if win == 1
@@ -53,7 +53,7 @@ class User < ActiveRecord::Base
       end
     end
 
-    self.quote = self.quote + quote_change
+    self.quota = self.quota + quota_change
 
     if win == 1
       self.number_of_wins += 1

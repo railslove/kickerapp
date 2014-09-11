@@ -9,7 +9,7 @@ class HistoryEntry < ActiveRecord::Base
       user.history_entries.create(
         league_id: match.league_id,
         match_id: match.id,
-        quote: user.quote,
+        quota: user.quota,
         date: match.date,
         rank: ranking.index(user.id) ? ranking.index(user.id)+1 : nil
       )
@@ -20,7 +20,7 @@ class HistoryEntry < ActiveRecord::Base
     [date, rank]
   end
 
-  def quotes
-    [date, quote]
+  def quotas
+    [date, quota]
   end
 end

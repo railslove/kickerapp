@@ -1,5 +1,5 @@
 namespace :users do
-  desc 'Reset user quotes to 1200 and calculate quotes'
+  desc 'Reset user quotas to 1200 and calculate quotas'
   task :set_stats => :environment do
 
     users = User.all

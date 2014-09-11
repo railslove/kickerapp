@@ -8,7 +8,7 @@ Ranking
           .m-ranking--item--image= user_image(user)
           .m-ranking--item--balance= user.name
           .m-ranking--item--score
-            .m-ranking--item--score--quote= user.quote
+            .m-ranking--item--score--quota= user.quota
             - if user.top_crawler?
               .m-badge-icon.as-crawling.m-ranking--item--badge
                 %i{title: t('badges.top_crawler')}

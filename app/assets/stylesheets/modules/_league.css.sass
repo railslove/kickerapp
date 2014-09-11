@@ -7,17 +7,16 @@
   .m-league--icon
     font-size: 36px
   &:hover
-    color: $white
     .m-league--body
-      background: $color
+      background: tint($color, 20%)
 
 .m-league-list
   +clearfix
   .m-league
     float: left
-    width: 305px
+    width: 240px
     margin: 0 $margin $margin 0
-    &:nth-child(3n)
+    &:nth-child(4n)
       margin-right: 0
     &:nth-child(6n+2)
       +colored($yellow)
@@ -40,8 +39,8 @@
     height: 43px
     color: $white
   .m-league--body
-    padding: $padding
-    height: 150px
+    padding: 40px $padding
+    height: 190px
   .m-league--fact
     font-size: 36px
   .m-league--icon

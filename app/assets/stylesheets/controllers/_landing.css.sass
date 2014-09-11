@@ -1,6 +1,6 @@
 #pages_landing
   // background: image-url('rasen.png') repeat-x left 487px
-  background-image: linear-gradient($light-blue, $light-blue 515px, $green 515px, $green)
+  background-image: linear-gradient($light-blue, $light-blue 515px, $gras-green 515px, $gras-green)
   &:before
     content: ''
     display: block
@@ -13,10 +13,17 @@
     z-index: 0
   .l-content-wrapper
     width: 1152px
-    background: $green
+    background: $gras-green
     +breakpoint($mobile)
       width: 100%
       padding: 0
+  .c-footer-content
+    color: $white
+    a
+      color: $white
+    svg
+      path
+        fill: $white
 .c-landing
   .c-landing--header
     background: $light-blue image-url('landingpage_header.png') no-repeat center center
@@ -66,7 +73,7 @@
     text-shadow: 1px 1px $shadow-color
     font-size: 20px
     margin: $margin auto 2*$margin
-    background: $green
+    background: $gras-green
     position: relative
     z-index: 2
     width: 800px
@@ -85,7 +92,7 @@
         content: ''
         height: 8px
         width: 150px
-        background: $green
+        background: $gras-green
         display: block
         margin: 0 auto
         top: -30px

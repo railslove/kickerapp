@@ -1,7 +1,7 @@
 .m-badge
   display: block
-  border: 3px solid $light-green
-  background: rgba($light-green, 0.3)
+  border: 3px solid $green
+  background: rgba($green, 0.3)
   padding: $padding
   margin: 0 $margin $margin 0
   .m-badge--logo
@@ -16,7 +16,7 @@
   .m-badge--title
     clear: both
   hr
-    border-color: $light-green
+    border-color: $green
 .m-badge-list
   +pie-clearfix
   .m-badge
@@ -50,7 +50,7 @@
     i
       @extend %icon-award
   &.as-most_teams
-    +badgecolor($light-green)
+    +badgecolor($green)
     i
       @extend %icon-users
   &.as-winning_streak

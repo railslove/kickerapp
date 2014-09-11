@@ -21,7 +21,7 @@
         height: 360px
     .c-footer-content
       text-align: center
-      color: $white
+      color: $black
       position: absolute
       bottom: 0
       z-index: 2
@@ -30,8 +30,10 @@
       text-transform: uppercase
       .c-footer--railslove
         margin-top: $margin
-        img
+        svg
           height: 30px
+          path
+            fill: $black
       .c-footer-links
         margin: $margin 0
         .c-footer-link
@@ -39,7 +41,7 @@
           margin-right: $padding
           a
             font-size: $small-font-size
-            color: $white
+            color: $black
 
   +breakpoint($mobile)
     width: 100%

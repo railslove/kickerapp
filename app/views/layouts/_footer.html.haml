@@ -5,8 +5,10 @@
       = svg_tag('karl_kicker.svg')
     .c-footer-content
       %div= t('footer.created_by')
-      .c-footer--railslove= link_to image_tag('railslove_logo.svg'), 'http://www.railslove.com'
+      .c-footer--railslove
+        = link_to 'http://www.railslove.com' do
+          = svg_tag('railslove_logo.svg')
       .c-footer-links
         .c-footer-link= link_to t('common.imprint'), imprint_path, class: 'm-link'
-        .c-footer-link= link_to t('common.faq'), imprint_path, class: 'm-link'
-        .c-footer-link= link_to t('common.imprint'), imprint_path, class: 'm-link'
+        / .c-footer-link= link_to t('common.faq'), imprint_path, class: 'm-link'
+        .c-footer-link= link_to t('common.ligen'), ligen_path, class: 'm-link'

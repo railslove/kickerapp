@@ -15,6 +15,8 @@ Kickerapp::Application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = false # default is false; set to true if you want to read/debug emails with mailcatcher
+  config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -27,5 +29,5 @@ Kickerapp::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  config.action_mailer.default_url_options = { host: 'kickerapp.local' }
+  config.action_mailer.default_url_options = { protocol: 'http', host: 'kickerapp.local' }
 end

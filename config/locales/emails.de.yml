@@ -1,0 +1,5 @@
+de:
+  emails:
+    admin_mailer:
+      new_league:
+        subject: "Neue Liga: %{name} (slug: %{slug})"

@@ -3,7 +3,8 @@ de:
     faq:
       headline: FAQs
       body: |
-        Ranking
+        ### Ranking
+
         Das Ranking des jeweiligen Spielers bzw. Teams beruht auf dem Wertungssystem der Elo-Zahl, welches ursprünglich fürs Schachspielen entwickelt wurde, aber mittlerweile vielfältig eingesetzt wird.
         Jeder Spieler steigt mit einem Elo-Wert von 1200 Punkten in die Liga ein. Ab dann ist alles möglich, denn die tatsächlichen Ergebnisse der gespielten Matches werden für den Elo-Punktestand gewertet.
         Spielen zwei gleichstarke (gleicher Elo-Wert) Spieler bzw. Teams gegeneinander so erhält der Sieger 8 Pluspunkte und der Verlierer 8 Minuspunkte. Je weiter die Elo-Werte auseinander liegen, desto lukrativer ist ein Sieg für den schlechteren Spieler (Team) und anders herum. Das Maximum liegt bei 15 Punkten pro Spiel.
@@ -31,11 +32,11 @@ de:
         ### Badges
         Jeder Spieler kann für "besondere" Leistungen einen Badge erobern, mache sind ganz leicht zu bekommen, andere schwieriger.
 
-        - Einen ☆ bekommt derjenige, der die meisten Gegner krabbeln lässt!
-        - Für die längste Siegesserie ever gibt es den :emoji_1f3c6: .
-        - Derjenige, der sich für nichts zu schade ist und in den meisten Teams spielt bekommt den :emoji_1f465: Badge.
+        - Einen Stern bekommt derjenige, der die meisten Gegner krabbeln lässt!
+        - Für die längste Siegesserie ever gibt es den  Pokal.
+        - Derjenige, der sich für nichts zu schade ist und in den meisten Teams spielt bekommt den Team Badge.
         - Für die meisten Niederlagen mit Krabbeln gibt's den Badge "Kennt den Tisch von unten wie kein anderer", der ist leicht zu bekommen, aber nicht sehr begehrt...
-        - Wer aktuell die meisten Siege in Folge hat, bekommt dafür die :emoji_1f680: , und das Schlusslicht der Liga kann sich über die rote Laterne :emoji_1f4a1:  freuen!
+        - Wer aktuell die meisten Siege in Folge hat, bekommt dafür die Rakete , und das Schlusslicht der Liga kann sich über die rote Laterne freuen!
     imprint:
       headline: Impressum
       body: |

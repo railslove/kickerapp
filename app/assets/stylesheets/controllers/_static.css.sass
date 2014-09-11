@@ -1,5 +1,15 @@
 #pages_imprint, #pages_faq
-  background-image: linear-gradient($light-blue, $light-blue 60px, $gras-green 60px, $gras-green)
+  background-image: linear-gradient($light-blue, $light-blue 100px, $gras-green 100px, $gras-green)
+  &:before
+    content: ''
+    display: block
+    position: absolute
+    top: 60px
+    width: 100%
+    left: 0
+    height: 60px
+    background: image-url('rasen.svg') repeat-x left center
+    background-size: 30px 53px
   .c-footer-content
     color: $white
     a

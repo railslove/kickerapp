@@ -12,4 +12,8 @@ class PagesController < ApplicationController
     render 'pages/static'
   end
 
+  def faq
+    render 'pages/static'
+  end
+
 end

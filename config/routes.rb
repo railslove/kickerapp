@@ -10,6 +10,7 @@ Kickerapp::Application.routes.draw do
   get "/auth/:provider/callback" => "users#create"
 
   get 'imprint' => 'pages#imprint', as: 'imprint'
+  get 'faq' => 'pages#faq', as: 'faq'
 
   resources :leagues, except: [:index], :path => '' do
     get :badges, on: :member

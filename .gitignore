@@ -36,6 +36,4 @@ tmp/**/*
 
 /.ruby-gemset
 
-bin/*
-
 rails

@@ -9,6 +9,7 @@ class PagesController < ApplicationController
   end
 
   def imprint
+    render 'pages/static'
   end
 
 end

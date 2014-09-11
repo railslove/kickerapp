@@ -7,9 +7,9 @@
         Kostenlos eine eigene Liga anlegen, Freunde und Kollegen als Mitspieler hinzufügen und gegeneinander um die besten Plätze kickern.
         = image_tag('line.png')
       = link_to 'Alle Ligen anschauen', ligen_path, class: 'm-button c-landing--header--league-button'
-    .c-landing--headline
-      .c-landing--headline-head
-        %i.c-landing--headline--icon.icon-star
+    .c-landing--headline.m-icon-headline
+      .c-landing--headline-head.m-icon-headline--head
+        %i.c-landing--headline--icon.icon-star.m-icon-headline--icon
         Badges
       .c-landing--headline--text= t('landing.texts.badges')
     .c-landing--badges
@@ -19,9 +19,9 @@
             %i
           .c-landing--badge--text
             = t("badges.descriptions.#{badge}")
-    .c-landing--headline
-      .c-landing--headline-head
-        %i.c-landing--headline--icon.icon-star
+    .c-landing--headline.m-icon-headline
+      .c-landing--headline-head.m-icon-headline--head
+        %i.c-landing--headline--icon.icon-star.m-icon-headline--icon
         Features
     .c-landing--feature
       .c-landing--feature--image= image_tag('statistiken.png')
@@ -33,9 +33,9 @@
     .c-landing--feature
       .c-landing--feature--image= image_tag('teams.png')
       .c-landing--feature--text= t('features.teams')
-    .c-landing--headline
-      .c-landing--headline-head
-        %i.c-landing--headline--icon.icon-star
+    .c-landing--headline.m-icon-headline
+      .c-landing--headline-head.m-icon-headline--head
+        %i.c-landing--headline--icon.icon-star.m-icon-headline--icon
         Wertung
       .c-landing--headline--text= t('landing.texts.evaluation')
 

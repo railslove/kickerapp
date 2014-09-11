@@ -20,4 +20,4 @@
       .score= "-#{@match.difference}"
   .m-form--row
     = submit_tag "Match ändern", class: 'm-button'
-    = link_to "Löschen", match_path(@match), method: :delete, confirm: "Match wirklich löschen?", class: "m-link as-negative"
+    = link_to "Löschen", league_match_path(@match.league, @match), method: :delete, confirm: "Match wirklich löschen?", class: "m-link as-negative"

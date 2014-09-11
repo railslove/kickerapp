@@ -1,0 +1,9 @@
+.l-content-wrapper
+  .m-static-content
+    .m-icon-headline
+      .m-icon-headline--head
+        %i.m-icon-headline--icon.icon-star
+        = t("static.#{action_name}.headline")
+    .m-static-content--body
+      :markdown
+        #{t("static.#{action_name}.body")}

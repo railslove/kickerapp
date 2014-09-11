@@ -1,5 +1,5 @@
-class QuoteCalculator
-  def self.win_loose_quote(wins, looses)
+class QuotaCalculator
+  def self.win_loose_quota(wins, looses)
     if wins + looses > 0
       (wins.to_f / (wins + looses) * 100).round
     else
@@ -8,7 +8,7 @@ class QuoteCalculator
   end
 
 
-  def self.elo_quote(elo_player, elo_opponent, win)
+  def self.elo_quota(elo_player, elo_opponent, win)
     difference = (elo_opponent - elo_player)
     difference = 400 if difference > 400
     ea = 1.0 / (1 + (10 ** (difference.to_f / 400)))

@@ -42,7 +42,7 @@ class MatchesController < ApplicationController
       @match.score = @match.score_for_set(params[:winner_score], params[:looser_score])
     end
     @match.crawling = params[:crawling]
-    @match.calculate_user_quotes
+    @match.calculate_user_quotas
     current_league.update_badges
     if @match.save
       redirect_to league_path(current_league), notice: "Satz gespeichert."

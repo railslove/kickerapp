@@ -84,7 +84,7 @@ $ ->
 
   if $("#history").length
     rankings = $("#history").data('rankings')
-    quotes   = $("#history").data('quotes')
+    quotas   = $("#history").data('quotas')
     lowestRank = $("#history").data('lowest-rank')
 
     $("#history").highcharts
@@ -117,5 +117,5 @@ $ ->
       ]
       series: [
         { name: 'Platzierung', data: rankings, yAxis: 0 }
-        { name: 'Punkte', data: quotes, yAxis: 1 }
+        { name: 'Punkte', data: quotas, yAxis: 1 }
       ]

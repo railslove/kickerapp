@@ -25,8 +25,8 @@ describe Team do
     end
 
     it "selects two teams for four players" do
-      user3 = FactoryGirl.create(:user, quote: 1400)
-      user4 = FactoryGirl.create(:user, quote: 1000)
+      user3 = FactoryGirl.create(:user, quota: 1400)
+      user4 = FactoryGirl.create(:user, quota: 1000)
       teams = Team.shuffle([user1.id, user2.id, user3.id, user4.id])
       expect(teams.first.users).to include(user3)
     end
@@ -48,11 +48,11 @@ describe Team do
     end
   end
 
-  describe ".elo_quote" do
-    it "adds up user quotes and divides correctly" do
-      user1.update_attributes(quote: 1300)
+  describe ".elo_quota" do
+    it "adds up user quotas and divides correctly" do
+      user1.update_attributes(quota: 1300)
       team.update_attributes(player1_id: user1.id, player2_id: user2.id)
-      expect(team.elo_quote).to eql(((1300 + 1200)/ 2).round)
+      expect(team.elo_quota).to eql(((1300 + 1200)/ 2).round)
     end
   end
 

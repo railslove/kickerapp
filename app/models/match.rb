@@ -7,7 +7,7 @@ class Match < ActiveRecord::Base
 
   default_scope lambda {order("date DESC")}
 
-  after_create :calculate_user_quotes
+  after_create :calculate_user_quotas
 
   scope :for_team, lambda { |team_id| where("(winner_team_id = #{team_id} OR looser_team_id = #{team_id})")}
 
@@ -35,18 +35,18 @@ class Match < ActiveRecord::Base
     winner_team == team ? looser_team : winner_team
   end
 
-  def calculate_user_quotes
-    quote_change = QuoteCalculator.elo_quote(winner_team.elo_quote, looser_team.elo_quote , 1 )
+  def calculate_user_quotas
+    quota_change = QuotaCalculator.elo_quota(winner_team.elo_quota, looser_team.elo_quota , 1 )
 
     if self.crawling == true
-      quote_change = quote_change + 5
+      quota_change = quota_change + 5
     end
 
-    self.difference = quote_change
+    self.difference = quota_change
     self.save
 
     self.users.each do |user|
-      user.set_elo_quote(self)
+      user.set_elo_quota(self)
     end
 
     winner_team.update_attributes(number_of_wins: winner_team.number_of_wins + 1)
@@ -55,12 +55,12 @@ class Match < ActiveRecord::Base
 
   def revert_points
     winner_team.users.each do |winner|
-      winner.update_attributes(quote: (winner.quote - self.difference))
+      winner.update_attributes(quota: (winner.quota - self.difference))
     end
     winner_team.update_attributes(number_of_wins: winner_team.number_of_wins - 1)
 
     looser_team.users.each do |looser|
-      looser.update_attributes(quote: (looser.quote + self.difference))
+      looser.update_attributes(quota: (looser.quota + self.difference))
     end
     looser_team.update_attributes(number_of_looses: looser_team.number_of_looses - 1)
     self.save

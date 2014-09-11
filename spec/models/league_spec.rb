@@ -1,5 +1,13 @@
 require 'spec_helper'
 
 describe League do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe 'sanitize_slug' do
+    let(:league) { create :league, slug: 'Hämmerboyz! da  heim' }
+
+    specify do
+      expect(league.slug).to eql 'haemmerboyz-da-heim'
+    end
+  end
+
 end

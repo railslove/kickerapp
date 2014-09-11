@@ -7,13 +7,13 @@ class League < ActiveRecord::Base
   validates :name, presence: true
   validates :slug, presence: true, uniqueness: true
 
-  before_save :slugify
+  before_save :sanitize_slug
 
   def to_param
     self.slug
   end
 
-  def slugify
+  def sanitize_slug
     self.slug = self.slug.downcase.parameterize
   end
 

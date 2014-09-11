@@ -1,4 +1,4 @@
-= form_for @league, class: 'm-form' do |f|
+= form_for @league, html: { class: 'm-form' } do |f|
   .m-form--row
     = label_tag :name, 'Name deiner Liga', class: 'm-label'
     = f.text_field :name, class: 'm-input'

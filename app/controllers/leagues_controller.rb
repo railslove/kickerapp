@@ -16,9 +16,11 @@ class LeaguesController < ApplicationController
     @league = League.new(league_params)
     if @league.save
       set_current_league
-      redirect_to league_path(@league), notice: 'Liga erfolgreich erzeugt!'
+      AdminMailer.new_league(@league.id).deliver
+      redirect_to league_path(@league), notice: t('leagues.create.success')
     else
-      render :new, alert: 'Liga konnte nicht gespeichert werden'
+      flash.now[:alert] = t('leagues.create.failure')
+      render :new
     end
   end
 
@@ -37,7 +39,6 @@ class LeaguesController < ApplicationController
     @league = League.find_by!(slug: params[:id])
     @order = params[:order] || 'longest_winning_streak_games'
     @users = @league.users.order("#{@order} desc").select{|user| user.active? }
-
   end
 
   private

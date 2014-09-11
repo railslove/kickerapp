@@ -22,6 +22,8 @@ gem 'rack-tracker', git: 'https://github.com/stephanpavlovic/rack-tracker'
 gem 'gravatar_image_tag'
 gem 'redcarpet'
 
+gem 'unicorn'
+
 gem "omniauth"
 gem "omniauth-twitter"
 gem "omniauth-facebook"

@@ -1,12 +1,24 @@
 .m-match-list
+  +clearfix
+  padding: $margin
+  border: 1px solid $blue
+  background: $white
+  .m-match-list--headline
+    clear: both
+    color: $blue
   .m-match
     float: left
-    margin-right: 50px
-    margin-bottom: 20px
+    margin-right: 90px
+    margin-bottom: $padding
+    &:nth-child(2n)
+      margin-right: 0
   +breakpoint($mobile)
     .m-match
       margin-right: 0
       margin-bottom: 10px
+.m-matches
+
+
 .m-match
   position: relative
   +clearfix
@@ -45,7 +57,7 @@
       color: $black
   +fade_in(".m-match--actions", 0.5s)
   &.as-single
-    margin-right: 210px
+    margin-right: 250px
   &.as-crawling
     .m-match--team
       position: relative

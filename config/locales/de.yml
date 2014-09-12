@@ -3,7 +3,7 @@ de:
     new_match: Spiel eintragen
     new_user: Spieler hinzufügen
     imprint: Impressum
-    ligen: Alle Ligen
+    ligen: Ligen-Übersicht
   date:
     formats:
       with_weekday: '%a %d.%m.%y'

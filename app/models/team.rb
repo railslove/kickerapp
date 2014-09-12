@@ -14,7 +14,7 @@ class Team < ActiveRecord::Base
   scope :ranked, lambda { where('number_of_wins > 1 OR number_of_looses > 1')}
 
   def matches
-    wins + looses
+    Match.for_team(self.id)
   end
 
   def wins

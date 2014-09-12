@@ -46,7 +46,6 @@
 .m-user-select
   width: 150px
   height: 150px
-  border: 1px solid $white
   background: $blue
   background-size: cover
   position: relative
@@ -58,15 +57,25 @@
     position: absolute
     top: -30px
     width: 100%
-  &:before
-    @extend %icon-male
+  &:before, &:after
     display: block
     color: $white
+    position: absolute
+    top: 50%
+    left: 50%
+  &:after
+    @extend %icon-base
+    content: '\e80a'
+    font-size: 20px
+    margin-top: -10px
+    margin-left: -25px
+  &:before
+    @extend %icon-male
     font-size: 50px
-    margin-left: 70px
-    margin-top: 40px
+    margin-top: -25px
+    margin-left: -10px
   &.has-image
-    &:before
+    &:before, &:after
       display: none
   +breakpoint($mobile)
     margin-top: 0
@@ -78,20 +87,6 @@
       position: absolute
       opacity: 0
       top: 0
-.m-user-select--icon
-  position: absolute
-  top: 40px
-  &:before
-    @extend %icon-plus
-    display: block
-    color: $white
-    font-size: 20px
-    margin-left: 50px
-    margin-top: 60px
-  &:last-child
-    left: 50%
-  +breakpoint($mobile)
-    top: 0
 
 .user-selection
   .as-interactive

@@ -8,7 +8,6 @@ $ ->
     if bg_image
       $(@).parents('[data-behavior=user-select-box]').css('background-image', "url(#{bg_image})")
       $(@).parents('[data-behavior=user-select-box]').addClass('has-image')
-      $(@).parents('[data-behavior=user-select-box]').next().hide()
 
   $('body').on 'click', '[data-behavior=user-select-box]', ->
     selectize = $(@).find('select').data('selectize')

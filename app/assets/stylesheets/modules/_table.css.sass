@@ -1,16 +1,21 @@
 .m-table
+  background: $white
+  border: 1px solid $blue
+  padding: $margin
+  color: $grey
+  font-size: $small-font-size
   a
-    color: $black
+    color: $grey
   .m-table--head
     td
-      background: $green
-      color: $white
+      background: tint($blue, 60%)
+      color: $blue
       +breakpoint($mobile)
         font-weight: bold
   .m-table--body
   .m-table--row
     &:nth-child(2n)
-      background: tint($light-grey, 80%)
+      background: tint($blue, 80%)
   td
     padding: 5px
     &.hide-mobile
@@ -21,6 +26,8 @@
     &.as-current
       background: $green
       color: $white
+    &.as-large
+      font-size: $large-font-size
   &.as-full-column
     +breakpoint($mobile)
       font-weight: bold

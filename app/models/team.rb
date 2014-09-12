@@ -14,7 +14,15 @@ class Team < ActiveRecord::Base
   scope :ranked, lambda { where('number_of_wins > 1 OR number_of_looses > 1')}
 
   def matches
-    Match.for_team(self.id)
+    wins + looses
+  end
+
+  def wins
+    Match.wins_for_team(self.id)
+  end
+
+  def looses
+    Match.looses_for_team(self.id)
   end
 
   def self.shuffle(user_ids)
@@ -84,7 +92,8 @@ class Team < ActiveRecord::Base
   end
 
   def value
-    (percentage * Math.log10(number_of_games)).round
+    # (percentage * Math.log10(number_of_games)).round
+    wins.sum(:difference) - looses.sum(:difference)
   end
 
 

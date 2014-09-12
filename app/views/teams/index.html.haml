@@ -1,12 +1,12 @@
-%table.m-table
+%table.m-table.c-team-table
   %thead.m-table--head
     %tr.m-table--row
       %td
-      %td.hide-mobile
-      %td Spieler
-      %td Quota
+      %td
+      %td.hide-mobile Spieler
+      %td.hide-mobile Quote
       %td.hide-mobile Spiele
-      %td.hide-mobile{title: "Quota x Log10(Anzahl der Spiele)"} Punkte
+      %td Punkte
 
   %tbody.m-table--body
     - @teams.each_with_index do |team, i|
@@ -16,6 +16,6 @@
           .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
           .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
         %td= link_to team.name, [current_league, team]
-        %td= "#{team.percentage}%"
-        %td.hide-mobile= team.number_of_games
-        %td.hide-mobile{title: "#{team.percentage} x Log10(#{team.number_of_games})"}= team.value
+        %td.hide-mobile.as-large= "#{team.percentage}%"
+        %td.hide-mobile.as-large= team.number_of_games
+        %td.as-large= team.value

@@ -19,10 +19,10 @@
     - unless is_mobile_device?
       - 3.times do |i|
         .m-form--row
-          = text_field_tag "set#{i+1}[]", '', class: 'm-input as-short', tabindex: i * 2 + 1
+          = text_field_tag "set#{i+1}[]", '', class: 'm-input as-short as-centered', tabindex: i * 2 + 1, maxlength: 2
           = check_box_tag "crawling#{i+1}", true, @match.crawling?, data: { behavior: 'crawling-check' }
-          = text_field_tag "set#{i+1}[]", '', class: 'm-input as-short', tabindex: i * 2 + 2
-          = image_tag('krabbel-icon-white.png', class: 'c-crawling', title: 'Checkbox auswählen, wenn gekrabbelt wurde')
+          %label{:for => "crawling#{i+1}", class: "c-crawling", title: 'Checkbox auswählen, wenn gekrabbelt wurde'}
+          = text_field_tag "set#{i+1}[]", '', class: 'm-input as-short as-centered', tabindex: i * 2 + 2, maxlength: 2
       = f.submit "Eintragen", class: "m-button"
 
   - if is_mobile_device?

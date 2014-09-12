@@ -17,7 +17,3 @@ $ ->
     if count > 0
       input.val(count - 1)
     false
-
-  $('[data-behavior=crawling-check]').on 'click', ->
-    console.log $(@)
-    $(@).parent().find('.c-crawling').toggleClass('is-active')

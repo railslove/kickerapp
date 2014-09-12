@@ -12,7 +12,7 @@
     / = check_box_tag :crawling, @match.crawling, @match.crawling
     = text_field_tag :looser_score, @match.score.split(":").last, class: 'm-input as-short'
     = check_box_tag :crawling, true, @match.crawling?, data: { behavior: 'crawling-check' }
-    = image_tag('krabbel-icon-white.png', class: ['c-crawling', ('is-active' if @match.crawling?)], title: 'Checkbox auswählen, wenn gekrabbelt wurde')
+    %label{:for => "crawling#{i+1}", class: "c-crawling", title: 'Checkbox auswählen, wenn gekrabbelt wurde'}
   .m-form--row
     .m-user-list
       - @match.looser_team.users.each do |user|

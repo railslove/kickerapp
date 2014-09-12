@@ -19,13 +19,9 @@
     position: relative
   .input-rows
     float: left
-    width: 120px
-    margin-top: 33px
+    width: 133px
+    margin-top: 13px
     position: relative
-    .c-crawling
-      position: absolute
-      left: 43px
-      margin-top: 25px
     input[type=checkbox]
       position: relative
       top: -10px
@@ -60,13 +56,22 @@
     .input-rows
       width: 110px
 
+[data-behavior=crawling-check]
+  display: none
+  &:checked + .c-crawling
+    background-color: $red
+
 .c-crawling
-  width: 18px
-  padding: 1px
-  background: $grey
+  width: 25px
+  height: 25px
+  display: inline-block
+  background-color: $grey
+  background-image: image-url("krabbel-icon-white.png")
+  background-position: 40% 40%
+  background-repeat: no-repeat
+  background-size: 90%
   border-radius: 100%
-  &.is-active
-    background: $red
+
 #matches_edit
   .score
     position: relative

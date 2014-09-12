@@ -2,12 +2,11 @@ module ApplicationHelper
 
   def user_image(user)
     if user.image.present?
-      image_tag(user.image, class: 'm-user-image')
+      image_tag("http://dananos.brinkster.net/GifProxy.aspx?url=#{user.image}", class: 'm-user-image')
     else
       content_tag :div, class: 'm-user-image as-default' do
         user.short_name
       end
-      # gravatar_image_tag(user.email, class: 'm-user-image', :gravatar => { :default => asset_url('default_user.png'), size: 48 })
     end
   end
 

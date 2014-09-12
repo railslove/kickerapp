@@ -57,5 +57,4 @@
 
   .last-matches
     %h4 Letzte Spiele
-    %ul.m-match-list
-      = render "matches/list"
+    = render "matches/list", matches: @matches

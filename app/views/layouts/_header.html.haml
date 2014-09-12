@@ -1,13 +1,13 @@
 .l-header-wrapper
   .l-header
     .m-logo
-      - if league?
+      - if league_present?
         = link_to current_league.name, league_path(current_league)
       - else
         = link_to "Kicker App", root_path
     .m-navigation-trigger
     .m-navigation
-      - if league?
+      - if league_present?
         .m-navigation--item.as-mobile-only= link_to "Alle Spiele", league_path(current_league)
         .m-navigation--item= link_to "Neues Match", new_league_match_path(current_league)
         .m-navigation--item.as-mobile-only= link_to "Ranking", league_users_path(current_league)

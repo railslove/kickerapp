@@ -16,7 +16,7 @@ module ApplicationHelper
     "#{percentage}% (#{user.number_of_games} games)"
   end
 
-  def league?
+  def league_present?
     current_league.present?
   end
 

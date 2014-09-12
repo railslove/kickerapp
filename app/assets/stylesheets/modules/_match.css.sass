@@ -16,9 +16,8 @@
     .m-match
       margin-right: 0
       margin-bottom: 10px
-.m-matches
-
-
+      &.as-single
+        margin-right: 45%
 .m-match
   position: relative
   +clearfix
@@ -89,7 +88,14 @@
       width: 50%
       .m-match--team--member
         width: 50%
+        display: block
+        img
+          width: 100%
       &.as-winner
         margin-right: 0
     .m-match--score
       margin-top: 40px
+    &.as-single
+      .m-match--team
+        .m-match--team--member
+          width: 100%

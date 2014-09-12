@@ -10,6 +10,8 @@ class Match < ActiveRecord::Base
   after_create :calculate_user_quotas
 
   scope :for_team, lambda { |team_id| where("(winner_team_id = #{team_id} OR looser_team_id = #{team_id})")}
+  scope :wins_for_team, lambda { |team_id| where("winner_team_id = #{team_id}")}
+  scope :looses_for_team, lambda { |team_id| where("looser_team_id = #{team_id}")}
 
 
   def self.create_from_set(set_params)

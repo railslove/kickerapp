@@ -17,6 +17,14 @@ class Team < ActiveRecord::Base
     Match.for_team(self.id)
   end
 
+  def wins
+    Match.wins_for_team(self.id)
+  end
+
+  def looses
+    Match.looses_for_team(self.id)
+  end
+
   def self.shuffle(user_ids)
     return [] unless user_ids.size == 4
     users = User.where(id: user_ids).order("quota desc")
@@ -84,7 +92,8 @@ class Team < ActiveRecord::Base
   end
 
   def value
-    (percentage * Math.log10(number_of_games)).round
+    # (percentage * Math.log10(number_of_games)).round
+    wins.sum(:difference) - looses.sum(:difference)
   end
 
 

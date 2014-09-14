@@ -1,4 +1,4 @@
-Kickerapp::Application.routes.draw do
+Rails.application.routes.draw do
   root :to => 'pages#landing'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

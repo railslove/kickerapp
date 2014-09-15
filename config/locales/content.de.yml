@@ -24,7 +24,7 @@ de:
         ### Ranking
         Das Ranking des jeweiligen Spielers bzw. Teams beruht auf dem Wertungssystem der Elo-Zahl, welches ursprünglich fürs Schachspielen entwickelt wurde, aber mittlerweile vielfältig eingesetzt wird.
         Jeder Spieler steigt mit einem Elo-Wert von 1200 Punkten in die Liga ein. Ab dann ist alles möglich, denn die tatsächlichen Ergebnisse der gespielten Matches werden für den Elo-Punktestand gewertet.
-        Spielen zwei gleichstarke (gleicher Elo-Wert) Spieler bzw. Teams gegeneinander so erhält der Sieger 8 Pluspunkte und der Verlierer 8 Minuspunkte. Je weiter die Elo-Werte auseinander liegen, desto lukrativer ist ein Sieg für den schlechteren Spieler (Team) und anders herum. Die maximal Punktzahl liegt bei 15 Punkten pro Spiel. Die Platzierung im Team-Ranking ergibt sich aus der Summe der Punkte die ein Team (gemeinsam) gewonnen hat, minus der Punkte die das Team verloren hat.
+        Spielen zwei gleichstarke (gleicher Elo-Wert) Spieler bzw. Teams gegeneinander so erhält der Sieger 8 Pluspunkte und der Verlierer 8 Minuspunkte. Je weiter die Elo-Werte auseinander liegen, desto lukrativer ist ein Sieg für den schlechteren Spieler (Team) und anders herum. Die maximal Punktzahl, die gewonnen bzw. verloren werden kann, liegt bei 15 Punkten pro Spiel. Die Platzierung im Team-Ranking ergibt sich aus der Summe der Punkte die ein Team (gemeinsam) gewonnen hat, minus der Punkte die das Team verloren hat.
        
         ### Regeln
         Unsere REGELN (dürfen, müssen aber nicht beachtet werden)

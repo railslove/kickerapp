@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe User do
+describe User, type: :model do
   describe "scopes" do
     describe "ranked" do
       it "sorts by quota desc" do

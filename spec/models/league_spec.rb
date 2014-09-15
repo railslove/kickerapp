@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe League do
+describe League, type: :model do
 
-  describe 'sanitize_slug' do
+  describe '#sanitize_slug' do
     let(:league) { create :league, slug: 'Hämmerboyz! da  heim' }
 
     specify do

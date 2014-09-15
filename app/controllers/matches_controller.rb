@@ -24,7 +24,7 @@ class MatchesController < ApplicationController
     if is_mobile_device?
       redirect_to new_league_match_path(current_league, team1: params["team1"], team2: params["team2"], created: true)
     else
-      redirect_to league_path(current_league), notice: "Spiele wurden eingetragen."
+      redirect_to league_path(current_league), notice: t('.success')
     end
   end
 

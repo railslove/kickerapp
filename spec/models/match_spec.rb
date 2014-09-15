@@ -1,6 +1,7 @@
 require 'spec_helper'
 
-describe Match do
+describe Match, type: :model do
+
   describe "#create_from_set" do
     before do
       @users = []

@@ -27,7 +27,7 @@
     .m-profile-teams--best
       -team = @user.teams.for_doubles.ranked.sort_by(&:value).reverse.first
       - if team.present?
-        %h4 Bestes Team:
+        %h4= t('.best_team')
         = link_to [current_league, team] do
           .m-user-list
             .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
@@ -36,7 +36,7 @@
     .m-profile-teams--worst
       - team = @user.teams.for_doubles.ranked.sort_by(&:value).first
       - if team.present?
-        %h4 Schlechtestes Team:
+        %h4= t('.worst_team')
         = link_to [current_league, team] do
           .m-user-list
             .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)

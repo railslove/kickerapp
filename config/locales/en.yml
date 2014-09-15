@@ -16,3 +16,13 @@ en:
     last_one: 'Last one'
     most_wins: "No one wins more often"
     most_teams: 'Plays with every one. Most partners.'
+  users:
+    new:
+      create_by_email: Create new player with email adress
+      create_via_oauth: 'Or:'
+      oauth_via_twitter: "New player via Twitter"
+      oauth_via_facebook: "New player via Facebook"
+    show:
+      best_team: 'Best Team:'
+      worst_team: 'Worst Team:'
+      history: "Match history (last 100 matches)"

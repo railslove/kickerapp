@@ -21,8 +21,8 @@
     %p
       = link_to twitter_connect_path(current_league), class: 'm-button_twitter' do
         %i.icon-twitter
-        ="Neuer Spieler per Twitter"
+        = t('.oauth_via_twitter')
     %p
     = link_to facebook_connect_path(current_league), class: 'm-button_facebook' do
       %i.icon-facebook
-      = "Neuer Spieler per Facebook"
+      = t('.oauth_via_facebook')

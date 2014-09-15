@@ -1,8 +1,7 @@
-
 .m-league-list
   = link_to new_league_path do
     .m-league.as-new
-      .m-league--header Neue Liga
+      .m-league--header= t('common.new_league')
       .m-league--body
         %i.icon-plus.m-league--icon
 
@@ -11,11 +10,11 @@
       .m-league--header= league.name
       .m-league--body
         %div
-          %div Anzahl Spieler
+          %div= t('common.number_of_players')
           .m-league--fact
             %i.icon-user.m-league--icon
             = league.users.count
         %div
-          %div Anzahl Spiele
+          %div= t('common.number_of_matches')
           .m-league--fact= league.matches.count
 

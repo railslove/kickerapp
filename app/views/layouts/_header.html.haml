@@ -9,13 +9,19 @@
     .m-navigation
       - if league_present?
         .m-navigation--item.as-mobile-only= link_to "Alle Spiele", league_path(current_league)
-        .m-navigation--item= link_to "Neues Match", new_league_match_path(current_league)
-        .m-navigation--item.as-mobile-only= link_to "Ranking", league_users_path(current_league)
-        .m-navigation--item= link_to "Team Ranking", league_teams_path(current_league)
-        .m-navigation--item= link_to "Badges", badges_league_path(current_league)
-        .m-navigation--item= link_to "Zufall Teams",shuffle_select_league_matches_path(current_league)
+        .m-navigation--item= link_to t('common.new_match'), new_league_match_path(current_league)
+        .m-navigation--item.as-mobile-only= link_to t('.ranking'), league_users_path(current_league)
+        .m-navigation--item= link_to t('.team_ranking'), league_teams_path(current_league)
+        .m-navigation--item= link_to t('.badges'), badges_league_path(current_league)
+        .m-navigation--item= link_to t('.match_maker'),shuffle_select_league_matches_path(current_league)
         .m-navigation--item
           = link_to new_league_user_path(current_league) do
             %i.icon-user-add
+        .m-navigation--item.as-flag
+          = link_to ligen_path(locale: other_locale(I18n.locale)) do
+            = svg_tag "#{other_locale(I18n.locale)}.svg"
       - else
-        .m-navigation--item= link_to "Neue Liga", new_league_path
+        .m-navigation--item= link_to t('common.new_league'), new_league_path
+        .m-navigation--item.as-flag
+          = link_to ligen_path(locale: other_locale(I18n.locale)) do
+            = svg_tag "#{other_locale(I18n.locale)}.svg"

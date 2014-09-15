@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_league
 
+  before_action :set_locale
+
   def require_league
     if !current_league
       redirect_to root_path, alert: 'Bitte wähle zuerst eine Liga'
@@ -31,5 +33,15 @@ class ApplicationController < ActionController::Base
       id ? League.find_by!(slug: id) : nil
     end
   end
+
+  def default_url_options(options={})
+    { locale: I18n.locale }
+  end
+
+  private
+
+    def set_locale
+      I18n.locale = params[:locale] || I18n.default_locale
+    end
 
 end

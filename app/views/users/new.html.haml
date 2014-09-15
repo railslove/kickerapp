@@ -14,15 +14,15 @@
         = f.label :image, class: 'm-label'
         = f.text_field :image, class: 'm-input', placeholder: 'http://'
       .m-form--row
-        = f.submit "Spieler Anlegen", class: 'm-button'
+        = f.submit t('.submit'), class: 'm-button'
 
   .m-row--right
     %h3= t('.create_via_oauth')
     %p
       = link_to twitter_connect_path(current_league), class: 'm-button_twitter' do
         %i.icon-twitter
-        = t('.oauth_via_twitter')
+        = t('.register_via_twitter')
     %p
     = link_to facebook_connect_path(current_league), class: 'm-button_facebook' do
       %i.icon-facebook
-      = t('.oauth_via_facebook')
+      = t('.register_via_facebook')

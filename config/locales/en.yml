@@ -1,4 +1,13 @@
 en:
+  common:
+    faq: FAQ
+    imprint: Imprint
+    new_league: New league
+    new_match: New match
+    new_user: Add player
+    number_of_players: Players
+    number_of_matches: Matches
+    leagues: Leagues
   date:
     formats:
       default: '%m/%d/%Y'
@@ -9,20 +18,58 @@ en:
       default: '%a, %b %-d, %Y at %r'
       date: '%b %-d, %Y'
       short: '%B %d'
+
   badges:
     longest_winning_streak: '%{wins} wins in a row'
     top_crawler: 'Gets opponents under the table'
     worst_crawler: 'Second home under the table'
     last_one: 'Last one'
-    most_wins: "No one wins more often"
+    most_wins: 'No one wins more often'
     most_teams: 'Plays with every one. Most partners.'
-  users:
-    new:
-      create_by_email: Create new player with email adress
-      create_via_oauth: 'Or:'
-      oauth_via_twitter: "New player via Twitter"
-      oauth_via_facebook: "New player via Facebook"
-    show:
-      best_team: 'Best Team:'
-      worst_team: 'Worst Team:'
-      history: "Match history (last 100 matches)"
+    longest_winning_streak_ever: 'Longest winning streak ever (%{wins})'
+    descriptions:
+      crawling: The star - no other player sent more opponents crawling under the table.
+      crawler: |
+        "Has their second home under the table" - suffered the most losses with crawling.
+      longest_winning: The trophy - for the longest winning streak of all time.
+      most_teams: The team badge - no one's played in more different teams.
+      last_one: The tail light - the league's lowest-ranked player.
+      winning_streak: The rocket - marking the longest current winning streak.
+  features:
+    ranking: Im Team Ranking kannst du dir ansehen mit welchem Teampartner du am besten spielst, wie eure vergangenen Spiele ausgegangen sind, welche Quota ihr gemeinsam erspielt habt und wie viele Spiele ihr schon zusammen bestritten habt
+    stats: In der Spielerstatistik kannst du dir alle möglichen interessanten Infos über dich oder andere Spieler anschauen. Die Spielhistorie zeichnet den genauen Punkte- und Ranglistenstand der letzten 100 Spiele auf. Außerdem kannst du sehen wie viele Spiele gewonnen und verloren wurden und wie oft du andere krabbeln gelassen hast & selbst krabbeln musstest. Den Elo-Höchst- und Tiefstwert und deine längste Siegesserie findest du auch unter den Statistiken. 
+    teams: "Wenn du mal keine Lust hast mit deinem üblichen Partner zu spielen, dann kann der Zufallsteamgenerator Abhilfe schaffen: einfach vier Spieler auswählen und zufällige Teams werden ausgelost."
+  footer:
+    created_by: Created with love by
+    karl_kicker_text: "Hey there, I'm Karl. Karl Kicker! How can I help you?"
+  landing:
+    texts:
+      badges: Players can earn badges - some for good, others for less good performances at the foosball table. Challenge your mates and colleagues who can collect most badges - happy hunting!
+      evaluation: Das Wertungssystem der App beruht auf einer leicht angewandelten Version der Elo-Zahl, welches ursprünglich für die Schach-Weltrangliste entwickelt wurde, aber mittlerweile vielfältig eingesetzt wird
+  matches:
+    non_yet: Your matches will appear here. Go play some foosball and enter your results!
+  ranking:
+    inactive: This is the list of recent matches. You've either not entered any matches or your last match's older than 2 weeks.
+    non_yet: This is your ranking table. It seems you haven't played any matches yet.
+
+  activerecord:
+    attributes: &attributes
+      league:
+        name: "League's name"
+      user:
+        image: Avatar URL
+    errors: &errors
+    fallbacks: &fallbacks
+    help: &help
+    models: &models
+    placeholder: &placeholder
+    values: &values
+
+  activemodel:
+    attributes: *attributes
+    errors: *errors
+    fallbacks: *fallbacks
+    help: *help
+    models: *models
+    placeholder: *placeholder
+    values: *values

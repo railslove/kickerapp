@@ -1,0 +1,53 @@
+de:
+  layouts:
+    header:
+      badges: Badges
+      match_maker: Zufallsteams
+      ranking: Ranking
+      team_ranking: Team Ranking
+
+  leagues:
+    create:
+      failure: 'Liga konnte nicht gespeichert werden.'
+      success: 'Liga erfolgreich erzeugt!'
+    new:
+      slug_placeholder: 'deine-liga'
+      create_league_submit: 'Liga anlegen'
+
+  matches:
+    create:
+      success: Das Spiel wurde eingetragen!
+    form:
+      enter: Eintragen
+      enter_set: Satz eintragen!
+      player_placeholder: Spieler
+      start_match: Spiel starten
+      to_match_overview: Zur Match-Übersicht
+    shuffle_select:
+      headline: Bitte Erst 4 Spieler wählen und dann
+      probability_note: Die Wahrscheinlichkeit für ein Team aus stärkstem und schwächsten Spieler beträgt 50%, stärkster und drittstärkster 33% und stärkster und zweistärkster 17%.
+      shuffle: Teams auslosen
+
+  pages:
+    landing:
+      all_leagues: Alle Ligen anschauen
+      ranking_headline: Wertung
+      ranking_text: |
+        Das Wertungssystem der App beruht auf einer leicht angewandelten Version der Elo-Zahl, welches ursprünglich für die Schach-Weltrangliste entwickelt wurde, aber mittlerweile vielfältig eingesetzt wird.
+      teaser: |
+        Kostenlos eine eigene Liga anlegen, Freunde und Kollegen als Mitspieler hinzufügen und gegeneinander um die besten Plätze kickern.
+
+  users:
+    create:
+      success: "%{user_name} ist der Liga %{league_name} beigetreten!"
+
+    new:
+      create_by_email: Neuen Spieler mit Email-Adresse anlegen
+      create_via_oauth: 'Oder:'
+      register_via_facebook: Per Facebook registrieren
+      register_via_twitter: Per Twitter registrieren
+      submit: Spieler anlegen
+    show:
+      best_team: 'Bestes Team:'
+      history: "Spielhistorie (letzte 100 Spiele)"
+      worst_team: 'Schlechtestes Team:'

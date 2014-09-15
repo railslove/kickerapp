@@ -44,7 +44,7 @@ en:
     karl_kicker_text: "Hey there, I'm Karl. Karl Kicker! How can I help you?"
   landing:
     texts:
-      badges: 'Jeder Spieler kann für "besondere" Leistungen einen Badge erobern, mache sind ganz leicht zu bekommen, andere schwieriger. Aber auf jeden Fall ist es immer ein großer Spaß von gegnerischen Spielern einen Badge zu erbeuten!'
+      badges: Players can earn badges - some for good, others for less good performances at the foosball table. Challenge your mates and colleagues who can collect most badges - happy hunting!
       evaluation: Das Wertungssystem der App beruht auf einer leicht angewandelten Version der Elo-Zahl, welches ursprünglich für die Schach-Weltrangliste entwickelt wurde, aber mittlerweile vielfältig eingesetzt wird
   matches:
     non_yet: Your matches will appear here. Go play some foosball and enter your results!

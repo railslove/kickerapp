@@ -41,7 +41,7 @@ de:
     karl_kicker_text: 'Gestatten, Karl Kicker! Kann ich irgendwie helfen?'
   landing:
     texts:
-      badges: 'Jeder Spieler kann für "besondere" Leistungen einen Badge erobern, mache sind ganz leicht zu bekommen, andere schwieriger. Aber auf jeden Fall ist es immer ein großer Spaß von gegnerischen Spielern einen Badge zu erbeuten!'
+      badges: 'Jeder Spieler kann für "besondere" Leistungen einen Badge erobern, manche sind ganz leicht zu bekommen, andere schwieriger. Aber auf jeden Fall ist es immer ein großer Spaß von gegnerischen Spielern einen Badge zu erbeuten!'
       evaluation: Das Wertungssystem der App beruht auf einer leicht angewandelten Version der Elo-Zahl, welches ursprünglich für die Schach-Weltrangliste entwickelt wurde, aber mittlerweile vielfältig eingesetzt wird
   matches:
     non_yet: 'Hier erscheinen eure Spiele, sobald ihr welche eingetragen habt.'

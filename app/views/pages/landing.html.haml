@@ -1,12 +1,15 @@
 .l-content-wrapper
   .c-landing
     .c-landing--header
+      = link_to root_path(locale: other_locale(I18n.locale)), class: 'c-language-toggler' do
+        = svg_tag("#{other_locale(I18n.locale)}.svg")
+
       = link_to image_tag('landingpage_button.png'), new_league_path, class: 'c-landing--header--button'
       .c-landing--header--headbox
         = image_tag('logo.png')
         = t('.teaser')
         = image_tag('line.png')
-      = link_to 'Alle Ligen anschauen', ligen_path, class: 'm-button c-landing--header--league-button'
+      = link_to t('.all_leagues'), ligen_path, class: 'm-button c-landing--header--league-button'
     .c-landing--headline.m-icon-headline
       .c-landing--headline-head.m-icon-headline--head
         %i.c-landing--headline--icon.icon-star.m-icon-headline--icon
@@ -36,7 +39,7 @@
     .c-landing--headline.m-icon-headline
       .c-landing--headline-head.m-icon-headline--head
         %i.c-landing--headline--icon.icon-star.m-icon-headline--icon
-        Wertung
-      .c-landing--headline--text= t('landing.texts.evaluation')
+        = t('.ranking_headline')
+      .c-landing--headline--text= t('.ranking_text')
 
 / = render 'layouts/social'

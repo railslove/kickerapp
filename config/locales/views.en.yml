@@ -30,6 +30,10 @@ en:
 
   pages:
     landing:
+      all_leagues: Check out the leagues
+      ranking_headline: Ranking
+      ranking_text: |
+        Our ranking algorithm is a slightly modified version of of the Elo rating system, which was originally developed for the chess world ranking list.
       teaser: |
         Start your own league for free! Invite your friends and colleagues to see who's best at foosball and can earn the most badges.
 

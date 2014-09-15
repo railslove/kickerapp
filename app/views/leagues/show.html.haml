@@ -6,7 +6,7 @@
     .m-big-notice--text= t('matches.non_yet')
     .m-big-notice--button= link_to t('common.new_match'), new_league_match_path(current_league), class: 'm-button'
   - if current_league.users.any?
-    %h3 Eingetragene Spieler:
+    %h3= t('.players')
     .m-ranking
       - current_league.users.ranked.each_with_index do |user, index|
         .m-ranking--item{title: user.name}

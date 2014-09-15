@@ -10,6 +10,8 @@ en:
     create:
       failure: Couldn't create your league. Please try again.
       success: Successfully created your league!
+    show:
+      players: 'Registered players:'
     new:
       slug_placeholder: 'your-league'
       create_league_submit: 'Create league'

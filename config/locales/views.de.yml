@@ -10,6 +10,8 @@ de:
     create:
       failure: 'Liga konnte nicht gespeichert werden.'
       success: 'Liga erfolgreich erzeugt!'
+    show:
+      players: 'Eingetragene Spieler:'
     new:
       slug_placeholder: 'deine-liga'
       create_league_submit: 'Liga anlegen'

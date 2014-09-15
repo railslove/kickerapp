@@ -10,12 +10,12 @@
     = text_field_tag :winner_score, @match.score.split(":").first, class: 'm-input as-short'
     = ":"
     / = check_box_tag :crawling, @match.crawling, @match.crawling
-    = text_field_tag :looser_score, @match.score.split(":").last, class: 'm-input as-short'
+    = text_field_tag :loser_score, @match.score.split(":").last, class: 'm-input as-short'
     = check_box_tag :crawling, true, @match.crawling?, data: { behavior: 'crawling-check' }
     %label{:for => "crawling", class: "c-crawling", title: 'Checkbox auswählen, wenn gekrabbelt wurde'}
   .m-form--row
     .m-user-list
-      - @match.looser_team.users.each do |user|
+      - @match.loser_team.users.each do |user|
         .m-user.as-selected{title: user.name}= user_image(user)
       .score= "-#{@match.difference}"
   .m-form--row

@@ -9,8 +9,8 @@
         .m-match--score
           = match.score
           .m-match--score--difference= "+#{match.difference}"
-        = link_to league_team_path(current_league, match.looser_team), class: 'm-match--team' do
-          - match.looser_team.users.each do |user|
+        = link_to league_team_path(current_league, match.loser_team), class: 'm-match--team' do
+          - match.loser_team.users.each do |user|
             %span.m-match--team--member{title: user.name}= user_image(user)
         .m-match--actions
           .m-match--actions--edit

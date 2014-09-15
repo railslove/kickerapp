@@ -50,7 +50,7 @@
     #history{ data: { rankings: @history_entries.map(&:ranks).to_json, quotas: @history_entries.map(&:quotas).to_json, lowest_rank: @lowest_rank } }
 
     %h4 Aktuelle Statistiken
-    #stats{ data: { games: [ ["Siege", @user.number_of_wins], ["Niederlagen", @user.number_of_looses]] , crawls: [ ["Krabbeln lassen", @user.number_of_crawls], ["Gekrabbelt", @user.number_of_crawlings]]} }
+    #stats{ data: { games: [ ["Siege", @user.number_of_wins], ["Niederlagen", @user.number_of_losses]] , crawls: [ ["Krabbeln lassen", @user.number_of_crawls], ["Gekrabbelt", @user.number_of_crawlings]]} }
       #games
       #crawls
   .badges

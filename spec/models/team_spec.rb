@@ -5,7 +5,7 @@ describe Team do
   let(:user2) { FactoryGirl.create(:user) }
   let(:team) { FactoryGirl.create(:team, player1_id: user1.id) }
   let(:team2) { FactoryGirl.create(:team, player1_id: user2.id) }
-  let!(:match) { FactoryGirl.create(:match, winner_team_id: team.id, looser_team_id: team2.id) }
+  let!(:match) { FactoryGirl.create(:match, winner_team_id: team.id, loser_team_id: team2.id) }
 
   describe "#find_or_create" do
     it "fetches the correct team from the db" do
@@ -59,13 +59,13 @@ describe Team do
   end
 
   describe '.percentage' do
-    let!(:match) { FactoryGirl.create(:match, winner_team_id: team.id, looser_team_id: team2.id) }
+    let!(:match) { FactoryGirl.create(:match, winner_team_id: team.id, loser_team_id: team2.id) }
     context 'has games' do
-      let(:team_percentage) {FactoryGirl.build(:team, number_of_wins: 2, number_of_looses: 2, player1_id: user1.id)}
+      let(:team_percentage) {FactoryGirl.build(:team, number_of_wins: 2, number_of_losses: 2, player1_id: user1.id)}
       specify{ expect(team_percentage.percentage).to eql(50) }
     end
     context 'no games' do
-      let(:team_percentage) {FactoryGirl.build(:team, number_of_wins: 0, number_of_looses: 0, player1_id: user2.id)}
+      let(:team_percentage) {FactoryGirl.build(:team, number_of_wins: 0, number_of_losses: 0, player1_id: user2.id)}
       specify{ expect(team_percentage.percentage).to eql(0) }
     end
   end
@@ -79,12 +79,12 @@ describe Team do
     end
   end
 
-  describe '.looses' do
+  describe '.losses' do
     before do
-      match.update_attributes(looser_team_id: team.id)
+      match.update_attributes(loser_team_id: team.id)
     end
     it 'shows only wins' do
-      expect(team.looses.to_a).to eql([match])
+      expect(team.losses.to_a).to eql([match])
     end
   end
 

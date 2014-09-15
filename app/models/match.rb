@@ -3,7 +3,7 @@ class Match < ActiveRecord::Base
   belongs_to :winner_team, class_name: "Team"
   belongs_to :looser_team, class_name: "Team"
 
-  belongs_to :league
+  belongs_to :league, counter_cache: true
 
   default_scope lambda {order("date DESC")}
 

@@ -31,6 +31,12 @@
       "src": "fontawesome"
     },
     {
+      "uid": "ead4c82d04d7758db0f076584893a8c1",
+      "css": "calendar-empty",
+      "code": 59405,
+      "src": "fontawesome"
+    },
+    {
       "uid": "ab656e280958018a7859eba9a1eabbc7",
       "css": "award",
       "code": 59395,

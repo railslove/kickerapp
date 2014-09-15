@@ -1,9 +1,9 @@
 = form_for @league, html: { class: 'm-form' } do |f|
   .m-form--row
-    = label_tag :name, 'Name deiner Liga', class: 'm-label'
+    = f.label :name, class: 'm-label'
     = f.text_field :name, class: 'm-input'
   .m-form--row
     = label_tag :slug, 'http://kicker.cool/', class: 'm-label'
-    = f.text_field :slug, class: 'm-input', placeholder: 'deine-liga'
+    = f.text_field :slug, class: 'm-input', placeholder: t('.slug_placeholder')
   .m-form--row
-    = f.submit 'Liga anlegen', class: 'm-button'
+    = f.submit t('.create_league_submit'), class: 'm-button'

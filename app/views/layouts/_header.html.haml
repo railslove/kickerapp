@@ -18,4 +18,8 @@
           = link_to new_league_user_path(current_league) do
             %i.icon-user-add
       - else
-        .m-navigation--item= link_to "Neue Liga", new_league_path
+        .m-navigation--item= link_to t('.new_league'), new_league_path
+        - other_locale = I18n.locale == :de ? 'en' : 'de'
+        .m-navigation--item.as-flag
+          = link_to ligen_path(locale: other_locale) do
+            = svg_tag "#{other_locale}.svg"

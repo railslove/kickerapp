@@ -4,7 +4,7 @@ de:
     new_match: Spiel eintragen
     new_user: Spieler hinzufügen
     imprint: Impressum
-    ligen: Ligen-Übersicht
+    leagues: Ligen-Übersicht
   date:
     formats:
       with_weekday: '%a %d.%m.%y'
@@ -19,7 +19,7 @@ de:
     top_crawler: 'Lässt die Gegner kriechen'
     worst_crawler: 'Kennt den Tisch von unten wie kein anderer'
     last_one: 'Die rote Laterne'
-    most_wins: "So viele Siege hat keiner"
+    most_wins: 'So viele Siege hat keiner'
     most_teams: 'Ist sich für nichts zu schade. Meisten Teams.'
     longest_winning_streak_ever: 'Die längste Siegesserie ever (%{wins})'
     descriptions:
@@ -57,6 +57,23 @@ de:
       history: "Spielhistorie (letzte 100 Spiele)"
 
   activerecord:
-    attributes:
+    attributes: &attributes
+      league:
+        name: 'Name deiner Liga'
       user:
         image: Avatar URL
+    errors: &errors
+    fallbacks: &fallbacks
+    help: &help
+    models: &models
+    placeholder: &placeholder
+    values: &values
+
+  activemodel:
+    attributes: *attributes
+    errors: *errors
+    fallbacks: *fallbacks
+    help: *help
+    models: *models
+    placeholder: *placeholder
+    values: *values

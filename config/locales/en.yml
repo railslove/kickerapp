@@ -1,4 +1,10 @@
 en:
+  common:
+    faq: FAQ
+    imprint: Imprint
+    new_match: New match
+    new_user: Add player
+    leagues: Leagues
   date:
     formats:
       default: '%m/%d/%Y'
@@ -9,10 +15,58 @@ en:
       default: '%a, %b %-d, %Y at %r'
       date: '%b %-d, %Y'
       short: '%B %d'
+
   badges:
     longest_winning_streak: '%{wins} wins in a row'
     top_crawler: 'Gets opponents under the table'
     worst_crawler: 'Second home under the table'
     last_one: 'Last one'
-    most_wins: "No one wins more often"
+    most_wins: 'No one wins more often'
     most_teams: 'Plays with every one. Most partners.'
+    longest_winning_streak_ever: 'Longest winning streak ever (%{wins})'
+    descriptions:
+      crawling: The player who made the most opponents crawl under the table receives a star.
+      crawler: |
+        For the most losses with crawling you earn the badge "Knows the table's bottom side like no other". It's easy to get but hard to lose.
+      longest_winning: You earn a trophy for the longest winning streak ever.
+      most_teams: Dejenige der sich für nichts zu schade ist und in den meisten Teams spielt bekommt den Team-Badge.
+      last_one: Das Schlusslicht der Liga kann sich über die rote Laterne freuen!
+      winning_streak: Wer aktuell die meisten Siege in Folge hat, bekommt die Rakete.
+  features:
+    ranking: Im Team Ranking kannst du dir ansehen mit welchem Teampartner du am besten spielst, wie eure vergangenen Spiele ausgegangen sind, welche Quota ihr gemeinsam erspielt habt und wie viele Spiele ihr schon zusammen bestritten habt
+    stats: In der Spielerstatistik kannst du dir alle möglichen interessanten Infos über dich oder andere Spieler anschauen. Die Spielhistorie zeichnet den genauen Punkte- und Ranglistenstand der letzten 100 Spiele auf. Außerdem kannst du sehen wie viele Spiele gewonnen und verloren wurden und wie oft du andere krabbeln gelassen hast & selbst krabbeln musstest. Den Elo-Höchst- und Tiefstwert und deine längste Siegesserie findest du auch unter den Statistiken. 
+    teams: "Wenn du mal keine Lust hast mit deinem üblichen Partner zu spielen, dann kann der Zufallsteamgenerator Abhilfe schaffen: einfach vier Spieler auswählen und zufällige Teams werden ausgelost."
+  footer:
+    created_by: Created with love by
+    karl_kicker_text: "Hey there, I'm Karl. Karl Kicker! How can I help you?"
+  landing:
+    texts:
+      badges: 'Jeder Spieler kann für "besondere" Leistungen einen Badge erobern, mache sind ganz leicht zu bekommen, andere schwieriger. Aber auf jeden Fall ist es immer ein großer Spaß von gegnerischen Spielern einen Badge zu erbeuten!'
+      evaluation: Das Wertungssystem der App beruht auf einer leicht angewandelten Version der Elo-Zahl, welches ursprünglich für die Schach-Weltrangliste entwickelt wurde, aber mittlerweile vielfältig eingesetzt wird
+  matches:
+    non_yet: 'Hier erscheinen eure Spiele, sobald ihr welche eingetragen habt.'
+  ranking:
+    inactive: 'Entweder habt ihr noch keine Spiele eingetragen oder das letzte Spiel ist länger als 2 Wochen her.'
+    non_yet: 'Sobald Spieler eingetragen sind und sie das erste Spiel gemacht haben, erscheinen sie hier'
+
+  activerecord:
+    attributes: &attributes
+      league:
+        name: "League's name"
+      user:
+        image: Avatar URL
+    errors: &errors
+    fallbacks: &fallbacks
+    help: &help
+    models: &models
+    placeholder: &placeholder
+    values: &values
+
+  activemodel:
+    attributes: *attributes
+    errors: *errors
+    fallbacks: *fallbacks
+    help: *help
+    models: *models
+    placeholder: *placeholder
+    values: *values

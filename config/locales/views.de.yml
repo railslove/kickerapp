@@ -1,0 +1,17 @@
+de:
+  layouts:
+    header:
+      new_league: Neue Liga
+  leagues:
+    create:
+      failure: 'Liga konnte nicht gespeichert werden.'
+      success: 'Liga erfolgreich erzeugt!'
+    new:
+      slug_placeholder: 'deine-liga'
+      create_league_submit: 'Liga anlegen'
+  users:
+    new:
+      create_by_email: Neuen User mit E-Mail-Adresse anlegen
+      create_via_oauth: 'Oder:'
+    show:
+      history: "Spielhistorie (letzte 100 Spiele)"

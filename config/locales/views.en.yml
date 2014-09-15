@@ -36,13 +36,13 @@ en:
   users:
     create:
       success: "%{user_name} has joined %{league_name}!"
-
-
     new:
-      create_by_email: Create a new player by email address
+      create_by_email: Create new player with email address
       create_via_oauth: 'Or:'
       register_via_facebook: Register via Facebook
       register_via_twitter: Register via Twitter
       submit: Create player
     show:
-      history: "Spielhistorie (letzte 100 Spiele)"
+      best_team: 'Best Team:'
+      worst_team: 'Worst Team:'
+      history: "Match history (last 100 matches)"

@@ -43,4 +43,6 @@ de:
       register_via_twitter: Per Twitter registrieren
       submit: Spieler anlegen
     show:
+      best_team: 'Bestes Team:'
       history: "Spielhistorie (letzte 100 Spiele)"
+      worst_team: 'Schlechtestes Team:'

@@ -1,4 +1,5 @@
 class League < ActiveRecord::Base
+
   has_many :history_entries
   has_many :matches
   has_many :teams
@@ -13,10 +14,6 @@ class League < ActiveRecord::Base
 
   def to_param
     self.slug
-  end
-
-  def sanitize_slug
-    self.slug = self.slug.downcase.parameterize
   end
 
   def update_badges
@@ -63,5 +60,10 @@ class League < ActiveRecord::Base
     users.reload.ranked.select{ |u| u.active? }
   end
 
+  private
+
+    def sanitize_slug
+      self.slug = self.slug.downcase.parameterize
+    end
 
 end

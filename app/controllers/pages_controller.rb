@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
-  layout 'landingpage', except: :pebble_settings
-  def landing
 
+  layout 'landingpage', except: :pebble_settings
+
+  def landing
   end
 
   def pebble_settings

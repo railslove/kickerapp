@@ -43,7 +43,12 @@ class LeaguesController < ApplicationController
 
   private
 
-  def league_params
-    params.require(:league).permit(:name, :slug)
-  end
+    def league_params
+      params.require(:league).permit(:name, :slug)
+    end
+
+    def set_current_league
+      session[:league] = @league.id if @league.present?
+    end
+
 end

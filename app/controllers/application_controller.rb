@@ -15,10 +15,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def set_current_league
-    session[:league] = @league.id if @league.present?
-  end
-
   def clear_current_league
     session.delete(:league)
   end

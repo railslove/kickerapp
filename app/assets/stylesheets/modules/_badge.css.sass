@@ -1,22 +1,35 @@
+= badge-full-color($color)
+  border-color: $color
+  .m-badge--logo
+    i:before
+      color: $color
 .m-badge
   display: block
   border: 3px solid $green
-  background: rgba($green, 0.3)
+  background: $white
   padding: $padding
   margin: 0 $margin $margin 0
   .m-badge--logo
     font-size: 40px
-  &.as-bad
-    border-color: $red
-    background: rgba($red, 0.3)
-    hr
-      border-color: $red
   .m-badge--logo, .m-badge--image
     float: left
   .m-badge--title
     clear: both
   hr
     border-color: $green
+  &.as-crawling
+    +badge-full-color($orange)
+  &.as-longest_winning
+    +badge-full-color($yellow)
+  &.as-most_teams
+    +badge-full-color($green)
+  &.as-winning_streak
+    +badge-full-color($blue)
+  &.as-last_one
+    +badge-full-color($red)
+  &.as-crawler
+    +badge-full-color($pink)
+
 .m-badge-list
   +pie-clearfix
   .m-badge

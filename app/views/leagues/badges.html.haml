@@ -2,18 +2,18 @@
   - user = @league.top_crawler
 
   - if user.present?
-    .m-badge
+    .m-badge.as-crawler
       .m-badge--image
         = link_to league_user_path(current_league, user) do
           = user_image(user)
       .m-badge--logo
-        %i.icon-star-empty= user.number_of_crawls
+        %i.icon-star= user.number_of_crawls
       .m-badge--title= t('badges.top_crawler')
 
   - user = @league.worst_crawler
 
   - if user.present?
-    .m-badge.as-bad
+    .m-badge.as-crawling
       .m-badge--image
         = link_to league_user_path(current_league, user) do
           = user_image(user)
@@ -24,7 +24,7 @@
   - user = @league.longest_winning_streak_ever
 
   - if user.present?
-    .m-badge
+    .m-badge.as-winning_streak
       .m-badge--image
         = link_to league_user_path(current_league, user) do
           = user_image(user)
@@ -35,7 +35,7 @@
 
   - user = @league.longest_winning_streak
   - if user.present?
-    .m-badge
+    .m-badge.as-longest_winning
       .m-badge--image
         = link_to league_user_path(current_league, user) do
           = user_image(user)
@@ -46,7 +46,7 @@
 
   - user = @league.most_teams
   - if user.present?
-    .m-badge
+    .m-badge.as-most_teams
       .m-badge--image
         = link_to league_user_path(current_league, user) do
           = user_image(user)
@@ -57,7 +57,7 @@
 
   - user = @league.active_user_ranking.last
   - if user.present?
-    .m-badge.as-bad
+    .m-badge.as-last_one
       .m-badge--image
         = link_to league_user_path(current_league, user) do
           = user_image(user)

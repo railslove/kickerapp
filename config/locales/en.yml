@@ -41,16 +41,16 @@ en:
       last_one: The tail light - the league's lowest-ranked player.
       winning_streak: The rocket - marking the longest current winning streak.
   features:
-    ranking: Im Team Ranking kannst du dir ansehen mit welchem Teampartner du am besten spielst, wie eure vergangenen Spiele ausgegangen sind, welche Quota ihr gemeinsam erspielt habt und wie viele Spiele ihr schon zusammen bestritten habt
-    stats: In der Spielerstatistik kannst du dir alle möglichen interessanten Infos über dich oder andere Spieler anschauen. Die Spielhistorie zeichnet den genauen Punkte- und Ranglistenstand der letzten 100 Spiele auf. Außerdem kannst du sehen wie viele Spiele gewonnen und verloren wurden und wie oft du andere krabbeln gelassen hast & selbst krabbeln musstest. Den Elo-Höchst- und Tiefstwert und deine längste Siegesserie findest du auch unter den Statistiken. 
-    teams: "Wenn du mal keine Lust hast mit deinem üblichen Partner zu spielen, dann kann der Zufallsteamgenerator Abhilfe schaffen: einfach vier Spieler auswählen und zufällige Teams werden ausgelost."
+    ranking: The team ranking page shows your best foosball partner, previous scores, percentage of won games and all the matches you played together.
+    stats: The player stats contain various information about all the players. The scoring history presents the exact score and ranking of the last 100 matches. Furthermore it shows the number of won and lost games and how often the player sent an opponent crawling under the table or had to do the crawl-of-shame themselves. The highest and lowest ELO rating and the longest winning streak is shown in the stats as well.
+    teams: "The random team generator helps you find a new match partner if you want to play with someone else for a change. Just pick as many players as you want out of the players list and random teams will matched up against each other."
   footer:
     created_by: Created with love by
     karl_kicker_text: "Hey there, I'm Karl. Karl Kicker! How can I help you?"
   landing:
     texts:
       badges: Players can earn badges - some for good, others for less good performances at the foosball table. Challenge your mates and colleagues who can collect most badges - happy hunting!
-      evaluation: Das Wertungssystem der App beruht auf einer leicht angewandelten Version der Elo-Zahl, welches ursprünglich für die Schach-Weltrangliste entwickelt wurde, aber mittlerweile vielfältig eingesetzt wird
+      evaluation: The rating is based on a slightly modified version of the ELO chess rating system, which is used more and more in games other than chess.
   matches:
     non_yet: Your matches will appear here. Go play some foosball and enter your results!
   ranking:

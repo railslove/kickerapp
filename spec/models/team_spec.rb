@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Team do
+describe Team, type: :model do
   let(:user1) { FactoryGirl.create(:user) }
   let(:user2) { FactoryGirl.create(:user) }
   let(:team) { FactoryGirl.create(:team, player1_id: user1.id) }

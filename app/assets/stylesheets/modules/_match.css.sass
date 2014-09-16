@@ -3,9 +3,7 @@
   padding: $margin
   border: 1px solid $blue
   background: $white
-  .m-match-list--headline
-    clear: both
-    color: $blue
+  clear: both
   .m-match
     float: left
     margin-right: 90px
@@ -18,6 +16,13 @@
       margin-bottom: 10px
       &.as-single
         margin-right: 45%
+.m-match-list--group
+  +clearfix
+  margin-bottom: $margin
+  border-bottom: 1px solid $grey
+.m-match-list--headline
+  clear: both
+  color: $blue
 .m-match
   position: relative
   +clearfix
@@ -48,6 +53,14 @@
       font-size: 16px
       color: $green
       transition: 0.1s ease-in-out all
+    &.as-winner, &.as-loser
+      color: $white
+      .m-match--score--difference
+        color: $white
+    &.as-winner
+      background: $green
+    &.as-loser
+      background: $red
   .m-match--actions
     +pie-clearfix
     text-align: center

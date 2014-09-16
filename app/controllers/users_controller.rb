@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       league = League.find_by!(slug: params[:league_id])
       user = User.create(user_params.merge({league_id: current_league.id}))
     end
-    redirect_to new_league_match_url(current_league), notice: "Neuer Spieler #{user.name} in der Liga #{current_league.name} angelegt!"
+    redirect_to new_league_match_url(current_league), notice: t('.success', user_name: user.name, league_name: current_league.name)
   end
 
   def show

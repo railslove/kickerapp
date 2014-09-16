@@ -1,7 +1,8 @@
 .team-header
-  .team-header--members= render @team.users
   %h1.team-header--name= @team.name
+  .team-header--members= render @team.users
 
-= render 'matches/cup', matches: @matches, primary: @team
+
+= render 'matches/list', matches: @matches, primary: @team
 
 %p= paginate @matches

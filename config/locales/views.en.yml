@@ -1,0 +1,52 @@
+en:
+  layouts:
+    header:
+      badges: Badges
+      match_maker: Match Maker
+      ranking: Ranking
+      team_ranking: Team Ranking
+
+  leagues:
+    create:
+      failure: Couldn't create your league. Please try again.
+      success: Successfully created your league!
+    new:
+      slug_placeholder: 'your-league'
+      create_league_submit: 'Create league'
+
+  matches:
+    create:
+      success: Your match results have been entered!
+    form:
+      enter: Enter results
+      enter_set: Enter set!
+      player_placeholder: Player
+      start_match: Start match
+      to_match_overview: To the match overview
+    shuffle_select:
+      headline: Choose 4 players and then
+      probability_note: The chance of pairing the strongest with the weakest player is 50%, strongest with third-strongest 33%, and strongest with second-strongest 17%.
+      shuffle: Make a match!
+
+  pages:
+    landing:
+      all_leagues: Check out the leagues
+      ranking_headline: Ranking
+      ranking_text: |
+        Our ranking algorithm is a slightly modified version of of the Elo rating system, which was originally developed for the chess world ranking list.
+      teaser: |
+        Start your own league for free! Invite your friends and colleagues to see who's best at foosball and can earn the most badges.
+
+  users:
+    create:
+      success: "%{user_name} has joined %{league_name}!"
+    new:
+      create_by_email: Create new player with email address
+      create_via_oauth: 'Or:'
+      register_via_facebook: Register via Facebook
+      register_via_twitter: Register via Twitter
+      submit: Create player
+    show:
+      best_team: 'Best Team:'
+      worst_team: 'Worst Team:'
+      history: "Match history (last 100 matches)"

@@ -1,9 +1,10 @@
 = form_tag shuffle_league_matches_path(current_league) do
-  .m-headlineBitte Erst 4 Spieler wählen und dann
+  .m-headline
+    = t('.headline')
   .m-form--row
-    = submit_tag "Teams auslosen", class: 'm-button with-full-width as-secondary'
+    = submit_tag t('.shuffle'), class: 'm-button with-full-width as-secondary'
   %p.hide-mobile
-    %small Die Wahrscheinlichkeit für ein Team aus stärkstem und schwächsten Spieler beträgt 50%, stärkster und drittstärkster 33% und stärkster und zweistärkster 17%.
+    %small= t('.probability_note')
   - users = current_league.users.ranked
   .m-user-list{data: {behaviour: :shuffle_select, count: 0 }}
     - users.select{|user| user.matches.any? && user.matches.first.date > 2.weeks.ago }.each do |user|

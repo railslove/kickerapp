@@ -1,6 +1,8 @@
+# encoding: utf-8
+
 require 'spec_helper'
 
-describe League do
+describe League, type: :model do
 
   describe 'scopes' do
     specify '.by_matches' do

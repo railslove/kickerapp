@@ -1,17 +1,20 @@
-- matches.group_by{|m| m.date.to_date}.each do |date, matches|
-  %h2.m-headline.m-match-list--headline= l(date, format: :short)
-  %ul.m-match-list
-    - matches.each do |match|
-      %li.m-match{class: [match.crawling? ? "as-crawling" : '', ('as-single' if match.winner_team.users.count == 1)], data: {id: match.id}}
-        = link_to league_team_path(current_league, match.winner_team), class: 'm-match--team as-winner' do
-          - match.winner_team.users.each do |user|
-            %span.m-match--team--member{title: user.name}= user_image(user)
-        .m-match--score
-          = match.score
-          .m-match--score--difference= "+#{match.difference}"
-        = link_to league_team_path(current_league, match.loser_team), class: 'm-match--team' do
-          - match.loser_team.users.each do |user|
-            %span.m-match--team--member{title: user.name}= user_image(user)
-        .m-match--actions
-          .m-match--actions--edit
-            = link_to "Ändern", edit_league_match_path(current_league, match), class: "m-link"
+%ul.m-match-list
+  - matches.group_by{|m| m.date.to_date}.each do |date, matches|
+    %h2.m-headline.m-match-list--headline
+      %i.icon-calendar-empty
+      = l(date, format: :short)
+    .m-match-list--group
+      - matches.each do |match|
+        %li.m-match{class: [match.crawling? ? "as-crawling" : '', ('as-single' if match.winner_team.users.count == 1)], data: {id: match.id}}
+          = link_to league_team_path(current_league, match.winner_team), class: 'm-match--team as-winner' do
+            - match.winner_team.users.each do |user|
+              %span.m-match--team--member{title: user.name}= user_image(user)
+          .m-match--score{class: @team ? (match.winner_team == @team ? 'as-winner' : 'as-loser') : '' }
+            = match.score
+            .m-match--score--difference= "+#{match.difference}"
+          = link_to league_team_path(current_league, match.loser_team), class: 'm-match--team' do
+            - match.loser_team.users.each do |user|
+              %span.m-match--team--member{title: user.name}= user_image(user)
+          .m-match--actions
+            .m-match--actions--edit
+              = link_to t('common.change'), edit_league_match_path(current_league, match), class: "m-link"

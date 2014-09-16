@@ -46,4 +46,15 @@ module ApplicationHelper
     raw(file.read)
   end
 
+  def other_locale(locale)
+    case locale
+      when :de
+        :en
+      when :en
+        :de
+      else
+        I18n.default_locale
+      end
+  end
+
 end

@@ -1,10 +1,13 @@
 de:
   common:
     faq: FAQ
+    new_league: Neue Liga
     new_match: Spiel eintragen
     new_user: Spieler hinzufügen
+    number_of_players: Anzahl Spieler
+    number_of_matches: Anzahl Spiele
     imprint: Impressum
-    ligen: Ligen-Übersicht
+    leagues: Ligen-Übersicht
   date:
     formats:
       with_weekday: '%a %d.%m.%y'
@@ -19,14 +22,14 @@ de:
     top_crawler: 'Lässt die Gegner kriechen'
     worst_crawler: 'Kennt den Tisch von unten wie kein anderer'
     last_one: 'Die rote Laterne'
-    most_wins: "So viele Siege hat keiner"
+    most_wins: 'So viele Siege hat keiner'
     most_teams: 'Ist sich für nichts zu schade. Meisten Teams.'
     longest_winning_streak_ever: 'Die längste Siegesserie ever (%{wins})'
     descriptions:
       crawling: Einen Stern bekommt derjenige, der die meisten Gegner krabbeln lässt.
       crawler: "Für die meisten Niederlagen mit Krabbeln gibt es den Badge 'Kennt den Tisch von unten wie kein anderer', der ist leicht zu bekommen aber nicht sehr begehrt..."
       longest_winning: Für die längste Siegesserie aller Zeiten gibt es den Pokal.
-      most_teams: Dejenige der sich für nichts zu schade ist und in den meisten Teams spielt bekommt den Team-Badge.
+      most_teams: Derjenige, der sich für nichts zu schade ist und in den meisten Teams spielt, bekommt den Team-Badge.
       last_one: Das Schlusslicht der Liga kann sich über die rote Laterne freuen!
       winning_streak: Wer aktuell die meisten Siege in Folge hat, bekommt die Rakete.
   features:
@@ -38,29 +41,32 @@ de:
     karl_kicker_text: 'Gestatten, Karl Kicker! Kann ich irgendwie helfen?'
   landing:
     texts:
-      badges: 'Jeder Spieler kann für "besondere" Leistungen einen Badge erobern, mache sind ganz leicht zu bekommen, andere schwieriger. Aber auf jeden Fall ist es immer ein großer Spaß von gegnerischen Spielern einen Badge zu erbeuten!'
+      badges: 'Jeder Spieler kann für "besondere" Leistungen einen Badge erobern, manche sind ganz leicht zu bekommen, andere schwieriger. Aber auf jeden Fall ist es immer ein großer Spaß von gegnerischen Spielern einen Badge zu erbeuten!'
       evaluation: Das Wertungssystem der App beruht auf einer leicht angewandelten Version der Elo-Zahl, welches ursprünglich für die Schach-Weltrangliste entwickelt wurde, aber mittlerweile vielfältig eingesetzt wird
   matches:
     non_yet: 'Hier erscheinen eure Spiele, sobald ihr welche eingetragen habt.'
   ranking:
     inactive: 'Entweder habt ihr noch keine Spiele eingetragen oder das letzte Spiel ist länger als 2 Wochen her.'
     non_yet: 'Sobald Spieler eingetragen sind und sie das erste Spiel gemacht haben, erscheinen sie hier'
-  leagues:
-    create:
-      failure: 'Liga konnte nicht gespeichert werden.'
-      success: 'Liga erfolgreich erzeugt!'
-  users:
-    new:
-      create_by_email: Neuen User mit E-Mail-Adresse anlegen
-      create_via_oauth: 'Oder:'
-      oauth_via_twitter: "Neuer Spieler per Twitter"
-      oauth_via_facebook: "Neuer Spieler per Facebook"
-    show:
-      best_team: 'Bestes Team:'
-      worst_team: 'Schlechtestes Team:'
-      history: "Spielhistorie (letzte 100 Spiele)"
 
   activerecord:
-    attributes:
+    attributes: &attributes
+      league:
+        name: 'Name deiner Liga'
       user:
         image: Avatar URL
+    errors: &errors
+    fallbacks: &fallbacks
+    help: &help
+    models: &models
+    placeholder: &placeholder
+    values: &values
+
+  activemodel:
+    attributes: *attributes
+    errors: *errors
+    fallbacks: *fallbacks
+    help: *help
+    models: *models
+    placeholder: *placeholder
+    values: *values

@@ -50,3 +50,9 @@ en:
       best_team: 'Best Team:'
       worst_team: 'Worst Team:'
       history: "Match history (last 100 matches)"
+  views:
+    pagination:
+      first: First
+      next: Next
+      last: Last
+      previous: Previous

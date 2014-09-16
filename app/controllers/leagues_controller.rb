@@ -17,7 +17,7 @@ class LeaguesController < ApplicationController
     if @league.save
       set_current_league
       AdminMailer.new_league(@league.id).deliver
-      redirect_to league_path(@league), notice: t('leagues.create.success')
+      redirect_to new_league_user_path(@league), notice: t('leagues.create.success')
     else
       flash.now[:alert] = t('leagues.create.failure')
       render :new
@@ -44,7 +44,7 @@ class LeaguesController < ApplicationController
   private
 
     def league_params
-      params.require(:league).permit(:name, :slug)
+      params.require(:league).permit(:name, :slug, :contact_email)
     end
 
     def set_current_league

@@ -23,13 +23,13 @@ de:
       short: '%B %d'
 
   badges:
-    longest_winning_streak: '%{wins} Siege in Folge'
-    top_crawler: 'Lässt die Gegner kriechen'
-    worst_crawler: 'Kennt den Tisch von unten wie kein anderer'
-    last_one: 'Die rote Laterne'
-    most_wins: 'So viele Siege hat keiner'
+    longest_winning_streak: '%{wins} Siege in Folge.'
+    top_crawler: 'Lässt die Gegner kriechen.'
+    worst_crawler: 'Kennt den Tisch von unten wie kein anderer.'
+    last_one: 'Die rote Laterne.'
+    most_wins: 'So viele Siege hat keiner.'
     most_teams: 'Ist sich für nichts zu schade. Meisten Teams.'
-    longest_winning_streak_ever: 'Die längste Siegesserie ever (%{wins})'
+    longest_winning_streak_ever: 'Die längste Siegesserie ever (%{wins}).'
     descriptions:
       crawling: Einen Stern bekommt derjenige, der die meisten Gegner krabbeln lässt.
       crawler: "Für die meisten Niederlagen mit Krabbeln gibt es den Badge 'Kennt den Tisch von unten wie kein anderer', der ist leicht zu bekommen aber nicht sehr begehrt..."

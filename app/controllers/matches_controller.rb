@@ -61,8 +61,10 @@ class MatchesController < ApplicationController
 
   def shuffle
     @match = Match.new
-    if params[:user_ids].select{|id| id.present?}.size == 4
-      teams = Team.shuffle(params[:user_ids])
+    user_ids = params[:user_ids].select{|id| id.present?}
+    if user_ids.size >= 4
+      user_ids = user_ids.sample(4) if user_ids.size > 4 #Choose 4 players from array
+      teams = Team.shuffle(user_ids)
       @team1 = teams.first
       @team2 = teams.last
       flash.now[:notice] = "Es spielen #{@team1.name} gegen #{@team2.name}"

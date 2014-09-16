@@ -1,10 +1,14 @@
 = form_tag shuffle_league_matches_path(current_league) do
+  %p.hide-mobile
+    %small= t('.probability_note')
   .m-headline
     = t('.headline')
   .m-form--row
-    = submit_tag t('.shuffle'), class: 'm-button with-full-width as-secondary'
-  %p.hide-mobile
-    %small= t('.probability_note')
+    = submit_tag t('.shuffle'), class: 'm-button with-full-width as-secondary as-disabled', id: 'submit-button'
+  .c-shuffle-count
+    = t('.shuffle_count')
+    %span.c-shuffle-count{ 'data-behavior' => 'shuffle-count' }
+      0
   - users = current_league.users.ranked
   .m-user-list{data: {behaviour: :shuffle_select, count: 0 }}
     - users.select{|user| user.matches.any? && user.matches.first.date > 2.weeks.ago }.each do |user|
@@ -12,6 +16,6 @@
     - users.select{|user| !user.matches.any? || user.matches.first.date <= 2.weeks.ago }.each do |user|
       .m-user{title: user.name, data: {value: user.id} }= user_image(user)
   .hidden_inputs
-    - 4.times do |i|
+    - 10.times do |i|
       = text_field_tag "user_ids[]", "", data: {player: "#{i}"}
 

@@ -18,25 +18,33 @@ $ ->
       $team = $(@).parents(".m-user-list")
       team_count = $team.data('count')
       $users = $("[data-value=#{$user.data('value')}]")
-      if $user.hasClass('as-selected')
-        $users.removeClass('as-disabled')
+      if $user.hasClass('as-active')
         $input = $team.find("select[data-player=#{team_count - 1}]")
         $shuffle_input = $("input[data-player=#{team_count - 1}]")
         $shuffle_input.val("")
-        $user.removeClass('as-selected')
+        $user.removeClass('as-active')
         $team.data('count', team_count - 1)
         $input.val('')
 
       else
-        if $user.parent("[data-behaviour=shuffle_select]").length && team_count < 4
-          $user.addClass('as-selected')
+        if $user.parent("[data-behaviour=shuffle_select]").length && team_count < 10
+          $user.addClass('as-active')
           $team.data('count', team_count + 1)
           $shuffle_input = $("input[data-player=#{team_count}]")
           $shuffle_input.val($user.data('value'))
         if team_count < 2
-          $users.addClass('as-disabled')
-          $user.removeClass('as-disabled')
           $input = $team.find("select[data-player=#{team_count}]")
-          $user.addClass('as-selected')
+          $user.addClass('as-active')
           $team.data('count', team_count + 1)
           $input.val($user.data('value'))
+      count = $team.data('count')
+      $('[data-behavior=shuffle-count]').text(count)
+      if count > 3
+        $('#submit-button').removeClass('as-disabled')
+      else
+        $('#submit-button').addClass('as-disabled')
+      if count = 0
+        $('[data-behavior=shuffle-count]').hide()
+      else
+        $('[data-behavior=shuffle-count]').show()
+      $('[data-behavior=shuffle-count]').show()

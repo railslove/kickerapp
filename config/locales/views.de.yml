@@ -24,10 +24,10 @@ de:
       start_match: Spiel starten
       to_match_overview: Zur Match-Übersicht
     shuffle_select:
-      headline: Bitte Erst 4 Spieler wählen und dann
+      headline: Bitte zuerst mindestens 4 Spieler wählen und dann
       probability_note: Die Wahrscheinlichkeit für ein Team aus stärkstem und schwächsten Spieler beträgt 50%, stärkster und drittstärkster 33% und stärkster und zweistärkster 17%.
       shuffle: Teams auslosen
-
+      shuffle_count: "Anzahl ausgewählter Spieler:"
   pages:
     landing:
       all_leagues: Alle Ligen anschauen

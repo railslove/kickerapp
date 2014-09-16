@@ -24,10 +24,10 @@ en:
       start_match: Start match
       to_match_overview: To the match overview
     shuffle_select:
-      headline: Choose 4 players and then
+      headline: Choose at least 4 players and then
       probability_note: The chance of pairing the strongest with the weakest player is 50%, strongest with third-strongest 33%, and strongest with second-strongest 17%.
       shuffle: Make a match!
-
+      shuffle_count: "Number of chosen players:"
   pages:
     landing:
       all_leagues: Check out the leagues

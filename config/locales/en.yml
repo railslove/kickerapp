@@ -61,6 +61,7 @@ en:
     attributes: &attributes
       league:
         name: "League's name"
+        contact_email: 'Contact email'
       user:
         image: Avatar URL
     errors: &errors

@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require 'spec_helper'
 
 describe League, type: :model do
@@ -11,10 +9,10 @@ describe League, type: :model do
   end
 
   describe 'sanitize_slug' do
-    let(:league) { create :league, slug: 'Hämmerboyz! da  heim' }
+    let(:league) { create :league, slug: 'Hammerboyz! da  heim' }
 
     specify do
-      expect(league.slug).to eql 'haemmerboyz-da-heim'
+      expect(league.slug).to eql 'hammerboyz-da-heim'
     end
   end
 

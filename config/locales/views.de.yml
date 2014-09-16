@@ -13,7 +13,7 @@ de:
     new:
       slug_placeholder: 'deine-liga'
       create_league_submit: 'Liga anlegen'
-
+      contact_email: 'Email-Adresse'
   matches:
     create:
       success: Das Spiel wurde eingetragen!

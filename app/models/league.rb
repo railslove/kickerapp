@@ -7,6 +7,7 @@ class League < ActiveRecord::Base
 
   validates :name, presence: true
   validates :slug, presence: true, uniqueness: true
+  validates :contact_email, presence: true
 
   before_save :sanitize_slug
 

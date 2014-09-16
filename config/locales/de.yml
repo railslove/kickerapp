@@ -58,6 +58,7 @@ de:
     attributes: &attributes
       league:
         name: 'Name deiner Liga'
+        contact_email: 'Kontakt-Email'
       user:
         image: Avatar URL
     errors: &errors

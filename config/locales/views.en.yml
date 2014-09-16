@@ -13,7 +13,7 @@ en:
     new:
       slug_placeholder: 'your-league'
       create_league_submit: 'Create league'
-
+      contact_email: 'email address'
   matches:
     create:
       success: Your match results have been entered!

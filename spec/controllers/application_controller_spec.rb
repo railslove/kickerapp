@@ -2,12 +2,8 @@ require 'spec_helper'
 
 describe ApplicationController, type: :controller do
 
-  specify 'default_url_options' do
-    expect(controller.default_url_options).to eql({ locale: I18n.locale })
-  end
-
   describe 'set_locale' do
-    
+
     context 'reset to default locale' do
       before do
         allow(controller).to receive(:params).and_return({})
@@ -19,7 +15,7 @@ describe ApplicationController, type: :controller do
         expect(I18n.locale).to eql I18n.default_locale
       end
     end
-    
+
     context 'change locale' do
       before do
         allow(controller).to receive(:params).and_return({ locale: 'en'})

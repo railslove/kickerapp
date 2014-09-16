@@ -1,4 +1,5 @@
 class League < ActiveRecord::Base
+
   has_many :history_entries
   has_many :matches
   has_many :teams
@@ -9,12 +10,10 @@ class League < ActiveRecord::Base
 
   before_save :sanitize_slug
 
+  scope :by_matches, lambda { order('matches_count DESC') }
+
   def to_param
     self.slug
-  end
-
-  def sanitize_slug
-    self.slug = self.slug.downcase.parameterize
   end
 
   def update_badges
@@ -46,7 +45,7 @@ class League < ActiveRecord::Base
   end
 
   def most_teams
-    self.users.sort_by{ |u| u.teams.count }.last
+    self.users.sort_by{ |u| u.number_of_teams }.last
   end
 
   def last_one
@@ -61,8 +60,10 @@ class League < ActiveRecord::Base
     users.reload.ranked.select{ |u| u.active? }
   end
 
-  def number_of_games
-    matches.count
-  end
+  private
+
+    def sanitize_slug
+      self.slug = self.slug.downcase.parameterize
+    end
 
 end

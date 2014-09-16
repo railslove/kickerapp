@@ -1,8 +1,8 @@
 # encoding: utf-8
 
 class CommentGenerator
-  def self.random(winner_goals, looser_goals, crawling = false, add_quotation = false)
-    difference = (looser_goals - winner_goals).abs
+  def self.random(winner_goals, loser_goals, crawling = false, add_quotation = false)
+    difference = (loser_goals - winner_goals).abs
     content = ''
     case difference
     when 1..2
@@ -16,7 +16,7 @@ class CommentGenerator
     when 6
       content += "Glasklare Angelegenheit. "
     end
-    content += "#{winner_goals}:#{looser_goals}. "
+    content += "#{winner_goals}:#{loser_goals}. "
     content += " Es wurde gekrabbelt! " if crawling.present?
     content += quotation if add_quotation
     content

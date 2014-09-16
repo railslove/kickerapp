@@ -1,7 +1,7 @@
 class QuotaCalculator
-  def self.win_loose_quota(wins, looses)
-    if wins + looses > 0
-      (wins.to_f / (wins + looses) * 100).round
+  def self.win_lose_quota(wins, losses)
+    if wins + losses > 0
+      (wins.to_f / (wins + losses) * 100).round
     else
       0
     end

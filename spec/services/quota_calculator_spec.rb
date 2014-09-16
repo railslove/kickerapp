@@ -1,20 +1,20 @@
 require 'spec_helper'
 
 describe QuotaCalculator do
-  describe '#win_loose_quota' do
-    it "return 0 if wins and looses are 0" do
-      expect(QuotaCalculator.win_loose_quota(0, 0)).to eq(0)
+  describe '#win_lose_quota' do
+    it "return 0 if wins and losses are 0" do
+      expect(QuotaCalculator.win_lose_quota(0, 0)).to eq(0)
     end
     it "calculates quota with wins bigger 0" do
-      expect(QuotaCalculator.win_loose_quota(5, 0)).to eq(100)
+      expect(QuotaCalculator.win_lose_quota(5, 0)).to eq(100)
     end
 
-    it "calculates quota with looses bigger 0" do
-      expect(QuotaCalculator.win_loose_quota(0, 5)).to eq(0)
+    it "calculates quota with losses bigger 0" do
+      expect(QuotaCalculator.win_lose_quota(0, 5)).to eq(0)
     end
 
     it "calculates quota with both values bigger 0" do
-      expect(QuotaCalculator.win_loose_quota(5, 5)).to eq(50)
+      expect(QuotaCalculator.win_lose_quota(5, 5)).to eq(50)
     end
   end
 
@@ -33,7 +33,7 @@ describe QuotaCalculator do
       end
     end
 
-    context "loose" do
+    context "lose" do
       it "calculates difference accoding to ELO algorithmen" do
         expect(QuotaCalculator.elo_quota(1200, 1200, 0)).to eql(-8)
       end

@@ -9,12 +9,12 @@
           = link_to league_team_path(current_league, match.winner_team), class: 'm-match--team as-winner' do
             - match.winner_team.users.each do |user|
               %span.m-match--team--member{title: user.name}= user_image(user)
-          .m-match--score{class: @team ? (match.winner_team == @team ? 'as-winner' : 'as-looser') : '' }
+          .m-match--score{class: @team ? (match.winner_team == @team ? 'as-winner' : 'as-loser') : '' }
             = match.score
             .m-match--score--difference= "+#{match.difference}"
-          = link_to league_team_path(current_league, match.looser_team), class: 'm-match--team' do
-            - match.looser_team.users.each do |user|
+          = link_to league_team_path(current_league, match.loser_team), class: 'm-match--team' do
+            - match.loser_team.users.each do |user|
               %span.m-match--team--member{title: user.name}= user_image(user)
           .m-match--actions
             .m-match--actions--edit
-              = link_to "Ändern", edit_league_match_path(current_league, match), class: "m-link"
+              = link_to t('common.change'), edit_league_match_path(current_league, match), class: "m-link"

@@ -10,16 +10,20 @@ class User < ActiveRecord::Base
   BADGES = %w{ crawling longest_winning most_teams winning_streak last_one crawler }
 
   def number_of_games
-    number_of_wins + number_of_looses
+    number_of_wins + number_of_losses
   end
 
   def teams
     Team.for_user(self.id)
   end
 
+  def number_of_teams
+    teams.count
+  end
+
   def matches
     team_ids = teams.pluck(:id)
-    Match.where("winner_team_id IN (?) OR looser_team_id IN (?)", team_ids, team_ids)
+    Match.where("winner_team_id IN (?) OR loser_team_id IN (?)", team_ids, team_ids)
   end
 
   def active?
@@ -27,7 +31,7 @@ class User < ActiveRecord::Base
   end
 
   def win_percentage
-    QuotaCalculator.win_loose_quota(self.number_of_wins, self.number_of_looses)
+    QuotaCalculator.win_lose_quota(self.number_of_wins, self.number_of_losses)
   end
 
   def short_name
@@ -62,7 +66,7 @@ class User < ActiveRecord::Base
         self.longest_winning_streak_games = self.winning_streak
       end
     else
-      self.number_of_looses += 1
+      self.number_of_losses += 1
       self.winning_streak = 0
     end
 

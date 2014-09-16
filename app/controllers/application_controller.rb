@@ -17,10 +17,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def set_current_league
-    session[:league] = @league.id if @league.present?
-  end
-
   def clear_current_league
     session.delete(:league)
   end
@@ -34,14 +30,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def default_url_options(options={})
-    { locale: I18n.locale }
-  end
-
   private
 
     def set_locale
-      I18n.locale = params[:locale] || I18n.default_locale
+      if params[:locale]
+        session[:locale] = params[:locale]
+      end
+      I18n.locale = session[:locale] || I18n.default_locale
     end
 
 end

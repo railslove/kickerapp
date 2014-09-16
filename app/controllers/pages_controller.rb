@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   end
 
   def pebble_settings
-    @leagues = League.all.sort_by(&:number_of_games).reverse
+    @leagues = League.by_matches
   end
 
   def imprint

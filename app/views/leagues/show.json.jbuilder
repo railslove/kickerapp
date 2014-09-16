@@ -6,7 +6,7 @@ json.array! @matches do |match|
     json.image user.image
     json.short_name user.short_name
   end
-  json.looser_team match.looser do |user|
+  json.loser_team match.loser do |user|
     json.name user.name
     json.image user.image
     json.short_name user.short_name

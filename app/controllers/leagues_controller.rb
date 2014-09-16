@@ -4,7 +4,7 @@ class LeaguesController < ApplicationController
 
   def index
     clear_current_league
-    @leagues = League.all.sort_by(&:number_of_games).reverse
+    @leagues = League.by_matches
   end
 
   def new
@@ -45,6 +45,10 @@ class LeaguesController < ApplicationController
 
     def league_params
       params.require(:league).permit(:name, :slug)
+    end
+
+    def set_current_league
+      session[:league] = @league.id if @league.present?
     end
 
 end

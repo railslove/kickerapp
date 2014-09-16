@@ -25,13 +25,13 @@ en:
       short: '%B %d'
 
   badges:
-    longest_winning_streak: '%{wins} wins in a row'
-    top_crawler: 'Gets opponents under the table'
-    worst_crawler: 'Second home under the table'
-    last_one: 'Last one'
-    most_wins: 'No one wins more often'
+    longest_winning_streak: '%{wins} wins in a row.'
+    top_crawler: 'Gets opponents under the table.'
+    worst_crawler: 'Second home under the table.'
+    last_one: 'Last one.'
+    most_wins: 'No one wins more often.'
     most_teams: 'Plays with every one. Most partners.'
-    longest_winning_streak_ever: 'Longest winning streak ever (%{wins})'
+    longest_winning_streak_ever: 'Longest winning streak ever (%{wins}).'
     descriptions:
       crawling: The star - no other player sent more opponents crawling under the table.
       crawler: |

@@ -17,6 +17,10 @@ class User < ActiveRecord::Base
     Team.for_user(self.id)
   end
 
+  def number_of_teams
+    teams.count
+  end
+
   def matches
     team_ids = teams.pluck(:id)
     Match.where("winner_team_id IN (?) OR looser_team_id IN (?)", team_ids, team_ids)

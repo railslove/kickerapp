@@ -46,7 +46,7 @@ class League < ActiveRecord::Base
   end
 
   def most_teams
-    self.users.sort_by{ |u| u.teams.count }.last
+    self.users.sort_by{ |u| u.number_of_teams }.last
   end
 
   def last_one

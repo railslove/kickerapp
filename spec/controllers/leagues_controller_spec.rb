@@ -11,7 +11,7 @@ describe LeaguesController, type: :controller do
 
       specify do
         post :create, league: { name: 'Hammerwerfers Bockenbruch!', slug: 'Hammerwerfers Bockenbruch!', contact_email: 'contact@hammerwerfer.de' }
-        expect(response).to redirect_to league_path(League.last)
+        expect(response).to redirect_to new_league_user_path(League.last)
         expect(flash[:notice]).to eql I18n.t('leagues.create.success')
       end
     end

@@ -2,13 +2,17 @@ de:
   common:
     change: Ändern
     faq: FAQ
+    games: Spiele
+    imprint: Impressum
+    leagues: Ligen-Übersicht
     new_league: Neue Liga
     new_match: Spiel eintragen
     new_user: Spieler hinzufügen
     number_of_players: Anzahl Spieler
     number_of_matches: Anzahl Spiele
-    imprint: Impressum
-    leagues: Ligen-Übersicht
+    player: Spieler
+    points: Punkte
+    quota: Quote
   date:
     formats:
       with_weekday: '%a %d.%m.%y'

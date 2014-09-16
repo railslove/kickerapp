@@ -2,13 +2,17 @@ en:
   common:
     change: Edit
     faq: FAQ
+    games: Games
     imprint: Imprint
+    leagues: Leagues
     new_league: New league
     new_match: New match
     new_user: Add player
     number_of_players: Players
     number_of_matches: Matches
-    leagues: Leagues
+    player: Player
+    points: Points
+    quota: Quota
   date:
     formats:
       default: '%m/%d/%Y'

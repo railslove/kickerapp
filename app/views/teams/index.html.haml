@@ -3,10 +3,10 @@
     %tr.m-table--row
       %td
       %td
-      %td.hide-mobile Spieler
-      %td.hide-mobile Quote
-      %td.hide-mobile Spiele
-      %td Punkte
+      %td.hide-mobile= t('common.player')
+      %td.hide-mobile= t('common.quota')
+      %td.hide-mobile= t('common.games')
+      %td= t('common.points')
 
   %tbody.m-table--body
     - @teams.each_with_index do |team, i|

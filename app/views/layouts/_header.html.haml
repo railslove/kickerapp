@@ -1,10 +1,11 @@
 .l-header-wrapper
   .l-header
-    .m-logo
+    .m-logo.as-header-logo
       - if league_present?
         = link_to current_league.name, league_path(current_league)
       - else
-        = link_to "Kicker App", root_path
+        = link_to root_path do
+          = svg_tag "logo_kickerapp.svg"
     .m-navigation-trigger
     .m-navigation
       - if league_present?

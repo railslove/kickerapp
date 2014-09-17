@@ -47,9 +47,10 @@
       margin: 0 auto
       +clearfix
       text-align: center
+      font-size: $large-font-size
       img
         display: block
-        margin: 40px 0
+        margin: $margin 0
       +breakpoint($mobile)
         width: 100%
         img
@@ -92,7 +93,7 @@
       margin-top: 60px
     .c-landing--headline--text
       text-transform: none
-      font-size: 14px
+      font-size: 18px
       margin: $margin 0
 
 
@@ -110,7 +111,6 @@
         margin: $padding auto
       .c-landing--badge--text
         color: $white
-        font-size: 14px
         text-shadow: 1px 1px $shadow-color
         text-align: center
       &.as-crawling

@@ -48,8 +48,8 @@ en:
         One-on-one matches are also possible, just pick only one player per match, and that's it.
 
 
-        imprint:
-        headline: Imprint
+    imprint:
+      headline: Imprint
         body: |
         >Railslove GmbH
         ><br/>

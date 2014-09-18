@@ -53,7 +53,23 @@ de:
   ranking:
     inactive: 'Entweder habt ihr noch keine Spiele eingetragen oder das letzte Spiel ist länger als 2 Wochen her.'
     non_yet: 'Sobald Spieler eingetragen sind und sie das erste Spiel gemacht haben, erscheinen sie hier'
-
+  users:
+    good_with: ist sein bester Partner
+    bad_with: sein schlechtester
+    edit: "Spieler bearbeiten"
+    name: Name
+    elo: Elo Punkte
+    current_winning_streak: Aktuelle Siegesserie
+    longest_winning_streak: Längste Siegesserie
+    trend: Trend
+    point_high: Höchststand
+    point_low: Tiefstand
+  teams:
+    quota: Quote
+    elo: Elo Punkte
+    wins: Siege
+    loses: Niederlagen
+    points: Punkte
   activerecord:
     attributes: &attributes
       league:

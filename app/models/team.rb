@@ -25,6 +25,14 @@ class Team < ActiveRecord::Base
     Match.losses_for_team(self.id)
   end
 
+  def partner_for(user)
+    if users.include?(user)
+      (users - [user]).first
+    else
+      nil
+    end
+  end
+
   def self.shuffle(user_ids)
     return [] unless user_ids.size == 4
     users = User.where(id: user_ids).order("quota desc")

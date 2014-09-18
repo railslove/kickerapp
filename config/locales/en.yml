@@ -56,7 +56,17 @@ en:
   ranking:
     inactive: This is the list of recent matches. You've either not entered any matches or your last match's older than 2 weeks.
     non_yet: This is your ranking table. It seems you haven't played any matches yet.
-
+  users:
+    good_with: is his best partner
+    bad_with: is his worst
+    edit: Edit player
+    name: Name
+    elo: Elo Points
+    current_winning_streak: Current winning streak
+    longest_winning_streak: Longest winnng streak
+    trend: Trend
+    point_high: Highest points
+    point_low: Lowest points
   activerecord:
     attributes: &attributes
       league:
@@ -70,7 +80,12 @@ en:
     models: &models
     placeholder: &placeholder
     values: &values
-
+  teams:
+    quota: Quota
+    elo: Elo points
+    wins: Wins
+    loses: Loses
+    points: Points
   activemodel:
     attributes: *attributes
     errors: *errors

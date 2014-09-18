@@ -1,7 +1,11 @@
-.team-header
-  %h1.team-header--name= @team.name
-  .team-header--members= render @team.users
-
+.m-profile-teams
+  .m-profile-basics
+    %h4= @team.name
+    = render @team.users
+    .m-profile-basics--values
+      .m-profile-basics--value
+        %span= t('teams.quota')
+        = @team.elo_quota
 
 = render 'matches/list', matches: @matches, primary: @team
 

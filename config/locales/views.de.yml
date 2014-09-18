@@ -50,7 +50,7 @@ de:
     show:
       best_team: 'Bestes Team:'
       history: "Spielhistorie (letzte 100 Spiele)"
-      worst_team: 'Schlechtestes Team:'
+      worst_team: 'Schwächstes Team:'
   views:
     pagination:
       first: Erste

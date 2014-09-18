@@ -4,41 +4,53 @@ en:
       headline: FAQs
       body: |
         ### Badges
-        Jeder Spieler kann für "besondere" Leistungen einen Badge erobern, mache sind ganz leicht zu bekommen, andere schwieriger.
-
-        - Einen Stern bekommt derjenige, der die meisten Gegner krabbeln lässt!
-        - Für die längste Siegesserie ever gibt es den  Pokal.
-        - Derjenige, der sich für nichts zu schade ist und in den meisten Teams spielt bekommt den Team Badge.
-        - Für die meisten Niederlagen mit Krabbeln gibt's den Badge "Kennt den Tisch von unten wie kein anderer", der ist leicht zu bekommen, aber nicht sehr begehrt...
-        - Wer aktuell die meisten Siege in Folge hat, bekommt dafür die Rakete , und das Schlusslicht der Liga kann sich über die rote Laterne freuen!
         
-        ### Einzel-Match
-        Auch wenn meistens in Teams gespielt wird, kann auch "Mann gegen Mann" gespielt werden - einfach jeweils nur eine Person pro Match auswählen.
-
-        ### Krabbeln
-        Bei einer zu 0-Schlappe muss das Verliererteam einmal unterm Kickertisch hindurch krabbeln. Die App bewertet Spiele bei denen gekrabbelt wurde mit fünf Punkten mehr, also nicht vergessen das Häkchen zu setzen ;)
-
-        ### Match-Sätze
-        Ein Match besteht bei uns aus mindestens zwei, höchstens drei Sätzen (wenn es nach dem zweiten Satz unentschieden für beide Teams steht).
-
-        ### Ranking
-        Das Ranking des jeweiligen Spielers bzw. Teams beruht auf dem Wertungssystem der Elo-Zahl, welches ursprünglich fürs Schachspielen entwickelt wurde, aber mittlerweile vielfältig eingesetzt wird.
-        Jeder Spieler steigt mit einem Elo-Wert von 1200 Punkten in die Liga ein. Ab dann ist alles möglich, denn die tatsächlichen Ergebnisse der gespielten Matches werden für den Elo-Punktestand gewertet.
-        Spielen zwei gleichstarke (gleicher Elo-Wert) Spieler bzw. Teams gegeneinander so erhält der Sieger 8 Pluspunkte und der Verlierer 8 Minuspunkte. Je weiter die Elo-Werte auseinander liegen, desto lukrativer ist ein Sieg für den schlechteren Spieler (Team) und anders herum. Das Maximum liegt bei 15 Punkten pro Spiel.
+        - Players can earn badges - some for good, others for less-than-good good performance at the foosball table.
+        - The star - No other player sent more opponents crawling under the table.
+        - The Crawler -  Practically lives under the table - suffered the most losses with crawling.
+        - The Trophy - Longest winning streak of all time.
+        - The Team - Been on most teams.
+        - The Tail Light - The league's lowest-ranked player. The bottom feeder.
+        - The Rocket - Longest current winning streak.
+        
+        ### Crawling
+        If the final score features six consecutive goals for one team, the other team has to crawl under the table. Matches ending in a crawl get awarded a five point bonus, so don't forget to check that box!
+        
+        ### Match
+        A match consists of at least two, but not more than three, sets in a row. The third game only happens if the second ends in a tie.
+      
+        ### Match maker
+        The random team generator helps you find a new match partner if you want to play with someone else for a change.
+        Just choose four or more players from the list and random teams will matched up against each other.
+        The chance of pairing the strongest with the weakest player is 50%, strongest with third-strongest 33%, and strongest with second-strongest 17%.
        
-        ### Regeln
-        Unsere REGELN (dürfen, müssen aber nicht beachtet werden)
-        Die oberste und wichtigste Regel bei einem Kicker-Match: Habt Spaß!
-        Es wird bis 6 gespielt,  wer also zuerst 6 Tore geschossen hat gewinnt, aber nur mit zwei Toren Vorsprung. D.h. wenn es 5 zu 6 steht wird mindestens bis 7 gespielt.
-        Ein direkt nach dem Einwurf erzieltes Tor zählt nicht.
-        Bei einer zu 0-Schlappe muss das Verliererteam einmal unterm Kickertisch hindurch krabbeln und es gibt 5 extra Punkte für das Ranking.
+        ### Ranking
+        The rating is based on a slightly modified version of the ELO chess rating system, which is used more and more in games other than chess. Every player starts with an ELO rating of 1200 points.  
+
+        Imagine a game between two equally-ranked teams.
+        The winners will be awarded 8 points, the losers lose 8 points.
+
+        The larger the difference between the two ELO ratings, the better is a victory for the lower ranked player or team and vice-versa.
+
+        The maximum score that can be won or lost is 15 points per game. The team ranking results from the sum of the points that a team has won, minus the points it has lost.
         
-        ### Zufall Teams
-        Wer keine Lust hat mit den üblichen Partnern zu spielen, kann der Zufallsteamgenerator zur Hilfe holen. Einfach vier oder mehrere Spieler auswählen und zufällige Teams werden ausgelost. Die Wahrscheinlichkeit für ein Team bestehend aus stärkstem und schwächsten Spieler beträgt 50%, aus stärkstem und drittstärkstem Spieler 33% und aus stärkstem und zweistärkstem 17%.
-        
-    imprint:
-      headline: Imprint
-      body: |
+        ### Rules
+        Our rules (feel free to follow)
+        The most important rule is: have fun!
+        The winner of a set is the first team to score six points, but only if there is a difference of two goals.
+        For example, if the score is 6:5 the winner would have to score one more point.
+
+        At kick-off a team cannot score directly from the 5-bar.
+
+        If the final score features six consecutive goals for one team, the other team has to crawl under the table. 
+
+        ### Singles match
+        One-on-one matches are also possible, just pick only one player per match, and that's it.
+
+
+        imprint:
+        headline: Imprint
+        body: |
         >Railslove GmbH
         ><br/>
         >An der Bottmühle 5

@@ -1,4 +1,5 @@
 .m-profile-teams
+  margin-bottom: $margin
   a
     color: $black
   +pie-clearfix
@@ -8,7 +9,25 @@
     background: $white
     +pie-clearfix
     float: right
-
+    margin-right: 40px
+    i
+      color: $white
+      border-radius: 100%
+      padding: 2px
+      &.as-green
+        background-color: $green
+      &.as-red
+        background-color: $red
+  .m-profile-teams--partner
+    color: $grey
+    font-size: $small-font-size
+    max-width: 175px
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+    padding: 3px 0
+  .m-profile-teams--type
+    font-size: 14px
   .m-profile-teams--best
     margin-right: $margin
   .m-profile-teams--best, .m-profile-teams--worst, .m-profile-basics
@@ -23,6 +42,9 @@
     margin-right: $margin
 .m-profile-basics--value
   font-size: 12px
+  color: $black
+  span
+    color: $grey
   .as-positive
     color: $success-color
     font-weight: bold

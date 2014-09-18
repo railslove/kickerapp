@@ -1,48 +1,61 @@
 %p
-  = link_to "Spieler bearbeiten", edit_league_user_path(current_league, @user), class: 'm-button'
+  = link_to t('users.edit'), edit_league_user_path(current_league, @user), class: 'm-button'
 
 .m-profile-teams
   .m-profile-basics
-    %h4 Basics
+    %h4= @user.name
     .m-user.as-selected= user_image(@user)
     .m-profile-basics--values
-      .m-profile-basics--value= "Name: #{@user.name}"
-      .m-profile-basics--value= "Elo Wert: #{@user.quota}"
-      .m-profile-basics--value= "Aktuelle Siegesserie: #{@user.winning_streak} Spiele"
-      .m-profile-basics--value= "Längste Siegesserie: #{@user.longest_winning_streak_games} Spiele"
       .m-profile-basics--value
-        - if @trend > 0
-          %span.as-positive= "Trend: +#{@trend} Punkte"
-        - else
-          %span.as-negative= "Trend: #{@trend} Punkte"
-        (20 Spiele)
+        %span= t('users.current_winning_streak')
+        = @user.winning_streak
+      .m-profile-basics--value
+        %span= t('users.longest_winning_streak')
+        = @user.longest_winning_streak_games
+      .m-profile-basics--value
+        %span= t('users.trend')
+        = @trend
+        = "(#{t('common.points')})"
+      .m-profile-basics--value
+        %span= t('users.elo')
+        = @user.quota
       - if @user.history_entries.any?
+        - biggest_quota = @user.history_entries.order('quota desc').take.quota
+        - lowest_quota = @user.history_entries.order('quota asc').take.quota
         .m-profile-basics--value
-          - biggest_quota = @user.history_entries.order('quota desc').take.quota
-          - lowest_quota = @user.history_entries.order('quota asc').take.quota
-          = "Höchststand: #{biggest_quota} Punkte (#{@user.quota - biggest_quota})"
+          %span= t('users.point_high')
+          = biggest_quota
+          = t('common.points')
+          = "(#{@user.quota - biggest_quota})"
         .m-profile-basics--value
-          = "Tiefstand: #{lowest_quota} Punkte (+#{@user.quota - lowest_quota})"
+          %span= t('users.point_low')
+          = biggest_quota
+          = t('common.points')
+          = "(#{@user.quota - lowest_quota})"
   - if @user.teams.any?
     .m-profile-teams--best-worst
       .m-profile-teams--best
         -team = @user.teams.for_doubles.ranked.sort_by(&:value).reverse.first
         - if team.present?
-          %h4= t('.best_team')
+          .m-profile-teams--partner
+            %i.icon-thumbs-up.as-green{title: team.value}
+            = team.partner_for(@user).try(:name)
+          .m-profile-teams--type= t('users.good_with')
           = link_to [current_league, team] do
             .m-user-list
               .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
               .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
-            = team.name
       .m-profile-teams--worst
         - team = @user.teams.for_doubles.ranked.sort_by(&:value).first
         - if team.present?
-          %h4= t('.worst_team')
+          .m-profile-teams--partner
+            %i.icon-thumbs-down.as-red{title: team.value}
+            = team.partner_for(@user).try(:name)
+          .m-profile-teams--type= t('users.bad_with')
           = link_to [current_league, team] do
             .m-user-list
               .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
               .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
-            = team.name
 
 - if @user.number_of_games > 0
   .m-profile-stats

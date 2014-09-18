@@ -18,7 +18,10 @@
         = link_to league_user_path(current_league, user) do
           = user_image(user)
       .m-badge--logo
-        %i.icon-medkit= user.number_of_crawlings
+        = svg_tag('icons/krabbel.svg')
+        %i
+          = user.number_of_crawlings
+
       .m-badge--title= t('badges.worst_crawler')
 
   - user = @league.longest_winning_streak_ever

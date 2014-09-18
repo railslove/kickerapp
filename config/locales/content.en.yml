@@ -4,7 +4,7 @@ en:
       headline: FAQs
       body: |
         ### Badges
-        
+
         - Players can earn badges - some for good, others for less-than-good good performance at the foosball table.
         - The star - No other player sent more opponents crawling under the table.
         - The Crawler -  Practically lives under the table - suffered the most losses with crawling.
@@ -12,20 +12,20 @@ en:
         - The Team - Been on most teams.
         - The Tail Light - The league's lowest-ranked player. The bottom feeder.
         - The Rocket - Longest current winning streak.
-        
+
         ### Crawling
         If the final score features six consecutive goals for one team, the other team has to crawl under the table. Matches ending in a crawl get awarded a five point bonus, so don't forget to check that box!
-        
+
         ### Match
         A match consists of at least two, but not more than three, sets in a row. The third game only happens if the second ends in a tie.
-      
+
         ### Match maker
         The random team generator helps you find a new match partner if you want to play with someone else for a change.
         Just choose four or more players from the list and random teams will matched up against each other.
         The chance of pairing the strongest with the weakest player is 50%, strongest with third-strongest 33%, and strongest with second-strongest 17%.
-       
+
         ### Ranking
-        The rating is based on a slightly modified version of the ELO chess rating system, which is used more and more in games other than chess. Every player starts with an ELO rating of 1200 points.  
+        The rating is based on a slightly modified version of the ELO chess rating system, which is used more and more in games other than chess. Every player starts with an ELO rating of 1200 points.
 
         Imagine a game between two equally-ranked teams.
         The winners will be awarded 8 points, the losers lose 8 points.
@@ -33,7 +33,7 @@ en:
         The larger the difference between the two ELO ratings, the better is a victory for the lower ranked player or team and vice-versa.
 
         The maximum score that can be won or lost is 15 points per game. The team ranking results from the sum of the points that a team has won, minus the points it has lost.
-        
+
         ### Rules
         Our rules (feel free to follow)
         The most important rule is: have fun!
@@ -42,7 +42,7 @@ en:
 
         At kick-off a team cannot score directly from the 5-bar.
 
-        If the final score features six consecutive goals for one team, the other team has to crawl under the table. 
+        If the final score features six consecutive goals for one team, the other team has to crawl under the table.
 
         ### Singles match
         One-on-one matches are also possible, just pick only one player per match, and that's it.
@@ -50,7 +50,7 @@ en:
 
     imprint:
       headline: Imprint
-        body: |
+      body: |
         >Railslove GmbH
         ><br/>
         >An der Bottmühle 5

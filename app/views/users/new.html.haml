@@ -17,7 +17,7 @@
         = f.submit t('.submit'), class: 'm-button'
 
   .m-item--third
-    %h3= t('.create_via_oauth')
+    .m-circle= t('.create_via_oauth')
   .m-item--third
     %p
       = link_to twitter_connect_path(current_league), class: 'm-button_twitter' do

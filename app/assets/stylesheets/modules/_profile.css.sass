@@ -2,9 +2,19 @@
   a
     color: $black
   +pie-clearfix
-  .m-profile-teams--best, .m-profile-teams--worst, .m-profile-basics
-    float: left
+  .m-profile-teams--best-worst
+    padding: $margin
+    border: 1px solid $blue
+    background: $white
+    +pie-clearfix
+    float: right
+
+  .m-profile-teams--best
     margin-right: $margin
+  .m-profile-teams--best, .m-profile-teams--worst, .m-profile-basics
+    h4
+      margin-top: 0
+    float: left
 
 .m-profile-basics
   +pie-clearfix

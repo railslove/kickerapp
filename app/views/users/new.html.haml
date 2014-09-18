@@ -1,7 +1,7 @@
 - @hide_sidebar = true
 
 .m-row
-  .m-row--left
+  .m-item--third
     %h3= t('.create_by_email')
     = form_for @user, url: league_users_path(current_league), class: 'm-form' do |f|
       .m-form--row
@@ -16,8 +16,9 @@
       .m-form--row
         = f.submit t('.submit'), class: 'm-button'
 
-  .m-row--right
+  .m-item--third
     %h3= t('.create_via_oauth')
+  .m-item--third
     %p
       = link_to twitter_connect_path(current_league), class: 'm-button_twitter' do
         %i.icon-twitter

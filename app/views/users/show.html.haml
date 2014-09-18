@@ -24,24 +24,25 @@
         .m-profile-basics--value
           = "Tiefstand: #{lowest_quota} Punkte (+#{@user.quota - lowest_quota})"
   - if @user.teams.any?
-    .m-profile-teams--best
-      -team = @user.teams.for_doubles.ranked.sort_by(&:value).reverse.first
-      - if team.present?
-        %h4= t('.best_team')
-        = link_to [current_league, team] do
-          .m-user-list
-            .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
-            .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
-          = team.name
-    .m-profile-teams--worst
-      - team = @user.teams.for_doubles.ranked.sort_by(&:value).first
-      - if team.present?
-        %h4= t('.worst_team')
-        = link_to [current_league, team] do
-          .m-user-list
-            .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
-            .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
-          = team.name
+    .m-profile-teams--best-worst
+      .m-profile-teams--best
+        -team = @user.teams.for_doubles.ranked.sort_by(&:value).reverse.first
+        - if team.present?
+          %h4= t('.best_team')
+          = link_to [current_league, team] do
+            .m-user-list
+              .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
+              .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
+            = team.name
+      .m-profile-teams--worst
+        - team = @user.teams.for_doubles.ranked.sort_by(&:value).first
+        - if team.present?
+          %h4= t('.worst_team')
+          = link_to [current_league, team] do
+            .m-user-list
+              .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
+              .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
+            = team.name
 
 - if @user.number_of_games > 0
   .m-profile-stats

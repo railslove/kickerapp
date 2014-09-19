@@ -15,35 +15,50 @@
       .karl-kicker--text
         position: absolute
         font-size: $small-font-size
-        top: 110px
+        top: 120px
         left: 20px
         width: 170px
       svg
         height: 360px
-    .c-footer-content
-      text-align: center
-      color: $black
-      position: absolute
-      bottom: 0
-      z-index: 2
-      font-size: $small-font-size
-      width: 100%
-      text-transform: uppercase
-      .c-footer--railslove
-        margin-top: 5px
-        svg
-          height: 30px
-          path
-            fill: $black
-      .c-footer-links
-        margin: $margin 0
-        .c-footer-link
-          display: inline-block
-          margin-right: $padding
-          a
-            font-size: $small-font-size
-            color: $black
-
+.c-footer-content
+  text-align: center
+  color: $black
+  position: absolute
+  bottom: 0
+  z-index: 2
+  font-size: $small-font-size
+  width: 100%
+  text-transform: uppercase
+  .c-footer--railslove
+    margin-top: 5px
+    svg
+      height: 30px
+      path
+        fill: $black
+  .c-footer-links
+    margin: $padding 0
+    .c-footer-link
+      display: inline-block
+      margin: 0 $padding
+      a
+        font-size: $small-font-size
+        color: $black
+  .c-footer-sharing
+    text-align: center
+    margin-bottom: $margin
+    .c-footer-sharing--button
+      width: 90px
+      background: $white
+      color: $white
+      text-decoration: underline
+      padding: $padding
+      cursor: pointer
+      display: inline-block
+      &.as-facebook
+        margin-right: 2px
+        background: $facebook-blue
+      &.as-twitter
+        background: $twitter-blue
   +breakpoint($mobile)
     background-position: left 34px
     margin-top: $margin

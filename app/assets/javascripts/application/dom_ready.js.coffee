@@ -5,6 +5,10 @@ $ ->
     else
       $('.m-navigation').slideUp()
 
+  $('[data-behavior=js-link]').click ->
+    window.open($(@).attr('href'), 'top', "height=450,width=600,resizable=1")
+    false
+
   $('[data-behavior=trigger-chat]').click ->
     $('#userlikeTab').trigger('click')
 
@@ -13,7 +17,7 @@ $ ->
   crawls = $("#stats").data('crawls')
 
   Highcharts.setOptions({
-       colors: ['#5FAF3E', '#954142']
+       colors: ['#a7b35b', '#c36a4e']
       });
   if $("#games").length
     $("#games").highcharts

@@ -14,6 +14,7 @@ en:
       slug_placeholder: 'your-league'
       create_league_submit: 'Create league'
       contact_email: 'email address'
+      add_new_league: Add a new league
   matches:
     create:
       success: Your match results have been entered!
@@ -30,7 +31,7 @@ en:
       shuffle_count: "Number of chosen players:"
   pages:
     landing:
-      all_leagues: Check out the leagues
+      all_leagues: Check out all leagues
       ranking_headline: Ranking
       ranking_text: |
         Our ranking algorithm is a slightly modified version of of the Elo rating system, which was originally developed for the chess world ranking list.

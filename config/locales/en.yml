@@ -13,6 +13,7 @@ en:
     player: Player
     points: Points
     quota: Quota
+    share: Share
   date:
     formats:
       default: '%m/%d/%Y'

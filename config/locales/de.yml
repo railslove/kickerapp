@@ -13,6 +13,7 @@ de:
     player: Spieler
     points: Punkte
     quota: Quote
+    share: Teilen
   date:
     formats:
       with_weekday: '%a %d.%m.%y'

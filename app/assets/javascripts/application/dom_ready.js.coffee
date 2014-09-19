@@ -6,7 +6,7 @@ $ ->
       $('.m-navigation').slideUp()
 
   $('[data-behavior=js-link]').click ->
-    window.open($(@).attr('href'), 'top', "height=450,width=550,resizable=1")
+    window.open($(@).attr('href'), 'top', "height=450,width=600,resizable=1")
     false
 
   $('[data-behavior=trigger-chat]').click ->

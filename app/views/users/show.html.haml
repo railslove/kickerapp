@@ -4,7 +4,7 @@
 .m-profile-teams
   .m-profile-basics
     %h4= @user.name
-    .m-user.as-selected= user_image(@user)
+    .m-user.as-selected.m-profile-basics--user= user_image(@user)
     .m-profile-basics--values
       .m-profile-basics--value
         %span= t('users.current_winning_streak')
@@ -61,10 +61,10 @@
   .m-profile-stats
 
     %h4= t('.history')
-    #history{ data: { rankings: @history_entries.map(&:ranks).to_json, quotas: @history_entries.map(&:quotas).to_json, lowest_rank: @lowest_rank } }
+    #history.m-profile-chart{ data: { rankings: @history_entries.map(&:ranks).to_json, quotas: @history_entries.map(&:quotas).to_json, lowest_rank: @lowest_rank } }
 
     %h4 Aktuelle Statistiken
-    #stats{ data: { games: [ ["Siege", @user.number_of_wins], ["Niederlagen", @user.number_of_losses]] , crawls: [ ["Krabbeln lassen", @user.number_of_crawls], ["Gekrabbelt", @user.number_of_crawlings]]} }
+    #stats.m-profile-chart{ data: { games: [ ["Siege", @user.number_of_wins], ["Niederlagen", @user.number_of_losses]] , crawls: [ ["Krabbeln lassen", @user.number_of_crawls], ["Gekrabbelt", @user.number_of_crawlings]]} }
       #games
       #crawls
   .badges

@@ -13,7 +13,7 @@ $ ->
   crawls = $("#stats").data('crawls')
 
   Highcharts.setOptions({
-       colors: ['#5FAF3E', '#954142']
+       colors: ['#a7b35b', '#c36a4e']
       });
   if $("#games").length
     $("#games").highcharts

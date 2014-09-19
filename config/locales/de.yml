@@ -45,6 +45,11 @@ de:
     created_by: Created with love by
     karl_kicker_text: 'Gestatten, Karl Kicker! Kann ich irgendwie helfen?'
   landing:
+    add_league: Erstelle deine eigene Liga
+    how_to:
+      add_match: 'Match eintragen, Badges erobern und Spaß haben mit Statistiken und Rankings!'
+      headline: Wie gehts?
+      get_started: 'Einfach eigene Liga anlegen, Mitspieler hinzufügen und loskickern'
     texts:
       badges: 'Jeder Spieler kann für "besondere" Leistungen einen Badge erobern, manche sind ganz leicht zu bekommen, andere schwieriger. Aber auf jeden Fall ist es immer ein großer Spaß von gegnerischen Spielern einen Badge zu erbeuten!'
       evaluation: Das Wertungssystem der App beruht auf einer leicht angewandelten Version der Elo-Zahl, welches ursprünglich für die Schach-Weltrangliste entwickelt wurde, aber mittlerweile vielfältig eingesetzt wird

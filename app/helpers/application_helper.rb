@@ -57,4 +57,9 @@ module ApplicationHelper
       end
   end
 
+  def picturefill_image_tag(regular, retina, options = {})
+    srcset = "#{asset_path(regular)}, #{asset_path(retina)} 2x"
+    image_tag(regular, options.merge(srcset: srcset))
+  end
+
 end

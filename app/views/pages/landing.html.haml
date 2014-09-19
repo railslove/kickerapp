@@ -4,12 +4,28 @@
       = link_to root_path(locale: other_locale(I18n.locale)), class: 'c-language-toggler' do
         = svg_tag("#{other_locale(I18n.locale)}.svg")
 
-      = link_to image_tag('landingpage_button.png'), new_league_path, class: 'c-landing--header--button'
+      = link_to new_league_path, class: 'c-landing--header--button' do
+        .c-landing--header--button--text= t('landing.add_league')
+        = image_tag('flieger.svg')
       .c-landing--header--headbox
         = image_tag('logo.png')
         = t('.teaser')
         = image_tag('line.png')
       = link_to t('.all_leagues'), ligen_path, class: 'm-button c-landing--header--league-button'
+
+    .c-landing--headline.m-icon-headline
+      .c-landing--headline-head.m-icon-headline--head
+        %i.c-landing--headline--icon.icon-star.m-icon-headline--icon
+        = t('landing.how_to.headline')
+    .c-landing--screens
+      .c-landing--screen
+        .c-landing--screen--number 1
+        = picturefill_image_tag('laptop1.png', 'laptop1@2x.png', class: 'c-landing--screen--image')
+        .c-landing--screen--text= t('landing.how_to.get_started')
+      .c-landing--screen
+        .c-landing--screen--number 2
+        = picturefill_image_tag('laptop2.png', 'laptop2@2x.png', class: 'c-landing--screen--image')
+        .c-landing--screen--text= t('landing.how_to.add_match')
     .c-landing--headline.m-icon-headline
       .c-landing--headline-head.m-icon-headline--head
         %i.c-landing--headline--icon.icon-star.m-icon-headline--icon

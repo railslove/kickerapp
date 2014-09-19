@@ -31,6 +31,19 @@
     svg
       path
         fill: $white
+  .c-footer-sharing--button
+    color: $gras-green
+    background: $white
+    &.as-facebook
+      color: $gras-green
+      &:hover
+        color: $white
+        background: $facebook-blue
+    &.as-twitter
+      color: $gras-green
+      &:hover
+        color: $white
+        background: $twitter-blue
 .c-landing
   .c-landing--header
     background: $light-blue image-url('header.svg') no-repeat center center
@@ -41,7 +54,21 @@
     .c-landing--header--button
       position: absolute
       right: 40px
-      top: 130px
+      top: 110px
+      img
+        height: 180px
+      .c-landing--header--button--text
+        position: absolute
+        color: $white
+        left: 50px
+        top: 60px
+        font-size: 22px
+        width: 220px
+        text-align: center
+        transform: rotate(3deg)
+      &:hover
+        .c-landing--header--button--text
+          color: $dark-grey
     .c-landing--header--headbox
       width: 680px
       margin: 0 auto
@@ -161,4 +188,28 @@
       .c-landing--feature--text
         width: 100%
         padding: 0 $padding
+        text-align: center
+  .c-landing--screens
+    +clearfix
+    width: 1000px
+    margin: 0 auto
+    padding: $margin 0
+    .c-landing--screen
+      float: left
+      position: relative
+      width: 50%
+      .c-landing--screen--number
+        position: absolute
+        border-radius: 100%
+        width: 40px
+        height: 40px
+        line-height: 40px
+        text-align: center
+        background: $blue
+        color: $white
+        left: 60px
+        margin-top: -10px
+      .c-landing--screen--text
+        color: $white
+        margin: $margin 40px
         text-align: center

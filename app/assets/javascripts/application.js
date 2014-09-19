@@ -15,4 +15,5 @@
 //= require jquery.finger
 //= require selectize.min
 //= require highcharts
+//= require picturefill
 //= require_tree ./application

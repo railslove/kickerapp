@@ -20,6 +20,28 @@
         width: 170px
       svg
         height: 360px
+  +breakpoint($mobile)
+    background-position: left 34px
+    margin-top: $margin
+    .l-footer--wrapper
+      width: 100%
+      .karl-kicker
+        display: none
+      .c-footer-content
+        position: relative
+        .c-footer-links
+          .c-footer-link
+            display: block
+            margin-bottom: $padding
+        .c-footer--railslove
+          margin-top: 22px
+          svg
+            path
+              fill: $white
+        .c-footer-sharing--button
+          width: 100%
+          display: block
+          box-sizing: border-box
 .c-footer-content
   text-align: center
   color: $black
@@ -59,21 +81,3 @@
         background: $facebook-blue
       &.as-twitter
         background: $twitter-blue
-  +breakpoint($mobile)
-    background-position: left 34px
-    margin-top: $margin
-    .l-footer--wrapper
-      width: 100%
-      .karl-kicker
-        display: none
-      .c-footer-content
-        position: relative
-        .c-footer-links
-          .c-footer-link
-            display: block
-            margin-bottom: $padding
-        .c-footer--railslove
-          margin-top: 22px
-          svg
-            path
-              fill: $white

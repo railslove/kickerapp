@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe User, type: :model do
+
+  subject { FactoryGirl.build(:user) }
+
   describe "scopes" do
     describe "ranked" do
       it "sorts by quota desc" do
@@ -34,7 +37,8 @@ describe User, type: :model do
       end
       it "calculates without crawling" do
         match = double(win_for?: true, winner_team: double("w_team", elo_quota: 1200), loser_team: double("l_team", elo_quota: 1200), crawling: false, difference: 5)
-          subject.set_elo_quota(match)
+        allow(subject).to receive(:matches).and_return([double(win_for?: true)])
+        subject.set_elo_quota(match)
         expect(subject.quota).to eql(1205)
         expect(subject.winning_streak).to eql(1)
       end
@@ -42,7 +46,7 @@ describe User, type: :model do
         match = double(win_for?: true, winner_team: double("w_team", elo_quota: 1200), loser_team: double("l_team", elo_quota: 1200), crawling: true, difference: 10)
         subject.set_elo_quota(match)
         expect(subject.quota).to eql(1210)
-        expect(subject.number_of_crawls).to eql(1)
+        expect(subject.number_of_crawls).to eql(2)
       end
       it "updates the difference on a match" do
         match = FactoryGirl.create(:match, winner_team: FactoryGirl.create(:team), loser_team: FactoryGirl.create(:team))
@@ -104,6 +108,39 @@ describe User, type: :model do
         user.name = 'Clark Kent'
         expect(user.short_name).to eq('CK')
       end
+    end
+  end
+
+  describe '.calculate_current_streak!' do
+    let!(:user) { FactoryGirl.create(:user, number_of_wins: 3, number_of_losses: 7) }
+    let!(:user2) { FactoryGirl.create(:user, number_of_wins: 3, number_of_losses: 7) }
+    let!(:team) { FactoryGirl.create(:team, player1_id: user.id) }
+    let!(:team2) { FactoryGirl.create(:team, player1_id: user2.id) }
+    let!(:match) { FactoryGirl.create(:match, winner_team_id: team.id, loser_team_id: team2.id, date: 1.week.ago) }
+
+    it 'calculates the current winning streak' do
+      expect{ user.calculate_current_streak! }.not_to change{ user.winning_streak }.from(1)
+    end
+
+    it 'resets your streak if you don\'t have one' do
+      user2.update_attribute(:winning_streak, 100)
+      expect{ user2.calculate_current_streak! }.to change{ user2.winning_streak }.from(100).to(0)
+    end
+  end
+
+  describe '.calculate_longest_streak!' do
+    let!(:user) { FactoryGirl.create(:user, number_of_wins: 3, number_of_losses: 7) }
+    let!(:user2) { FactoryGirl.create(:user, number_of_wins: 3, number_of_losses: 7) }
+    let!(:team) { FactoryGirl.create(:team, player1_id: user.id) }
+    let!(:team2) { FactoryGirl.create(:team, player1_id: user2.id) }
+    let!(:match) { FactoryGirl.create(:match, winner_team_id: team.id, loser_team_id: team2.id, date: 1.week.ago) }
+
+    it 'calculates the longest winning streak' do
+      expect{ user.calculate_longest_streak! }.to change{ user.longest_winning_streak_games }.from(0).to(1)
+    end
+
+    it 'doesn\'t change anything if you\'re a loser!' do
+      expect{ user2.calculate_longest_streak! }.not_to change{ user2.longest_winning_streak_games }.from(0)
     end
   end
 end

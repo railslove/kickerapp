@@ -61,16 +61,12 @@ class User < ActiveRecord::Base
 
     if win == 1
       self.number_of_wins += 1
-      self.winning_streak += 1
-      if self.winning_streak > self.longest_winning_streak_games
-        self.longest_winning_streak_games = self.winning_streak
-      end
     else
       self.number_of_losses += 1
-      self.winning_streak = 0
     end
 
     self.save
+    calculate_current_streak!
   end
 
   def self.create_with_omniauth(auth, league = nil)
@@ -82,5 +78,38 @@ class User < ActiveRecord::Base
       user.email = auth["info"]["email"]
       user.image = auth['info']['image']
     end
+  end
+
+  def current_streak
+    wins = []
+    matches.each do |m|
+      if m.win_for?(self)
+        wins << m
+      else
+        break
+      end
+    end
+    wins.length
+  end
+
+  def calculate_current_streak!
+    self.winning_streak = current_streak
+    self.save
+  end
+
+  def calculate_longest_streak!
+    matches = self.matches
+    current_winning_streak = 0
+    matches.each do |match|
+      if match.win_for?(self)
+        current_winning_streak += 1
+        if current_winning_streak > self.longest_winning_streak_games
+          self.longest_winning_streak_games = current_winning_streak
+        end
+      else
+        current_winning_streak = 0
+      end
+    end
+    self.save
   end
 end

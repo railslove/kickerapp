@@ -66,6 +66,29 @@ describe Match, type: :model do
     end
   end
 
+  describe '.update_team_streaks' do
+    before do
+      @match = Match.new(difference: 5)
+      @match.winner_team = FactoryGirl.create(:team, number_of_wins: 5)
+      @match.loser_team = FactoryGirl.create(:team, number_of_losses: 5)
+      @match.winner_team.player1 = FactoryGirl.create(:user)
+      @match.loser_team.player1 = FactoryGirl.create(:user)
+      @match.save
+    end
+
+    it 'triggers all recalculations on all match users' do
+      allow(@match.winner_team.player1).to receive(:calculate_current_streak!)
+      allow(@match.winner_team.player1).to receive(:calculate_longest_streak!)
+      allow(@match.loser_team.player1).to receive(:calculate_current_streak!)
+      allow(@match.loser_team.player1).to receive(:calculate_longest_streak!)
+      @match.update_team_streaks
+      expect(@match.winner_team.player1).to have_received(:calculate_current_streak!)
+      expect(@match.winner_team.player1).to have_received(:calculate_longest_streak!)
+      expect(@match.loser_team.player1).to have_received(:calculate_current_streak!)
+      expect(@match.loser_team.player1).to have_received(:calculate_longest_streak!)
+    end
+  end
+
   describe ".swap_teams" do
     it "swaps winner and loser team" do
       @match = Match.new(difference: 5)

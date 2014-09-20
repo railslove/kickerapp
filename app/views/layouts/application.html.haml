@@ -8,13 +8,24 @@
     %meta{:charset => "utf-8"}/
     %meta{:content => "NOODP", :name => "ROBOTS"}/
     %meta{name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1"}
-    %meta{name: 'apple-mobile-web-app-title', content: 'Kicker App'}
+    %meta{name: 'apple-mobile-web-app-title', content: 'Kicker App - The foosball league app for all foosball lovers!'}
 
-    %title= @page_title || "Kicker App"
+    / --------------------------------    
+    %meta{name: "description", :content => "Start your own league for free! Invite your friends and colleagues to see who's best at foosball and can earn the most badges."}/
+    %meta{:content => "Kicker App - The foosball league app for all foosball lovers!", :property => "og:title"}/
+    %meta{:content => "website", :property => "og:type"}/
+    %meta{:content => "http://www.kicker.cool", :property => "og:url"}/
+    %meta{:content => "http://www.kicker.cool/open-graph-logo.png", :property => "og:image"}/
+    %meta{:content => "Kicker App - The foosball league app for all foosball lovers!", :property => "og:site_name"}/
+    / <meta property="fb:admins" content="500108777"/>
+    %meta{:content => I18n.locale, :property => "og:locale"}/
+    %meta{:content => "Start your own league for free! Invite your friends and colleagues to see who's best at foosball and can earn the most badges.", :property => "og:description"}/
+    / --------------------------------
+
+    %title= @page_title || "Kicker App - The foosball league app for all foosball lovers!"
     = stylesheet_link_tag :application, :media => 'all'
     = csrf_meta_tags
     = render 'layouts/favicons'
-
   %body{class: body_class, id: body_id}
     = render 'layouts/header'
     = render 'layouts/flashes'

@@ -80,6 +80,8 @@ en:
         contact_email: 'Contact email'
       user:
         image: Avatar URL
+        name: Name
+        email: E-Mail
     errors: &errors
     fallbacks: &fallbacks
     help: &help

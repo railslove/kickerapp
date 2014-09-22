@@ -104,6 +104,10 @@
         max-width: 450px
         img
           width: 100%
+        .c-landing--header--button--text
+          font-size: 16px
+          left: 0px
+          top: 70px
   .c-landing--headline
     text-align: center
     font-weight: bold
@@ -172,15 +176,19 @@
     margin: 0 auto
     .c-landing--feature--image
       float: left
+      margin-right: $margin
       img
         width: 250px
     .c-landing--feature--text
       float: left
-      width: 500px
+      width: 530px
       color: $white
     &.as-switched
       .c-landing--feature--image
         float: right
+        margin-right: 0
+      .c-landing--feature--text
+        text-align: right
     +breakpoint($mobile)
       width: 100%
       font-size: 16px
@@ -189,6 +197,9 @@
         width: 100%
         padding: 0 $padding
         text-align: center
+      &.as-switched
+        .c-landing--feature--text
+          text-align: center
   .c-landing--screens
     +clearfix
     width: 1000px
@@ -213,3 +224,12 @@
         color: $white
         margin: $margin 40px
         text-align: center
+    +breakpoint($mobile)
+      width: 100%
+      .c-landing--screen
+        float: none
+        width: 100%
+        .c-landing--screen--number
+          left: 20px
+        img
+          width: 100%

@@ -62,4 +62,12 @@ module ApplicationHelper
     image_tag(regular, options.merge(srcset: srcset))
   end
 
+  def facebook_locale
+    if I18n.locale == :de
+      'de_de'
+    else
+      'en_gb'
+    end
+  end
+
 end

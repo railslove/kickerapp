@@ -10,11 +10,22 @@
     %meta{name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1"}
     %meta{name: 'apple-mobile-web-app-title', content: 'Kicker App'}
 
-    %title= @page_title || "Kicker App"
+    / --------------------------------
+    %meta{:content => "website", :property => "og:type"}/
+    %meta{:content => url_for(:only_path => false), :property => "og:url"}/
+    %meta{:content => asset_url("open-graph-logo.png"), :property => "og:image"}/
+    / <meta property="fb:admins" content="500108777"/>
+    %meta{name: "description", :content => t('meta.description')}/
+    %meta{:content => t('meta.title'), :property => "og:site_name"}/
+    %meta{:content => t('meta.title'), :property => "og:title"}/
+    %meta{:content => facebook_locale, :property => "og:locale"}/
+    %meta{:content => t('meta.description'), :property => "og:description"}/
+    / --------------------------------
+
+    %title= @page_title || t('meta.title')
     = stylesheet_link_tag :application, :media => 'all'
     = csrf_meta_tags
     = render 'layouts/favicons'
-
   %body{class: body_class, id: body_id}
     = render 'layouts/header'
     = render 'layouts/flashes'

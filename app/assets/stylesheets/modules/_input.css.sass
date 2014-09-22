@@ -8,6 +8,15 @@
   &.as-short
     width: 26px
     padding: $padding 5px
+  &.as-colored
+    border: 1px solid $dark-blue
+    background: $light-blue
+    &::-webkit-input-placeholder
+      color: $dark-blue
+    &:-moz-placeholder
+      color: $dark-blue
+    &::-moz-placeholder
+      color: $dark-blue
   +breakpoint($mobile)
     -webkit-appearance: none
     font-size: 16px
@@ -15,6 +24,7 @@
     &.as-short
       padding: 5px
       width: 20px
+
 
 .field_with_errors
   display: inline-block

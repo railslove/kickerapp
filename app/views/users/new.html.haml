@@ -1,24 +1,20 @@
 - @hide_sidebar = true
 
-.m-row
-  .m-item--third
-    %h3= t('.create_by_email')
+.m-boxes
+  .m-box
+    %h3.m-box--headline= t('.create_by_email')
     = form_for @user, url: league_users_path(current_league), class: 'm-form' do |f|
       .m-form--row
-        = f.label :name, class: 'm-label'
-        = f.text_field :name, class: 'm-input', required: true
+        = f.text_field :name, class: 'm-input m-box--input as-colored', required: true, placeholder: t('activerecord.attributes.user.name')
       .m-form--row
-        = f.label :email, class: 'm-label'
-        = f.email_field :email, class: 'm-input', required: true
+        = f.email_field :email, class: 'm-input m-box--input as-colored', required: true, placeholder: t('activerecord.attributes.user.email')
       .m-form--row
-        = f.label :image, class: 'm-label'
-        = f.text_field :image, class: 'm-input', placeholder: 'http://'
+        = f.text_field :image, class: 'm-input m-box--input as-colored', placeholder: t('activerecord.attributes.user.image')
       .m-form--row
-        = f.submit t('.submit'), class: 'm-button'
-
-  .m-item--third
-    .m-circle= t('.create_via_oauth')
-  .m-item--third
+        = f.submit t('.submit'), class: 'm-button m-box--button'
+  .m-box--circle.m-circle= t('.create_via_oauth')
+  .m-box
+    %h3.m-box--headline= t('.create_by_social_media')
     %p
       = link_to twitter_connect_path(current_league), class: 'm-button_twitter' do
         %i.icon-twitter
@@ -27,3 +23,4 @@
     = link_to facebook_connect_path(current_league), class: 'm-button_facebook' do
       %i.icon-facebook
       = t('.register_via_facebook')
+

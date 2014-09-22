@@ -1,0 +1,39 @@
+.m-box
+  background: $white
+  border: 1px solid $blue
+  padding: $margin ($margin * 2) ($margin * 2)
+  position: relative
+  .m-box--headline
+    border-bottom: 1px solid $blue
+    padding-bottom: $padding
+    margin: 0 0 $margin 0
+    text-transform: uppercase
+  .m-box--button
+    width: 100%
+    text-align: center
+    border-radius: 0
+    position: absolute
+    margin:  0px (-$margin * 2)
+  .m-box--input
+    width: 100%
+    box-sizing: border-box
+.m-boxes
+  +clearfix
+  .m-box
+    float: left
+    width: 49%
+    &:first-child
+      margin-right: 2%
+  .m-box--circle
+    position: absolute
+    margin-top: 110px
+    left: calc(50% - 30px)
+    z-index: 1
+  +breakpoint($mobile)
+    width: 100%
+    .m-box--circle
+      display: none
+    .m-box
+      width: 100%
+      float: none
+      margin-bottom: $margin

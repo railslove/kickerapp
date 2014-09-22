@@ -1,4 +1,7 @@
 de:
+  meta:
+    title: "Kicker Cool - Die Kickerligen-App für alle Tischfussballfreunde!"
+    description: "Erstelle kostenlos deine eigene Liga. Lade deine Freunde und Kollegen ein und schon könnt ihr sehen wer die meisten Badges erspielt."
   static:
     faq:
       headline: FAQs
@@ -11,7 +14,7 @@ de:
         - Derjenige, der sich für nichts zu schade ist und in den meisten Teams spielt bekommt den Team Badge.
         - Für die meisten Niederlagen mit Krabbeln gibt's den Badge "Kennt den Tisch von unten wie kein anderer", der ist leicht zu bekommen, aber nicht sehr begehrt...
         - Wer aktuell die meisten Siege in Folge hat, bekommt dafür die Rakete , und das Schlusslicht der Liga kann sich über die rote Laterne freuen!
-        
+
         ### Einzel-Match
         Auch wenn meistens in Teams gespielt wird, kann auch "Mann gegen Mann" gespielt werden - einfach jeweils nur eine Person pro Match auswählen.
 
@@ -25,17 +28,17 @@ de:
         Das Ranking des jeweiligen Spielers bzw. Teams beruht auf dem Wertungssystem der Elo-Zahl, welches ursprünglich fürs Schachspielen entwickelt wurde, aber mittlerweile vielfältig eingesetzt wird.
         Jeder Spieler steigt mit einem Elo-Wert von 1200 Punkten in die Liga ein. Ab dann ist alles möglich, denn die tatsächlichen Ergebnisse der gespielten Matches werden für den Elo-Punktestand gewertet.
         Spielen zwei gleichstarke (gleicher Elo-Wert) Spieler bzw. Teams gegeneinander so erhält der Sieger 8 Pluspunkte und der Verlierer 8 Minuspunkte. Je weiter die Elo-Werte auseinander liegen, desto lukrativer ist ein Sieg für den schlechteren Spieler (Team) und anders herum. Die maximal Punktzahl, die gewonnen bzw. verloren werden kann, liegt bei 15 Punkten pro Spiel. Die Platzierung im Team-Ranking ergibt sich aus der Summe der Punkte die ein Team (gemeinsam) gewonnen hat, minus der Punkte die das Team verloren hat.
-       
+
         ### Regeln
         Unsere REGELN (dürfen, müssen aber nicht beachtet werden)
         Die oberste und wichtigste Regel bei einem Kicker-Match: Habt Spaß!
         Es wird bis 6 gespielt,  wer also zuerst 6 Tore geschossen hat gewinnt, aber nur mit zwei Toren Vorsprung. D.h. wenn es 5 zu 6 steht wird mindestens bis 7 gespielt.
         Ein direkt nach dem Einwurf erzieltes Tor zählt nicht.
         Bei einer zu 0-Schlappe muss das Verliererteam einmal unterm Kickertisch hindurch krabbeln und es gibt 5 extra Punkte für das Gewinnerteam.
-        
+
         ### Zufall Teams
         Wer keine Lust hat mit den üblichen Partnern zu spielen, kann der Zufallsteamgenerator zur Hilfe holen. Einfach vier oder mehrere Spieler auswählen und zufällige Teams werden ausgelost. Die Wahrscheinlichkeit für ein Team bestehend aus stärkstem und schwächsten Spieler beträgt 50%, aus stärkstem und drittstärkstem Spieler 33% und aus stärkstem und zweistärkstem 17%.
-        
+
     imprint:
       headline: Impressum
       body: |

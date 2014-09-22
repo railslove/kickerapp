@@ -45,6 +45,7 @@ class MatchesController < ApplicationController
     @match.calculate_user_quotas
     current_league.update_badges
     if @match.save
+      @match.update_team_streaks
       redirect_to league_path(current_league), notice: "Satz gespeichert."
     else
       flash.now[:alert] = "Satz konnte nicht gespeichert werden."

@@ -27,19 +27,7 @@ namespace :users do
     users = User.all
     users.each do |user|
       p user.name
-      matches = user.matches.unscoped
-      current_winning_streak = 0
-      matches.each do |match|
-        if match.win_for?(user)
-          current_winning_streak += 1
-          if current_winning_streak > user.longest_winning_streak_games
-            user.longest_winning_streak_games = current_winning_streak
-          end
-        else
-          current_winning_streak = 0
-        end
-      end
-      user.save
+      user.calculate_longest_streak!
       p user.longest_winning_streak_games
     end
   end

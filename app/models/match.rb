@@ -22,6 +22,7 @@ class Match < ActiveRecord::Base
     match = Match.new(winner_team: winner_team, loser_team: loser_team, date: Time.now, league_id: set_params[:league_id])
     match.score = match.score_for_set(winner_score, loser_score)
     match.crawling = match.crawling_for_set(set_params)
+    match.calculate_user_quotas
     match.save ? match : nil
   end
 
@@ -68,6 +69,15 @@ class Match < ActiveRecord::Base
     self.save
   end
 
+  def update_team_streaks
+    [ winner_team, loser_team ].each do |team|
+      team.users.each do |user|
+        user.calculate_current_streak!
+        user.calculate_longest_streak!
+      end
+    end
+  end
+
   def swap_teams
     old_winner = self.winner_team
     self.winner_team = self.loser_team
@@ -87,11 +97,11 @@ class Match < ActiveRecord::Base
   end
 
   def scores
-    score.split(":").map{|s| s.to_i}
+    score.split(":").map(&:to_i)
   end
 
   def active_user_ranking
-    league.users.reload.ranked.select{ |u| u.active? }
+    league.users.reload.ranked.select(&:active?)
   end
 
   # For Rss

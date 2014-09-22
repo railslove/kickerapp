@@ -20,7 +20,8 @@
     .c-landing--screens
       .c-landing--screen
         .c-landing--screen--number 1
-        = picturefill_image_tag('laptop1.png', 'laptop1@2x.png', class: 'c-landing--screen--image')
+        = link_to new_league_path do
+          = picturefill_image_tag('laptop1.png', 'laptop1@2x.png', class: 'c-landing--screen--image')
         .c-landing--screen--text= t('landing.how_to.get_started')
       .c-landing--screen
         .c-landing--screen--number 2

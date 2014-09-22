@@ -10,7 +10,7 @@
     %meta{name: "description", :content => t('meta.description')}/
     %meta{:content => t('meta.title'), :property => "og:title"}/
     %meta{:content => "website", :property => "og:type"}/
-    %meta{:content => "http://www.kicker.cool", :property => "og:url"}/
+    %meta{:content => url_for(:only_path => false), :property => "og:url"}/
     %meta{:content => asset_url("open-graph-logo.png"), :property => "og:image"}/
     %meta{:content => t('meta.title'), :property => "og:site_name"}/
     / <meta property="fb:admins" content="500108777"/>

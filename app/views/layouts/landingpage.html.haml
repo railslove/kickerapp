@@ -11,10 +11,10 @@
     %meta{:content => t('meta.title'), :property => "og:title"}/
     %meta{:content => "website", :property => "og:type"}/
     %meta{:content => "http://www.kicker.cool", :property => "og:url"}/
-    %meta{:content => "http://www.kicker.cool/open-graph-logo.png", :property => "og:image"}/
+    %meta{:content => asset_url("open-graph-logo.png"), :property => "og:image"}/
     %meta{:content => t('meta.title'), :property => "og:site_name"}/
     / <meta property="fb:admins" content="500108777"/>
-    %meta{:content => I18n.locale, :property => "og:locale"}/
+    %meta{:content => facebook_locale, :property => "og:locale"}/
     %meta{:content => t('meta.description'), :property => "og:description"}/
     / --------------------------------
 

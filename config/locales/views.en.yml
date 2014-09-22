@@ -43,7 +43,8 @@ en:
       success: "%{user_name} has joined %{league_name}!"
     new:
       create_by_email: Create new player with email address
-      create_via_oauth: 'Or:'
+      create_by_social_media: Create player via social media
+      create_via_oauth: 'Or'
       register_via_facebook: Register via Facebook
       register_via_twitter: Register via Twitter
       submit: Create player

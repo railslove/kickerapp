@@ -1,14 +1,14 @@
-.c-league-new
+.c-league-new.m-box
   = form_for @league, html: { class: 'm-form' } do |f|
-    .m-headline= t('.add_new_league')
+    .m-box--headline= t('.add_new_league')
     .m-form--row
       = f.label :name, class: 'm-label'
-      = f.text_field :name, class: 'm-input'
+      = f.text_field :name, class: 'm-input as-colored'
     .m-form--row
       = label_tag :slug, 'www.kicker.cool/', class: 'm-label'
-      = f.text_field :slug, class: 'm-input', placeholder: t('.slug_placeholder')
+      = f.text_field :slug, class: 'm-input as-colored', placeholder: t('.slug_placeholder')
     .m-form--row
       = f.label :contact_email, class: 'm-label'
-      = f.text_field :contact_email, class: 'm-input', placeholder: t('.contact_email')
+      = f.text_field :contact_email, class: 'm-input as-colored', placeholder: t('.contact_email')
     .m-form--row
-    = f.submit t('.create_league_submit'), class: 'm-button'
+    = f.submit t('.create_league_submit'), class: 'm-button m-box--button'

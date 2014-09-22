@@ -10,6 +10,17 @@ RailsAdmin.config do |config|
     field :slug
     field :created_at
     field :users
+    field :contact_email
+  end
+
+  config.model Match do
+    field :date
+    field :winner_team
+    field :loser_team
+    field :league
+    field :score
+    field :difference
+    field :crawling
   end
 
   # config.included_models = %w{

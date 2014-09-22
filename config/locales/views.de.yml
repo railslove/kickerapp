@@ -43,8 +43,9 @@ de:
       success: "%{user_name} ist der Liga %{league_name} beigetreten!"
 
     new:
-      create_by_email: Neuen Spieler mit Email anlegen
-      create_via_oauth: 'Oder:'
+      create_by_email: Spieler per Email anlegen
+      create_by_social_media: Spieler per Social Media anlegen
+      create_via_oauth: 'Oder'
       register_via_facebook: Per Facebook registrieren
       register_via_twitter: Per Twitter registrieren
       submit: Spieler anlegen

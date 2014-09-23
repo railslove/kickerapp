@@ -22,7 +22,6 @@ class Match < ActiveRecord::Base
     match = Match.new(winner_team: winner_team, loser_team: loser_team, date: Time.now, league_id: set_params[:league_id])
     match.score = match.score_for_set(winner_score, loser_score)
     match.crawling = match.crawling_for_set(set_params)
-    match.calculate_user_quotas
     match.save ? match : nil
   end
 

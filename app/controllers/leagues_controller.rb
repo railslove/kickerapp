@@ -48,7 +48,7 @@ class LeaguesController < ApplicationController
     end
 
     def set_current_league
-      session[:league] = @league.id if @league.present?
+      session[:league] = @league.slug if @league.present?
     end
 
 end

@@ -14,9 +14,9 @@
         .c-footer-link= link_to t('common.leagues'), ligen_path, class: 'm-link'
       .c-footer-sharing
         - url = url_for(:only_path => false)
-        = link_to "https://www.facebook.com/dialog/share?app_id=454715457990828&redirect_uri=#{url}&href=#{url}", class: 'c-footer-sharing--button as-facebook', data: { behavior: 'js-link' } do
+        %a.c-footer-sharing--button.as-facebook{ data: { behavior: 'fb-share-page', link: url, caption: (current_league.present? ? current_league.name : t('meta.title')) } }
           %i.icon-facebook
           = t('common.share')
-        = link_to "http://twitter.com/share?text=@railslove&url=#{url}", class: 'c-footer-sharing--button as-twitter', data: { behavior: 'js-link' } do
+        = link_to "http://twitter.com/share?text=@kicker_cool&url=#{url}", class: 'c-footer-sharing--button as-twitter', data: { behavior: 'js-link' } do
           %i.icon-twitter
-          Tweet
+          = t('common.tweet')

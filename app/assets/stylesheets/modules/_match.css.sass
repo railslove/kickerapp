@@ -67,11 +67,24 @@
     +pie-clearfix
     text-align: center
     clear: both
-    a
-      color: $black
+    position: relative
+    .m-link
+      color: $white
+      background: $red
+      width: 33%
+      display: block
+      float: left
+      text-align: center
+      border: 1px solid $white
+      box-sizing: border-box
+      &.as-facebook
+        background: $facebook-blue
+      &.as-twitter
+        background: $twitter-blue
   +fade_in(".m-match--actions", 0.5s)
   &.as-single
     margin-right: 250px
+    width: 170px
   &.as-crawling
     .m-match--team
       position: relative

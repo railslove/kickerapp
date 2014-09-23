@@ -14,6 +14,7 @@ en:
     points: Points
     quota: Quota
     share: Share
+    tweet: Tweet
   date:
     formats:
       default: '%m/%d/%Y'
@@ -62,6 +63,11 @@ en:
   ranking:
     inactive: This is the list of recent matches. You've either not entered any matches or your last match's older than 2 weeks.
     non_yet: This is your ranking table. It seems you haven't played any matches yet.
+  social:
+    facebook:
+      match_share: '%{teams} finished %{score} at %{url}'
+    twitter:
+      match_share: '%{teams} finished %{score}'
   users:
     good_with: is his best partner
     bad_with: is his worst

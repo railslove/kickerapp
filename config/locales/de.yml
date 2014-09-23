@@ -14,6 +14,7 @@ de:
     points: Punkte
     quota: Quote
     share: Teilen
+    tweet: Tweet
   date:
     formats:
       with_weekday: '%a %d.%m.%y'
@@ -70,6 +71,11 @@ de:
     trend: Trend
     point_high: Höchststand
     point_low: Tiefstand
+  social:
+    facebook:
+      match_share: '%{teams} spielten %{score} auf %{url}'
+    twitter:
+      match_share: '%{teams} spielten %{score}'
   teams:
     quota: Quote
     elo: Elo Punkte

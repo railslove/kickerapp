@@ -16,5 +16,15 @@
             - match.loser_team.users.each do |user|
               %span.m-match--team--member{title: user.name}= user_image(user)
           .m-match--actions
-            .m-match--actions--edit
-              = link_to t('common.change'), edit_league_match_path(current_league, match), class: "m-link"
+            .m-match--actions
+              = link_to edit_league_match_path(current_league, match), class: "m-link" do
+                %i.icon-pencil
+                = t('common.change')
+              - sharing_text = t('social.facebook.match_share', score: match.score, teams: match.teams_with_primary_first(nil).map(&:name).join(' vs. '), url: url_for(:only_path => false))
+              %a.m-link.as-facebook{data: { behavior: 'fb-share-match', text: sharing_text, link: url_for(:only_path => false) }}
+                %i.icon-facebook
+                = t('common.share')
+              - sharing_text = t('social.twitter.match_share', score: match.score, teams: match.teams_with_primary_first(nil).map(&:name).join(' vs. '))
+              = link_to "http://twitter.com/share?text=#{sharing_text.encode}", class: 'm-link as-twitter', data: { behavior: 'js-link' } do
+                %i.icon-twitter
+                = t('common.tweet')

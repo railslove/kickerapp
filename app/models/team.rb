@@ -84,7 +84,7 @@ class Team < ActiveRecord::Base
   end
 
   def name
-    self.users.map(&:name).join(" & ")
+    self.users.map(&:name).join(" + ")
   end
 
   def number_of_games

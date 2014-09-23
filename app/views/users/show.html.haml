@@ -29,7 +29,7 @@
           = "(#{@user.quota - biggest_quota})"
         .m-profile-basics--value
           %span= t('users.point_low')
-          = biggest_quota
+          = lowest_quota
           = t('common.points')
           = "(#{@user.quota - lowest_quota})"
   - if @user.teams.any?

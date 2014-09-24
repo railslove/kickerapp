@@ -1,7 +1,5 @@
 class LeaguesController < ApplicationController
 
-  before_filter :require_league, only: [:badges]
-
   def index
     clear_current_league
     @leagues = League.by_matches
@@ -37,6 +35,7 @@ class LeaguesController < ApplicationController
 
   def badges
     @league = League.find_by!(slug: params[:id])
+    set_current_league
     @order = params[:order] || 'longest_winning_streak_games'
     @users = @league.users.order("#{@order} desc").select{|user| user.active? }
   end

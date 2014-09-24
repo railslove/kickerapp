@@ -61,7 +61,7 @@ describe ApplicationController, type: :controller do
 
     context 'current league is set in session' do
       before do
-        session[:league] = 'the-league'
+        session[:league_slug] = 'the-league'
       end
       it{ expect(controller.current_league).to eql league }
     end
@@ -86,8 +86,8 @@ describe ApplicationController, type: :controller do
   end
 
   describe 'clear_current_league' do
-    before{ session[:league] = 'the-league' }
-    it{ expect{ controller.send(:clear_current_league) }.to change{ session[:league] }.from('the-league').to(nil) }
+    before{ session[:league_slug] = 'the-league' }
+    it{ expect{ controller.send(:clear_current_league) }.to change{ session[:league_slug] }.from('the-league').to(nil) }
   end
 
 end

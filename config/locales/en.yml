@@ -69,8 +69,8 @@ en:
     twitter:
       match_share: '%{teams} finished %{score}'
   users:
-    good_with: is his best partner
-    bad_with: is his worst
+    good_with: is the best partner
+    bad_with: the worst
     edit: Edit player
     name: Name
     elo: Elo Points

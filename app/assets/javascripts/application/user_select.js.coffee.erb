@@ -7,7 +7,7 @@ $ ->
     bg_image = $('[data-images]').data('images')[$(@).val()] || '<%= asset_path 'default_user.png' %>'
     $(@).parents('[data-behavior=user-select-box]').css('background-image', "url(#{bg_image})")
     $(@).parents('[data-behavior=user-select-box]').addClass('has-image')
-
+    $("html, body").animate({ scrollTop: 0 }, "fast")
   $('body').on 'click', '[data-behavior=user-select-box]', ->
     selectize = $(@).find('select').data('selectize')
     if selectize

@@ -7,12 +7,22 @@
     text-align: center
     .m-button
       width: 100%
+      &.as-yellow
+        background: $yellow
     .m-link
       text-transform: uppercase
       color: $blue
       padding: 10px 0
       display: block
       background: $white
+  .c-mobile-close
+    background: $black
+    color: $white
+    width: 30px
+    height: 30px
+    line-height: 28px
+    border-radius: 100%
+    text-align: center
   .m-team-select
     width: 330px
     float: left
@@ -28,16 +38,40 @@
     input[type=checkbox]
       position: relative
       top: -10px
-
     .m-button
       margin-top: $margin
     .m-form--row
       margin-bottom: $padding
+    &.as-mobile-visible
+      position: absolute
+      display: block
+      z-index: 2
+      width: 100%
+      background: $white
+      padding-top: 40px
+      margin-top: -100px
+      border-top: 2px solid $yellow
+      box-shadow: 0 0 20px $dark-grey
+      .m-form--row
+        width: 140px
+        margin: 0 auto
+        .m-input.as-short
+          width: 40px
+          font-size: 30px
+      .m-button
+        width: 100%
+        border-radius: 0
+        background: $yellow
+        margin-bottom: 0
+      .c-mobile-close
+        position: absolute
+        right: 40px
+        top: $margin
     +breakpoint($mobile)
       display: none
+  .as-live, &.as-mobile-end
+    display: none
   +breakpoint($mobile)
-    .l-header-wrapper
-      display: none
     .m-team-select
       width: 100%
       float: none

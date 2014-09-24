@@ -61,8 +61,8 @@ de:
     inactive: 'Entweder habt ihr noch keine Spiele eingetragen oder das letzte Spiel ist länger als 2 Wochen her.'
     non_yet: 'Sobald Spieler eingetragen sind und sie das erste Spiel gemacht haben, erscheinen sie hier'
   users:
-    good_with: ist sein bester Partner
-    bad_with: sein schlechtester
+    good_with: ist der bester Partner
+    bad_with: der schlechtester
     edit: "Spieler bearbeiten"
     name: Name
     elo: Elo Punkte

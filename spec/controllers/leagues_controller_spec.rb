@@ -34,10 +34,10 @@ describe LeaguesController, type: :controller do
     let(:league1) { FactoryGirl.create(:league, slug: 'league1') }
     let(:league2) { FactoryGirl.create(:league, slug: 'league2') }
     before do
-      session[:league] = 'the-league'
+      session[:league_slug] = 'the-league'
       get :index
     end
-    it{ expect(session[:league]).to be_nil }
+    it{ expect(session[:league_slug]).to be_nil }
     it{ expect(assigns[:leagues]).to match [league1, league2] }
   end
 

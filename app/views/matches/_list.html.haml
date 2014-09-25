@@ -25,6 +25,6 @@
                 %i.icon-facebook
                 = t('common.share')
               - sharing_text = t('social.twitter.match_share', score: match.score, teams: match.teams_with_primary_first(nil).map(&:name).join(' vs. '))
-              = link_to "http://twitter.com/share?text=#{URI.encode(sharing_text)}", class: 'm-link as-twitter', data: { behavior: 'js-link' } do
+              = link_to "http://twitter.com/share?text=#{CGI.escape(sharing_text)}", class: 'm-link as-twitter', data: { behavior: 'js-link' } do
                 %i.icon-twitter
                 = t('common.tweet')

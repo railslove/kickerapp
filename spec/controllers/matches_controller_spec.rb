@@ -19,6 +19,11 @@ describe MatchesController, type: :controller do
       post :create, { league_id: league.slug, team1: [ user.id.to_s, '' ], team2: [ user2.id.to_s, ''], set1: ['6', '3'], set2: ['7','5'], set3: ['',''] }
       expect(response).to redirect_to new_league_match_path(league, team1: [ user.id.to_s, '' ], team2: [ user2.id.to_s, ''], created: true)
     end
+
+    it 'adds a crawling match param if the was a crawling match' do
+      post :create, { league_id: league.slug, team1: [ user.id.to_s, '' ], team2: [ user2.id.to_s, ''], set1: ['6', '0'], set2: ['',''], set3: ['',''], crawling1: true }
+      expect(response).to redirect_to league_path(league, crawl_id: Match.last.id)
+    end
   end
 
   describe '#update' do

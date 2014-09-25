@@ -51,14 +51,20 @@ describe LeaguesController, type: :controller do
     let!(:league) { FactoryGirl.create(:league, slug: 'the-league') }
     let(:match1) { FactoryGirl.create(:match, league: league) }
     let(:match2) { FactoryGirl.create(:match, league: league) }
-    before do
-      expect(controller).to receive(:set_current_league)
-      get :show, id: 'the-league'
+    context 'simple cases' do
+      before do
+        expect(controller).to receive(:set_current_league)
+        get :show, id: 'the-league'
+      end
+      it{ expect(response).to be_success }
+      it{ expect(response).to render_template 'leagues/show' }
+      it{ expect(assigns[:league]).to eql league }
+      it{ expect(assigns[:matches]).to match [match1, match2] }
     end
-    it{ expect(response).to be_success }
-    it{ expect(response).to render_template 'leagues/show' }
-    it{ expect(assigns[:league]).to eql league }
-    it{ expect(assigns[:matches]).to match [match1, match2] }
+    it 'marks a newly added crawling_match' do
+      get :show, id: 'the-league', crawl_id: match1.id
+      expect(assigns[:crawling_match]).to eql(match1)
+    end
   end
 
   describe 'badges' do

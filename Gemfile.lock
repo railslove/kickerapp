@@ -220,6 +220,9 @@ GEM
       rack (~> 1.1)
     rack-test (0.6.2)
       rack (>= 1.0)
+    rack_session_access (0.1.1)
+      builder (>= 2.0.0)
+      rack (>= 1.0.0)
     rails (4.1.6)
       actionmailer (= 4.1.6)
       actionpack (= 4.1.6)
@@ -354,6 +357,7 @@ DEPENDENCIES
   pg
   quiet_assets
   rack-tracker!
+  rack_session_access
   rails (>= 4.1.0)
   rails-i18n
   rails_12factor

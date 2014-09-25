@@ -1,19 +1,21 @@
 - if @crawling_match
-  .m-karl-crawl
-    .m-karl-crawl--content
-      .m-karl-crawl--text
-        .m-karl-crawl--text--headline WOW!
-        .m-karl-crawl--text--description= t('karl.crawling')
-      .m-karl-crawl--buttons.c-sharing
-        - url = url_for(:only_path => false)
-        - sharing_text = t('karl.sharing', winner: @crawling_match.winner_team.name, loser: @crawling_match.loser_team.name)
-        %a.c-sharing--button.as-facebook{ data: { behavior: 'fb-share-match', text: sharing_text, link: url_for(:only_path => false) } }
-          %i.icon-facebook
-          = t('common.share')
-        = link_to "http://twitter.com/share?text=#{sharing_text} @kicker_cool&url=#{url}", class: 'c-sharing--button as-twitter', data: { behavior: 'js-link' } do
-          %i.icon-twitter
-          = t('common.tweet')
-    = image_tag('karl_krabbel.svg')
+  .m-karl-crawl--wrapper{data: {behavior: 'overlay'}}
+    .m-karl-crawl--close{data: {behavior: 'hide-overlay'}} X
+    .m-karl-crawl
+      .m-karl-crawl--content
+        .m-karl-crawl--text
+          .m-karl-crawl--text--headline WOW!
+          .m-karl-crawl--text--description= t('karl.crawling')
+        .m-karl-crawl--buttons.c-sharing
+          - url = url_for(:only_path => false)
+          - sharing_text = t('karl.sharing', winner: @crawling_match.winner_team.name, loser: @crawling_match.loser_team.name)
+          %a.c-sharing--button.as-facebook{ data: { behavior: 'fb-share-match', text: sharing_text, link: url_for(:only_path => false) } }
+            %i.icon-facebook
+            = t('common.share')
+          = link_to "http://twitter.com/share?text=#{sharing_text} @kicker_cool&url=#{url}", class: 'c-sharing--button as-twitter', data: { behavior: 'js-link' } do
+            %i.icon-twitter
+            = t('common.tweet')
+      = image_tag('karl_krabbel.svg')
 
 
 - if @matches.any?

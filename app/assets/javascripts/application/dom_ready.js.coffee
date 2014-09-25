@@ -12,6 +12,8 @@ $ ->
   $('[data-behavior=trigger-chat]').click ->
     $('#userlikeTab').trigger('click')
 
+  $('[data-behavior=hide-overlay]').click ->
+    $('[data-behavior=overlay]').remove()
 
   games = $("#stats").data('games')
   crawls = $("#stats").data('crawls')

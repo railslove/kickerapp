@@ -16,7 +16,7 @@ $ ->
     $('[data-behavior=init-end-scoring]').hide()
     $('.input-rows').addClass('as-mobile-visible')
     $('.input-rows').show()
-    $('.input-rows input[disabled=disabled').removeProp('disabled')
+    $('.input-rows input[disabled=disabled]').removeAttr('disabled')
     false
 
   $('[data-behavior=counter]').on 'tap', ->

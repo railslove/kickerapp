@@ -48,7 +48,7 @@ de:
     karl_kicker_text: 'Gestatten, Karl Kicker! Kann ich irgendwie helfen?'
   karl:
     crawling: Hier musste jemand krabbeln! Das sollte die Welt erfahren.
-    sharing: "Krabbelalarm! %{winner} hat %{loser} unter den Tisch geschickt."
+    sharing: "Krabbelalarm! %{winner} haben %{loser} unter den Tisch geschickt."
   landing:
     add_league: Erstelle deine eigene Liga
     how_to:

@@ -22,7 +22,8 @@ en:
       enter: Enter results
       enter_set: Enter set!
       player_placeholder: Player
-      start_match: Start match
+      results: Enter results
+      start_live_match: Start live match
       to_match_overview: To the match overview
     shuffle_select:
       headline: Choose at least 4 players and then

@@ -18,11 +18,11 @@ class ApplicationController < ActionController::Base
   end
 
   def clear_current_league
-    session.delete(:league)
+    session.delete(:league_slug)
   end
 
   def current_league
-    id = params[:league_id] || session[:league]
+    id = params[:league_id] || session[:league_slug]
     @current_league ||= id ? League.find_by!(slug: id) : nil
   end
 

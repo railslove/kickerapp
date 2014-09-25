@@ -22,7 +22,8 @@ de:
       enter: Eintragen
       enter_set: Satz eintragen!
       player_placeholder: Spieler
-      start_match: Spiel starten
+      results: Ergebnis eintragen
+      start_live_match: Live-Spiel starten
       to_match_overview: Zur Match-Übersicht
     shuffle_select:
       headline: Bitte zuerst mindestens 4 Spieler wählen und dann

@@ -58,29 +58,33 @@ describe ApplicationController, type: :controller do
 
   describe 'current_league' do
     let!(:league) { create :league, slug: 'the-league' }
+    let!(:another_league) { create :league, slug: 'another-league' }
 
-    context 'current league is set in session' do
+    context 'league slug is set in session' do
       before do
         session[:league_slug] = 'the-league'
       end
       it{ expect(controller.current_league).to eql league }
     end
 
-    context 'current league is passed to params[:league_id]' do
+    context 'league slug is passed to params[:league_id]' do
       before do
         allow(controller).to receive(:params).and_return({ league_id: 'the-league' })
       end
       it{ expect(controller.current_league).to eql league }
     end
 
-    context 'current league is passed to params[:id]' do
+    context 'league slug is passed to params[:league_id] and set in session' do
       before do
-        allow(controller).to receive(:params).and_return({ id: 'the-league' })
+        session[:league] = 'another-league'
+        allow(controller).to receive(:params).and_return({ league_id: 'the-league' })
       end
-      it{ expect(controller.current_league).to eql league }
+      it 'params[:league_id] should override session[:league]' do
+        expect(controller.current_league).to eql league
+      end
     end
 
-    context 'current league is not set' do
+    context 'league slug is not set' do
       it{ expect(controller.current_league).to be_nil }
     end
   end

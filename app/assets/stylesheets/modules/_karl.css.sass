@@ -1,0 +1,36 @@
+.m-karl-crawl
+  width: 440px
+  left: calc(50% - 220px)
+  position: absolute
+  z-index: 4
+  img
+    width: 100%
+  .m-karl-crawl--content
+    position: absolute
+    top: 213px
+    height: 200px
+    left: 40px
+    width: 241px
+    .m-karl-crawl--text--headline
+      color: $yellow
+      text-align: center
+      font-size: 40px
+      font-weight: bold
+      margin-top: 5px
+    .m-karl-crawl--text--description
+      padding: 0 $padding
+      text-align: center
+
+    .m-karl-crawl--buttons
+      position: absolute
+      bottom: 0
+      width: 100%
+      margin-bottom: 0
+      +clearfix
+      .c-sharing--button
+        width: 50%
+        box-sizing: border-box
+        display: block
+        float: left
+        &.as-facebook
+          margin: 0

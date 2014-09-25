@@ -20,11 +20,13 @@ class MatchesController < ApplicationController
   end
 
   def create
-    create_matches_from_params(params)
+    param = {}
+    crawl_match_id = create_matches_from_params(params)
+    param[:crawl_id] = crawl_match_id if crawl_match_id
     if is_mobile_device?
       redirect_to new_league_match_path(current_league, team1: params["team1"], team2: params["team2"], created: true)
     else
-      redirect_to league_path(current_league), notice: t('.success')
+      redirect_to league_path(current_league, param), notice: t('.success')
     end
   end
 
@@ -87,6 +89,7 @@ class MatchesController < ApplicationController
 
   def create_matches_from_params(params)
     league = League.find_by!(slug: params[:league_id])
+    crawl_id = nil
     3.times do |i| #Three possible sets
       set = params["set#{i+1}"]
       if set.first.present? && set.last.present? # If the set has been played
@@ -96,10 +99,13 @@ class MatchesController < ApplicationController
           result_params[params["team2"][index]] = set.last.to_i
         end
         result_params[:league_id] = league.id.to_s
-        HistoryEntry.track(Match.create_from_set(result_params))
+        match = Match.create_from_set(result_params)
+        HistoryEntry.track(match)
+        crawl_id = match.id if params["crawling#{i+1}"].present?
       end
     end
     league.update_badges
+    crawl_id
   end
 
   def force_mobile_html

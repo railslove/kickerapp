@@ -12,11 +12,11 @@
         .c-footer-link= link_to t('common.imprint'), imprint_path, class: 'm-link'
         .c-footer-link= link_to t('common.faq'), faq_path, class: 'm-link'
         .c-footer-link= link_to t('common.leagues'), ligen_path, class: 'm-link'
-      .c-footer-sharing
+      .c-sharing
         - url = url_for(:only_path => false)
-        %a.c-footer-sharing--button.as-facebook{ data: { behavior: 'fb-share-page', link: url, caption: t('meta.title') } }
+        %a.c-sharing--button.as-facebook{ data: { behavior: 'fb-share-page', link: url, caption: t('meta.title') } }
           %i.icon-facebook
           = t('common.share')
-        = link_to "http://twitter.com/share?text=@kicker_cool&url=#{url}", class: 'c-footer-sharing--button as-twitter', data: { behavior: 'js-link' } do
+        = link_to "http://twitter.com/share?text=@kicker_cool&url=#{url}", class: 'c-sharing--button as-twitter', data: { behavior: 'js-link' } do
           %i.icon-twitter
           = t('common.tweet')

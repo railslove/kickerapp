@@ -49,6 +49,9 @@ en:
   footer:
     created_by: Created with love by
     karl_kicker_text: "Hey there, I'm Karl. Karl Kicker! How can I help you?"
+  karl:
+    crawling: Someone was crawling under the table! I think the world should know.
+    sharing: "Crawling alarm! %{winner} send %{loser} under the table."
   landing:
     add_league: Create your own league
     how_to:

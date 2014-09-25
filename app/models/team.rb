@@ -101,7 +101,7 @@ class Team < ActiveRecord::Base
 
   def value
     # (percentage * Math.log10(number_of_games)).round
-    wins.sum(:difference) - losses.sum(:difference)
+    1200 + wins.sum(:difference) - losses.sum(:difference)
   end
 
 

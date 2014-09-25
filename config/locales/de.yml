@@ -80,7 +80,9 @@ de:
     quota: Quote
     elo: Elo Punkte
     wins: Siege
+    win_points: Punktedurchschnitt Siege
     loses: Niederlagen
+    lose_points: Punktedurchschnitt Niederlagen
     points: Punkte
   activerecord:
     attributes: &attributes

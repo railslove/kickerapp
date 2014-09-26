@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :matches, only: [:show]
   get "/auth/:provider/callback" => "users#create"
+  get '/auth/failure' => 'users#omniauth_failure'
 
   get 'imprint' => 'pages#imprint', as: 'imprint'
   get 'faq' => 'pages#faq', as: 'faq'

@@ -42,6 +42,7 @@ de:
   users:
     create:
       success: "%{user_name} ist der Liga %{league_name} beigetreten!"
+      omniauth_failure: "Registrierung per %{strategy} ist fehlgeschlagen (%{message})!"
 
     new:
       create_by_email: Spieler per Email anlegen

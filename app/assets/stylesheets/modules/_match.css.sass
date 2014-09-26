@@ -37,6 +37,12 @@
     &.as-winner
       border-color: $green
       margin-right: 10px
+    +breakpoint($mobile)
+      .m-user-image
+        width: 60px
+        height: 60px
+        svg
+          width: 60px
   .m-match--score
     background: $white
     width: 50px
@@ -64,6 +70,8 @@
       background: $green
     &.as-loser
       background: $red
+    +breakpoint($mobile)
+      top: 10px
   .m-match--actions
     +pie-clearfix
     text-align: center
@@ -86,6 +94,9 @@
   &.as-single
     margin-right: 250px
     width: 170px
+    +breakpoint($mobile)
+      .m-match--score
+        left: 40px
   &.as-crawling
     .m-match--team
       position: relative

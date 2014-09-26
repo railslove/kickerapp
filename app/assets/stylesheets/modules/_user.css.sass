@@ -37,15 +37,21 @@
   overflow: hidden
   display: inline-block
   &.as-default
-    text-align: center
-    font-weight: bold
-    font-size: 24px
-    line-height: 78px
-    color: $white
-    // text-transform: uppercase
-    text-shadow: 0 0 3px $black
-    background: image-url('default_user.svg') no-repeat center center
-    background-size: 80px 80px
+    position: relative
+    $background: attr(data-fill)
+    .m-user-image--default-image
+      position: absolute
+      z-index: 1
+
+    .m-user-image--default-name
+      position: absolute
+      z-index: 2
+      top: 40%
+      text-align: center
+      width: 100%
+      color: $white
+      font-size: 24px
+      text-shadow: 0 0 3px $black
 
 .m-user-select
   width: 150px

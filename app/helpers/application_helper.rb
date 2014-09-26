@@ -4,7 +4,7 @@ module ApplicationHelper
     if user.image.present?
       image_tag("http://dananos.brinkster.net/GifProxy.aspx?url=#{user.image}", class: 'm-user-image')
     else
-      color = Digest::MD5.hexdigest(user.short_name).first(6)
+      color = Digest::MD5.hexdigest(user.name).first(6)
       content_tag :div, class: 'm-user-image as-default ', 'data-fill'=>  "##{color}" do
         image=content_tag :div, class: 'm-user-image--default-image' do
           raw(svg_tag('default_user.svg').gsub('fill="#E6B212"', "fill=##{color}"))

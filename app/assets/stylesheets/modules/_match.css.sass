@@ -33,7 +33,6 @@
     .m-match--team--member
       float: left
       .m-user-image.as-default
-        line-height: 100px
     img
     &.as-winner
       border-color: $green
@@ -44,7 +43,7 @@
     height: 50px
     text-align: center
     border-radius: 100%
-    z-index: 1
+    z-index: 2
     color: $black
     position: absolute
     left: calc(50% - 25px)
@@ -113,21 +112,3 @@
       left: calc(50% - 35px)
       .m-match--score--difference
         font-size: 20px
-  +breakpoint($mobile)
-    .m-match--team
-      width: 50%
-      .m-match--team--member
-        width: 50%
-        display: block
-        img
-          width: 100%
-          max-width: 120px
-          min-width: 80px
-      &.as-winner
-        margin-right: 0
-    .m-match--score
-      margin-top: 40px
-    &.as-single
-      .m-match--team
-        .m-match--team--member
-          width: 100%

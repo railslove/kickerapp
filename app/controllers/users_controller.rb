@@ -19,6 +19,10 @@ class UsersController < ApplicationController
     redirect_to new_league_match_url(current_league), notice: t('.success', user_name: user.name, league_name: current_league.name)
   end
 
+  def omniauth_failure
+    redirect_to new_league_user_path(current_league), alert: t('users.create.omniauth_failure', message: params[:message], strategy: params[:strategy])
+  end
+
   def show
     @user = User.find(params[:id])
     @history_entries = @user.history_entries.order('date').last(100)

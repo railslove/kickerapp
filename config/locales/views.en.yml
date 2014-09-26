@@ -42,6 +42,7 @@ en:
   users:
     create:
       success: "%{user_name} has joined %{league_name}!"
+      omniauth_failure: "Registration via %{strategy} failed (%{message})!"
     new:
       create_by_email: Create new player with email address
       create_by_social_media: Create player via social media

@@ -10,7 +10,9 @@ $ ->
     $('.as-live').show()
     $('.m-team-select').addClass('with-overlay')
     $('[data-behavior=init-end-scoring]').hide()
+    $('.input-rows input').attr('disabled', 'disabled')
     false
+
   $('[data-behavior=init-end-scoring]').on 'tap', ->
     $('.as-mobile-end').show()
     $('[data-behavior=init-end-scoring]').hide()

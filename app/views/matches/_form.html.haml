@@ -6,7 +6,7 @@
     .m-headline Team 1
     .selects
       .m-user-select{ data: { behavior: 'user-select-box' }, class: ('has-image' if @team1), style: ("background-image: url(#{@team1.try(:users).try(:first).try(:image)})") }
-        = select_tag "team1[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, @team1.try(:users).try(:first).try(:id)), data: {player: 0, placeholder: t('.player_placeholder'), behavior: 'user-select', styling: ('custom-select' if !is_mobile_device?)}, include_blank: true
+        = select_tag "team1[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, @team1.try(:users).try(:first).try(:id)), data: {player: 0, placeholder: t('.player_placeholder'), behavior: 'user-select', styling: ('custom-select' if is_mobile_device?)}, include_blank: true
       .m-user-select{ data: { behavior: 'user-select-box' }, class: ('has-image' if @team1), style: ("background-image: url(#{@team1.try(:users).try(:last).try(:image)})") }
         = select_tag "team1[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, @team1.try(:users).try(:last).try(:id)), data: {player: 1, placeholder: t('.player_placeholder'), behavior: 'user-select', styling: ('custom-select' if !is_mobile_device?)}, include_blank: true
     .m-scoring--team.as-top.as-live{ data: { behavior: 'counter', target: 'team1-counter' } }
@@ -23,24 +23,21 @@
       .c-mobile-close{ data: { behavior: 'mobile-scoring-close' } } X
 
   - if is_mobile_device?
+    .m-scoring--count.as-live
+      .m-scoring--count--numbers
+        %span{ data: { behavior: 'team1-counter'} }
+          = text_field_tag "set1[]", 0, data: { behavior: 'disable-end' }
+        = ':'
+        %span{ data: { behavior: 'team2-counter'} }
+          = text_field_tag "set1[]", 0, data: { behavior: 'disable-end' }
+        = check_box_tag "crawling4", true, @match.crawling?, name: 'crawling1', data: { behavior: 'crawling-check' }, data: { behavior: 'disable-end' }
+        %label{:for => "crawling4", class: "c-crawling"}
+        .m-scoring--count--close.c-mobile-close{ data: { behavior: 'mobile-scoring-close' } } X
     .c-mobile-buttons
+      .m-button.as-secondary.c-mobile-start{ data: { behavior: 'init-mobile-scoring' } }
+        = t('.start_live_match')
       .m-button.c-mobile-start.as-yellow{ data: { behavior: 'init-end-scoring' } }
         = t('.results')
-  /   .m-scoring--count.as-live
-  /     .m-scoring--count--numbers
-  /       %span{ data: { behavior: 'team1-counter'} }
-  /         = text_field_tag "set1[]", 0, disabled: 'disabled'
-  /       = ':'
-  /       %span{ data: { behavior: 'team2-counter'} }
-  /         = text_field_tag "set1[]", 0, disabled: 'disabled'
-  /       = check_box_tag "crawling4", true, @match.crawling?, name: 'crawling1', data: { behavior: 'crawling-check' }, disabled: 'disabled'
-  /       %label{:for => "crawling4", class: "c-crawling"}
-  /       .m-scoring--count--close.c-mobile-close{ data: { behavior: 'mobile-scoring-close' } } X
-  /   .c-mobile-buttons
-  /     .m-button.as-secondary.c-mobile-start{ data: { behavior: 'init-mobile-scoring' } }
-  /       = t('.start_live_match')
-  /     .m-button.c-mobile-start.as-yellow{ data: { behavior: 'init-end-scoring' } }
-  /       = t('.results')
 
   .m-team-select
     .m-scoring--team.as-bottom.as-live{ data: { behavior: 'counter', target: 'team2-counter' } }
@@ -49,12 +46,12 @@
     - team2 = @teams.present? ? @teams.last : nil
     .selects
       .m-user-select{ data: { behavior: 'user-select-box' }, class: ('has-image' if @team2), style: ("background-image: url(#{@team2.try(:users).try(:first).try(:image)})") }
-        = select_tag "team2[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, @team2.try(:users).try(:first).try(:id)), data: {player: 0, placeholder: t('.player_placeholder'), behavior: 'user-select', styling: ('custom-select' if !is_mobile_device?)}, include_blank: true
+        = select_tag "team2[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, @team2.try(:users).try(:first).try(:id)), data: {player: 0, placeholder: t('.player_placeholder'), behavior: 'user-select', styling: ('custom-select' if is_mobile_device?)}, include_blank: true
       .m-user-select{ data: { behavior: 'user-select-box' }, class: ('has-image' if @team2), style: ("background-image: url(#{@team2.try(:users).try(:last).try(:image)})") }
         = select_tag "team2[]", options_for_select(current_league.users.ranked.map{|user|[user.name, user.id]}, @team2.try(:users).try(:last).try(:id)), data: {player: 1, placeholder: t('.player_placeholder'), behavior: 'user-select', styling: ('custom-select' if !is_mobile_device?)}, include_blank: true
-  / - if is_mobile_device?
-  /   .c-mobile-buttons
-  /     %button.as-secondary.m-button.as-live= t('.enter_set')
-  /     = link_to t('.to_match_overview'), league_path(current_league), class: 'm-link'
-  /   = hidden_field_tag 'set2[]'
-  /   = hidden_field_tag 'set3[]'
+  - if is_mobile_device?
+    .c-mobile-buttons
+      %button.as-secondary.m-button.as-live= t('.enter_set')
+      = link_to t('.to_match_overview'), league_path(current_league), class: 'm-link'
+    = hidden_field_tag 'set2[]', nil, data: { behavior: 'disable-end' }
+    = hidden_field_tag 'set3[]', nil, data: { behavior: 'disable-end' }

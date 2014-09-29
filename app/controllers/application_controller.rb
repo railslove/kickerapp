@@ -22,9 +22,9 @@ class ApplicationController < ActionController::Base
   end
 
   def current_league
-    id = params[:league_id] || session[:league_slug]
-    set_current_league(id)
-    @current_league ||= id ? League.find_by!(slug: id) : nil
+    slug = params[:league_id] || session[:league_slug]
+    set_current_league(slug)
+    @current_league ||= (slug ? League.find_by!(slug: slug) : nil)
   end
 
   def set_current_league(league_slug)

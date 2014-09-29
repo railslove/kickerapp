@@ -9,12 +9,12 @@ describe LeaguesController, type: :controller do
     context 'successful' do
       before do
         expect(AdminMailer).to receive_message_chain(:new_league, :deliver)
-        expect(controller).to receive(:set_current_league)
+        expect(controller).to receive(:set_current_league).with('hammerwerfers-bockenbruch')
       end
 
       specify do
         post :create, league: { name: 'Hammerwerfers Bockenbruch!', slug: 'Hammerwerfers Bockenbruch!', contact_email: 'contact@hammerwerfer.de' }
-        expect(response).to redirect_to new_league_user_path(League.last)
+        expect(response).to redirect_to new_league_user_path('hammerwerfers-bockenbruch')
         expect(flash[:notice]).to eql I18n.t('leagues.create.success')
       end
     end
@@ -53,7 +53,7 @@ describe LeaguesController, type: :controller do
     let(:match2) { FactoryGirl.create(:match, league: league) }
     context 'simple cases' do
       before do
-        expect(controller).to receive(:set_current_league)
+        expect(controller).to receive(:set_current_league).with('the-league')
         get :show, id: 'the-league'
       end
       it{ expect(response).to be_success }
@@ -70,7 +70,7 @@ describe LeaguesController, type: :controller do
   describe 'badges' do
     let!(:league) { FactoryGirl.create(:league, slug: 'the-league') }
     before do
-      expect(controller).to receive(:set_current_league)
+      expect(controller).to receive(:set_current_league).with('the-league')
       get :badges, id: 'the-league'
     end
     it{ expect(response).to be_success }

@@ -86,8 +86,6 @@ feature 'create new user' do
         }
       })
 
-      visit league_path('the-league') #workaround to save the league in the session
-
       visit new_league_user_path('the-league')
       find('.m-button_twitter').click
 
@@ -105,8 +103,6 @@ feature 'create new user' do
 
     it 'with invalid credentials' do
       set_invalid_omniauth({ provider: :twitter })
-
-      visit league_path('the-league') #workaround to save the league in the session
 
       visit new_league_user_path('the-league')
       find('.m-button_twitter').click

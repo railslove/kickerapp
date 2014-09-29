@@ -63,6 +63,7 @@ describe ApplicationController, type: :controller do
     context 'league slug is set in session' do
       before do
         session[:league_slug] = 'the-league'
+        expect(controller).to receive(:set_current_league).with('the-league')
       end
       it{ expect(controller.current_league).to eql league }
     end
@@ -70,6 +71,7 @@ describe ApplicationController, type: :controller do
     context 'league slug is passed to params[:league_id]' do
       before do
         allow(controller).to receive(:params).and_return({ league_id: 'the-league' })
+        expect(controller).to receive(:set_current_league).with('the-league')
       end
       it{ expect(controller.current_league).to eql league }
     end
@@ -78,6 +80,7 @@ describe ApplicationController, type: :controller do
       before do
         session[:league] = 'another-league'
         allow(controller).to receive(:params).and_return({ league_id: 'the-league' })
+        expect(controller).to receive(:set_current_league).with('the-league')
       end
       it 'params[:league_id] should override session[:league]' do
         expect(controller.current_league).to eql league

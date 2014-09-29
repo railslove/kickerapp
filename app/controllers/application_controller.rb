@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  helper_method :current_league
+  helper_method :current_league, :set_current_league
 
   before_action :set_locale
 
@@ -22,8 +22,13 @@ class ApplicationController < ActionController::Base
   end
 
   def current_league
-    id = params[:league_id] || session[:league_slug]
-    @current_league ||= id ? League.find_by!(slug: id) : nil
+    slug = params[:league_id] || session[:league_slug]
+    set_current_league(slug)
+    @current_league ||= (slug ? League.find_by!(slug: slug) : nil)
+  end
+
+  def set_current_league(league_slug)
+    session[:league_slug] = league_slug
   end
 
   private

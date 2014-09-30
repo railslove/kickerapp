@@ -18,7 +18,6 @@ feature 'create new user' do
     end
 
     it 'with invalid entries' do
-      pending 'not yet implemented'
       visit new_league_user_path('the-league')
 
       fill_in 'user_name', with: ''
@@ -27,7 +26,7 @@ feature 'create new user' do
 
       click_button I18n.t('users.new.submit')
 
-      expect(current_path).to eql new_league_user_path('the-league')
+      expect(current_path).to eql league_users_path('the-league')
       expect(page).to have_content I18n.t('users.create.failure')
     end
   end

@@ -12,11 +12,16 @@ class UsersController < ApplicationController
     auth = request.env["omniauth.auth"]
     if auth.present?
       user = User.find_by_provider_and_uid_and_league_id(auth["provider"], auth["uid"], current_league.id) || User.create_with_omniauth(auth, current_league)
+      redirect_to new_league_match_url(current_league), notice: t('.success', user_name: user.name, league_name: current_league.name)
     else
-      league = League.find_by!(slug: params[:league_id])
-      user = User.create(user_params.merge({league_id: current_league.id}))
+      @user = User.new(user_params.merge({league: current_league}))
+      if @user.save
+        redirect_to new_league_match_url(current_league), notice: t('.success', user_name: @user.name, league_name: current_league.name)
+      else
+        flash.now[:alert] = t('users.create.failure')
+        render :new
+      end
     end
-    redirect_to new_league_match_url(current_league), notice: t('.success', user_name: user.name, league_name: current_league.name)
   end
 
   def omniauth_failure

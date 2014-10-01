@@ -11,10 +11,10 @@ feature 'create new user' do
       fill_in 'user_email', with: 'karl@example.com'
       fill_in 'user_image', with: 'http://example.com/image.jpg'
 
-      click_button I18n.t('users.new.submit')
+      click_button 'Spieler anlegen'
 
       expect(current_path).to eql new_league_match_path('the-league')
-      expect(page).to have_content I18n.t('users.create.success', user_name: 'Karl Kicker', league_name: 'The League')
+      expect(page).to have_content 'Karl Kicker ist der Liga The League beigetreten!'
     end
 
     scenario 'with invalid entries' do
@@ -24,10 +24,10 @@ feature 'create new user' do
       fill_in 'user_email', with: ''
       fill_in 'user_image', with: ''
 
-      click_button I18n.t('users.new.submit')
+      click_button 'Spieler anlegen'
 
       expect(current_path).to eql league_users_path('the-league')
-      expect(page).to have_content I18n.t('users.create.failure')
+      expect(page).to have_content 'Spieler konnte nicht gespeichert werden.'
     end
   end
 
@@ -49,7 +49,7 @@ feature 'create new user' do
       find('.m-button_facebook').click
 
       expect(current_path).to eql new_league_match_path('the-league')
-      expect(page).to have_content I18n.t('users.create.success', user_name: 'Karl Facebook', league_name: 'The League')
+      expect(page).to have_content 'Karl Facebook ist der Liga The League beigetreten!'
 
       new_user = User.find_by_provider_and_uid_and_league_id('facebook', '1234', league.id)
       expect(new_user).to be_kind_of(User)
@@ -69,7 +69,7 @@ feature 'create new user' do
       find('.m-button_facebook').click
 
       expect(current_path).to eql new_league_user_path('the-league')
-      expect(page).to have_content I18n.t('users.create.omniauth_failure', strategy: 'facebook', message: 'invalid_crendentials')
+      expect(page).to have_content 'Registrierung per facebook ist fehlgeschlagen (invalid_crendentials)!'
     end
   end
 
@@ -89,7 +89,7 @@ feature 'create new user' do
       find('.m-button_twitter').click
 
       expect(current_path).to eql new_league_match_path('the-league')
-      expect(page).to have_content I18n.t('users.create.success', user_name: 'Karl Twitter', league_name: 'The League')
+      expect(page).to have_content 'Karl Twitter ist der Liga The League beigetreten!'
 
       new_user = User.find_by_provider_and_uid_and_league_id('twitter', '1234', league.id)
       expect(new_user).to be_kind_of(User)
@@ -107,7 +107,7 @@ feature 'create new user' do
       find('.m-button_twitter').click
 
       expect(current_path).to eql new_league_user_path('the-league')
-      expect(page).to have_content I18n.t('users.create.omniauth_failure', strategy: 'twitter', message: 'invalid_crendentials')
+      expect(page).to have_content 'Registrierung per twitter ist fehlgeschlagen (invalid_crendentials)!'
     end
   end
 end

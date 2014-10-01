@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'create new league' do
 
-  it 'with correct entries' do
+  scenario 'with correct entries' do
     visit(new_league_path)
 
     fill_in 'league_name', with: 'My New League'
@@ -15,7 +15,7 @@ feature 'create new league' do
     expect(page).to have_content I18n.t('leagues.create.success')
   end
 
-  it 'with invalid entries' do
+  scenario 'with invalid entries' do
     visit(new_league_path)
 
     fill_in 'league_name', with: ''

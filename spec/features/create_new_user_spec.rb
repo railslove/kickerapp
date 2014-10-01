@@ -4,7 +4,7 @@ feature 'create new user' do
   let!(:league) { FactoryGirl.create(:league, name: 'The League', slug: 'the-league') }
 
   context 'using manual registration' do
-    it 'with correct entries' do
+    scenario 'with correct entries' do
       visit new_league_user_path('the-league')
 
       fill_in 'user_name', with: 'Karl Kicker'
@@ -17,7 +17,7 @@ feature 'create new user' do
       expect(page).to have_content I18n.t('users.create.success', user_name: 'Karl Kicker', league_name: 'The League')
     end
 
-    it 'with invalid entries' do
+    scenario 'with invalid entries' do
       visit new_league_user_path('the-league')
 
       fill_in 'user_name', with: ''
@@ -32,7 +32,7 @@ feature 'create new user' do
   end
 
   context 'using facebook' do
-    it 'with valid credentials' do
+    scenario 'with valid credentials' do
       set_omniauth({
         provider: :facebook,
         uuid: '1234',
@@ -60,7 +60,7 @@ feature 'create new user' do
       expect(new_user.uid).to eql '1234'
     end
 
-    it 'with invalid credentials' do
+    scenario 'with invalid credentials' do
       set_invalid_omniauth({ provider: :facebook })
 
       visit league_path('the-league') #workaround to save the league in the session
@@ -74,7 +74,7 @@ feature 'create new user' do
   end
 
   context 'using twitter' do
-    it 'with valid credentials' do
+    scenario 'with valid credentials' do
       set_omniauth({
         provider: :twitter,
         uuid: '1234',
@@ -100,7 +100,7 @@ feature 'create new user' do
       expect(new_user.uid).to eql '1234'
     end
 
-    it 'with invalid credentials' do
+    scenario 'with invalid credentials' do
       set_invalid_omniauth({ provider: :twitter })
 
       visit new_league_user_path('the-league')

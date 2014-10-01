@@ -7,7 +7,7 @@ feature 'create new match' do
   let!(:player3) { FactoryGirl.create(:user, name: 'Player 3', league: league) }
   let!(:player4) { FactoryGirl.create(:user, name: 'Player 4', league: league) }
 
-  it 'with 4 players' do
+  scenario 'with 4 players' do
     visit new_league_match_path('the-league')
 
     select 'Player 1', from: 'team1_player1'
@@ -32,7 +32,7 @@ feature 'create new match' do
     expect(page).to have_content '7:5'
   end
 
-  it 'with 2 players' do
+  scenario 'with 2 players' do
     visit new_league_match_path('the-league')
 
     select 'Player 1', from: 'team1_player1'
@@ -53,7 +53,7 @@ feature 'create new match' do
     expect(page).to have_content '7:5'
   end
 
-  it 'with crawling' do
+  scenario 'with crawling' do
     visit new_league_match_path('the-league')
 
     select 'Player 1', from: 'team1_player1'

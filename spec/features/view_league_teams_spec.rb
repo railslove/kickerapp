@@ -16,7 +16,7 @@ feature 'view a league\'s teams' do
     end
   end
 
-  scenario 'valid entries' do
+  scenario 'shows all teams ranked best first' do
     visit league_teams_path('the-league')
 
     expect(page).to have_selector('table')

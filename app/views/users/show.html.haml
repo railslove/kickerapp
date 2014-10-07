@@ -4,7 +4,7 @@
 .m-profile-teams
   .m-profile-basics
     %h4= @user.name
-    .m-user.as-selected.m-profile-basics--user= user_image(@user)
+    .m-user.as-selected.m-profile-basics--user= user_image(@user, '115x115')
     .m-profile-basics--values
       .m-profile-basics--value
         %span= t('users.current_winning_streak')

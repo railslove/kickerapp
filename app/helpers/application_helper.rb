@@ -2,7 +2,7 @@ module ApplicationHelper
 
   def user_image(user)
     if user.image.present?
-      image_tag("http://dananos.brinkster.net/GifProxy.aspx?url=#{user.image}", class: 'm-user-image')
+      image_tag("http://ungif.herokuapp.com/ungif?url=#{user.image}", class: 'm-user-image')
     else
       color = Digest::MD5.hexdigest(user.name).first(6)
       content_tag :div, class: 'm-user-image as-default ', 'data-fill'=>  "##{color}" do

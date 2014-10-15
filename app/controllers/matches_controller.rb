@@ -5,12 +5,7 @@ class MatchesController < ApplicationController
   has_mobile_fu false
 
   def index
-    @matches = Match.limit(30)
-    respond_to do |format|
-      format.html # index.html.erb
-      format.atom
-      format.json { render json: @matches }
-    end
+    redirect_to league_path(current_league)
   end
 
   def new

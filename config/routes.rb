@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get 'imprint' => 'pages#imprint', as: 'imprint'
   get 'faq' => 'pages#faq', as: 'faq'
 
+  get 'kpis' => 'pages#kpis', as: 'kpis'
+
   resources :leagues, except: [:index], :path => '' do
     get :badges, on: :member
     resources :matches do

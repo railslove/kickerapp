@@ -1,0 +1,24 @@
+- @hide_sidebar = true
+%h2 Absolute Zahlen
+%ul.kpi-list
+  %li
+    .kpi-list--type Ligen
+    .kpi-list--value= League.count
+  %li
+    .kpi-list--type Spieler
+    .kpi-list--value= User.count
+  %li
+    .kpi-list--type Teams
+    .kpi-list--value= Team.count
+  %li
+    .kpi-list--type Spiele
+    .kpi-list--value= Match.count
+
+%h2 KPIs
+%h4 Neue User pro Woche
+.ct-chart.ct-double-octave{data: {labels: @user_per_week.map{|users| "KW#{users.first}"}, values: @user_per_week.map(&:last)}}
+%h4 Spiele pro Woche
+.ct-chart.ct-double-octave{data: {labels: @matches_per_week.map{|matches| "KW#{matches.first}"}, values: @matches_per_week.map(&:last)}}
+
+%h4 Spiele pro Liga/ pro Woche
+.ct-chart.ct-double-octave{data: {multiple: 'true', labels: @matches_per_week.map{|matches| "KW#{matches.first}"}, values: @matches_per_week_per_league.map{|l| l.last.map{|m|m.last}}}}

@@ -3,22 +3,26 @@
 %ul.kpi-list
   %li
     .kpi-list--type Ligen
-    .kpi-list--value= League.count
+    .kpi-list--value= @active_leagues.count
   %li
     .kpi-list--type Spieler
-    .kpi-list--value= User.count
+    .kpi-list--value= User.where(league_id: @active_leagues.map(&:id)).count
   %li
     .kpi-list--type Teams
-    .kpi-list--value= Team.count
+    .kpi-list--value= Team.where(league_id: @active_leagues.map(&:id)).count
   %li
     .kpi-list--type Spiele
-    .kpi-list--value= Match.count
+    .kpi-list--value= Match.where(league_id: @active_leagues.map(&:id)).count
+
+%small Als Ligen gelten Ligen außer Railslove die mehr als 10 Spiele haben
+
 
 %h2 KPIs
+%h3 Alle KPIs beziehen sich auf aktive Ligen
 %h4 Neue User pro Woche
 .ct-chart.ct-double-octave{data: {labels: @user_per_week.map{|users| "KW#{users.first}"}, values: @user_per_week.map(&:last)}}
 %h4 Spiele pro Woche
 .ct-chart.ct-double-octave{data: {labels: @matches_per_week.map{|matches| "KW#{matches.first}"}, values: @matches_per_week.map(&:last)}}
 
 %h4 Spiele pro Liga/ pro Woche
-.ct-chart.ct-double-octave{data: {multiple: 'true', labels: @matches_per_week.map{|matches| "KW#{matches.first}"}, values: @matches_per_week_per_league.map{|l| l.last.map{|m|m.last}}}}
+.ct-chart.ct-double-octave{data: {labels: @matches_per_week.map{|matches| "KW#{matches.first}"}, values: @matches_per_week.map{|m|m.last.to_f / @active_leagues.count}}}

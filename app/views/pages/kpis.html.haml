@@ -25,4 +25,5 @@
 .ct-chart.ct-double-octave{data: {labels: @matches_per_week.map{|matches| "KW#{matches.first}"}, values: @matches_per_week.map(&:last)}}
 
 %h4 Spiele pro Liga/ pro Woche
-.ct-chart.ct-double-octave{data: {labels: @matches_per_week.map{|matches| "KW#{matches.first}"}, values: @matches_per_week.map{|m|m.last.to_f / @active_leagues.count}}}
+- values = @matches_per_week.map{|m|m.last.to_f / League.where.not(name: 'Railslove').select{|l|l.matches.count > 10 && l.created_at < Date.parse('01.01.2014') + m.first.weeks}.count}
+.ct-chart.ct-double-octave{data: {labels: @matches_per_week.map{|matches| "KW#{matches.first}"}, values: values}}

@@ -10,8 +10,8 @@ class MatchesController < ApplicationController
 
   def new
     @match = Match.new
-    @team1 = Team.find_or_create(params[:team1]) if params[:team1]
-    @team2 = Team.find_or_create(params[:team2]) if params[:team2]
+    @team1 = Team.find_or_create(params[:team1].values) if params[:team1]
+    @team2 = Team.find_or_create(params[:team2].values) if params[:team2]
   end
 
   def create
@@ -89,10 +89,10 @@ class MatchesController < ApplicationController
       set = params["set#{i+1}"]
       if set.first.present? && set.last.present? # If the set has been played
         result_params = { crawling: params["crawling#{i+1}"].present? }
-        params["team1"].each_with_index do |user_id, index|
-          result_params[user_id] = set.first.to_i
-          result_params[params["team2"][index]] = set.last.to_i
-        end
+        result_params[params['team1']['player1']] = set.first.to_i
+        result_params[params['team2']['player1']] = set.last.to_i
+        result_params[params['team1']['player2']] = set.first.to_i
+        result_params[params['team2']['player2']] = set.last.to_i
         result_params[:league_id] = league.id.to_s
         match = Match.create_from_set(result_params)
         HistoryEntry.track(match)

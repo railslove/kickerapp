@@ -89,13 +89,13 @@ class MatchesController < ApplicationController
       3.times do |i| #Three possible sets
         set = params["set#{i+1}"]
         if set.first.present? && set.last.present? # If the set has been played
-          result_params = { crawling: params["crawling#{i+1}"].present? }
-          result_params[params['team1']['player1']] = set.first.to_i
-          result_params[params['team2']['player1']] = set.last.to_i
-          result_params[params['team1']['player2']] = set.first.to_i
-          result_params[params['team2']['player2']] = set.last.to_i
-          result_params[:league_id] = league.id.to_s
-          match = Match.create_from_set(result_params)
+          match = Match.create_from_set({
+            score: set,
+            crawling: params["crawling#{i+1}"].present?,
+            team1: params[:team1],
+            team2: params[:team2],
+            league_id: league.id.to_s
+          })
           HistoryEntry.track(match)
           crawl_id = match.id if params["crawling#{i+1}"].present?
         end

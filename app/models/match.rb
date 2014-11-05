@@ -15,8 +15,8 @@ class Match < ActiveRecord::Base
 
 
   def self.create_from_set(set_params)
-    winner_score = max_score(set_params)
-    loser_score = min_score(set_params)
+    winner_score = set_params[:score].max
+    loser_score = set_params[:score].min
     winner_team = Team.find_or_create(user_ids_for_score(set_params, winner_score))
     loser_team = Team.find_or_create(user_ids_for_score(set_params, loser_score))
     match = Match.new(winner_team: winner_team, loser_team: loser_team, date: Time.now, league_id: set_params[:league_id])
@@ -141,15 +141,7 @@ class Match < ActiveRecord::Base
 
   private
 
-  def self.max_score(set_params)
-    set_params.values.select{|v|v.is_a?(Integer)}.max
-  end
-
-  def self.min_score(set_params)
-    set_params.values.select{|v|v.is_a?(Integer)}.min
-  end
-
   def self.user_ids_for_score(set_params, select_score)
-    set_params.select{|user_id, score| score == select_score }.keys
+    set_params["team#{ (set_params[:score].index(select_score)) + 1 }".to_sym].values.reject(&:blank?)
   end
 end

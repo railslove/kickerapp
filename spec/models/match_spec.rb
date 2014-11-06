@@ -8,8 +8,8 @@ describe Match, type: :model do
       @set_params = {
         score: ["3", "6"],
         crawling: true,
-        team1: { player1: @users[0].id, player2: @users[1].id },
-        team2: { player1: @users[2].id, player2: @users[3].id }
+        team1: { player1: @users[0].id.to_s, player2: @users[1].id.to_s },
+        team2: { player1: @users[2].id.to_s, player2: @users[3].id.to_s }
       }
     end
 

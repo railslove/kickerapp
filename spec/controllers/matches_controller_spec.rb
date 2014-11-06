@@ -8,7 +8,7 @@ describe MatchesController, type: :controller do
     let(:user2) { FactoryGirl.create(:user, quota: 1200) }
 
     specify do
-      post :create, { league_id: league.slug, team1: [ user.id.to_s, '' ], team2: [ user2.id.to_s, ''], set1: ['6', '3'], set2: ['',''], set3: ['',''] }
+      post :create, { league_id: league.slug, team1: { player1: user.id.to_s, player2: '' }, team2: { player1: user2.id.to_s, player2: '' }, set1: ['6', '3'], set2: ['',''], set3: ['',''] }
       expect(response).to redirect_to league_path(league)
       expect(user.reload.quota).to eql(1208)
       expect(user2.reload.quota).to eql(1192)
@@ -16,12 +16,12 @@ describe MatchesController, type: :controller do
 
     it 'redirects to new_league_match if mobile' do
       allow(subject).to receive(:is_mobile_device?).and_return(true)
-      post :create, { league_id: league.slug, team1: [ user.id.to_s, '' ], team2: [ user2.id.to_s, ''], set1: ['6', '3'], set2: ['7','5'], set3: ['',''] }
-      expect(response).to redirect_to new_league_match_path(league, team1: [ user.id.to_s, '' ], team2: [ user2.id.to_s, ''], created: true)
+      post :create, { league_id: league.slug, team1: { player1: user.id.to_s, player2: '' }, team2: { player1: user2.id.to_s, player2: '' }, set1: ['6', '3'], set2: ['7','5'], set3: ['',''] }
+      expect(response).to redirect_to new_league_match_path(league, team1: { player1: user.id.to_s, player2: '' }, team2: { player1: user2.id.to_s, player2: '' }, created: true)
     end
 
     it 'adds a crawling match param if the was a crawling match' do
-      post :create, { league_id: league.slug, team1: [ user.id.to_s, '' ], team2: [ user2.id.to_s, ''], set1: ['6', '0'], set2: ['',''], set3: ['',''], crawling1: true }
+      post :create, { league_id: league.slug, team1: { player1: user.id.to_s, player2: '' }, team2: { player1: user2.id.to_s, player2: '' }, set1: ['6', '0'], set2: ['',''], set3: ['',''], crawling1: true }
       expect(response).to redirect_to league_path(league, crawl_id: Match.last.id)
     end
   end

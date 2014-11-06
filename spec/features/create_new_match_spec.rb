@@ -114,7 +114,6 @@ feature 'create new match' do
       expect(page).to have_content '7:5'
     end
     scenario 'selecting from team1_player2 and team2_player1' do
-      pending 'code fix required'
       visit new_league_match_path('the-league')
 
       select 'Player 1', from: 'team1_player2'
@@ -135,7 +134,6 @@ feature 'create new match' do
       expect(page).to have_content '7:5'
     end
     scenario 'selecting from team1_player2 and team2_player2' do
-      pending 'code fix required'
       visit new_league_match_path('the-league')
 
       select 'Player 1', from: 'team1_player2'

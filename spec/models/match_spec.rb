@@ -4,13 +4,13 @@ describe Match, type: :model do
 
   describe "#create_from_set" do
     before do
-      @users = []
-      @set_params = {crawling: true}
-      4.times do |i|
-        user = FactoryGirl.create(:user)
-        @users << user
-        @set_params[user.id] = i < 2 ? 3 : 6
-      end
+      @users = FactoryGirl.create_list(:user, 4)
+      @set_params = {
+        score: ["3", "6"],
+        crawling: true,
+        team1: { player1: @users[0].id, player2: @users[1].id },
+        team2: { player1: @users[2].id, player2: @users[3].id }
+      }
     end
 
     it "creates a new match" do

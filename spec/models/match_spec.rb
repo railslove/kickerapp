@@ -100,4 +100,14 @@ describe Match, type: :model do
       expect(@match.winner_team).to eq(team_2)
     end
   end
+
+  describe 'team_players_validation' do
+    it 'validates that players from both teams are different' do
+      @players = FactoryGirl.create_list(:user, 4)
+      @match = Match.new
+      @match.winner_team = FactoryGirl.create(:team, player1: @players[0], player2: @players[1])
+      @match.loser_team = FactoryGirl.create(:team, player1: @players[1], player2: @players[3])
+      expect(@match.valid?).to eq(false)
+    end
+  end
 end

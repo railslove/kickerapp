@@ -4,12 +4,13 @@ class Team < ActiveRecord::Base
 
   belongs_to :league
 
+  validate :players_validation
+
   scope :for_user, lambda { |user1_id| where("(player1_id = #{user1_id} OR player2_id = #{user1_id})")}
   scope :for_single_user, lambda { |user1_id| where("(player1_id = #{user1_id} AND player2_id IS NULL)")}
   scope :for_doubles, lambda { where("(player1_id IS NOT NULL AND player2_id IS NOT NULL)")}
 
   scope :for_users, lambda { |user1_id, user2_id| where("(player1_id = #{user1_id} OR player2_id = #{user1_id}) AND (player1_id = #{user2_id} OR player2_id = #{user2_id})")}
-
 
   scope :ranked, lambda { where('number_of_wins > 1 OR number_of_losses > 1')}
 
@@ -53,7 +54,7 @@ class Team < ActiveRecord::Base
     team = nil
     if users.size > 1
       team = Team.for_users(user_ids.first, user_ids.last).first
-    else
+    elsif users.size > 0
       team = Team.for_single_user(user_ids.first).first
     end
     if team.nil? && users.size == 2
@@ -107,5 +108,9 @@ class Team < ActiveRecord::Base
 
   private
 
-
+  def players_validation
+    if users.reject(&:blank?).count < 1
+      errors.add(:base, 'team must have at least one player')
+    end
+  end
 end

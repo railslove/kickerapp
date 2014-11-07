@@ -18,6 +18,7 @@ de:
   matches:
     create:
       success: Das Spiel wurde eingetragen!
+      failure: Das Spiel konnte nicht gespeichert werden
     form:
       enter: Eintragen
       enter_set: Satz eintragen!

@@ -38,7 +38,7 @@ describe LeaguesController, type: :controller do
       get :index
     end
     it{ expect(session[:league_slug]).to be_nil }
-    it{ expect(assigns[:leagues]).to match [league1, league2] }
+    it{ expect(assigns[:leagues]).to match_array [league1, league2] }
   end
 
   describe 'new' do

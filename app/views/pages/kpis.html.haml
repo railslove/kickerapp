@@ -23,10 +23,10 @@
 .ct-chart.ct-double-octave{data: {labels: @user_per_week.map{|users| "KW#{users.first}"}, values: @user_per_week.map(&:last)}}
 %h4 Spiele pro Woche
 - values = @matches_per_week.map(&:last)
-- values[values.length-1] = (values.last.to_f / Date.today.wday * 5).round
+- values[values.length-1] = (values.last.to_f / Date.today.wday * 5).round if Date.today.wday < 5
 .ct-chart.ct-double-octave{data: {labels: @matches_per_week.map{|matches| "KW#{matches.first}"}, values: values}}
 
 %h4 Spiele pro Liga/ pro Woche
 - values2 = @matches_per_week.map{|m|m.last.to_f / League.where.not(name: 'Railslove').select{|l|l.matches.count > 10 && l.created_at < Date.parse('01.01.2014') + m.first.weeks}.count}
-- values2[values2.length-1] = (values2.last.to_f / Date.today.wday * 5).round
+- values2[values2.length-1] = (values2.last.to_f / Date.today.wday * 5).round if Date.today.wday < 5
 .ct-chart.ct-double-octave{data: {labels: @matches_per_week.map{|matches| "KW#{matches.first}"}, values: values2}}

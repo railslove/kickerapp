@@ -7,6 +7,10 @@ class Match < ActiveRecord::Base
 
   default_scope lambda {order("date DESC")}
 
+  validates :winner_team, presence: true
+  validates :loser_team, presence: true
+  validate :team_players_validation
+
   after_create :calculate_user_quotas
 
   scope :for_team, lambda { |team_id| where("(winner_team_id = #{team_id} OR loser_team_id = #{team_id})")}
@@ -15,14 +19,15 @@ class Match < ActiveRecord::Base
 
 
   def self.create_from_set(set_params)
-    winner_score = max_score(set_params)
-    loser_score = min_score(set_params)
+    winner_score = set_params[:score].max
+    loser_score = set_params[:score].min
     winner_team = Team.find_or_create(user_ids_for_score(set_params, winner_score))
     loser_team = Team.find_or_create(user_ids_for_score(set_params, loser_score))
     match = Match.new(winner_team: winner_team, loser_team: loser_team, date: Time.now, league_id: set_params[:league_id])
     match.score = match.score_for_set(winner_score, loser_score)
     match.crawling = match.crawling_for_set(set_params)
-    match.save ? match : nil
+    match.save
+    match
   end
 
   def win_for?(user)
@@ -117,7 +122,6 @@ class Match < ActiveRecord::Base
     self.winner_team.users
   end
 
-
   def loser
     self.loser_team.users
   end
@@ -134,22 +138,24 @@ class Match < ActiveRecord::Base
     winner_team?(team) ? difference : -1 * difference
   end
 
-  def teams_with_primary_first(primary)
+  def teams_with_primary_first(primary = nil)
     primary ||= winner_team
     [primary, opponent_team(primary)]
   end
 
+  def teams
+    teams_with_primary_first
+  end
+
   private
 
-  def self.max_score(set_params)
-    set_params.values.select{|v|v.is_a?(Integer)}.max
-  end
-
-  def self.min_score(set_params)
-    set_params.values.select{|v|v.is_a?(Integer)}.min
-  end
-
   def self.user_ids_for_score(set_params, select_score)
-    set_params.select{|user_id, score| score == select_score }.keys
+    set_params["team#{ (set_params[:score].index(select_score)) + 1 }".to_sym].values.reject(&:blank?)
+  end
+
+  def team_players_validation
+    if winner_team && loser_team && (winner_team.users - loser_team.users != winner_team.users)
+      errors.add(:base, 'choose different players from each team')
+    end
   end
 end

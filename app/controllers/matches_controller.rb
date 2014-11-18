@@ -10,18 +10,30 @@ class MatchesController < ApplicationController
 
   def new
     @match = Match.new
-    @team1 = Team.find_or_create(params[:team1]) if params[:team1]
-    @team2 = Team.find_or_create(params[:team2]) if params[:team2]
+    @team1 = Team.find_or_create(params[:team1].values.reject(&:blank?)) if params[:team1]
+    @team2 = Team.find_or_create(params[:team2].values.reject(&:blank?)) if params[:team2]
+    @sets = []
+    3.times do |i|
+      @sets[i] = params["set#{i+1}"] if params["set#{i+1}"].present?
+    end
+    @crawlings = []
+    3.times do |i|
+      @crawlings[i] = params["crawling#{i+1}"] if params["crawling#{i+1}"].present?
+    end
   end
 
   def create
     param = {}
-    crawl_match_id = create_matches_from_params(params)
-    param[:crawl_id] = crawl_match_id if crawl_match_id
-    if is_mobile_device?
-      redirect_to new_league_match_path(current_league, team1: params["team1"], team2: params["team2"], created: true)
+    matches = create_matches_from_params(params)
+    if !matches.map(&:errors).map(&:empty?).reduce(:&)
+      redirect_to new_league_match_path(current_league, params), alert: "#{t('matches.create.failure')} #{matches.map(&:errors).inspect}"
     else
-      redirect_to league_path(current_league, param), notice: t('.success')
+      if is_mobile_device?
+        redirect_to new_league_match_path(current_league, team1: params["team1"], team2: params["team2"], created: true)
+      else
+        param[:crawl_id] = matches.select(&:crawling).last.id if matches.map(&:crawling).any?
+        redirect_to league_path(current_league, param), notice: t('.success')
+      end
     end
   end
 
@@ -84,23 +96,25 @@ class MatchesController < ApplicationController
 
   def create_matches_from_params(params)
     league = League.find_by!(slug: params[:league_id])
-    crawl_id = nil
-    3.times do |i| #Three possible sets
-      set = params["set#{i+1}"]
-      if set.first.present? && set.last.present? # If the set has been played
-        result_params = { crawling: params["crawling#{i+1}"].present? }
-        params["team1"].each_with_index do |user_id, index|
-          result_params[user_id] = set.first.to_i
-          result_params[params["team2"][index]] = set.last.to_i
+    matches = []
+    ActiveRecord::Base.transaction do
+      3.times do |i| #Three possible sets
+        set = params["set#{i+1}"]
+        if set.first.present? && set.last.present? # If the set has been played
+          match = Match.create_from_set({
+            score: set,
+            crawling: params["crawling#{i+1}"].present?,
+            team1: params[:team1],
+            team2: params[:team2],
+            league_id: league.id.to_s
+          })
+          matches << match
+          HistoryEntry.track(match) if match.persisted?
         end
-        result_params[:league_id] = league.id.to_s
-        match = Match.create_from_set(result_params)
-        HistoryEntry.track(match)
-        crawl_id = match.id if params["crawling#{i+1}"].present?
       end
+      league.update_badges
     end
-    league.update_badges
-    crawl_id
+    matches
   end
 
   def force_mobile_html

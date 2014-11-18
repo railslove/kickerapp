@@ -6,21 +6,15 @@ feature 'view a league\'s teams' do
   let!(:player2) { create :user, name: 'Player 2', league: league }
   let!(:player3) { create :user, name: 'Player 3', league: league }
   let!(:player4) { create :user, name: 'Player 4', league: league }
-
-  background do
-    league.users.combination(2).each do |players|
-      create :team, league: league, player1: players.first, player2: players.second
-    end
-    league.teams.permutation(2).each do |teams|
-      create :match, winner_team: teams.first, loser_team: teams.second
-    end
-  end
+  let!(:team1) { create :team, league: league, player1: player1, player2: player2}
+  let!(:team2) { create :team, league: league, player1: player3, player2: player4}
+  let!(:match) { create :match, winner_team: team1, loser_team: team2 }
 
   scenario 'shows all teams ranked best first' do
     visit league_teams_path('the-league')
 
     expect(page).to have_selector('table')
-    expect(page.all('table tbody tr').count).to eql 6
+    expect(page.all('table tbody tr').count).to eql 2
 
     teams_points = page.all('table tbody tr td:last-child').map(&:text).map(&:to_i)
     expect(teams_points).to eql teams_points.sort.reverse

@@ -4,13 +4,13 @@ describe Match, type: :model do
 
   describe "#create_from_set" do
     before do
-      @users = []
-      @set_params = {crawling: true}
-      4.times do |i|
-        user = FactoryGirl.create(:user)
-        @users << user
-        @set_params[user.id] = i < 2 ? 3 : 6
-      end
+      @users = FactoryGirl.create_list(:user, 4)
+      @set_params = {
+        score: ["3", "6"],
+        crawling: true,
+        team1: { player1: @users[0].id.to_s, player2: @users[1].id.to_s },
+        team2: { player1: @users[2].id.to_s, player2: @users[3].id.to_s }
+      }
     end
 
     it "creates a new match" do
@@ -98,6 +98,16 @@ describe Match, type: :model do
       @match.loser_team = team_2
       @match.swap_teams
       expect(@match.winner_team).to eq(team_2)
+    end
+  end
+
+  describe 'team_players_validation' do
+    it 'validates that players from both teams are different' do
+      @players = FactoryGirl.create_list(:user, 4)
+      @match = Match.new
+      @match.winner_team = FactoryGirl.create(:team, player1: @players[0], player2: @players[1])
+      @match.loser_team = FactoryGirl.create(:team, player1: @players[1], player2: @players[3])
+      expect(@match.valid?).to eq(false)
     end
   end
 end

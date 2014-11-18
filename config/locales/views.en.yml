@@ -18,6 +18,7 @@ en:
   matches:
     create:
       success: Your match results have been entered!
+      failure: Couldn't save your match results. Please check your entries and try again.
     form:
       enter: Enter results
       enter_set: Enter set!

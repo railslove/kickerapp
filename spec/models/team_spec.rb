@@ -3,9 +3,9 @@ require 'spec_helper'
 describe Team, type: :model do
   let(:user1) { FactoryGirl.create(:user) }
   let(:user2) { FactoryGirl.create(:user) }
-  let(:team) { FactoryGirl.create(:team, player1_id: user1.id) }
-  let(:team2) { FactoryGirl.create(:team, player1_id: user2.id) }
-  let!(:match) { FactoryGirl.create(:match, winner_team_id: team.id, loser_team_id: team2.id) }
+  let(:team) { FactoryGirl.create(:team, player1: user1) }
+  let(:team2) { FactoryGirl.create(:team, player1: user2) }
+  let!(:match) { FactoryGirl.create(:match, winner_team: team, loser_team: team2) }
 
   describe "#find_or_create" do
     it "fetches the correct team from the db" do
@@ -35,19 +35,13 @@ describe Team, type: :model do
   end
 
   describe ".users" do
-    let(:team) { FactoryGirl.create(:team) }
-    it "returns the correct users" do
-      team.player1 = user1
-      team.player2 = user2
-      team.save
-      expect(team.users).to include(user1)
-      expect(team.users).to include(user2)
+    context '2 players team' do
+      let(:subject) { FactoryGirl.create(:team, player1: user1, player2: user2) }
+      it{ expect(subject.users).to match_array [user1, user2] }
     end
-
-    it "returns only one user for one player teams" do
-      team.player1 = user2
-      team.save
-      expect(team.users).to eq([user2])
+    context '1 player team' do
+      let(:subject) { FactoryGirl.create(:team, player1: user2) }
+      it{ expect(subject.users).to match_array [user2] }
     end
   end
 
@@ -80,11 +74,25 @@ describe Team, type: :model do
   end
 
   describe '.losses' do
-    before do
-      match.update_attributes(loser_team_id: team.id)
-    end
+    let!(:match2) { FactoryGirl.create(:match, winner_team: team2, loser_team: team) }
     it 'shows only wins' do
-      expect(team.losses.to_a).to eql([match])
+      expect(team.losses.to_a).to eql([match2])
+    end
+  end
+
+  describe '.players_validation' do
+    let!(:players) { FactoryGirl.build_list(:user, 2)}
+    context 'team has one player' do
+      let(:subject) { FactoryGirl.build(:team, player1: user1) }
+      it{ expect(subject.valid?).to eq(true) }
+    end
+    context 'team has two players' do
+      let(:subject) { FactoryGirl.build(:team, player1: user1, player2: user2) }
+      it{ expect(subject.valid?).to eq(true) }
+    end
+    context 'team has no players' do
+      let(:subject) { FactoryGirl.build(:team, player1: nil, player2: nil) }
+      it{ expect(subject.valid?).to eq(false) }
     end
   end
 

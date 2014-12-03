@@ -43,6 +43,7 @@ class LeaguesController < ApplicationController
 
   def table
     @league = League.find_by!(slug: params[:id])
+    set_current_league(@league.slug)
     render layout: 'pure'
   end
 

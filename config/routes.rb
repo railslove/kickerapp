@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :leagues, except: [:index], :path => '' do
     get :badges, on: :member
+    get :table, on: :member
     resources :matches do
       post :shuffle, on: :collection
       get :shuffle_select, on: :collection

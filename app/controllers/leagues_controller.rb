@@ -41,6 +41,11 @@ class LeaguesController < ApplicationController
     @users = @league.users.order("#{@order} desc").select{|user| user.active? }
   end
 
+  def table
+    @league = League.find_by!(slug: params[:id])
+    render layout: 'pure'
+  end
+
   private
 
     def league_params

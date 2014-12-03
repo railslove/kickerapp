@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "NOODP", :name => "ROBOTS"}/
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1"}
+    %meta{name: 'apple-mobile-web-app-title', content: 'Kicker App'}
+
+    / --------------------------------
+    %meta{name: "description", :content => t('meta.description')}/
+    %meta{:content => t('meta.title'), :property => "og:title"}/
+    %meta{:content => "website", :property => "og:type"}/
+    %meta{:content => url_for(:only_path => false), :property => "og:url"}/
+    %meta{:content => asset_url("open-graph-logo.png"), :property => "og:image"}/
+    %meta{:content => t('meta.title'), :property => "og:site_name"}/
+    / <meta property="fb:admins" content="500108777"/>
+    %meta{:content => facebook_locale, :property => "og:locale"}/
+    %meta{:content => t('meta.description'), :property => "og:description"}/
+    / --------------------------------
+
+    %title= @page_title || t('meta.title')
+    = stylesheet_link_tag :application, :media => 'all'
+    = csrf_meta_tags
+    = render 'layouts/favicons'
+
+  %body{class: controller_name, id: "#{controller_name}_#{action_name}"}
+    = yield

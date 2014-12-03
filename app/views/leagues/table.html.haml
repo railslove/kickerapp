@@ -1,0 +1,3 @@
+- users = current_league.users.ranked.select{|user| user.active? }
+- if users.any?
+  = render 'users/list', users: users

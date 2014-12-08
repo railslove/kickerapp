@@ -19,6 +19,7 @@ class Match < ActiveRecord::Base
 
 
   def self.create_from_set(set_params)
+    set_params[:score] = set_params[:score].map(&:to_i)
     winner_score = set_params[:score].max
     loser_score = set_params[:score].min
     winner_team = Team.find_or_create(user_ids_for_score(set_params, winner_score))

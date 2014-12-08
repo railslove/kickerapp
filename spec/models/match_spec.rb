@@ -6,7 +6,7 @@ describe Match, type: :model do
     before do
       @users = FactoryGirl.create_list(:user, 4)
       @set_params = {
-        score: ["3", "6"],
+        score: ["8", "10"],
         crawling: true,
         team1: { player1: @users[0].id.to_s, player2: @users[1].id.to_s },
         team2: { player1: @users[2].id.to_s, player2: @users[3].id.to_s }
@@ -16,6 +16,11 @@ describe Match, type: :model do
     it "creates a new match" do
       expect(Match.count).to eql(0)
       expect(Match.create_from_set(@set_params)).to eq(Match.last)
+    end
+
+    it "assignes the correct teams" do
+      match = Match.create_from_set(@set_params)
+      expect(match.score).to eql("10:8")
     end
 
     it "creates teams if nessesary" do

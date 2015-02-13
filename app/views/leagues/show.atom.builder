@@ -9,6 +9,7 @@ atom_feed do |feed|
       entry.author do |author|
         author.name @matches.first.league.name
       end
+      entry.updated match.date
     end
   end
 end

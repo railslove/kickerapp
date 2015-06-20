@@ -17,6 +17,8 @@ class Match < ActiveRecord::Base
   scope :wins_for_team, lambda { |team_id| where("winner_team_id = #{team_id}")}
   scope :losses_for_team, lambda { |team_id| where("loser_team_id = #{team_id}")}
 
+  after_commit :publish_created_notification, on: :create
+  after_commit :publish_updated_notification, on: :update
 
   def self.create_from_set(set_params)
     set_params[:score] = set_params[:score].map(&:to_i)
@@ -158,5 +160,13 @@ class Match < ActiveRecord::Base
     if winner_team && loser_team && (winner_team.users - loser_team.users != winner_team.users)
       errors.add(:base, 'choose different players from each team')
     end
+  end
+
+  def publish_created_notification
+    ActiveSupport::Notifications.publish('match:created', { record: self, status: :created })
+  end
+
+  def publish_updated_notification
+    ActiveSupport::Notifications.publish('match:updated', { record: self, status: :updated })
   end
 end

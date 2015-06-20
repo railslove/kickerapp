@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.1'
+ruby '2.1.3'
 
 gem 'airbrake'
 gem 'uglifier', '>= 1.3.0'
@@ -30,6 +30,8 @@ gem "omniauth-facebook"
 
 gem 'rails_admin'
 
+gem 'pebble_timeline'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -42,7 +44,7 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
-  gem 'jazz_hands'
+  gem 'jazz_fingers'
 end
 
 group :test do

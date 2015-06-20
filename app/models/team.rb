@@ -88,6 +88,10 @@ class Team < ActiveRecord::Base
     self.users.map(&:name).join(" + ")
   end
 
+  def short_name
+    self.users.map(&:short_name).join(" + ")
+  end
+
   def number_of_games
     number_of_wins + number_of_losses
   end

@@ -34,7 +34,7 @@ module Subscriptions
         ]
       }
 
-      Rails.logger.info "#{payload[:status]} pin: #{pin}"
+      Rails.logger.info "Pin ID: match-#{match.id} #{payload[:status]} pin: #{pin}"
 
       if payload[:status] == :created
         createNotification =

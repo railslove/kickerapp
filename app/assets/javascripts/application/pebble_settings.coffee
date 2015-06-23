@@ -10,6 +10,7 @@ $ ->
     options =
       league_slug: $('#league').val()
       league_name: $('#league option:selected').text()
+      receive_notifications: if $('#receive_notifications').prop('checked') then '1' else '0'
     document.location = "pebblejs://close##{ encodeURIComponent JSON.stringify(options) }"
     return false
 

@@ -39,3 +39,4 @@ tmp/**/*
 rails
 .powrc
 .rvmrc
+.powenv

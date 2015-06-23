@@ -3,7 +3,10 @@
     = form_tag '#', class: 'm-form', id: 'pebble_settings_form' do |f|
       .m-form--row
         = label_tag :league, 'Select League', class: 'm-label'
-        = select_tag :league, options_from_collection_for_select(@leagues, 'slug', 'name'), class: 'm-input', required: true
+        = select_tag :league, options_from_collection_for_select(@leagues, 'slug', 'name', @current_league_slug), class: 'm-input', required: true
+      .m-form--row
+        = check_box_tag :receive_notifications, '1', @receive_notifications
+        = label_tag :receive_notifications, 'Subscribe to Timeline Notifications', class: 'm-label'
       .m-form--row
         = button_tag "Cancel", class: 'm-button', id: 'cancel'
         = submit_tag "Save", class: 'm-button'

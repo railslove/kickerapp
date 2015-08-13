@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
     team_ids = teams.pluck(:id)
     query = "winner_team_id IN (?) OR loser_team_id IN (?)"
     if ordered
-      Match.where(query, team_ids, team_ids).order(:id)
+      Match.where(query, team_ids, team_ids).order(:date)
     else
       Match.where(query, team_ids, team_ids)
     end

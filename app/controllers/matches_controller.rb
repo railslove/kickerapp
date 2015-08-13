@@ -28,6 +28,7 @@ class MatchesController < ApplicationController
     if !matches.map(&:errors).map(&:empty?).reduce(:&)
       redirect_to new_league_match_path(current_league, params), alert: "#{t('matches.create.failure')} #{matches.map(&:errors).inspect}"
     else
+      matches.first.update_team_streaks
       if is_mobile_device?
         redirect_to new_league_match_path(current_league, team1: params["team1"], team2: params["team2"], created: true)
       else

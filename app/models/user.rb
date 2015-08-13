@@ -21,9 +21,14 @@ class User < ActiveRecord::Base
     teams.count
   end
 
-  def matches
+  def matches(ordered = false)
     team_ids = teams.pluck(:id)
-    Match.where("winner_team_id IN (?) OR loser_team_id IN (?)", team_ids, team_ids)
+    query = "winner_team_id IN (?) OR loser_team_id IN (?)"
+    if ordered
+      Match.where(query, team_ids, team_ids).order(:id)
+    else
+      Match.where(query, team_ids, team_ids)
+    end
   end
 
   def active?
@@ -98,7 +103,7 @@ class User < ActiveRecord::Base
   end
 
   def calculate_longest_streak!
-    matches = self.matches
+    matches = self.matches(true)
     current_winning_streak = 0
     matches.each do |match|
       if match.win_for?(self)

@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   layout 'landingpage', except: [:pebble_settings, :kpis]
-  http_basic_authenticate_with name: "kicker", password: "loveisallaround", only: :kpis unless Rails.env.development?
+  http_basic_authenticate_with name: "kicker", password: (ENV['ADMIN_PASS'] || 'secret_password'), only: :kpis unless Rails.env.development?
 
   def landing
   end

@@ -59,7 +59,8 @@ describe LeaguesController, type: :controller do
       it{ expect(response).to be_success }
       it{ expect(response).to render_template 'leagues/show' }
       it{ expect(assigns[:league]).to eql league }
-      it{ expect(assigns[:matches]).to match [match1, match2] }
+      it{ expect(assigns[:matches]).to include match1 }
+      it{ expect(assigns[:matches]).to include match2 }
     end
     it 'marks a newly added crawling_match' do
       get :show, id: 'the-league', crawl_id: match1.id

@@ -1,7 +1,7 @@
 module Subscriptions
   class PushPebbleTimelinePin
     def subscribe!
-      ActiveSupport::Notifications.subscribe(/match:(created|updated)/, self)
+      # ActiveSupport::Notifications.subscribe(/match:(created|updated)/, self)
     end
 
     def call(event_name, payload)

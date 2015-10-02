@@ -25,7 +25,7 @@ class LeaguesController < ApplicationController
   def show
     @league = League.find_by!(slug: params[:id])
     set_current_league(@league.slug)
-    @matches = @league.matches.limit(30)
+    @matches = @league.matches.includes(:loser_team).includes(:winner_team).limit(30)
     @crawling_match = Match.find(params[:crawl_id]) if params[:crawl_id]
     respond_to do |format|
       format.html # index.html.erb

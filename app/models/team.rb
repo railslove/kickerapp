@@ -80,6 +80,10 @@ class Team < ActiveRecord::Base
     [player1, player2].compact
   end
 
+  def user_ids
+    [player1_id, player2_id]
+  end
+
   def double?
     self.users.size > 1
   end

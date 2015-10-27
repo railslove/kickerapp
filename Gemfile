@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.3'
+ruby '2.2.3'
 
 gem 'airbrake'
 gem 'uglifier'
@@ -21,7 +21,7 @@ gem 'jbuilder'
 gem 'rack-tracker'
 gem 'gravatar_image_tag'
 gem 'redcarpet'
-gem 'unicorn'
+gem 'puma'
 gem "omniauth"
 gem "omniauth-twitter"
 gem "omniauth-facebook"

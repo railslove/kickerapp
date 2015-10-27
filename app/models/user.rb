@@ -1,3 +1,4 @@
+require 'benchmark'
 class User < ActiveRecord::Base
 
   belongs_to :league
@@ -98,7 +99,7 @@ class User < ActiveRecord::Base
   end
 
   def calculate_longest_streak!
-    matches = self.matches
+    matches = self.matches.includes(:winner_team, :loser_team)
     current_winning_streak = 0
     matches.each do |match|
       if match.win_for?(self)

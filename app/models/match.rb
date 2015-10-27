@@ -34,7 +34,7 @@ class Match < ActiveRecord::Base
   end
 
   def win_for?(user)
-    winner_team.users.map(&:id).include?(user.id)
+    winner_team.user_ids.include?(user.id)
   end
 
   def winner_team?(team)

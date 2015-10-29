@@ -16,6 +16,11 @@ class Match < ActiveRecord::Base
   scope :for_team, lambda { |team_id| where("(winner_team_id = #{team_id} OR loser_team_id = #{team_id})")}
   scope :wins_for_team, lambda { |team_id| where("winner_team_id = #{team_id}")}
   scope :losses_for_team, lambda { |team_id| where("loser_team_id = #{team_id}")}
+  scope :including_teams, -> { includes(loser_team: [:player1, :player2], winner_team: [:player1, :player2]) }
+  scope :by_user, -> id {
+    joins('LEFT JOIN teams ON (matches.winner_team_id = teams.id OR matches.loser_team_id = teams.id)')
+    .where('teams.player1_id = :id OR teams.player2_id = :id', id: id)
+  }
 
   after_commit :publish_created_notification, on: :create
   after_commit :publish_updated_notification, on: :update

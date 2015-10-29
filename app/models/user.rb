@@ -22,8 +22,7 @@ class User < ActiveRecord::Base
   end
 
   def matches
-    team_ids = teams.pluck(:id)
-    Match.where("winner_team_id IN (?) OR loser_team_id IN (?)", team_ids, team_ids)
+    Match.by_user(id)
   end
 
   def active?

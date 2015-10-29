@@ -35,6 +35,6 @@
       .l-sidebar
         - unless @hide_sidebar
           - if league_present?
-            = render 'users/list', users: current_league.users.ranked.select{|user| user.active? }
+            = render 'users/list', users: current_league.active_user_ranking
     = render 'layouts/footer'
     = render 'layouts/javascript'

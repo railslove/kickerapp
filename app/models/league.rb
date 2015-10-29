@@ -55,7 +55,12 @@ class League < ActiveRecord::Base
   end
 
   def active_user_ranking
-    users.reload.ranked.select(&:active?)
+    users
+      .select('DISTINCT users.*')
+      .joins('LEFT JOIN teams ON (teams.player1_id = users.id OR teams.player2_id = users.id)')
+      .joins('LEFT JOIN matches ON (matches.winner_team_id = teams.id OR matches.loser_team_id = teams.id)')
+      .where('DATE > ?', 2.weeks.ago)
+      .reorder('quota DESC')
   end
 
   private

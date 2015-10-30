@@ -85,8 +85,6 @@ class User < ActiveRecord::Base
       scope = scope.where('date > ?', date_of_last_lost_match.date)
     end
     scope.count
-  rescue NoMethodError => ex
-    0
   end
 
   def calculate_current_streak!

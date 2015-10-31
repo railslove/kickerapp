@@ -21,6 +21,8 @@ class Match < ActiveRecord::Base
     joins('LEFT JOIN teams ON (matches.winner_team_id = teams.id OR matches.loser_team_id = teams.id)')
     .where('teams.player1_id = :id OR teams.player2_id = :id', id: id)
   }
+  scope :lost_by, -> id { joins(:loser_team).where('teams.player1_id = :id OR teams.player2_id = :id', id: id) }
+  scope :won_by, -> id { joins(:winner_team).where('teams.player1_id = :id OR teams.player2_id = :id', id: id) }
 
   after_commit :publish_created_notification, on: :create
   after_commit :publish_updated_notification, on: :update

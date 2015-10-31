@@ -80,15 +80,11 @@ class User < ActiveRecord::Base
   end
 
   def current_streak
-    wins = []
-    matches.each do |m|
-      if m.win_for?(self)
-        wins << m
-      else
-        break
-      end
+    scope = Match.won_by(id)
+    if date_of_last_lost_match = Match.lost_by(id).select(:date).reorder('date DESC').first
+      scope = scope.where('date > ?', date_of_last_lost_match.date)
     end
-    wins.length
+    scope.count
   end
 
   def calculate_current_streak!

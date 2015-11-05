@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
 
   scope :ranked, lambda { order("quota DESC") }
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 255 }
+  validates :email, length: { maximum: 255 }
+  validates :image, length: { maximum: 255 }
 
   BADGES = %w{ crawling longest_winning most_teams winning_streak last_one crawler }
 

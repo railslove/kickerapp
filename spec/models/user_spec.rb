@@ -4,6 +4,16 @@ describe User, type: :model do
 
   subject { FactoryGirl.build(:user) }
 
+  describe 'create' do
+    [:name, :image, :email].each do |field|
+      it "handles very long inputs for #{field}" do
+        subject.send("#{field}=", 'a' * 256)
+        expect(subject).to_not be_valid
+        expect(subject.errors[field].length).to eq(1)
+      end
+    end
+  end
+
   describe "scopes" do
     describe "ranked" do
       it "sorts by quota desc" do

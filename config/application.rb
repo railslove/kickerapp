@@ -18,7 +18,7 @@ module Kickerapp
       generate.view_specs false
     end
 
-    # make sure that vendor fonts are precompiled by the asset pipeline.  same thing that the fontello_rails_converter gem does, but like this we don't need to load it in production
+    # make sure that vendor fonts are precompiled by the asset pipeline. same thing that the fontello_rails_converter gem does, but like this we don't need to load it in production
     config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')
     config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
 
@@ -33,5 +33,8 @@ module Kickerapp
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :de
+
+    # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.active_record.raise_in_transactional_callbacks = true
   end
 end

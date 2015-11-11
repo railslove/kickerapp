@@ -96,23 +96,22 @@ class Team < ActiveRecord::Base
     self.users.map(&:short_name).join(" + ")
   end
 
+  # Use values from database if available, otherwise fetch data
   def number_of_games
-    number_of_wins + number_of_losses
+    self['games_played'] || (number_of_wins + number_of_losses)
   end
 
+  # Use values from database if available, otherwise fetch data
   def percentage
-    if number_of_games > 0
-      (number_of_wins.to_f / number_of_games * 100).round
-    else
-      0
-    end
+    wins = (self['games_won'] || number_of_wins).to_f
+    played = self['games_played'] || number_of_games
+    played > 0 ? (wins / played * 100).round : 0
   end
 
+  # Use values from database if available, otherwise fetch data
   def value
-    # (percentage * Math.log10(number_of_games)).round
-    1200 + wins.sum(:difference) - losses.sum(:difference)
+    self['score'] || (League::BASE_SCORE + wins.sum(:difference) - losses.sum(:difference))
   end
-
 
   private
 

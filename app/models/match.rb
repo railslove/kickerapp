@@ -13,6 +13,7 @@ class Match < ActiveRecord::Base
 
   after_create :calculate_user_quotas
 
+  scope :by_date, -> date { where("date::timestamp::date = ?", date) }
   scope :for_team, lambda { |team_id| where("(winner_team_id = #{team_id} OR loser_team_id = #{team_id})")}
   scope :wins_for_team, lambda { |team_id| where("winner_team_id = #{team_id}")}
   scope :losses_for_team, lambda { |team_id| where("loser_team_id = #{team_id}")}

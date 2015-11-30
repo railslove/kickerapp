@@ -5,7 +5,8 @@ class MatchesController < ApplicationController
   has_mobile_fu false
 
   def index
-    redirect_to league_path(current_league)
+    @date = params['date'] && Date.parse(params['date']) || Date.today
+    @matches = current_league.matches.by_date(@date)
   end
 
   def new

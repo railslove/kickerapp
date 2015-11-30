@@ -34,3 +34,5 @@
             .m-ranking--item--place= index + 1
             .m-ranking--item--image= user_image(user)
             .m-ranking--item--score= user.name
+
+%p= link_to "Zeige alle Spiele nach Datum", [current_league, :matches]

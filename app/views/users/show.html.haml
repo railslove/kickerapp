@@ -63,12 +63,12 @@
     %h4= t('.history')
     #history.m-profile-chart{ data: { rankings: @history_entries.map(&:ranks).to_json, quotas: @history_entries.map(&:quotas).to_json, lowest_rank: @lowest_rank } }
 
-    %h4 Aktuelle Statistiken
-    #stats.m-profile-chart{ data: { games: [ ["Siege", @user.number_of_wins], ["Niederlagen", @user.number_of_losses]] , crawls: [ ["Krabbeln lassen", @user.number_of_crawls], ["Gekrabbelt", @user.number_of_crawlings]]} }
+    %h4= t('.current_statistics')
+    #stats.m-profile-chart{ data: { games: [ [t('common.wins'), @user.number_of_wins], [t('common.loses'), @user.number_of_losses]] , crawls: [ [t('common.let_crawl'), @user.number_of_crawls], [t('common.crawled'), @user.number_of_crawlings]]} }
       #games
       #crawls
   .badges
 
   .last-matches
-    %h4 Letzte Spiele
+    %h4=t('.last_matches')
     = render "matches/list", matches: @matches

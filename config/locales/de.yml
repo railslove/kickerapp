@@ -1,10 +1,13 @@
 de:
   common:
     change: Ändern
+    crawled: Gekrabbelt
     faq: FAQ
     games: Spiele
     imprint: Impressum
     leagues: Ligen-Übersicht
+    let_crawl: Krabbeln lassen
+    loses: Niederlagen
     new_league: Neue Liga
     new_match: Spiel eintragen
     new_user: Spieler hinzufügen
@@ -15,6 +18,7 @@ de:
     quota: Quote
     share: Teilen
     tweet: Tweet
+    wins: Siege
   date:
     formats:
       with_weekday: '%a %d.%m.%y'

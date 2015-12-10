@@ -56,6 +56,8 @@ de:
       best_team: 'Bestes Team:'
       history: "Spielhistorie (letzte 100 Spiele)"
       worst_team: 'Schwächstes Team:'
+      current_statistics: Aktuelle Statistiken
+      last_matches: Letzte Spiele
   views:
     pagination:
       first: Erste

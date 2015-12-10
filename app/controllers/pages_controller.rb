@@ -24,7 +24,7 @@ class PagesController < ApplicationController
   end
 
   def kpis
-    start_date = Date.parse('01.06.2015')
+    start_date = Date.parse('01.08.2015')
     @active_leagues = League.where.not(name: 'Railslove').select{|l|(l.matches.count > 10) && (l.matches.first.date > 14.days.ago)}
 
     @user_per_week = User.reorder(:created_at).where('created_at > ?',start_date).group_by{|u| u.created_at.to_date.cweek}.map{|w|[w.first, w.last.count]}

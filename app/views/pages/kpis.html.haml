@@ -22,9 +22,11 @@
 %h4 Neue User pro Woche
 .ct-chart.ct-double-octave{data: {labels: @user_per_week.map{|users| "KW#{users.first}"}, values: @user_per_week.map(&:last)}}
 
-%h4 Spiele pro Woche
 - values = @matches_per_week.map(&:last)
-- values[values.length-1] = (values.last.to_f / Date.today.wday * 5).round if Date.today.wday < 5
+%h4
+  Spiele pro Woche
+  = "(Aktuell: #{values.last})"
+- values[values.length-1] = (values.last.to_f / Date.today.wday * 5).round if Date.today.wday < 5 if values.length > 0
 .ct-chart.ct-double-octave{data: {labels: @matches_per_week.map{|matches| "KW#{matches.first}"}, values: values}}
 
 / %h4 Spiele pro Liga/ pro Woche

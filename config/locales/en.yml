@@ -1,10 +1,13 @@
 en:
   common:
     change: Edit
+    crawled: Crawled
     faq: FAQ
     games: Games
     imprint: Imprint
     leagues: Leagues
+    let_crawl: Let crawl
+    loses: Looses
     new_league: New league
     new_match: New match
     new_user: Add player
@@ -15,6 +18,7 @@ en:
     quota: Quota
     share: Share
     tweet: Tweet
+    wins: Wins
   date:
     formats:
       default: '%m/%d/%Y'

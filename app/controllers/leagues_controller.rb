@@ -2,7 +2,7 @@ class LeaguesController < ApplicationController
 
   def index
     clear_current_league
-    @leagues = League.where("updated_at > ?", 4.weeks.ago).by_matches
+    @leagues = League.by_matches
   end
 
   def new

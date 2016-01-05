@@ -21,6 +21,7 @@
 - if @matches.any?
   .m-matches
     = render "matches/list", matches: @matches
+  %p= link_to "Zeige alle Spiele nach Datum", [current_league, :matches], class: 'm-link'
 - else
   .m-big-notice.c-matches--match-notice
     .m-big-notice--text= t('matches.non_yet')
@@ -34,5 +35,3 @@
             .m-ranking--item--place= index + 1
             .m-ranking--item--image= user_image(user)
             .m-ranking--item--score= user.name
-
-%p= link_to "Zeige alle Spiele nach Datum", [current_league, :matches]

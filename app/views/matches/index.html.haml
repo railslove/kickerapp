@@ -1,9 +1,9 @@
 %h1= "Spiele am #{l(@date)}"
 
 .m-date-navigation
-  .prev= link_to '← Vorheriger Tag', [current_league, :matches, date: (@date - 1.day)]
+  .prev= link_to '← Vorheriger Tag', [current_league, :matches, date: (@date - 1.day)], class: 'm-link'
   .current= l(@date)
-  .next= link_to 'Nächster Tag →', [current_league, :matches, date: (@date + 1.day)]
+  .next= link_to 'Nächster Tag →', [current_league, :matches, date: (@date + 1.day)], class: 'm-link'
 
 - if @matches.any?
   = render partial: 'list', locals: { matches: @matches }

@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/stephanpavlovic/chameleon.git
-  revision: 4f8571a4c2549a628cdb944e1388bd15b4308e89
+  revision: db291470f396072c755a5331a0e7c729bd5a21f2
   specs:
     chameleon (0.2.3)
 

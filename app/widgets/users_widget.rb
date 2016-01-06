@@ -4,7 +4,7 @@ widget :users do
   data do
     {
       value: User.distinct.where('users.created_at < ?', Date.today).joins(:history_entries).where(history_entries: { created_at: (5.weeks.ago..Date.today)}).count,
-      previous: User.distinct.joins(:history_entries).where(history_entries: { created_at: (5.weeks.ago..Date.today)}).count
+      previous: User.distinct.joins(:history_entries).where(history_entries: { created_at: (5.weeks.ago..Time.now)}).count
     }
   end
 end

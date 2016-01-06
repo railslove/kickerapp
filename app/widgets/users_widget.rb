@@ -3,7 +3,7 @@ widget :users do
   type "number_and_secondary"
   data do
     {
-      value: User.distinct.joins(:history_entries).where(history_entries: { created_at: (5.weeks.ago..Date.today)}).count,
+      value: User.distinct.joins(:history_entries).where(history_entries: { created_at: (4.weeks.ago.beginning_of_week..Date.today)}).count,
       previous: User.distinct.where('users.created_at < ?', Date.today).joins(:history_entries).where(history_entries: { created_at: (5.weeks.ago..Time.now)}).count
     }
   end

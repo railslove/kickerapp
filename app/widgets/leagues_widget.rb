@@ -8,11 +8,11 @@ widget :leagues do
         label: I18n.l((Date.today.beginning_of_week - 1.week).to_date, format: :short)
       },
       amber: {
-        value: League.distinct.joins(:matches).where(matches: { date: ((Date.today.beginning_of_week - 2.weeks)..(Date.today.beginning_of_week - 1.week))}).count,
+        value: League.distinct.joins(:matches).where(matches: { date: ((Date.today.beginning_of_week - 2.weeks)..Time.now)}).count - League.distinct.joins(:matches).where(matches: { date: ((Date.today.beginning_of_week - 1.weeks)..Time.now)}).count,
         label: I18n.l((Date.today.beginning_of_week - 2.weeks).to_date, format: :short)
       },
       red: {
-        value: League.distinct.joins(:matches).where(matches: { date: ((Date.today.beginning_of_week - 4.weeks)..(Date.today.beginning_of_week - 2.weeks))}).count,
+        value: League.distinct.joins(:matches).where(matches: { date: ((Date.today.beginning_of_week - 4.weeks)..Time.now)}).count - League.distinct.joins(:matches).where(matches: { date: ((Date.today.beginning_of_week - 2.weeks)..Time.now)}).count,
         label: I18n.l((Date.today.beginning_of_week - 4.weeks).to_date, format: :short)
       }
     }

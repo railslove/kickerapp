@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:stephanpavlovic/chameleon.git
+  remote: https://github.com/stephanpavlovic/chameleon.git
   revision: d0f2319a7af596374b2ae34ad5d1e4100a2721b6
   specs:
     chameleon (0.2.3)

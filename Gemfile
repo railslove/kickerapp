@@ -27,7 +27,7 @@ gem "omniauth-twitter"
 gem "omniauth-facebook"
 gem 'rails_admin'
 gem 'pebble_timeline'
-gem 'chameleon', git: 'git@github.com:stephanpavlovic/chameleon.git' #path: '/Users/stephanpavlovic/code/chameleon' 
+gem 'chameleon', git: 'https://github.com/stephanpavlovic/chameleon.git' #path: '/Users/stephanpavlovic/code/chameleon' 
 
 group :development do
   gem 'better_errors'

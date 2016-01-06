@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get 'kpis' => 'pages#kpis', as: 'kpis'
 
+  resources :widgets, module: 'chameleon'
+
   resources :leagues, except: [:index], :path => '' do
     get :badges, on: :member
     get :table, on: :member

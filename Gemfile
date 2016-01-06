@@ -27,6 +27,7 @@ gem "omniauth-twitter"
 gem "omniauth-facebook"
 gem 'rails_admin'
 gem 'pebble_timeline'
+gem 'chameleon'
 
 group :development do
   gem 'better_errors'

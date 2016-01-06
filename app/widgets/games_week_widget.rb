@@ -3,9 +3,9 @@ widget :games_week do
   type "line"
   data do
     {
-      items: Match.reorder(:date).where(date: (12.weeks.ago..Time.now)).group_by{|m| m.date.to_date.cweek}.map{|w|[w.last.count]}.flatten,
-      x_axis: (0..12).map{|w|w.weeks.ago.to_date.cweek},
-      y_axis: [0,100,200,300,400,500,600]
+      items: Match.reorder(:date).where(date: (10.weeks.ago..Time.now)).group_by{|m| m.date.to_date.cweek}.map{|w|[x: w.first, y: w.last.count]}.flatten,
+      y_axis: [0,100,200,300,400,500,600],
+      incomplete_from: Date.today.cweek
     }
   end
 end

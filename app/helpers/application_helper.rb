@@ -2,7 +2,7 @@ module ApplicationHelper
 
   def user_image(user, size='80x80')
     if user.image.present?
-      image_tag("http://ungif.herokuapp.com/ungif?url=#{user.image}&size=#{size}", class: 'm-user-image')
+      image_tag("https://ungif.herokuapp.com/ungif?url=#{user.image}&size=#{size}", class: 'm-user-image')
     else
       color = Digest::MD5.hexdigest(user.name).first(6)
       content_tag :div, class: 'm-user-image as-default ', 'data-fill'=>  "##{color}" do

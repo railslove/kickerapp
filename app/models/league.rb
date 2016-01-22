@@ -65,14 +65,15 @@ class League < ActiveRecord::Base
       .reorder('quota DESC')
   end
 
-  def team_ranking
+  def team_ranking(filter = {})
     teams
-    .select("teams.*, COUNT(matches.*) AS games_played, #{BASE_SCORE} + SUM(CASE WHEN matches.loser_team_id = teams.id THEN matches.difference * -1 ELSE matches.difference END) AS score")
-    .joins('RIGHT JOIN matches ON (matches.winner_team_id = teams.id OR matches.loser_team_id = teams.id)')
-    .for_doubles
-    .includes(:player1, :player2)
-    .group('teams.id')
-    .order('score DESC')
+      .for_user(filter[:player])
+      .select("teams.*, COUNT(matches.*) AS games_played, #{BASE_SCORE} + SUM(CASE WHEN matches.loser_team_id = teams.id THEN matches.difference * -1 ELSE matches.difference END) AS score")
+      .joins('RIGHT JOIN matches ON (matches.winner_team_id = teams.id OR matches.loser_team_id = teams.id)')
+      .for_doubles
+      .includes(:player1, :player2)
+      .group('teams.id')
+      .order('score DESC')
   end
 
   private

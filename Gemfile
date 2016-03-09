@@ -36,6 +36,7 @@ group :development do
   gem 'spring'
   gem "spring-commands-rspec"
   gem 'fontello_rails_converter'
+  gem 'annotate'
 end
 
 group :development, :test do

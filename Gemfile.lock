@@ -46,6 +46,9 @@ GEM
     airbrake (4.3.3)
       builder
       multi_json
+    annotate (2.7.0)
+      activerecord (>= 3.2, < 6.0)
+      rake (~> 10.4)
     arel (6.0.3)
     awesome_print (1.6.1)
     better_errors (2.1.1)
@@ -371,6 +374,7 @@ PLATFORMS
 
 DEPENDENCIES
   airbrake
+  annotate
   better_errors
   binding_of_caller
   breakpoint
@@ -413,4 +417,4 @@ DEPENDENCIES
   uglifier
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

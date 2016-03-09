@@ -1,4 +1,18 @@
 # encoding: utf-8
+# == Schema Information
+#
+# Table name: matches
+#
+#  id             :integer          not null, primary key
+#  winner_team_id :integer
+#  loser_team_id  :integer
+#  score          :string
+#  crawling       :boolean
+#  date           :datetime
+#  difference     :integer          default(0)
+#  league_id      :integer
+#
+
 
 class MatchesController < ApplicationController
   before_filter :require_league

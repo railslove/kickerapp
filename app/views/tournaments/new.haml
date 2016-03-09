@@ -1,0 +1,11 @@
+%h1 Erstelle ein neues Turnier:
+
+%section
+  = form_for @tournament do |f| 
+    = f.label :name
+    = f.text_field :name
+    = f.label :location
+    = f.text_field :location
+    = f.label :number_of_tables
+    = f.text_field :number_of_tables
+    = f.submit

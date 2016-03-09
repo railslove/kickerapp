@@ -1,4 +1,32 @@
 # encoding: utf-8
+# == Schema Information
+#
+# Table name: users
+#
+#  id                           :integer          not null, primary key
+#  number_of_wins               :integer          default(0)
+#  number_of_losses             :integer          default(0)
+#  quota                        :integer          default(1200)
+#  name                         :string
+#  created_at                   :datetime
+#  updated_at                   :datetime
+#  provider                     :string
+#  uid                          :string
+#  image                        :string
+#  league_id                    :integer
+#  email                        :string
+#  winning_streak               :integer          default(0)
+#  number_of_crawls             :integer          default(0)
+#  number_of_crawlings          :integer          default(0)
+#  top_crawler                  :boolean          default(FALSE)
+#  worst_crawler                :boolean          default(FALSE)
+#  most_wins                    :boolean          default(FALSE)
+#  longest_winning_streak       :boolean          default(FALSE)
+#  most_teams                   :boolean          default(FALSE)
+#  longest_winning_streak_games :integer          default(0)
+#  longest_winning_streak_ever  :boolean          default(FALSE)
+#
+
 
 class UsersController < ApplicationController
 

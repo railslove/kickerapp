@@ -1,2 +1,8 @@
 %section
-  %h1 Start a table soccer tournament
+  %h1 
+    = link_to "Start a table soccer tournament", "tournaments/new.html"
+
+%section
+  - @tournaments.each do |tournament|
+    %p
+      = link_to "#{tournament.name}", tournament

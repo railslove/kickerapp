@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: matches
+#
+#  id             :integer          not null, primary key
+#  winner_team_id :integer
+#  loser_team_id  :integer
+#  score          :string
+#  crawling       :boolean
+#  date           :datetime
+#  difference     :integer          default(0)
+#  league_id      :integer
+#
+
 class Match < ActiveRecord::Base
 
   belongs_to :winner_team, class_name: "Team"

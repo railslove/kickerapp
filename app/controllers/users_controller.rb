@@ -25,8 +25,8 @@
 #  most_teams                   :boolean          default(FALSE)
 #  longest_winning_streak_games :integer          default(0)
 #  longest_winning_streak_ever  :boolean          default(FALSE)
+#  tournament_id                :integer
 #
-
 
 class UsersController < ApplicationController
 

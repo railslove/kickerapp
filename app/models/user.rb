@@ -24,11 +24,13 @@
 #  most_teams                   :boolean          default(FALSE)
 #  longest_winning_streak_games :integer          default(0)
 #  longest_winning_streak_ever  :boolean          default(FALSE)
+#  tournament_id                :integer
 #
 
 class User < ActiveRecord::Base
 
   belongs_to :league
+  belongs_to :tournament
   has_many :history_entries
 
   scope :ranked, lambda { order("quota DESC") }

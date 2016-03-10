@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   root :to => 'pages#landing'
 
-  resources :tournaments
+  resources :tournaments do
+    resources :tournament_users
+  end
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'ligen' => "leagues#index", as: 'ligen'

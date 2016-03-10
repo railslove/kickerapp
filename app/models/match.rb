@@ -18,6 +18,7 @@ class Match < ActiveRecord::Base
   belongs_to :loser_team, class_name: "Team"
 
   belongs_to :league, counter_cache: true
+  belongs_to :tournament
 
   default_scope lambda {order("date DESC")}
 

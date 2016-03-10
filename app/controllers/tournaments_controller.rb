@@ -11,7 +11,7 @@
 class TournamentsController < ApplicationController
 
   def index
-    @tournaments = Tournament.all
+    @tournaments = Tournament.all.order(created_at: :desc)
   end
 
   def create
@@ -25,15 +25,20 @@ class TournamentsController < ApplicationController
 
   def show
     @tournament = Tournament.find(params[:id])
+    @user = User.new
+    @tournament_users = User.all.order(created_at: :desc)
   end
 
   def new
     @tournament = Tournament.new
   end
 
+  def add_tournament_user
+  end
+
   private
   def tournament_params
-    params.require(:tournament).permit(:number_of_tables, :location, :name)
+    params.require(:tournament).permit(:number_of_tables, :location, :name, :id)
   end
   
 end

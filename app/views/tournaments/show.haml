@@ -11,3 +11,23 @@
   %p
     Verfügbare Tische:
     = @tournament.number_of_tables
+
+%section
+  %h3
+    Füge Teilnehmer hinzu:
+%section
+  = form_for @user, url: tournament_tournament_users_path(@tournament) do |f|
+    = f.label :name
+    = f.text_field :name
+    = f.submit "Spieler erstellen"
+
+%section
+  - @tournament_users.each do |tournament_user|
+    %p
+      Spieler:
+      = tournament_user.name
+      = button_to "Spieler löschen", tournament_tournament_user_path(@tournament, tournament_user.id), method: :delete, confirm: "Match wirklich löschen?", class: "m-link as-negative"
+
+%section
+  %h3
+    = link_to "Jetzt Turnierplan erstellen", ""

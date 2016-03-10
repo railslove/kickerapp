@@ -17,6 +17,7 @@ class Team < ActiveRecord::Base
   belongs_to :player2, class_name: "User"
 
   belongs_to :league
+  belongs_to :tournament
 
   validate :players_validation
 

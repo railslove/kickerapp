@@ -26,8 +26,8 @@
     %p
       Spieler:
       = tournament_user.name
-      = button_to "Spieler löschen", tournament_tournament_user_path(@tournament, tournament_user.id), method: :delete, confirm: "Match wirklich löschen?", class: "m-link as-negative"
+      = button_to "Spieler löschen", tournament_tournament_user_path(@tournament, tournament_user.id), method: :delete, confirm: "Spieler wirklich löschen?", class: "m-link as-negative"
 
 %section
   %h3
-    = link_to "Jetzt Turnierplan erstellen", ""
+    = link_to "Jetzt Turnierplan erstellen", tournament_tournament_gameplan_path(@tournament)

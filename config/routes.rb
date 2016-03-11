@@ -1,27 +1,29 @@
 Rails.application.routes.draw do
-  root :to => 'pages#landing'
+  root :to => "pages#landing"
 
   resources :tournaments do
     resources :tournament_users
+    resource :tournament_gameplan
   end
 
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  get 'ligen' => "leagues#index", as: 'ligen'
 
-  get 'pebble_settings' => 'pages#pebble_settings'
+  mount RailsAdmin::Engine => "/admin", as: "rails_admin"
+  get "ligen" => "leagues#index", as: "ligen"
+
+  get "pebble_settings" => "pages#pebble_settings"
 
   resources :matches, only: [:show]
   get "/auth/:provider/callback" => "users#create"
-  get '/auth/failure' => 'users#omniauth_failure'
+  get "/auth/failure" => "users#omniauth_failure"
 
-  get 'imprint' => 'pages#imprint', as: 'imprint'
-  get 'faq' => 'pages#faq', as: 'faq'
+  get "imprint" => "pages#imprint", as: "imprint"
+  get "faq" => "pages#faq", as: "faq"
 
-  get 'kpis' => 'pages#kpis', as: 'kpis'
+  get "kpis" => "pages#kpis", as: "kpis"
 
-  resources :widgets, module: 'chameleon'
+  resources :widgets, module: "chameleon"
 
-  resources :leagues, except: [:index], :path => '' do
+  resources :leagues, except: [:index], :path => "" do
     get :badges, on: :member
     get :table, on: :member
     resources :matches do

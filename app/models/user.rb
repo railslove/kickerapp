@@ -25,7 +25,6 @@
 #  longest_winning_streak_games :integer          default(0)
 #  longest_winning_streak_ever  :boolean          default(FALSE)
 #  tournament_id                :integer
-#
 
 class User < ActiveRecord::Base
 

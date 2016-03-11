@@ -11,7 +11,7 @@
 class TournamentsController < ApplicationController
 
   def index
-    @tournaments = Tournament.all.order(created_at: :desc)
+    @tournaments = Tournament.all
   end
 
   def create
@@ -19,21 +19,18 @@ class TournamentsController < ApplicationController
     if @tournament.save!
       redirect_to tournaments_path
     else 
-      redirect_to tournaments_path
+      render plain: "Ups, something went wrong :("
     end
   end
 
   def show
     @tournament = Tournament.find(params[:id])
+    @tournament_users = @tournament.users.order(created_at: :desc)
     @user = User.new
-    @tournament_users = User.all.order(created_at: :desc)
   end
 
   def new
     @tournament = Tournament.new
-  end
-
-  def add_tournament_user
   end
 
   private

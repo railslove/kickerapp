@@ -1,0 +1,39 @@
+.m-gameplan
+  display: flex
+  align-items: center
+  .m-gameplan--round
+    margin-right: 80px
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+  .m-gameplan--match
+    border: 1px solid $black
+    padding: 5px
+    padding-left: 50px
+    position: relative
+    height: 100px
+    min-width: 240px
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    &:last-child
+      margin-bottom: 0
+  .m-gameplan--match-number
+    position: absolute
+    left: 0
+    top: 0
+    height: 100%
+    width: 40px
+    background: $black
+    color: $white
+    font-size: 30px
+    text-align: center
+  .m-gameplan--team
+    border: 1px solid $black
+    padding: 5px
+    font-size: 12px
+    font-weight: bold
+    min-height: 38px
+    &:first-child
+      margin-bottom: $padding
+  .m-gameplan--user

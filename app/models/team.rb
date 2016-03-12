@@ -18,6 +18,7 @@ class Team < ActiveRecord::Base
 
   belongs_to :league
   belongs_to :tournament
+  has_many :new_matches
 
   validate :players_validation
 

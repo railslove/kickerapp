@@ -1,11 +1,16 @@
 .m-gameplan
   display: flex
+  display: -webkit-flex
   align-items: center
+  -webkit-align-items: center
   .m-gameplan--round
     margin-right: 80px
     display: flex
+    display: -webkit-flex
     flex-direction: column
+    -webkit-flex-direction: column
     justify-content: space-around
+    -webkit-justify-content: space-around
   .m-gameplan--match
     border: 1px solid $black
     padding: 5px
@@ -14,8 +19,11 @@
     height: 100px
     min-width: 240px
     display: flex
+    display: -webkit-flex
     flex-direction: column
+    -webkit-flex-direction: column
     justify-content: space-between
+    -webkit-justify-content: space-between
     &:last-child
       margin-bottom: 0
   .m-gameplan--match-number

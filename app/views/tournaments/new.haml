@@ -1,11 +1,14 @@
-%h1 Erstelle ein neues Turnier:
-
-%section
-  = form_for @tournament do |f| 
-    = f.label :name
-    = f.text_field :name
-    = f.label :location
-    = f.text_field :location
-    = f.label :number_of_tables
-    = f.text_field :number_of_tables
-    = f.submit
+.c-league-new.m-box
+  = form_for @tournament, html: { class: 'm-form' } do |f|
+    .m-box--headline= 'Neues Turnier anlegen'
+    .m-form--row
+      = f.label :name, class: 'm-label'
+      = f.text_field :name, class: 'm-input as-colored'
+    .m-form--row
+      = f.label :location, class: 'm-label'
+      = f.text_field :location, class: 'm-input as-colored'
+    .m-form--row
+      = f.label :number_of_tables, class: 'm-label'
+      = f.text_field :number_of_tables, class: 'm-input as-colored'
+    .m-form--row
+    = f.submit "Turnier anlegen", class: 'm-button m-box--button'

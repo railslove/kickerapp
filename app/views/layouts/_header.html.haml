@@ -19,6 +19,7 @@
           = link_to new_league_user_path(current_league) do
             %i.icon-user-add
       - else
+        .m-navigation--item= link_to 'Neues Turnier', new_tournament_path
         .m-navigation--item= link_to t('common.new_league'), new_league_path
       .m-navigation--item.as-flag
         = link_to url_for(only_path: false, locale: other_locale(I18n.locale)) do

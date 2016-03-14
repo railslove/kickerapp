@@ -1,0 +1,11 @@
+.m-gameplan--round{style: "height: #{basic_height}px"}
+  -# = height
+  - @tournament.new_matches[start_match..end_match].each do |match|
+    .m-gameplan--match
+      .m-gameplan--team
+        .m-gameplan--user= match.hometeam.player1.name if match.hometeam
+        .m-gameplan--user= match.hometeam.player2.name if match.hometeam
+      .m-gameplan--team
+        .m-gameplan--user= match.awayteam.player1.name if match.awayteam
+        .m-gameplan--user= match.awayteam.player2.name if match.awayteam
+      .m-gameplan--match-number= match.tournament_position

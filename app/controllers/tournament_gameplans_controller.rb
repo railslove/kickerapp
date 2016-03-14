@@ -8,5 +8,6 @@ class TournamentGameplansController < ApplicationController
 
   def show
     @tournament = Tournament.find(params[:tournament_id])
+    @hide_sidebar = true
   end
 end

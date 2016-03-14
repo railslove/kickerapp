@@ -1,18 +1,14 @@
 %section
   %h3
-    %p
-      Turnier ID =
-      = @tournament.id
-      -# Spieler:
-      -# - @tournament_users.each_with_index do |user|
-        -# %p
-          -# = user.name
-    %p
-      Anzahl Spieler:
-      = @tournament.users.count
-    %p
-      Anzahl Teams:
-      -# = @tournament.teams.count
-    %p
-      Anzahl Spiele:
-      = @tournament.number_of_matches
+    = @tournament.name
+
+%section.m-gameplan
+  - start_match = 0
+  - end_match = @tournament.number_of_matches / 2 - 1
+  - basic_height = (end_match - start_match + 1) * 100 + ((end_match - start_match) * 20)
+  - Math.log2(@tournament.number_of_matches).to_i.times do |i|
+    - if end_match <= @tournament.number_of_matches
+      = render 'gameplan_round', start_match: start_match, end_match: end_match, basic_height: basic_height
+      - size = ((end_match - start_match) / 2.0).round
+      - start_match = end_match + 1
+      - end_match = start_match + size - 1

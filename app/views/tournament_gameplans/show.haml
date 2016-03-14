@@ -1,21 +1,18 @@
 %section
   %h3
     %p
-      Turnier ID = 
-      = @tournament_id
+      Turnier ID =
+      = @tournament.id
       -# Spieler:
       -# - @tournament_users.each_with_index do |user|
-        -# %p 
+        -# %p
           -# = user.name
     %p
       Anzahl Spieler:
-      = @number_of_users
+      = @tournament.users.count
     %p
       Anzahl Teams:
-      = @number_of_teams
+      -# = @tournament.teams.count
     %p
       Anzahl Spiele:
-      = @number_of_matches
-    %p
-      Anzahl Sessions:
-      = @number_of_sessions
+      = @tournament.number_of_matches

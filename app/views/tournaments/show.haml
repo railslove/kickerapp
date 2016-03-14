@@ -1,8 +1,8 @@
 %section
-  %h1 
+  %h1
     = @tournament.name
 %section
-  %p 
+  %p
     Turniername:
     = @tournament.name
   %p
@@ -30,4 +30,4 @@
 
 %section
   %h3
-    = link_to "Jetzt Turnierplan erstellen", tournament_tournament_gameplan_path(@tournament)
+    = link_to "Jetzt Turnierplan erstellen", tournament_tournament_gameplan_path(@tournament), method: :post

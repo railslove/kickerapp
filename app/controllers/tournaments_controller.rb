@@ -28,11 +28,22 @@ class TournamentsController < ApplicationController
   def show
     @tournament = Tournament.find(params[:id])
     @tournament_users = @tournament.users.order(created_at: :desc)
+    @tournament_users.delete
     @user = User.new
   end
 
   def new
     @tournament = Tournament.new
+  end
+
+  def edit
+    @tournament = Tournament.find params[:id]
+  end
+
+  def update
+    @tournament = Tournament.find params[:id]
+    @tournament.update tournament_params
+    redirect_to tournament_path
   end
 
   private

@@ -5,7 +5,7 @@ class TournamentGameplansController < ApplicationController
 
   def show
     # render plain: params
-    @tournament_id = params[:tournament_id]
+    @tournament_id = params[:tourid]
     # @tournament_users = User.all
     # @number_of_users = User.count
     # @number_of_teams = @number_of_users / 2
@@ -27,7 +27,7 @@ class TournamentGameplansController < ApplicationController
     if number_of_teams < 2
       out = 0
     elsif number_of_teams == 2
-      out = 1
+      out = 1 
     else
       out = power number_of_teams, 2
     end

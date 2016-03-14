@@ -2,6 +2,9 @@
   -# = height
   - @tournament.new_matches[start_match..end_match].each do |match|
     .m-gameplan--match
+      .m-gameplan--table-nr
+        Tisch:
+        = match.table_nr
       .m-gameplan--team
         .m-gameplan--user= match.hometeam.player1.name if match.hometeam
         .m-gameplan--user= match.hometeam.player2.name if match.hometeam

@@ -10,6 +10,7 @@
 #  created_at       :datetime
 #  updated_at       :datetime
 #  league_id        :integer
+#  tournament_id    :integer
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

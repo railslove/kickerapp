@@ -3,9 +3,11 @@
 # Table name: tournaments
 #
 #  id               :integer          not null, primary key
-#  number_of_tables :integer
-#  location         :string
 #  name             :string
+#  location         :string
+#  number_of_tables :integer
+#  created_at       :datetime
+#  updated_at       :datetime
 #
 
 class TournamentsController < ApplicationController

@@ -10,6 +10,7 @@
 #  created_at       :datetime
 #  updated_at       :datetime
 #  league_id        :integer
+#  tournament_id    :integer
 #
 
 class Team < ActiveRecord::Base

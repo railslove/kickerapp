@@ -5,10 +5,10 @@ class TournamentUsersController < ApplicationController
 
   def create
     # User.destroy_all
-    user = User.new tournament_user_params
-    user.tournament_id = @tournament_id
+    tournament = Tournament.find params[:tournament_id]
+    user = tournament.users.new tournament_user_params
     if user.save!
-      redirect_to tournament_path(@tournament_id)
+      redirect_to tournament_path(tournament.id)
     else
       redirect_to tournament_path
     end
@@ -26,7 +26,6 @@ class TournamentUsersController < ApplicationController
 
   private
   def tournament_user_params
-    @tournament_id = params[:tournament_id]
-    params.require(:user).permit(:name, :id)
+    params.require(:user).permit(:name, :id, :tournament_id)
   end
 end

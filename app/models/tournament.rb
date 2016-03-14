@@ -8,7 +8,6 @@
 #  number_of_tables :integer
 #  created_at       :datetime
 #  updated_at       :datetime
-#
 
 class Tournament < ActiveRecord::Base
   has_many :users
@@ -16,7 +15,6 @@ class Tournament < ActiveRecord::Base
   has_many :new_matches
 
   def create_gameplan
-    # Todo: Teams auslosen
     new_matches.delete_all
     create_teams
     team_ids = self.team_ids
@@ -25,29 +23,27 @@ class Tournament < ActiveRecord::Base
       if i <= number_of_matches/2
         match.hometeam_id = team_ids.delete_at(rand(team_ids.length))
         match.awayteam_id = team_ids.delete_at(rand(team_ids.length))
-        p "#{match.hometeam.player1.name} & #{match.awayteam.player1.name}"
-        p "#{match.hometeam.player2.name} & #{match.awayteam.player2.name}"
       end
       match.save
     end
   end
 
   def number_of_matches
-    # Todo Handle Freilose
-    teams.count
+    if teams.count < 2
+      out = 0
+    elsif teams.count == 2
+      out = 1
+    else
+      out = 2**Math.log2(teams.count).ceil
+    end
   end
 
   def create_teams
     teams.delete_all
     number_of_teams = (users.count / 2)
     user_ids = self.user_ids
-    number_of_teams.times do
+    number_of_teams.times do  
       new_team = teams.create(player1_id: user_ids.delete_at(rand(user_ids.length)), player2_id: user_ids.delete_at(rand(user_ids.length)))
-      p '================'
-      p new_team.id
-      p new_team.player1.name
-      p new_team.player2.name
-      p '----------------'
     end
   end
 
@@ -62,7 +58,4 @@ class Tournament < ActiveRecord::Base
       (match_position / 2.0).round + (number_of_matches / 2)
     end
   end
-
-
-
 end

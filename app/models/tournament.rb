@@ -45,9 +45,17 @@ class Tournament < ActiveRecord::Base
     number_of_teams.times do  
       new_team = teams.create(player1_id: user_ids.delete_at(rand(user_ids.length)), player2_id: user_ids.delete_at(rand(user_ids.length)))
     end
+     create_freilose
   end
 
   private
+
+  def create_freilose
+    freilos_user = users.create(name: "freilos_user")
+    (number_of_matches - teams.count).times do 
+      teams.create(player1_id: freilos_user.id, player2_id: freilos_user.id)
+    end
+  end
 
   def calculate_table_nr(match_position)
     ((match_position - 1) % number_of_tables) + 1

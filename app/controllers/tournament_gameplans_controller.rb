@@ -2,11 +2,11 @@ class TournamentGameplansController < ApplicationController
 
   def create
     @tournament = Tournament.find(params[:tournament_id])
-    if @tournament.users.count % 2 == 0
+    if @tournament.users.count % 2 == 1
       @tournament.create_gameplan
       redirect_to tournament_tournament_gameplan_path(@tournament)
     else
-      render text: "Es muss eine gerade Anzahl an Spielern vorhanden sein"
+      render text: "Es muss eine gerade Anzahl an Spielern vorhanden sein, there are #{@tournament.users.count} players at the moment"
     end
   end
 

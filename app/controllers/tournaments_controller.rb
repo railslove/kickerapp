@@ -21,14 +21,13 @@ class TournamentsController < ApplicationController
     if @tournament.save!
       redirect_to tournaments_path
     else 
-      render plain: "Ups, something went wrong :("
+      render text: "Ups, something went wrong :("
     end
   end
 
   def show
     @tournament = Tournament.find(params[:id])
     @tournament_users = @tournament.users.order(created_at: :desc)
-    @tournament_users.delete
     @user = User.new
   end
 

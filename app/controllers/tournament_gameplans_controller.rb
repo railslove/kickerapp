@@ -2,7 +2,7 @@ class TournamentGameplansController < ApplicationController
 
   def create
     @tournament = Tournament.find(params[:tournament_id])
-    if @tournament.users.count % 2 == 1
+    if @tournament.users.count % 2 == 0
       @tournament.create_gameplan
       redirect_to tournament_tournament_gameplan_path(@tournament)
     else
@@ -12,6 +12,7 @@ class TournamentGameplansController < ApplicationController
 
   def show
     @tournament = Tournament.find(params[:tournament_id])
+    @matches = @tournament.new_matches.order(:tournament_position)
     @hide_sidebar = true
   end
 end

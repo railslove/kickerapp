@@ -19,3 +19,7 @@
 //= require chartist
 //= require picturefill
 //= require_tree ./application
+//= require foundation
+
+
+$(function(){ $(document).foundation(); });

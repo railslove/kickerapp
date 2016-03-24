@@ -1,40 +1,16 @@
-
-- body_class = [controller_name, @hide_sidebar ? "as-sidebar-hidden" : nil].join " "
-- body_id = "#{controller_name}_#{action_name}"
-
-!!!
-%html
+!!! 5
+%html{ :lang => "en" }
   %head
-    %meta{:charset => "utf-8"}/
-    %meta{:content => "NOODP", :name => "ROBOTS"}/
-    %meta{name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1"}
-    %meta{name: 'apple-mobile-web-app-title', content: 'Kicker App'}
+    %meta{ :charset => "utf-8" }
 
-    / --------------------------------
-    %meta{:content => "website", :property => "og:type"}/
-    %meta{:content => url_for(:only_path => false), :property => "og:url"}/
-    %meta{:content => asset_url("open-graph-logo.png"), :property => "og:image"}/
-    / <meta property="fb:admins" content="500108777"/>
-    %meta{name: "description", :content => t('meta.description')}/
-    %meta{:content => t('meta.title'), :property => "og:site_name"}/
-    %meta{:content => t('meta.title'), :property => "og:title"}/
-    %meta{:content => facebook_locale, :property => "og:locale"}/
-    %meta{:content => t('meta.description'), :property => "og:description"}/
-    / --------------------------------
+    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
 
-    %title= @page_title || t('meta.title')
-    = stylesheet_link_tag :application, :media => 'all'
-    = csrf_meta_tags
-    = render 'layouts/favicons'
-  %body{class: body_class, id: body_id}
-    = render 'layouts/header'
-    = render 'layouts/flashes'
-    .l-content-wrapper
-      .l-content
-        = yield
-      .l-sidebar
-        - unless @hide_sidebar
-          - if league_present?
-            = render 'users/list', users: current_league.active_user_ranking
-    = render 'layouts/footer'
-    = render 'layouts/javascript'
+    %title= content_for?(:title) ? yield(:title) : "Untitled"
+
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tag
+
+  %body
+
+    = yield

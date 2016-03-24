@@ -1,17 +1,23 @@
 %section
   %h3
     = @tournament.name
+%p
+  %a{"data-open" => "exampleModal1"} Click me for a modal
+  
+#exampleModal1.reveal{"data-reveal" => ""}
+  %h1 Awesome. I Have It.
+  %p.lead Your couch. It is mine.
+  %p I'm a cool paragraph that lives inside of an even cooler modal. Wins!
+  %button.close-button{"aria-label" => "Close modal", "data-close" => "", :type => "button"}
+    %span{"aria-hidden" => "true"} &times;
+
+
+
 
 %section.m-gameplan
   - start_match = 0
   - end_match = @tournament.number_of_matches / 2 - 1
   - basic_height = (end_match - start_match + 1) * 100 + ((end_match - start_match) * 20)
-  = link_to "#", "data-open" => "res" do
-    %p Click me for a modal
-  #res.reveal{"data-reveal" => ""}
-    %p example
-    %button.close-button{"aria-label" => "Close modal", "data-close" => "", :type => "button"}
-      %span{"aria-hidden" => "true"} ×
   - Math.log2(@tournament.number_of_matches).to_i.times do |i|
     - if end_match <= @tournament.number_of_matches
       = render 'gameplan_round', start_match: start_match, end_match: end_match, basic_height: basic_height

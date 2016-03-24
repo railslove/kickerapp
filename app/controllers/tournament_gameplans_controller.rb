@@ -15,4 +15,9 @@ class TournamentGameplansController < ApplicationController
     @matches = @tournament.new_matches.order(:tournament_position)
     @hide_sidebar = true
   end
+
+
+  def update
+  end
+  
 end

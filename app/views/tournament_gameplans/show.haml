@@ -1,18 +1,6 @@
 %section
   %h3
     = @tournament.name
-%p
-  %a{"data-open" => "exampleModal1"} Click me for a modal
-  
-#exampleModal1.reveal{"data-reveal" => ""}
-  %h1 Awesome. I Have It.
-  %p.lead Your couch. It is mine.
-  %p I'm a cool paragraph that lives inside of an even cooler modal. Wins!
-  %button.close-button{"aria-label" => "Close modal", "data-close" => "", :type => "button"}
-    %span{"aria-hidden" => "true"} &times;
-
-
-
 
 %section.m-gameplan
   - start_match = 0

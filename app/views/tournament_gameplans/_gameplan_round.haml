@@ -3,12 +3,26 @@
   - @matches[start_match..end_match].each do |match|
     
     #result-form.reveal{"data-reveal" => ""}
-      = form_for match, url: edit_tournament_tournament_gameplan_path  do |f|
-        = f.label "Satz 1:"
-        = f.text_field :hometeam
-        = f.label "Satz 2:"
-        = f.label "Satz 3:"
-        = f.submit "Ergebnis speichern"
+      = form_tag url: edit_tournament_tournament_gameplan_path  do
+        %table.c-table
+          %tr
+            %th{colspan: 2} Hometeam
+            %th Awayteam
+          %tr
+            %td= text_field_tag("hometeam_set_1")
+            %td :
+            %td= text_field_tag("awayteam_set_1")
+          %tr
+            %td= text_field_tag("hometeam_set_2")
+            %td :
+            %td= text_field_tag("awayteam_set_2")
+          %tr
+            %td= text_field_tag("hometeam_set_3")
+            %td :
+            %td= text_field_tag("awayteam_set_3")
+
+        = submit_tag "Ergebnis speichern"
+      
       %button.close-button{"aria-label" => "Close modal", "data-close" => "", :type => "button"}
         %span{"aria-hidden" => "true"} ×
          

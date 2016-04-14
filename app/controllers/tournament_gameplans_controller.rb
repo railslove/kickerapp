@@ -18,6 +18,7 @@ class TournamentGameplansController < ApplicationController
 
 
   def update
+    #add changes e.g. new results 
   end
   
 end

@@ -21,7 +21,7 @@
             %td :
             %td= text_field_tag("awayteam_set_3")
 
-        = submit_tag "Ergebnis speichern"
+        = submit_tag "Ergebnis speichern", new_match_rb
       
       %button.close-button{"aria-label" => "Close modal", "data-close" => "", :type => "button"}
         %span{"aria-hidden" => "true"} ×
@@ -31,10 +31,12 @@
         .m-gameplan--table-nr
           Tisch:
           = match.table_nr
-        .m-gameplan--team
+        .m-gameplan--team 
+          Hometeam
           .m-gameplan--user= match.hometeam.player1.name if match.hometeam
           .m-gameplan--user= match.hometeam.player2.name if match.hometeam
         .m-gameplan--team
+          Awayteam
           .m-gameplan--user= match.awayteam.player1.name if match.awayteam
           .m-gameplan--user= match.awayteam.player2.name if match.awayteam
         .m-gameplan--match-number= match.tournament_position

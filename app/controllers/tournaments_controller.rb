@@ -26,9 +26,8 @@ class TournamentsController < ApplicationController
   end
 
   def show
-    @tournament = Tournament.find(params[:id])
+    @tournament = Tournament.find params[:id]
     @tournament_users = @tournament.users.order(created_at: :desc)
-    @user = User.new
   end
 
   def new
@@ -37,6 +36,8 @@ class TournamentsController < ApplicationController
 
   def edit
     @tournament = Tournament.find params[:id]
+    @tournament_users = @tournament.users.order(created_at: :desc)
+    @user = User.new
   end
 
   def update

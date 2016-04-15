@@ -30,6 +30,7 @@
     = render 'layouts/header'
     = render 'layouts/flashes'
     .l-content-wrapper
+      = yield :league_header_image
       .l-content
         = yield
       .l-sidebar

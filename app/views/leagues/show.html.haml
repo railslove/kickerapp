@@ -1,3 +1,6 @@
+- if @league.league_header_image?
+  .m-header-image
+    = image_tag @league.league_header_image, alt: "header image"
 - if @crawling_match
   .m-karl-crawl--wrapper{data: {behavior: 'overlay'}}
     .m-karl-crawl--close{data: {behavior: 'hide-overlay'}} X

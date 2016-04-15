@@ -6,6 +6,8 @@ development: &default
   pool: 5
   timeout: 5000
   host: 127.0.0.1
+  username: 'nico'
+  password: 'abc'
 
 test:
   <<: *default

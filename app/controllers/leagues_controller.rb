@@ -8,6 +8,7 @@ class LeaguesController < ApplicationController
   def new
     clear_current_league
     @league = League.new
+    @uploader = LeagueHeaderImageUploader.new
   end
 
   def create
@@ -50,7 +51,7 @@ class LeaguesController < ApplicationController
   private
 
     def league_params
-      params.require(:league).permit(:name, :slug, :contact_email)
+      params.require(:league).permit(:name, :slug, :contact_email, :league_header_image)
     end
 
 end

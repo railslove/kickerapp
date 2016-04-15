@@ -14,5 +14,6 @@
       = f.label :league_header_image, "Header Image:", class: 'm-label', id: "#"
       = f.file_field :league_header_image
       = f.hidden_field :league_header_image_cache
+      %p Wir empfehlen eine Bildgröße von ca 1920 x 300 Pixeln
     .m-form--row
       = f.submit t('.create_league_submit'), class: 'm-button m-box--button'

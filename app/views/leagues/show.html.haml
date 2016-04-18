@@ -1,7 +1,6 @@
-- content_for :league_header_image do
-  - if @league.league_header_image?
-    .m-header-image
-      = image_tag @league.league_header_image, alt: "header image"
+- content_for :header_image do
+  - if @league.header_image?
+    .m-header-image{style: "background-image: url(#{@league.header_image})"}
 - if @crawling_match
   .m-karl-crawl--wrapper{data: {behavior: 'overlay'}}
     .m-karl-crawl--close{data: {behavior: 'hide-overlay'}} X

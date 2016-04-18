@@ -2,19 +2,15 @@ CarrierWave.configure do |config|
   if Rails.env.production?
     config.storage = :fog
     config.fog_credentials = {
-      
-    }
-    config.fog_directory = "kicker-app-development"
+      provider: 'AWS',
+      region: 'eu-central-1',
+      aws_access_key_id: ENV["AWS_ACCESS_KEY_ID"],
+      aws_secret_access_key: ENV["AWS_ACCESS_KEY"]
+      }
+    config.fog_directory = ENV['AWS_BUCKET']
     config.fog_public = true
     config.fog_attributes = { 'Cache-Control' => "max-age=#{(60 * 60 * 24 * 30 * 6)}" } # ~6 months
   else
-    #config.storage = :file
-    config.storage = :fog
-    config.fog_credentials = {
-      
-    }
-    config.fog_directory = "kicker-app-development"
-    config.fog_public = true
-    config.fog_attributes = { 'Cache-Control' => "max-age=#{(60 * 60 * 24 * 30 * 6)}" } # ~6 months
+    config.storage = :file
   end
 end

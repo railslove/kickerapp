@@ -19,6 +19,7 @@
 *.DS_Store
 *.swo
 *.swp
+.env
 .bundle
 .sass-cache/
 bin/stubs

@@ -5,12 +5,7 @@ class LeagueHeaderImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  # process :scale => [800, 300]
-  # process resize_to_fit: [800, 300]
-
-  # def scale(width, height)
-  #   # do something
-  # end
+  process resize_to_fit: [1920, 1920]
 
   # version :thumb do
   #   process :resize_to_fit => [50, 50]

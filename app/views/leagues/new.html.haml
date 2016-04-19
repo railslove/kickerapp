@@ -1,5 +1,5 @@
 .c-league-new.m-box
-  = form_for @league, html: { class: 'm-form' } do |f|
+  = form_for @league, html: { class: 'm-form', multipart: true } do |f|
     .m-box--headline= t('.add_new_league')
     .m-form--row
       = f.label :name, class: 'm-label'
@@ -11,4 +11,9 @@
       = f.label :contact_email, class: 'm-label'
       = f.text_field :contact_email, class: 'm-input as-colored', placeholder: t('.contact_email')
     .m-form--row
-    = f.submit t('.create_league_submit'), class: 'm-button m-box--button'
+      = f.label :header_image, "Header Image:", class: 'm-label'
+      = f.file_field :header_image
+      = f.hidden_field :header_image_cache
+      %p Wir empfehlen eine Bildgröße von ca 1920 x 300 Pixeln
+    .m-form--row
+      = f.submit t('.create_league_submit'), class: 'm-button m-box--button'

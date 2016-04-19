@@ -1,6 +1,8 @@
 class League < ActiveRecord::Base
   BASE_SCORE = 1_200
 
+  mount_uploader :header_image, LeagueHeaderImageUploader
+
   has_many :history_entries
   has_many :matches
   has_many :teams

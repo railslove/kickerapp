@@ -19,6 +19,7 @@
 *.DS_Store
 *.swo
 *.swp
+.env
 .bundle
 .sass-cache/
 bin/stubs
@@ -27,6 +28,7 @@ db/*.sqlite3
 db/schema.rb
 log/*
 public/system
+public/uploads/
 rerun.txt
 tags
 tmp/*

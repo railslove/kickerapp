@@ -11,6 +11,7 @@ RailsAdmin.config do |config|
     field :created_at
     field :users
     field :contact_email
+    field :header_image, :carrierwave
   end
 
   config.model Match do

@@ -29,7 +29,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = current_league.users.find_by(id: params[:id])
+    redirect_to current_league and return unless @user
     @history_entries = @user.history_entries.order('date').last(100)
     @matches = @user.matches.first(20)
     @lowest_rank = current_league.history_entries.maximum(:rank)

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'ligen' => "leagues#index", as: 'ligen'
 
   get 'pebble_settings' => 'pages#pebble_settings'
-
+  get 'freckle_settings' => 'pages#freckle_pebble_settings'
   resources :matches, only: [:show]
   get "/auth/:provider/callback" => "users#create"
   get '/auth/failure' => 'users#omniauth_failure'

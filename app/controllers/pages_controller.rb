@@ -15,6 +15,14 @@ class PagesController < ApplicationController
     @leagues = League.by_matches
   end
 
+  def freckle_pebble_settings
+    if params[:config].present?
+      @pebble_config = JSON.load params[:config]
+      @token = @pebble_config["token"]
+    end
+    render layout: false
+  end
+
   def imprint
     render 'pages/static'
   end

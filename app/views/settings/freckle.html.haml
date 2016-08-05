@@ -1,0 +1,7 @@
+.b-settings--headline Freckle Settings
+= form_tag '#', class: 'm-form', id: 'freckle_settings_form' do |f|
+  .b-settings--row
+    = label_tag :token, 'Personal freckle token', class: 'm-label'
+    = text_field_tag :token, @token, class: 'm-input'
+  #cancel.b-settings--cancel Cancel
+  = submit_tag "Save", class: 'b-settings--button m-button'

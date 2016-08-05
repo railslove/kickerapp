@@ -20,7 +20,6 @@ class PagesController < ApplicationController
       @pebble_config = JSON.load params[:config]
       @token = @pebble_config["token"]
     end
-    render layout: false
   end
 
   def imprint

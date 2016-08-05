@@ -5,6 +5,7 @@ $ ->
     hash = url.substring(url.indexOf("#") + 1)
     options = JSON.parse decodeURIComponent(hash)
     $('#league').val options.league_slug
+    $('#token').val options.token
 
   $('#pebble_settings_form').submit (e) ->
     options =
@@ -17,3 +18,10 @@ $ ->
   $('#cancel').click (e) ->
     e.preventDefault()
     document.location = 'pebblejs://close'
+
+
+  $('#freckle_settings_form').submit (e) ->
+    options =
+      token: $('#token').val()
+    document.location = "pebblejs://close##{ encodeURIComponent JSON.stringify(options) }"
+    return false

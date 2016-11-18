@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   validates :image, length: { maximum: 255 }
 
   BADGES = %w{ crawling longest_winning most_teams winning_streak last_one crawler }
+  DEFAULT_QUOTA = 1200
 
   def number_of_games
     number_of_wins + number_of_losses
@@ -44,6 +45,41 @@ class User < ActiveRecord::Base
       s.first[0..1]
     end
   end
+
+  def update_stats
+    longest_winning_streak = 0
+    winning_streak = 0
+
+    self.attributes = { quota: DEFAULT_QUOTA , winning_streak: 0, number_of_wins: 0,
+      number_of_losses: 0, number_of_crawls: 0, number_of_crawlings: 0,
+      longest_winning_streak: 0 }
+
+    matches.by_user(id).order(date: :asc).each do |match|
+      if match.win_for?(self)
+        # increment winning_streak
+        winning_streak += 1
+
+        self.quota = quota + match.difference
+        self.number_of_crawls += 1 if match.crawling
+        self.number_of_wins += 1
+      else
+        # reset winning_streak
+        winning_streak = 0
+
+        self.quota = quota - match.difference
+        self.number_of_crawlings += 1 if match.crawling
+        self.number_of_losses += 1
+      end
+
+      longest_winning_streak = [winning_streak, longest_winning_streak].max
+    end
+
+    self.longest_winning_streak = longest_winning_streak
+    self.winning_streak = winning_streak
+
+    save
+  end
+
 
   def set_elo_quota(match)
     win = match.win_for?(self) ? 1 : 0

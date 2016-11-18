@@ -47,63 +47,17 @@ class User < ActiveRecord::Base
   end
 
   def update_stats
-    longest_winning_streak = 0
-    winning_streak = 0
-
-    self.attributes = { quota: DEFAULT_QUOTA , winning_streak: 0, number_of_wins: 0,
-      number_of_losses: 0, number_of_crawls: 0, number_of_crawlings: 0,
-      longest_winning_streak: 0 }
+    self.attributes = { quota: DEFAULT_QUOTA, winning_streak: 0,
+                        number_of_wins: 0, number_of_losses: 0,
+                        number_of_crawls: 0, number_of_crawlings: 0,
+                        longest_winning_streak_games: 0 }
 
     matches.by_user(id).order(date: :asc).each do |match|
-      if match.win_for?(self)
-        # increment winning_streak
-        winning_streak += 1
-
-        self.quota = quota + match.difference
-        self.number_of_crawls += 1 if match.crawling
-        self.number_of_wins += 1
-      else
-        # reset winning_streak
-        winning_streak = 0
-
-        self.quota = quota - match.difference
-        self.number_of_crawlings += 1 if match.crawling
-        self.number_of_losses += 1
-      end
-
-      longest_winning_streak = [winning_streak, longest_winning_streak].max
+      match.win_for?(self) ? match_won(match) : match_lost(match)
+      self.longest_winning_streak_games = [winning_streak, longest_winning_streak_games].max
     end
-
-    self.longest_winning_streak = longest_winning_streak
-    self.winning_streak = winning_streak
 
     save
-  end
-
-
-  def set_elo_quota(match)
-    win = match.win_for?(self) ? 1 : 0
-
-    quota_change = (win == 1) ? match.difference : -1 * match.difference
-
-    if match.crawling == true
-      if win == 1
-        self.number_of_crawls += 1
-      else
-        self.number_of_crawlings += 1
-      end
-    end
-
-    self.quota = self.quota + quota_change
-
-    if win == 1
-      self.number_of_wins += 1
-    else
-      self.number_of_losses += 1
-    end
-
-    self.save
-    calculate_current_streak!
   end
 
   def self.create_with_omniauth(auth, league = nil)
@@ -144,5 +98,23 @@ class User < ActiveRecord::Base
       end
     end
     self.save
+  end
+
+  private
+
+  def match_won(match)
+    self.winning_streak += 1
+
+    self.quota += match.difference
+    self.number_of_crawls += 1 if match.crawling
+    self.number_of_wins += 1
+  end
+
+  def match_lost(match)
+    self.winning_streak = 0
+
+    self.quota -= match.difference
+    self.number_of_crawlings += 1 if match.crawling
+    self.number_of_losses += 1
   end
 end

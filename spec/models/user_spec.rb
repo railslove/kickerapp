@@ -40,37 +40,34 @@ describe User, type: :model do
     end
   end
 
-  describe ".set_elo_quota" do
-    context "win" do
+  describe '.update_stats' do
+    before do
+      QuotaCalculator.stub(:elo_quota).and_return(5)
+    end
+
+    context 'win' do
       before do
-        QuotaCalculator.stub(:elo_quota).and_return(5)
+        # winner_team = Team.create(player1: subject)
+        @match = create(:match, winner_team: build(:team, player1: subject))
       end
-      it "calculates without crawling" do
-        match = double(win_for?: true, winner_team: double("w_team", elo_quota: 1200), loser_team: double("l_team", elo_quota: 1200), crawling: false, difference: 5)
-        allow(subject).to receive(:matches).and_return([double(win_for?: true)])
-        subject.set_elo_quota(match)
+      it 'calculates without crawling' do
         expect(subject.quota).to eql(1205)
       end
-      it "calculates with crawling (+5)" do
-        match = double(win_for?: true, winner_team: double("w_team", elo_quota: 1200), loser_team: double("l_team", elo_quota: 1200), crawling: true, difference: 10)
-        subject.set_elo_quota(match)
+      it 'calculates with crawling (+5)' do
+        @match.update(crawling: true)
         expect(subject.quota).to eql(1210)
-        expect(subject.number_of_crawls).to eql(2)
+        expect(subject.number_of_crawls).to eql(1)
       end
-      it "updates the difference on a match" do
-        match = FactoryGirl.create(:match, winner_team: FactoryGirl.create(:team), loser_team: FactoryGirl.create(:team))
-        Team.any_instance.stub(:elo_quota).and_return(1200)
-        subject.set_elo_quota(match)
-        expect(match.difference).to eql(5)
+      it 'updates the difference on a match' do
+        expect(@match.reload.difference).to eql(5)
       end
     end
-    context "lose" do
+
+    context 'lose' do
       before do
-        QuotaCalculator.stub(:elo_quota).and_return(-5)
+        @match = create(:match, loser_team: build(:team, player1: subject))
       end
-      it "calculates without crawling" do
-        match = double(win_for?: false, winner_team: double("w_team", elo_quota: 1200), loser_team: double("l_team", elo_quota: 1200), crawling: false, difference: 5)
-        subject.set_elo_quota(match)
+      it 'calculates without crawling' do
         expect(subject.quota).to eql(1195)
       end
     end

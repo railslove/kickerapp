@@ -40,13 +40,17 @@ describe MatchesController, type: :controller do
       expect(user.reload.winning_streak).to eql(1)
       expect(user2.reload.quota).to eql(1192)
     end
+
     it 'changes points if crawling changes' do
       allow(subject).to receive(:current_league).and_return(league)
-      patch :update, { id: match.id, league_id: league.id,  winner_score: '6', loser_score: '2', crawling: true }
-      expect(user.reload.quota).to eql(1213)
-      expect(user.reload.winning_streak).to eql(1)
-      expect(user2.reload.quota).to eql(1187)
+      patch :update, id: match.id, league_id: league.id, winner_score: '6', loser_score: '2', crawling: true
+      user.reload
+      user2.reload
+      expect(user.quota).to eql(1213)
+      expect(user.winning_streak).to eql(1)
+      expect(user2.quota).to eql(1187)
     end
+
     it 'swap teams if winner scored less scores then loser' do
       allow(subject).to receive(:current_league).and_return(league)
       patch :update, { id: match.id, league_id: league.id,  winner_score: '3', loser_score: '6', crawling: false }

@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   validates :image, length: { maximum: 255 }
 
   BADGES = %w{ crawling longest_winning most_teams winning_streak last_one crawler }
+  DEFAULT_QUOTA = 1200
 
   def number_of_games
     number_of_wins + number_of_losses
@@ -45,29 +46,18 @@ class User < ActiveRecord::Base
     end
   end
 
-  def set_elo_quota(match)
-    win = match.win_for?(self) ? 1 : 0
+  def update_stats
+    self.attributes = { quota: DEFAULT_QUOTA, winning_streak: 0,
+                        number_of_wins: 0, number_of_losses: 0,
+                        number_of_crawls: 0, number_of_crawlings: 0,
+                        longest_winning_streak_games: 0 }
 
-    quota_change = (win == 1) ? match.difference : -1 * match.difference
-
-    if match.crawling == true
-      if win == 1
-        self.number_of_crawls += 1
-      else
-        self.number_of_crawlings += 1
-      end
+    matches.by_user(id).order(date: :asc).each do |match|
+      match.win_for?(self) ? match_won(match) : match_lost(match)
+      self.longest_winning_streak_games = [winning_streak, longest_winning_streak_games].max
     end
 
-    self.quota = self.quota + quota_change
-
-    if win == 1
-      self.number_of_wins += 1
-    else
-      self.number_of_losses += 1
-    end
-
-    self.save
-    calculate_current_streak!
+    save
   end
 
   def self.create_with_omniauth(auth, league = nil)
@@ -108,5 +98,23 @@ class User < ActiveRecord::Base
       end
     end
     self.save
+  end
+
+  private
+
+  def match_won(match)
+    self.winning_streak += 1
+
+    self.quota += match.difference
+    self.number_of_crawls += 1 if match.crawling
+    self.number_of_wins += 1
+  end
+
+  def match_lost(match)
+    self.winning_streak = 0
+
+    self.quota -= match.difference
+    self.number_of_crawlings += 1 if match.crawling
+    self.number_of_losses += 1
   end
 end

@@ -27,13 +27,13 @@ class MatchesController < ApplicationController
     param = {}
     matches = create_matches_from_params(params)
     if !matches.map(&:errors).map(&:empty?).reduce(:&)
-      redirect_to new_league_match_path(current_league, params), alert: "#{t('matches.create.failure')} #{matches.map(&:errors).inspect}"
+      alert = "#{t('matches.create.failure')} #{matches.map(&:errors).inspect}"
+      redirect_to new_league_match_path(current_league, params), alert: alert
     else
-      matches.first.update_team_streaks
       if is_mobile_device?
-        redirect_to new_league_match_path(current_league, team1: params["team1"], team2: params["team2"], created: true)
+        redirect_to new_league_match_path(current_league, team1: params['team1'], team2: params['team2'], created: true)
       else
-        param[:crawl_id] = matches.select(&:crawling).last.id if matches.map(&:crawling).any?
+        param[:crawl_id] = matches.reverse.find(&:crawling).id if matches.map(&:crawling).any?
         redirect_to league_path(current_league, param), notice: t('.success')
       end
     end
@@ -45,7 +45,6 @@ class MatchesController < ApplicationController
 
   def update
     @match = Match.find(params[:id])
-    @match.revert_points
     if params[:winner_score].to_i < params[:loser_score].to_i
       @match.score = @match.score_for_set(params[:loser_score], params[:winner_score])
       @match.swap_teams
@@ -53,22 +52,19 @@ class MatchesController < ApplicationController
       @match.score = @match.score_for_set(params[:winner_score], params[:loser_score])
     end
     @match.crawling = params[:crawling]
-    @match.calculate_user_quotas
     current_league.update_badges
     if @match.save
-      @match.update_team_streaks
-      redirect_to league_path(current_league), notice: "Satz gespeichert."
+      redirect_to league_path(current_league), notice: 'Satz gespeichert.'
     else
-      flash.now[:alert] = "Satz konnte nicht gespeichert werden."
+      flash.now[:alert] = 'Satz konnte nicht gespeichert werden.'
       render :edit
     end
   end
 
   def destroy
     @match = Match.find(params[:id])
-    @match.revert_points
     @match.destroy
-    redirect_to league_path(current_league), notice: "Dieser Satz wurde gelöscht."
+    redirect_to league_path(current_league), notice: 'Dieser Satz wurde gelöscht.'
   end
 
   def shuffle

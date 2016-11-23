@@ -40,32 +40,59 @@ describe Match, type: :model do
     specify { expect(subject.crawling_for_set(crawling: true)).to eq(true) }
   end
 
-  describe '.revert_points' do
+  describe ".revert_points" do
     before do
-      @loser_player = FactoryGirl.create(:user)
-      @winner_player = FactoryGirl.create(:user)
-      @winner_team = FactoryGirl.create(:team, number_of_wins: 5, player1: @loser_player)
-      @loser_team = FactoryGirl.create(:team, number_of_losses: 5, player1: @winner_player)
-      @match = Match.create(difference: 5, winner_team: @winner_team, loser_team: @loser_team)
+      @match = Match.new(difference: 5)
+      @match.winner_team = FactoryGirl.create(:team, number_of_wins: 5)
+      @match.loser_team = FactoryGirl.create(:team, number_of_losses: 5)
+      @match.save
     end
 
     it 'subtracts the difference for the winner team' do
-      @match.reload.destroy
-      expect(@winner_team.player1.reload.quota).to eq(1200)
+      @match.winner_team.player1 = FactoryGirl.create(:user)
+      @match.loser_team.player1 = FactoryGirl.create(:user)
+      @match.revert_points
+      expect(@match.winner_team.users.select{|u| u.quota == 1192}.count).to eq(1)
     end
 
     it 'adds the difference for the loser team' do
-      @match.reload.destroy
-      expect(@loser_team.player1.reload.quota).to eq(1200)
+      @match.winner_team.player1 = FactoryGirl.create(:user)
+      @match.loser_team.player1 = FactoryGirl.create(:user)
+      @match.revert_points
+      expect(@match.loser_team.users.select{|u| u.quota == 1208}.count).to eq(1)
     end
 
-    it 'updates the counts for the teams' do
-      @match.reload.destroy
-      expect(@winner_team.reload.number_of_wins).to eq(0)
-      expect(@loser_team.reload.number_of_losses).to eq(0)
+    it "updates the counts for the teams" do
+      @match.loser_team.player1 = FactoryGirl.create(:user)
+      @match.winner_team.player1 = FactoryGirl.create(:user)
+      @match.revert_points
+      expect(@match.winner_team.number_of_wins).to eq(5)
+      expect(@match.loser_team.number_of_losses).to eq(5)
     end
   end
 
+  describe '.update_team_streaks' do
+    before do
+      @match = Match.new(difference: 5)
+      @match.winner_team = FactoryGirl.create(:team, number_of_wins: 5)
+      @match.loser_team = FactoryGirl.create(:team, number_of_losses: 5)
+      @match.winner_team.player1 = FactoryGirl.create(:user)
+      @match.loser_team.player1 = FactoryGirl.create(:user)
+      @match.save
+    end
+
+    it 'triggers all recalculations on all match users' do
+      allow(@match.winner_team.player1).to receive(:calculate_current_streak!)
+      allow(@match.winner_team.player1).to receive(:calculate_longest_streak!)
+      allow(@match.loser_team.player1).to receive(:calculate_current_streak!)
+      allow(@match.loser_team.player1).to receive(:calculate_longest_streak!)
+      @match.update_team_streaks
+      expect(@match.winner_team.player1).to have_received(:calculate_current_streak!)
+      expect(@match.winner_team.player1).to have_received(:calculate_longest_streak!)
+      expect(@match.loser_team.player1).to have_received(:calculate_current_streak!)
+      expect(@match.loser_team.player1).to have_received(:calculate_longest_streak!)
+    end
+  end
 
   describe ".swap_teams" do
     it "swaps winner and loser team" do

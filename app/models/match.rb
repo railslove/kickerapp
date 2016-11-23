@@ -11,12 +11,7 @@ class Match < ActiveRecord::Base
   validates :loser_team, presence: true
   validate :team_players_validation
 
-  before_create :calc_difference
-  before_update :calc_difference
-
-  after_create :update_stats
-  after_update :update_stats
-  after_destroy :update_stats
+  after_create :calculate_user_quotas
 
   scope :by_date, -> date { where("date::timestamp::date = ?", date) }
   scope :for_team, lambda { |team_id| where("(winner_team_id = #{team_id} OR loser_team_id = #{team_id})")}
@@ -58,24 +53,44 @@ class Match < ActiveRecord::Base
     winner_team == team ? loser_team : winner_team
   end
 
-  def calc_difference
-    quota_change = QuotaCalculator.elo_quota(winner_team.elo_quota, loser_team.elo_quota, 1)
-    quota_change += 5 if crawling
+  def calculate_user_quotas
+    quota_change = QuotaCalculator.elo_quota(winner_team.elo_quota, loser_team.elo_quota , 1 )
+
+    if self.crawling == true
+      quota_change = quota_change + 5
+    end
 
     self.difference = quota_change
+    self.save
+
+    self.users.each do |user|
+      user.set_elo_quota(self)
+    end
+
+    winner_team.update_attributes(number_of_wins: winner_team.number_of_wins + 1)
+    loser_team.update_attributes(number_of_losses: loser_team.number_of_losses + 1)
   end
 
-  def update_stats
-    update_user_stats
-    update_team_stats
+  def revert_points
+    winner_team.users.each do |winner|
+      winner.update_attributes(quota: (winner.quota - self.difference))
+    end
+    winner_team.update_attributes(number_of_wins: winner_team.number_of_wins - 1)
+
+    loser_team.users.each do |loser|
+      loser.update_attributes(quota: (loser.quota + self.difference))
+    end
+    loser_team.update_attributes(number_of_losses: loser_team.number_of_losses - 1)
+    self.save
   end
 
-  def update_user_stats
-    users.each(&:update_stats)
-  end
-
-  def update_team_stats
-    [winner_team, loser_team].each(&:update_stats)
+  def update_team_streaks
+    [ winner_team, loser_team ].each do |team|
+      team.users.each do |user|
+        user.calculate_current_streak!
+        user.calculate_longest_streak!
+      end
+    end
   end
 
   def swap_teams

@@ -14,13 +14,6 @@ class Team < ActiveRecord::Base
 
   scope :ranked, lambda { where('number_of_wins > 1 OR number_of_losses > 1')}
 
-  def update_stats
-    update_attributes(
-      number_of_wins: wins.count,
-      number_of_losses: losses.count
-    )
-  end
-
   def matches
     Match.for_team(self.id)
   end

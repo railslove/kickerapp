@@ -21,7 +21,8 @@ describe LeaguesController, type: :controller do
 
     context 'unsuccessful' do
       specify do
-        post :create, league: { name: 'Hammerwerfers Bocklemünd', slug: nil }
+        FactoryGirl.create(:league, slug: 'test')
+        post :create, league: { name: 'Hammerwerfers Bocklemünd', slug: 'test' }
         expect(response).to be_success
         expect(response).to render_template 'leagues/new'
         expect(flash[:alert]).to eql I18n.t('leagues.create.failure')

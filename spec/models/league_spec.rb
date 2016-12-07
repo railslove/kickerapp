@@ -16,4 +16,11 @@ describe League, type: :model do
     end
   end
 
+  describe 'create' do
+    it 'does not allow duplicated ' do
+      FactoryGirl.create(:league, slug: 'test')
+      expect { FactoryGirl.create(:league, slug: 'Test') }.to raise_error(ActiveRecord::RecordInvalid)
+    end
+  end
+
 end

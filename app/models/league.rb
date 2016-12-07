@@ -12,7 +12,7 @@ class League < ActiveRecord::Base
   validates :slug, presence: true, uniqueness: true
   validates :contact_email, presence: true
 
-  before_save :sanitize_slug
+  before_validation :sanitize_slug
 
   scope :by_matches, lambda { order('matches_count DESC') }
 

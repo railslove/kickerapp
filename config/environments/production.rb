@@ -82,7 +82,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: 'smtp.mandrillapp.com',
     authentication: 'login', # Mandrill supports 'plain' or 'login'
-    domain: 'kicker.cool',
+    domain: 'railslove.com',
     enable_starttls_auto: true, # detects and uses STARTTLS
     password: ENV['MANDRILL_PASSWORD'],
     port: 587, # ports 587 and 2525 are also supported with STARTTLS

@@ -15,7 +15,11 @@ class LeaguesController < ApplicationController
     @league = League.new(league_params)
     if @league.save
       set_current_league(@league.slug)
-      AdminMailer.new_league(@league.id).deliver
+      begin
+        AdminMailer.new_league(@league.id).deliver
+      rescue
+        notify_airbrake('Admin Mail could not be send')
+      end
       redirect_to new_league_user_path(@league), notice: t('leagues.create.success')
     else
       flash.now[:alert] = t('leagues.create.failure')

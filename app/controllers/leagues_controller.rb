@@ -17,8 +17,8 @@ class LeaguesController < ApplicationController
       set_current_league(@league.slug)
       begin
         AdminMailer.new_league(@league.id).deliver
-      rescue
-        notify_airbrake('Admin Mail could not be send')
+      rescue => e
+        notify_airbrake(e, error_message: 'Admin Mail could not be send')
       end
       redirect_to new_league_user_path(@league), notice: t('leagues.create.success')
     else

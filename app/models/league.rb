@@ -90,4 +90,8 @@ class League < ActiveRecord::Base
   def reset_all_user_badges
     users.update_all(most_wins: false, top_crawler: false, worst_crawler: false, longest_winning_streak: false, most_teams: false, longest_winning_streak_ever: false )
   end
+
+  def reset_user_accounts
+    users.update_all(quota: 1200, winning_streak: 0, number_of_crawls: 0, number_of_crawlings: 0, longest_winning_streak_games: 0 )
+  end
 end

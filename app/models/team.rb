@@ -6,7 +6,7 @@ class Team < ActiveRecord::Base
 
   validate :players_validation
 
-  scope :for_user, lambda { |user1_id| where("(player1_id = #{user1_id} OR player2_id = #{user1_id})")}
+  scope :for_user, lambda { |user1_id| where("(player1_id = #{user1_id} OR player2_id = #{user1_id})") if user1_id.presence }
   scope :for_single_user, lambda { |user1_id| where("(player1_id = #{user1_id} AND player2_id IS NULL)")}
   scope :for_doubles, lambda { where("(player1_id IS NOT NULL AND player2_id IS NOT NULL)")}
 

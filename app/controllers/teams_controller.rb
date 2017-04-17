@@ -2,7 +2,7 @@ class TeamsController < ApplicationController
   before_filter :require_league
 
   def index
-    @teams = current_league.team_ranking
+    @teams = current_league.team_ranking(params.fetch(:filter, {}))
   end
 
   def show

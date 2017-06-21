@@ -6,12 +6,18 @@ RailsAdmin.config do |config|
   end
 
   config.model League do
+    configure :user_count do
+      formatted_value do
+          bindings[:object].users.count
+      end
+    end
     field :name
     field :slug
-    field :created_at
     field :users
     field :contact_email
     field :matches_count
+    field :user_count
+    field :created_at
     field :updated_at
     field :header_image, :carrierwave
   end

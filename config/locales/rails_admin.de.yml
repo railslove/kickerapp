@@ -1,5 +1,6 @@
 de:
   admin:
+    toggle_navigation: Toogle
     js:
       true: True
       false: False

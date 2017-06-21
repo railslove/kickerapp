@@ -11,6 +11,8 @@ RailsAdmin.config do |config|
     field :created_at
     field :users
     field :contact_email
+    field :matches_count
+    field :updated_at
     field :header_image, :carrierwave
   end
 

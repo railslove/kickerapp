@@ -20,7 +20,7 @@ RailsAdmin.config do |config|
     field :created_at
     field :updated_at do
       pretty_value do
-        date = bindings[:object].matches.try(:last).try(:date) || bindings[:object].updated_at
+        date = bindings[:object].matches.try(:first).try(:date) || bindings[:object].updated_at
         I18n.l(date)
       end
     end

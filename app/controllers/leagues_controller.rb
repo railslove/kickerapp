@@ -15,6 +15,9 @@ class LeaguesController < ApplicationController
     @league = League.new(league_params)
     if @league.save
       set_current_league(@league.slug)
+      tracker do |t|
+        t.google_analytics :send, { type: 'event', category: 'league', action: 'create', label: @league.name, value: @league.contact_email}
+      end
       begin
         AdminMailer.new_league(@league.id).deliver
       rescue => e

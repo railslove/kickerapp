@@ -12,6 +12,11 @@ class UsersController < ApplicationController
     auth = request.env["omniauth.auth"]
     if auth.present?
       user = User.find_by_provider_and_uid_and_league_id(auth["provider"], auth["uid"], current_league.id) || User.create_with_omniauth(auth, current_league)
+
+      tracker do |t|
+        t.google_analytics :send, { type: 'event', category: 'user', action: 'create', label: current_league.name, value: user.name}
+      end
+
       redirect_to new_league_match_url(current_league), notice: t('.success', user_name: user.name, league_name: current_league.name)
     else
       @user = User.new(user_params.merge({league: current_league}))

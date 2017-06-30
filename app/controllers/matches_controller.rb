@@ -30,6 +30,9 @@ class MatchesController < ApplicationController
       redirect_to new_league_match_path(current_league, params), alert: "#{t('matches.create.failure')} #{matches.map(&:errors).inspect}"
     else
       matches.first.update_team_streaks
+      tracker do |t|
+        t.google_analytics :send, { type: 'event', category: 'match', action: 'create', label: current_league.name, value: matches.map(&:crawling).any?}
+      end
       if is_mobile_device?
         redirect_to new_league_match_path(current_league, team1: params["team1"], team2: params["team2"], created: true)
       else

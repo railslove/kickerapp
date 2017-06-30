@@ -39,7 +39,14 @@ de:
         Das Wertungssystem der App beruht auf einer leicht angewandelten Version der Elo-Zahl, welches ursprünglich für die Schach-Weltrangliste entwickelt wurde, aber mittlerweile vielfältig eingesetzt wird.
       teaser: |
         Kostenlos eine eigene Liga anlegen, Freunde und Kollegen als Mitspieler hinzufügen und gegeneinander um die besten Plätze kickern.
-
+      best:
+        longest_winning_streak: Längste Serie
+        most_points: Meiste Punkte
+        most_games: Meisten Spiele
+        name: Name
+        league: Liga
+        games: Spiele
+        wins: Siege
   users:
     create:
       success: "%{user_name} ist der Liga %{league_name} beigetreten!"

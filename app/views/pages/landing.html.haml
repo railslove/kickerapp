@@ -59,4 +59,47 @@
         = t('.ranking_headline')
       .c-landing--headline--text= t('.ranking_text')
 
+    .c-landing-people
+      .c-landing-person.m-profile-basics
+        %h4= t('.best.most_points')
+        .m-user.as-selected.m-profile-basics--user= user_image(@point_user, '115x115')
+        .m-profile-basics--values
+          .m-profile-basics--value
+            %span= t('.best.name')
+            = @point_user.name
+          .m-profile-basics--value
+            %span= t('.best.league')
+            = @point_user.league.name
+          .m-profile-basics--value
+            %span= t('common.points')
+            = @point_user.quota
+      .c-landing-person.m-profile-basics
+        %h4= t('.best.most_games')
+        .m-user.as-selected.m-profile-basics--user= user_image(@game_user, '115x115')
+        .m-profile-basics--values
+          .m-profile-basics--value
+            %span= t('.best.name')
+            = @game_user.name
+          .m-profile-basics--value
+            %span= t('.best.league')
+            = @game_user.league.name
+          .m-profile-basics--value
+            %span= t('.best.games')
+            = @game_user.number_of_games
+            = "(#{@game_user.number_of_wins}/#{@game_user.number_of_losses})"
+
+      .c-landing-person.m-profile-basics
+        %h4= t('.best.longest_winning_streak')
+        .m-user.as-selected.m-profile-basics--user= user_image(@longest_user, '115x115')
+        .m-profile-basics--values
+          .m-profile-basics--value
+            %span= t('.best.name')
+            = @longest_user.name
+          .m-profile-basics--value
+            %span= t('.best.league')
+            = @longest_user.league.name
+          .m-profile-basics--value
+            %span= t('.best.wins')
+            = @longest_user.longest_winning_streak_games
+
 / = render 'layouts/social'

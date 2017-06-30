@@ -4,7 +4,9 @@ class PagesController < ApplicationController
   http_basic_authenticate_with name: "kicker", password: (ENV['ADMIN_PASS'] || 'secret_password'), only: :kpis unless Rails.env.development?
 
   def landing
-
+    @point_user = User.order(quota: :desc).first
+    @game_user = User.order("number_of_wins + number_of_losses desc").first
+    @longest_user = User.order(longest_winning_streak_games: :desc).first
   end
 
   def pebble_settings

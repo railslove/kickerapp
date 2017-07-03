@@ -8,7 +8,6 @@ describe LeaguesController, type: :controller do
 
     context 'successful' do
       before do
-        expect(AdminMailer).to receive_message_chain(:new_league, :deliver)
         expect(controller).to receive(:set_current_league).with('hammerwerfers-bockenbruch')
       end
 

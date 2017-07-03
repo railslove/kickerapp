@@ -22,7 +22,7 @@ class UsersController < ApplicationController
       @user = User.new(user_params.merge({league: current_league}))
       if @user.save
         tracker do |t|
-          t.google_analytics :send, { type: 'event', category: 'user', action: 'create', label: current_league.name, value: user.name}
+          t.google_analytics :send, { type: 'event', category: 'user', action: 'create', label: current_league.name, value: @user.name}
         end
         redirect_to new_league_match_url(current_league), notice: t('.success', user_name: @user.name, league_name: current_league.name)
       else

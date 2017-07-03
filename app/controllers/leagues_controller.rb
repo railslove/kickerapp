@@ -18,11 +18,7 @@ class LeaguesController < ApplicationController
       tracker do |t|
         t.google_analytics :send, { type: 'event', category: 'league', action: 'create', label: @league.name, value: @league.contact_email}
       end
-      begin
-        AdminMailer.new_league(@league.id).deliver
-      rescue => e
-        # notify_airbrake(e, error_message: 'Admin Mail could not be send')
-      end
+      LeagueMailer.welcome(@league, I18n.locale).deliver
       redirect_to new_league_user_path(@league), notice: t('leagues.create.success')
     else
       flash.now[:alert] = t('leagues.create.failure')

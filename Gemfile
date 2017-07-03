@@ -27,10 +27,11 @@ gem "omniauth-twitter"
 gem "omniauth-facebook"
 gem 'rails_admin'
 gem 'pebble_timeline'
-gem 'chameleon', git: 'https://github.com/stephanpavlovic/chameleon.git' #path: '/Users/stephanpavlovic/code/chameleon' 
+gem 'chameleon', git: 'https://github.com/stephanpavlovic/chameleon.git' #path: '/Users/stephanpavlovic/code/chameleon'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
+gem 'mandrill_mailer'
 
 group :development do
   gem 'better_errors'

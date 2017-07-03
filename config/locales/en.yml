@@ -65,6 +65,9 @@ en:
     texts:
       badges: Players can earn badges - some for good, others for less good performances at the foosball table. Challenge your mates and colleagues who can collect most badges - happy hunting!
       evaluation: The rating is based on a slightly modified version of the ELO chess rating system, which is used more and more in games other than chess.
+  league_mailer:
+    welcome:
+      subject: Welcome at Kicker.cool
   matches:
     non_yet: Your matches will appear here. Go play some foosball and enter your results!
   ranking:

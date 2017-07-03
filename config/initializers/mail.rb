@@ -8,6 +8,6 @@ ActionMailer::Base.smtp_settings = {
 ActionMailer::Base.delivery_method = :smtp
 
 MandrillMailer.configure do |config|
-  config.api_key = Rails.application.secrets.mandrill_key
+  config.api_key = ENV['MANDRILL_KEY'] || Rails.application.secrets.mandrill_key
   config.deliver_later_queue_name = :default
 end

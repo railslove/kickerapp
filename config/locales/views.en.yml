@@ -38,7 +38,7 @@ en:
       ranking_text: |
         Our ranking algorithm is a slightly modified version of of the Elo rating system, which was originally developed for the chess world ranking list.
       teaser: |
-        Start your own league for free! Invite your friends and colleagues to see who's best at foosball and can earn the most badges.
+        Start your own league for free! Invite your friends and colleagues to see who's best and can earn the most badges.
       best:
         longest_winning_streak: Longest winning streak
         most_points: Most points

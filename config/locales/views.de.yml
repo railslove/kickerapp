@@ -2,7 +2,7 @@ de:
   layouts:
     header:
       badges: Badges
-      match_maker: Zufallsteams
+      match_maker: Zufallsdoppel
       ranking: Ranking
       team_ranking: Team Ranking
 
@@ -38,7 +38,7 @@ de:
       ranking_text: |
         Das Wertungssystem der App beruht auf einer leicht angewandelten Version der Elo-Zahl, welches ursprünglich für die Schach-Weltrangliste entwickelt wurde, aber mittlerweile vielfältig eingesetzt wird.
       teaser: |
-        Kostenlos eine eigene Liga anlegen, Freunde und Kollegen als Mitspieler hinzufügen und gegeneinander um die besten Plätze kickern.
+        Kostenlos eine eigene Liga anlegen, Freunde und Kollegen als Mitspieler hinzufügen und gegeneinander um die besten Plätze spielen.
       best:
         longest_winning_streak: Längste Siegeserie
         most_points: Meisten Punkte

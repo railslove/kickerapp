@@ -8,7 +8,8 @@ class LeagueMailer < BaseMailer
         to: league.contact_email,
         bcc: 'kicker@railslove.com',
         vars: {
-          'LEAGUE_NAME': league.name.capitalize
+          'LEAGUE_NAME': league.name.capitalize,
+          'LINK': league_url(league)
         },
         important: true
       })

@@ -77,7 +77,7 @@ feature 'view a league\'s badges page' do
       within '.m-badge.as-most_teams' do
         expect(page).to have_content 'P2'
         expect(page).to have_content '6'
-        expect(page).to have_content 'Ist sich für nichts zu schade. Meisten Teams.'
+        expect(page).to have_content 'Ist sich für nichts zu schade. Meisten Doppelpartner.'
       end
     end
   end

@@ -1,7 +1,7 @@
 %footer.l-footer
   .l-footer--wrapper
     .karl-kicker{ data: { behavior: 'trigger-chat'} }
-      .karl-kicker--text= t('footer.karl_kicker_text')
+      .karl-kicker--text= pingpong? ? t('footer.peter_pingpong_text') : t('footer.karl_kicker_text')
       = svg_tag('karl_kicker.svg')
     .c-footer-content
       %div= t('footer.created_by')
@@ -14,7 +14,7 @@
         .c-footer-link= link_to t('common.leagues'), ligen_path, class: 'm-link'
       .c-sharing
         - url = url_for(:only_path => false)
-        %a.c-sharing--button.as-facebook{ data: { behavior: 'fb-share-page', link: url, caption: t('meta.title') } }
+        %a.c-sharing--button.as-facebook{ data: { behavior: 'fb-share-page', link: url, caption: meta_title } }
           %i.icon-facebook
           = t('common.share')
         = link_to "http://twitter.com/share?text=@kicker_cool&url=#{url}", class: 'c-sharing--button as-twitter', data: { behavior: 'js-link' } do

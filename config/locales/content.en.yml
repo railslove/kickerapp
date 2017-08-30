@@ -1,7 +1,11 @@
 en:
   meta:
-    title: "Kicker App - The foosball league app for all foosball lovers!"
-    description: "Start your own league for free! Invite your friends and colleagues to see who's best at foosball and can earn the most badges."
+    kicker:
+      title: "Kicker App - The foosball league app for all foosball lovers!"
+      description: "Start your own league for free! Invite your friends and colleagues to see who's best at foosball and can earn the most badges."
+    pingpong:
+      title: "Pingpong App - The league app for all tabletennis lovers!"
+      description: "Start your own league for free! Invite your friends and colleagues to see who's best at foosball and can earn the most badges."
   static:
     faq:
       headline: FAQs

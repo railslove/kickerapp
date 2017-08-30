@@ -5,21 +5,18 @@
   background: $white
   clear: both
   .m-match
-    float: left
-    margin-right: 90px
     margin-bottom: $padding
-    &:nth-child(2n)
-      margin-right: 0
   +breakpoint($mobile)
     .m-match
       margin-right: 0
       margin-bottom: 10px
-      &.as-single
-        margin-right: 45%
 .m-match-list--group
   +clearfix
   margin-bottom: $margin
   border-bottom: 1px solid $blue
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
 .m-match-list--headline
   clear: both
   color: $blue
@@ -45,8 +42,8 @@
           width: 60px
   .m-match--score
     background: $white
-    width: 50px
-    height: 50px
+    width: 56px
+    height: 56px
     text-align: center
     border-radius: 100%
     z-index: 2
@@ -54,13 +51,16 @@
     position: absolute
     left: calc(50% - 25px)
     top: 20px
-    padding-top: 5px
     transition: 0.1s ease-in-out all
+    font-size: 15px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    box-shadow: 0 0 8px #CCC
     .m-match--score--difference
-      font-size: 16px
       color: $green
       position: relative
-      top: -5px
+      top: 0px
       transition: 0.1s ease-in-out all
     &.as-winner, &.as-loser
       color: $white
@@ -77,23 +77,23 @@
     text-align: center
     clear: both
     position: relative
+    display: flex
     .m-link
+      flex: 1
       color: $white
       background: $red
-      width: 33%
       display: block
-      float: left
       text-align: center
       border: 1px solid $white
       box-sizing: border-box
+      font-size: 14px
+      padding: 5px
       &.as-facebook
         background: $facebook-blue
       &.as-twitter
         background: $twitter-blue
   +fade_in(".m-match--actions", 0.5s)
   &.as-single
-    margin-right: 250px
-    width: 170px
     +breakpoint($mobile)
       .m-match--score
         left: 40px
@@ -119,7 +119,7 @@
     .m-match--score
       width: 70px
       height: 70px
-      font-size: 26px
+      font-size: 24px
       top: 10px
       left: calc(50% - 35px)
       .m-match--score--difference

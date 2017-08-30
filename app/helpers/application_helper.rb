@@ -78,4 +78,16 @@ module ApplicationHelper
     end
   end
 
+  def pingpong?
+    ENV['game_type'] == 'pingpong'
+  end
+
+  def meta_title
+    I18n.t("meta.#{ENV['game_type']}.title")
+  end
+
+  def meta_description
+    I18n.t("meta.#{ENV['game_type']}.description")
+  end
+
 end

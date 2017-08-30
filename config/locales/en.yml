@@ -43,16 +43,17 @@ en:
       crawler: |
         "Has their second home under the table" - suffered the most losses with crawling.
       longest_winning: The trophy - for the longest winning streak of all time.
-      most_teams: The team badge - no one's played in more different teams.
+      most_teams: The doubles badge - no one's played in more different doubles.
       last_one: The tail light - the league's lowest-ranked player.
       winning_streak: The rocket - marking the longest current winning streak.
   features:
-    ranking: The team ranking page shows your best foosball partner, previous scores, percentage of won games and all the matches you played together.
+    ranking: The team ranking page shows your best partner, previous scores, percentage of won games and all the matches you played together.
     stats: The player stats contain various information about all the players. The scoring history presents the exact score and ranking of the last 100 matches. Furthermore it shows the number of won and lost games and how often the player sent an opponent crawling under the table or had to do the crawl-of-shame themselves. The highest and lowest ELO rating and the longest winning streak is shown in the stats as well.
-    teams: "The random team generator helps you find a new match partner if you want to play with someone else for a change. Just pick as many players as you want out of the players list and random teams will matched up against each other."
+    teams: "The random team generator helps you find a new match partner if you want to play with someone else for a change. Just pick as many players as you want out of the players list and random doubles will matched up against each other."
   footer:
     created_by: Created with love by
     karl_kicker_text: "Hey there, I'm Karl. Karl Kicker! How can I help you?"
+    peter_pingpong_text: "Hey there, I'm Peter. Peter Pingpong! How can I help you?"
   karl:
     crawling: Someone was crawling under the table! I think the world should know.
     sharing: "Crawling alarm! %{winner} send %{loser} under the table."
@@ -69,7 +70,7 @@ en:
     welcome:
       subject: Welcome at Kicker.cool
   matches:
-    non_yet: Your matches will appear here. Go play some foosball and enter your results!
+    non_yet: Your matches will appear here. Go play and enter your results!
   ranking:
     inactive: This is the list of recent matches. You've either not entered any matches or your last match's older than 2 weeks.
     non_yet: This is your ranking table. It seems you haven't played any matches yet.

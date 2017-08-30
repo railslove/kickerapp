@@ -1,7 +1,11 @@
 de:
   meta:
-    title: "Kicker Cool - Die Kickerligen-App für alle Tischfussballfreunde!"
-    description: "Erstelle kostenlos deine eigene Liga. Lade deine Freunde und Kollegen ein und schon könnt ihr sehen wer die meisten Badges erspielt."
+    kicker:
+      title: "Kicker Cool - Die Kickerligen-App für alle Tischfussballfreunde!"
+      description: "Erstelle kostenlos deine eigene Liga. Lade deine Freunde und Kollegen ein und schon könnt ihr sehen wer die meisten Badges erspielt."
+    pingpong:
+      title: "Pingpong Cool - Die Ligen-App für alle Tischtennisfreunde!"
+      description: "Erstelle kostenlos deine eigene Liga. Lade deine Freunde und Kollegen ein und schon könnt ihr sehen wer die meisten Badges erspielt."
   static:
     faq:
       headline: FAQs
@@ -56,7 +60,7 @@ de:
 
         Registergericht: Amtsgericht Köln, HRB 70843
         <br/>
-        Geschäftsführer: Michael Bumann, Jan Kus, Tim Schneider
+        Geschäftsführer: Jan Kus, Tim Schneider
         <br/>
         Inhaltlich Verantwortliche gemäß TMG und § 55 Abs. 2 RStV: Railslove GmbH (Anschrift wie oben)
         <br/>

@@ -18,7 +18,7 @@ module Kickerapp
       generate.view_specs false
     end
 
-    ENV['game_type'] ||= 'kicker'
+    ENV['GAME_TYPE'] ||= 'kicker'
 
     # make sure that vendor fonts are precompiled by the asset pipeline. same thing that the fontello_rails_converter gem does, but like this we don't need to load it in production
     config.assets.paths << Rails.root.join('vendor', 'assets', 'fonts')

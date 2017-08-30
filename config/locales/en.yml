@@ -68,7 +68,10 @@ en:
       evaluation: The rating is based on a slightly modified version of the ELO chess rating system, which is used more and more in games other than chess.
   league_mailer:
     welcome:
-      subject: Welcome at Kicker.cool
+      kicker:
+        subject: Welcome at Kicker.cool
+      pingpong:
+        subject: Welcome at Pingpong.cool
   matches:
     non_yet: Your matches will appear here. Go play and enter your results!
   ranking:

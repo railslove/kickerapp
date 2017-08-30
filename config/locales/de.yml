@@ -65,7 +65,10 @@ de:
       evaluation: Das Wertungssystem der App beruht auf einer leicht angewandelten Version der Elo-Zahl, welches ursprünglich für die Schach-Weltrangliste entwickelt wurde, aber mittlerweile vielfältig eingesetzt wird
   league_mailer:
     welcome:
-      subject: Herzlich Willkommen bei Kicker.cool
+      kicker:
+        subject: Herzlich Willkommen bei Kicker.cool
+      pingpong:
+        subject: Herzlich Willkommen bei Pingpong.cool
   matches:
     non_yet: 'Hier erscheinen eure Spiele, sobald ihr welche eingetragen habt.'
   ranking:

@@ -23,7 +23,7 @@
     = csrf_meta_tags
     = render 'layouts/favicons'
 
-  %body{class: controller_name, id: "#{controller_name}_#{action_name}"}
+  %body{class: "#{controller_name} #{ENV['GAME_TYPE']}-type", id: "#{controller_name}_#{action_name}"}
     = yield
     = render 'layouts/footer'
     = render 'layouts/javascript'

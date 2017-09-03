@@ -49,7 +49,7 @@
     z-index: 2
     color: $black
     position: absolute
-    left: calc(50% - 25px)
+    left: calc(50% - 28px)
     top: 20px
     transition: 0.1s ease-in-out all
     font-size: 15px
@@ -71,7 +71,7 @@
     &.as-loser
       background: $red
     +breakpoint($mobile)
-      top: 10px
+      top: 7px
   .m-match--actions
     +pie-clearfix
     text-align: center
@@ -117,10 +117,5 @@
           display: none
   &:hover
     .m-match--score
-      width: 70px
-      height: 70px
-      font-size: 24px
-      top: 10px
-      left: calc(50% - 35px)
-      .m-match--score--difference
-        font-size: 20px
+      transform: scale(1.25);
+      transform-origin: center 70%;

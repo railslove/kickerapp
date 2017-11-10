@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.2.3'
+ruby '2.3.4'
 
-gem 'airbrake'
+gem 'sentry-raven'
 gem 'uglifier'
 gem 'coffee-rails'
 gem "compass-rails"

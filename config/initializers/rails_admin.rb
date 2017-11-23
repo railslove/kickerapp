@@ -8,8 +8,8 @@ RailsAdmin.config do |config|
   config.model League do
     field :name
     field :slug
-    field :users
     field :contact_email
+    field :user_count
     field :created_at do
       pretty_value do
         I18n.l(bindings[:object].created_at, format: '%Y/%m/%d')
@@ -23,6 +23,21 @@ RailsAdmin.config do |config|
       end
     end
     field :header_image, :carrierwave
+    list do
+      field :name
+      field :slug
+      field :contact_email
+      field :users do
+        formatted_value do
+            bindings[:object].users.count
+        end
+      end
+      field :matches do
+        formatted_value do
+            bindings[:object].matches.count
+        end
+      end
+    end
   end
 
   config.model Match do

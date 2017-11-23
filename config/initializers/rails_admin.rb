@@ -6,17 +6,10 @@ RailsAdmin.config do |config|
   end
 
   config.model League do
-    configure :user_count do
-      formatted_value do
-          bindings[:object].users.count
-      end
-    end
     field :name
     field :slug
     field :users
     field :contact_email
-    field :matches_count
-    field :user_count
     field :created_at do
       pretty_value do
         I18n.l(bindings[:object].created_at, format: '%Y/%m/%d')

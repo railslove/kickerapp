@@ -1,15 +1,16 @@
-module ApplicationHelper
+# frozen_string_literal: true
 
-  def user_image(user, size='80x80')
+module ApplicationHelper
+  def user_image(user, size = '80x80')
     if user.image.present?
       image_tag("https://ungif.apps.railslabs.com/ungif?url=#{user.image}&size=#{size}", class: 'm-user-image')
     else
       color = Digest::MD5.hexdigest(user.name).first(6)
-      content_tag :div, class: 'm-user-image as-default ', 'data-fill'=>  "##{color}" do
-        image=content_tag :div, class: 'm-user-image--default-image' do
+      content_tag :div, class: 'm-user-image as-default ', 'data-fill' => "##{color}" do
+        image = content_tag :div, class: 'm-user-image--default-image' do
           raw(svg_tag('default_user.svg').gsub('fill="#E6B212"', "fill=##{color}"))
         end
-        name=content_tag :div, class: 'm-user-image--default-name' do
+        name = content_tag :div, class: 'm-user-image--default-name' do
           user.short_name
         end
         concat(image)
@@ -27,12 +28,12 @@ module ApplicationHelper
     current_league.present?
   end
 
-  def facebook_connect_path(league)
-    "/auth/facebook"
+  def facebook_connect_path(_league)
+    '/auth/facebook'
   end
 
-  def twitter_connect_path(league)
-    "/auth/twitter"
+  def twitter_connect_path(_league)
+    '/auth/twitter'
   end
 
   def positive_negative(difference)
@@ -40,7 +41,7 @@ module ApplicationHelper
   end
 
   def signed(number)
-    sprintf("%+d", number)
+    format('%+d', number)
   end
 
   def match_css_classes(match, difference)
@@ -50,18 +51,18 @@ module ApplicationHelper
   end
 
   def svg_tag(path)
-    file = File.open("#{Rails.root}/app/assets/images/#{path}", "rb")
+    file = File.open("#{Rails.root}/app/assets/images/#{path}", 'rb')
     raw(file.read)
   end
 
   def other_locale(locale)
     case locale
-      when :de
-        :en
-      when :en
-        :de
-      else
-        I18n.default_locale
+    when :de
+      :en
+    when :en
+      :de
+    else
+      I18n.default_locale
       end
   end
 
@@ -89,5 +90,4 @@ module ApplicationHelper
   def meta_description
     I18n.t("meta.#{ENV['GAME_TYPE']}.description")
   end
-
 end

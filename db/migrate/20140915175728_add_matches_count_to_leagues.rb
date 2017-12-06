@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddMatchesCountToLeagues < ActiveRecord::Migration
   def change
     add_column :leagues, :matches_count, :integer, default: 0

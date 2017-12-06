@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FixSpellingOfLose < ActiveRecord::Migration
   def change
     rename_column :users, :number_of_looses, :number_of_losses

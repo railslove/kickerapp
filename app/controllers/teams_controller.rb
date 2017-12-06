@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TeamsController < ApplicationController
   before_filter :require_league
 
@@ -9,5 +11,4 @@ class TeamsController < ApplicationController
     @team = current_league.teams.find(params[:id])
     @matches = @team.matches.page(params[:page]).per(params[:per_page] || 25)
   end
-
 end

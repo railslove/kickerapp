@@ -1,11 +1,9 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 require 'spec_helper'
 
 describe LeaguesController, type: :controller do
-
   describe '#create' do
-
     context 'successful' do
       before do
         expect(controller).to receive(:set_current_league).with('hammerwerfers-bockenbruch')
@@ -27,7 +25,6 @@ describe LeaguesController, type: :controller do
         expect(flash[:alert]).to eql I18n.t('leagues.create.failure')
       end
     end
-
   end
 
   describe 'index' do
@@ -37,14 +34,14 @@ describe LeaguesController, type: :controller do
       session[:league_slug] = 'the-league'
       get :index
     end
-    it{ expect(session[:league_slug]).to be_nil }
-    it{ expect(assigns[:leagues]).to match_array [league1, league2] }
+    it { expect(session[:league_slug]).to be_nil }
+    it { expect(assigns[:leagues]).to match_array [league1, league2] }
   end
 
   describe 'new' do
     before { get :new }
-    it{ expect(response).to be_success }
-    it{ expect(response).to render_template 'leagues/new' }
+    it { expect(response).to be_success }
+    it { expect(response).to render_template 'leagues/new' }
   end
 
   describe 'show' do
@@ -56,11 +53,11 @@ describe LeaguesController, type: :controller do
         expect(controller).to receive(:set_current_league).with('the-league')
         get :show, id: 'the-league'
       end
-      it{ expect(response).to be_success }
-      it{ expect(response).to render_template 'leagues/show' }
-      it{ expect(assigns[:league]).to eql league }
-      it{ expect(assigns[:matches]).to include match1 }
-      it{ expect(assigns[:matches]).to include match2 }
+      it { expect(response).to be_success }
+      it { expect(response).to render_template 'leagues/show' }
+      it { expect(assigns[:league]).to eql league }
+      it { expect(assigns[:matches]).to include match1 }
+      it { expect(assigns[:matches]).to include match2 }
     end
     it 'marks a newly added crawling_match' do
       get :show, id: 'the-league', crawl_id: match1.id
@@ -74,9 +71,8 @@ describe LeaguesController, type: :controller do
       expect(controller).to receive(:set_current_league).with('the-league')
       get :badges, id: 'the-league'
     end
-    it{ expect(response).to be_success }
-    it{ expect(response).to render_template 'leagues/badges' }
-    it{ expect(assigns[:league]).to eql league }
+    it { expect(response).to be_success }
+    it { expect(response).to render_template 'leagues/badges' }
+    it { expect(assigns[:league]).to eql league }
   end
-
 end

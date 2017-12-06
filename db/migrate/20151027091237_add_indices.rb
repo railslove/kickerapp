@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddIndices < ActiveRecord::Migration
   def change
     # Create a sorted index to minimize result set size when counting data from past 2 weeks

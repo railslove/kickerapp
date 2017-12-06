@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 ActionMailer::Base.smtp_settings = {
-    :address   => "smtp.mandrillapp.com",
-    :port      => 587,
-    :user_name => 'railslove',
-    :password  => Rails.application.secrets.mandrill_key,
-    :domain    => 'railslove.com'
-  }
+  address: 'smtp.mandrillapp.com',
+  port: 587,
+  user_name: 'railslove',
+  password: Rails.application.secrets.mandrill_key,
+  domain: 'railslove.com'
+}
 ActionMailer::Base.delivery_method = :smtp
 
 MandrillMailer.configure do |config|

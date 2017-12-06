@@ -1,22 +1,23 @@
-class User < ActiveRecord::Base
+# frozen_string_literal: true
 
+class User < ActiveRecord::Base
   belongs_to :league
   has_many :history_entries
 
-  scope :ranked, lambda { order("quota DESC") }
+  scope :ranked, -> { order('quota DESC') }
 
   validates :name, presence: true, length: { maximum: 255 }
   validates :email, length: { maximum: 255 }
   validates :image, length: { maximum: 255 }
 
-  BADGES = %w{ crawling longest_winning most_teams winning_streak last_one crawler }
+  BADGES = %w[crawling longest_winning most_teams winning_streak last_one crawler].freeze
 
   def number_of_games
     number_of_wins + number_of_losses
   end
 
   def teams
-    Team.for_user(self.id)
+    Team.for_user(id)
   end
 
   def number_of_teams
@@ -28,18 +29,18 @@ class User < ActiveRecord::Base
   end
 
   def active?
-    matches.where("date > ?", 2.weeks.ago).any?
+    matches.where('date > ?', 2.weeks.ago).any?
   end
 
   def win_percentage
-    QuotaCalculator.win_lose_quota(self.number_of_wins, self.number_of_losses)
+    QuotaCalculator.win_lose_quota(number_of_wins, number_of_losses)
   end
 
   def short_name
-    return '' unless self.name.present?
-    s = self.name.split(' ')
+    return '' unless name.present?
+    s = name.split(' ')
     if s.length > 1
-      s.map{|name| name[0]}.join()
+      s.map { |name| name[0] }.join
     else
       s.first[0..1]
     end
@@ -48,7 +49,7 @@ class User < ActiveRecord::Base
   def set_elo_quota(match)
     win = match.win_for?(self) ? 1 : 0
 
-    quota_change = (win == 1) ? match.difference : -1 * match.difference
+    quota_change = win == 1 ? match.difference : -1 * match.difference
 
     if match.crawling == true
       if win == 1
@@ -58,7 +59,7 @@ class User < ActiveRecord::Base
       end
     end
 
-    self.quota = self.quota + quota_change
+    self.quota = quota + quota_change
 
     if win == 1
       self.number_of_wins += 1
@@ -66,17 +67,17 @@ class User < ActiveRecord::Base
       self.number_of_losses += 1
     end
 
-    self.save
+    save
     calculate_current_streak!
   end
 
   def self.create_with_omniauth(auth, league = nil)
     create! do |user|
-      user.provider = auth["provider"]
-      user.uid = auth["uid"]
-      user.name = auth["info"]["name"]
+      user.provider = auth['provider']
+      user.uid = auth['uid']
+      user.name = auth['info']['name']
       user.league_id = league.id
-      user.email = auth["info"]["email"]
+      user.email = auth['info']['email']
       user.image = auth['info']['image']
     end
   end
@@ -91,7 +92,7 @@ class User < ActiveRecord::Base
 
   def calculate_current_streak!
     self.winning_streak = current_streak
-    self.save
+    save
   end
 
   def calculate_longest_streak!
@@ -100,13 +101,13 @@ class User < ActiveRecord::Base
     matches.each do |match|
       if match.win_for?(self)
         current_winning_streak += 1
-        if current_winning_streak > self.longest_winning_streak_games
+        if current_winning_streak > longest_winning_streak_games
           self.longest_winning_streak_games = current_winning_streak
         end
       else
         current_winning_streak = 0
       end
     end
-    self.save
+    save
   end
 end

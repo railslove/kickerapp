@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe ApplicationHelper, type: :helper do
-  
   describe '#other_locale' do
     specify 'for de' do
       expect(helper.other_locale(:de)).to eql :en
@@ -18,5 +19,4 @@ describe ApplicationHelper, type: :helper do
       end
     end
   end
-
 end

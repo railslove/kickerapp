@@ -2,6 +2,8 @@ language: ruby
 bundler_args: --without development non_travis
 rvm:
   - 2.3.4
+before_install:
+  - "cp config/database.yml.example config/databse.yml"
 before_script:
   - "bundle exec rake db:create"
   - "bundle exec rake db:migrate"

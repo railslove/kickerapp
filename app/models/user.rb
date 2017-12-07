@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
 class User < ActiveRecord::Base
+  include WithPlayerStatistics
+
   belongs_to :league
   has_many :history_entries
+
+  has_many :season_quota
 
   scope :ranked, -> { order('quota DESC') }
 
@@ -12,28 +16,12 @@ class User < ActiveRecord::Base
 
   BADGES = %w[crawling longest_winning most_teams winning_streak last_one crawler].freeze
 
-  def number_of_games
-    number_of_wins + number_of_losses
-  end
-
   def teams
     Team.for_user(id)
   end
 
-  def number_of_teams
-    teams.count
-  end
-
   def matches
     Match.by_user(id)
-  end
-
-  def active?
-    matches.where('date > ?', 2.weeks.ago).any?
-  end
-
-  def win_percentage
-    QuotaCalculator.win_lose_quota(number_of_wins, number_of_losses)
   end
 
   def short_name

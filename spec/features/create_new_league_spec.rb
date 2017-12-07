@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 feature 'create new league' do
-
   scenario 'with correct entries' do
     visit(new_league_path)
 

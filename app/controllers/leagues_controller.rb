@@ -1,5 +1,6 @@
-class LeaguesController < ApplicationController
+# frozen_string_literal: true
 
+class LeaguesController < ApplicationController
   def index
     clear_current_league
     @leagues = League.by_matches
@@ -16,7 +17,7 @@ class LeaguesController < ApplicationController
     if @league.save
       set_current_league(@league.slug)
       tracker do |t|
-        t.google_analytics :send, { type: 'event', category: 'league', action: 'create', label: @league.name, value: @league.contact_email}
+        t.google_analytics :send, type: 'event', category: 'league', action: 'create', label: @league.name, value: @league.contact_email
       end
       LeagueMailer.welcome(@league, I18n.locale).deliver
       redirect_to new_league_user_path(@league), notice: t('leagues.create.success')
@@ -42,7 +43,7 @@ class LeaguesController < ApplicationController
     @league = League.find_by!(slug: params[:id])
     set_current_league(@league.slug)
     @order = params[:order] || 'longest_winning_streak_games'
-    @users = @league.users.order("#{@order} desc").select{|user| user.active? }
+    @users = @league.users.order("#{@order} desc").select(&:active?)
   end
 
   def table
@@ -53,8 +54,7 @@ class LeaguesController < ApplicationController
 
   private
 
-    def league_params
-      params.require(:league).permit(:name, :slug, :contact_email, :header_image)
-    end
-
+  def league_params
+    params.require(:league).permit(:name, :slug, :contact_email, :header_image)
+  end
 end

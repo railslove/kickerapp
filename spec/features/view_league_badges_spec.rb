@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 feature 'view a league\'s badges page' do
@@ -87,8 +89,8 @@ feature 'view a league\'s badges page' do
     let!(:player2) { create :user, league: league, name: 'Player 2' }
     let!(:player3) { create :user, league: league, name: 'Player 3' }
     let!(:player4) { create :user, league: league, name: 'Player 4' }
-    let!(:team1) { create :team, league: league, player1: player1, player2: player2}
-    let!(:team2) { create :team, league: league, player1: player3, player2: player4}
+    let!(:team1) { create :team, league: league, player1: player1, player2: player2 }
+    let!(:team2) { create :team, league: league, player1: player3, player2: player4 }
     let!(:match) { create :match, winner_team: team1, loser_team: team2 }
 
     background do
@@ -104,5 +106,4 @@ feature 'view a league\'s badges page' do
       end
     end
   end
-
 end

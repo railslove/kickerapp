@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -80,7 +82,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "#{ENV['GAME_TYPE']}.cool" }
 
   config.middleware.use(Rack::Tracker) do
-    handler :google_analytics, { tracker: ENV['ANALYTICS_KEY'] }
-    handler :vwo, { account_id: '64823' }
+    handler :google_analytics, tracker: ENV['ANALYTICS_KEY']
+    handler :vwo, account_id: '64823'
   end
 end

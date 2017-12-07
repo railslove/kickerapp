@@ -1,7 +1,6 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 class UsersController < ApplicationController
-
   before_filter :require_league
 
   def new
@@ -9,20 +8,20 @@ class UsersController < ApplicationController
   end
 
   def create
-    auth = request.env["omniauth.auth"]
+    auth = request.env['omniauth.auth']
     if auth.present?
-      user = User.find_by_provider_and_uid_and_league_id(auth["provider"], auth["uid"], current_league.id) || User.create_with_omniauth(auth, current_league)
+      user = User.find_by_provider_and_uid_and_league_id(auth['provider'], auth['uid'], current_league.id) || User.create_with_omniauth(auth, current_league)
 
       tracker do |t|
-        t.google_analytics :send, { type: 'event', category: 'user', action: 'create', label: current_league.name, value: user.name}
+        t.google_analytics :send, type: 'event', category: 'user', action: 'create', label: current_league.name, value: user.name
       end
 
       redirect_to new_league_match_url(current_league), notice: t('.success', user_name: user.name, league_name: current_league.name)
     else
-      @user = User.new(user_params.merge({league: current_league}))
+      @user = User.new(user_params.merge(league: current_league))
       if @user.save
         tracker do |t|
-          t.google_analytics :send, { type: 'event', category: 'user', action: 'create', label: current_league.name, value: @user.name}
+          t.google_analytics :send, type: 'event', category: 'user', action: 'create', label: current_league.name, value: @user.name
         end
         redirect_to new_league_match_url(current_league), notice: t('.success', user_name: @user.name, league_name: current_league.name)
       else
@@ -38,11 +37,11 @@ class UsersController < ApplicationController
 
   def show
     @user = current_league.users.find_by(id: params[:id])
-    redirect_to current_league and return unless @user
+    redirect_to(current_league) && return unless @user
     @history_entries = @user.history_entries.order('date').last(100)
     @matches = @user.matches.first(20)
     @lowest_rank = current_league.history_entries.maximum(:rank)
-    wins = @matches.select{|m| m.win_for?(@user)}
+    wins = @matches.select { |m| m.win_for?(@user) }
     losses = @matches - wins
     @trend = wins.sum(&:difference) - losses.sum(&:difference)
   end
@@ -73,5 +72,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :image, :email)
   end
-
 end

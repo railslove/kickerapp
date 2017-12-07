@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 widget :games_today do
-  key "045b4612ce7e346d62591a12cb0f6af4e0703fee"
-  type "geckometer"
+  key '045b4612ce7e346d62591a12cb0f6af4e0703fee'
+  type 'geckometer'
   data do
     {
       value: Match.where(date: (Date.today..Date.tomorrow)).count,

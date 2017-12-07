@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddBadgeFieldsToUsers < ActiveRecord::Migration
   def change
     add_column :users, :top_crawler, :boolean, default: false

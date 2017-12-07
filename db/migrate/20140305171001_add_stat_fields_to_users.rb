@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddStatFieldsToUsers < ActiveRecord::Migration
   def change
     add_column :users, :winning_streak, :integer, default: 0

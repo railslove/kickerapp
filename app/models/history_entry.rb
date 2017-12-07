@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class HistoryEntry < ActiveRecord::Base
   belongs_to :user
   belongs_to :league
@@ -11,7 +13,7 @@ class HistoryEntry < ActiveRecord::Base
         match_id: match.id,
         quota: user.quota,
         date: match.date,
-        rank: ranking.index(user.id) ? ranking.index(user.id)+1 : nil
+        rank: ranking.index(user.id) ? ranking.index(user.id) + 1 : nil
       )
     end
   end

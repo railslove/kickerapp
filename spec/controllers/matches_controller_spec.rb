@@ -3,9 +3,9 @@ require 'spec_helper'
 describe MatchesController, type: :controller do
 
   describe '#create' do
-    let(:league) { FactoryGirl.create(:league) }
-    let(:user) { FactoryGirl.create(:user, quota: 1200) }
-    let(:user2) { FactoryGirl.create(:user, quota: 1200) }
+    let(:league) { FactoryBot.create(:league) }
+    let(:user) { FactoryBot.create(:user, quota: 1200) }
+    let(:user2) { FactoryBot.create(:user, quota: 1200) }
 
     specify do
       post :create, { league_id: league.slug, team1: { player1: user.id.to_s, player2: '' }, team2: { player1: user2.id.to_s, player2: '' }, set1: ['6', '3'], set2: ['',''], set3: ['',''] }
@@ -27,12 +27,12 @@ describe MatchesController, type: :controller do
   end
 
   describe '#update' do
-    let(:league) { FactoryGirl.create(:league) }
-    let(:user) { FactoryGirl.create(:user, league: league, quota: 1200) }
-    let(:user2) { FactoryGirl.create(:user, league: league, quota: 1200) }
-    let(:team) { FactoryGirl.create(:team, player1_id: user.id) }
-    let(:team2) { FactoryGirl.create(:team, player1_id: user2.id) }
-    let!(:match) { FactoryGirl.create(:match, score: '6:1', winner_team_id: team.id, loser_team_id: team2.id, difference: 10, league_id: league.id) }
+    let(:league) { FactoryBot.create(:league) }
+    let(:user) { FactoryBot.create(:user, league: league, quota: 1200) }
+    let(:user2) { FactoryBot.create(:user, league: league, quota: 1200) }
+    let(:team) { FactoryBot.create(:team, player1_id: user.id) }
+    let(:team2) { FactoryBot.create(:team, player1_id: user2.id) }
+    let!(:match) { FactoryBot.create(:match, score: '6:1', winner_team_id: team.id, loser_team_id: team2.id, difference: 10, league_id: league.id) }
     it 'changes nothing if only result changes' do
       allow(subject).to receive(:current_league).and_return(league)
       patch :update, { id: match.id, league_id: league.id,  winner_score: '6', loser_score: '2', crawling: false }

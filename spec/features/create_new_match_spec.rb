@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 feature 'create new match' do
-  let!(:league) { FactoryGirl.create(:league, name: 'The League', slug: 'the-league') }
-  let!(:player1) { FactoryGirl.create(:user, name: 'Player 1', league: league) }
-  let!(:player2) { FactoryGirl.create(:user, name: 'Player 2', league: league) }
-  let!(:player3) { FactoryGirl.create(:user, name: 'Player 3', league: league) }
-  let!(:player4) { FactoryGirl.create(:user, name: 'Player 4', league: league) }
+  let!(:league) { FactoryBot.create(:league, name: 'The League', slug: 'the-league') }
+  let!(:player1) { FactoryBot.create(:user, name: 'Player 1', league: league) }
+  let!(:player2) { FactoryBot.create(:user, name: 'Player 2', league: league) }
+  let!(:player3) { FactoryBot.create(:user, name: 'Player 3', league: league) }
+  let!(:player4) { FactoryBot.create(:user, name: 'Player 4', league: league) }
 
   context 'with 4 players' do
     scenario 'valid entries' do

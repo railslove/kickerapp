@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User, type: :model do
 
-  subject { FactoryGirl.build(:user) }
+  subject { FactoryBot.build(:user) }
 
   describe 'create' do
     [:name, :image, :email].each do |field|
@@ -17,9 +17,9 @@ describe User, type: :model do
   describe "scopes" do
     describe "ranked" do
       it "sorts by quota desc" do
-        good_user = FactoryGirl.create(:user, quota: 1400)
-        bad_user = FactoryGirl.create(:user, quota: 1000)
-        medium_user = FactoryGirl.create(:user, quota: 1200)
+        good_user = FactoryBot.create(:user, quota: 1400)
+        bad_user = FactoryBot.create(:user, quota: 1000)
+        medium_user = FactoryBot.create(:user, quota: 1200)
         expect(User.ranked).to eq([good_user, medium_user, bad_user])
       end
     end
@@ -27,14 +27,14 @@ describe User, type: :model do
 
   describe ".number_of_games" do
     it "adds up wins and losses" do
-      user = FactoryGirl.build(:user, number_of_wins: 3, number_of_losses: 7)
+      user = FactoryBot.build(:user, number_of_wins: 3, number_of_losses: 7)
       expect(user.number_of_games).to eq(10)
     end
   end
 
   describe ".win_percentage" do
     it "takes the QuotaCalculator" do
-      user = FactoryGirl.build(:user, number_of_wins: 3, number_of_losses: 7)
+      user = FactoryBot.build(:user, number_of_wins: 3, number_of_losses: 7)
       QuotaCalculator.stub(:win_lose_quota).and_return(20)
       expect(user.win_percentage).to eq(20)
     end
@@ -58,7 +58,7 @@ describe User, type: :model do
         expect(subject.number_of_crawls).to eql(2)
       end
       it "updates the difference on a match" do
-        match = FactoryGirl.create(:match, winner_team: FactoryGirl.create(:team), loser_team: FactoryGirl.create(:team))
+        match = FactoryBot.create(:match, winner_team: FactoryBot.create(:team), loser_team: FactoryBot.create(:team))
         Team.any_instance.stub(:elo_quota).and_return(1200)
         subject.set_elo_quota(match)
         expect(match.difference).to eql(5)
@@ -77,11 +77,11 @@ describe User, type: :model do
   end
 
   describe ".active?" do
-    let!(:user) { FactoryGirl.create(:user, number_of_wins: 3, number_of_losses: 7) }
-    let!(:user2) { FactoryGirl.create(:user, number_of_wins: 3, number_of_losses: 7) }
-    let!(:team) { FactoryGirl.create(:team, player1_id: user.id) }
-    let!(:team2) { FactoryGirl.create(:team, player1_id: user2.id) }
-    let!(:match) { FactoryGirl.create(:match, winner_team_id: team.id, loser_team_id: team2.id, date: 1.week.ago) }
+    let!(:user) { FactoryBot.create(:user, number_of_wins: 3, number_of_losses: 7) }
+    let!(:user2) { FactoryBot.create(:user, number_of_wins: 3, number_of_losses: 7) }
+    let!(:team) { FactoryBot.create(:team, player1_id: user.id) }
+    let!(:team2) { FactoryBot.create(:team, player1_id: user2.id) }
+    let!(:match) { FactoryBot.create(:match, winner_team_id: team.id, loser_team_id: team2.id, date: 1.week.ago) }
     context "is active" do
       specify do
         expect(user.active?).to eql(true)
@@ -102,7 +102,7 @@ describe User, type: :model do
   end
 
   describe ".short_name" do
-    let(:user) {FactoryGirl.build(:user, name: nil)}
+    let(:user) {FactoryBot.build(:user, name: nil)}
     context "empty name" do
       specify{ expect(user.short_name).to eq('') }
     end
@@ -121,14 +121,14 @@ describe User, type: :model do
   end
 
   describe '.calculate_current_streak!' do
-    let!(:user) { FactoryGirl.create(:user, number_of_wins: 3, number_of_losses: 7) }
-    let!(:opponent) { FactoryGirl.create(:user, number_of_wins: 3, number_of_losses: 7) }
-    let!(:team) { FactoryGirl.create(:team, player1_id: user.id) }
-    let!(:team2) { FactoryGirl.create(:team, player1_id: opponent.id) }
+    let!(:user) { FactoryBot.create(:user, number_of_wins: 3, number_of_losses: 7) }
+    let!(:opponent) { FactoryBot.create(:user, number_of_wins: 3, number_of_losses: 7) }
+    let!(:team) { FactoryBot.create(:team, player1_id: user.id) }
+    let!(:team2) { FactoryBot.create(:team, player1_id: opponent.id) }
 
     context 'user just played his first game' do
       before do
-        FactoryGirl.create(:match, winner_team_id: team.id, loser_team_id: team2.id, date: 1.week.ago)
+        FactoryBot.create(:match, winner_team_id: team.id, loser_team_id: team2.id, date: 1.week.ago)
       end
 
       it 'calculates the current winning streak' do
@@ -138,8 +138,8 @@ describe User, type: :model do
 
     context 'user lost last game' do
       before do
-        FactoryGirl.create(:match, winner_team_id: team.id, loser_team_id: team2.id, date: 2.minutes.ago)
-        FactoryGirl.create(:match, winner_team_id: team2.id, loser_team_id: team.id, date: 1.minute.ago)
+        FactoryBot.create(:match, winner_team_id: team.id, loser_team_id: team2.id, date: 2.minutes.ago)
+        FactoryBot.create(:match, winner_team_id: team2.id, loser_team_id: team.id, date: 1.minute.ago)
       end
 
       it 'sets current streak to zero' do
@@ -155,11 +155,11 @@ describe User, type: :model do
   end
 
   describe '.calculate_longest_streak!' do
-    let!(:user) { FactoryGirl.create(:user, number_of_wins: 3, number_of_losses: 7) }
-    let!(:user2) { FactoryGirl.create(:user, number_of_wins: 3, number_of_losses: 7) }
-    let!(:team) { FactoryGirl.create(:team, player1_id: user.id) }
-    let!(:team2) { FactoryGirl.create(:team, player1_id: user2.id) }
-    let!(:match) { FactoryGirl.create(:match, winner_team_id: team.id, loser_team_id: team2.id, date: 1.week.ago) }
+    let!(:user) { FactoryBot.create(:user, number_of_wins: 3, number_of_losses: 7) }
+    let!(:user2) { FactoryBot.create(:user, number_of_wins: 3, number_of_losses: 7) }
+    let!(:team) { FactoryBot.create(:team, player1_id: user.id) }
+    let!(:team2) { FactoryBot.create(:team, player1_id: user2.id) }
+    let!(:match) { FactoryBot.create(:match, winner_team_id: team.id, loser_team_id: team2.id, date: 1.week.ago) }
 
     it 'calculates the longest winning streak' do
       expect{ user.calculate_longest_streak! }.to change{ user.longest_winning_streak_games }.from(0).to(1)

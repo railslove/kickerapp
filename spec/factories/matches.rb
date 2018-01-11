@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :match do
     score "6:3"
     crawling false

@@ -20,7 +20,7 @@ describe LeaguesController, type: :controller do
 
     context 'unsuccessful' do
       specify do
-        FactoryGirl.create(:league, slug: 'test')
+        FactoryBot.create(:league, slug: 'test')
         post :create, league: { name: 'Hammerwerfers Bocklemünd', slug: 'test' }
         expect(response).to be_success
         expect(response).to render_template 'leagues/new'
@@ -31,8 +31,8 @@ describe LeaguesController, type: :controller do
   end
 
   describe 'index' do
-    let(:league1) { FactoryGirl.create(:league, slug: 'league1') }
-    let(:league2) { FactoryGirl.create(:league, slug: 'league2') }
+    let(:league1) { FactoryBot.create(:league, slug: 'league1') }
+    let(:league2) { FactoryBot.create(:league, slug: 'league2') }
     before do
       session[:league_slug] = 'the-league'
       get :index
@@ -48,9 +48,9 @@ describe LeaguesController, type: :controller do
   end
 
   describe 'show' do
-    let!(:league) { FactoryGirl.create(:league, slug: 'the-league') }
-    let(:match1) { FactoryGirl.create(:match, league: league) }
-    let(:match2) { FactoryGirl.create(:match, league: league) }
+    let!(:league) { FactoryBot.create(:league, slug: 'the-league') }
+    let(:match1) { FactoryBot.create(:match, league: league) }
+    let(:match2) { FactoryBot.create(:match, league: league) }
     context 'simple cases' do
       before do
         expect(controller).to receive(:set_current_league).with('the-league')
@@ -69,7 +69,7 @@ describe LeaguesController, type: :controller do
   end
 
   describe 'badges' do
-    let!(:league) { FactoryGirl.create(:league, slug: 'the-league') }
+    let!(:league) { FactoryBot.create(:league, slug: 'the-league') }
     before do
       expect(controller).to receive(:set_current_league).with('the-league')
       get :badges, id: 'the-league'

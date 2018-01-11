@@ -10,6 +10,9 @@ module Kickerapp
   class Application < Rails::Application
     config.active_record.default_timezone = :utc
 
+    # Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 5.1
+
     config.generators do |generate|
       generate.test_framework :rspec
       generate.helper false

@@ -1,37 +1,39 @@
 source 'https://rubygems.org'
 
-ruby '2.3.4'
+ruby '2.4.2'
+
+# wellknown
+gem 'breakpoint'
+gem 'carrierwave'
+gem 'coffee-rails'
+gem 'fog'
+gem 'gravatar_image_tag'
+gem 'haml-rails'
+gem 'jbuilder'
+gem 'jquery-rails'
+gem 'kaminari'
+gem 'mini_magick'
+gem 'mobile-fu'
+gem 'newrelic_rpm'
+gem 'pg'
+gem 'puma'
+gem 'rack-tracker'
+gem 'rails_admin'
+gem 'rails-i18n'
+gem 'rails', '~> 5.0', '>= 5.0.6'
+gem 'redcarpet'
+gem 'sass-rails'
+gem 'uglifier'
+gem "compass-rails"
+gem "omniauth-facebook"
+gem "omniauth-twitter"
+gem "omniauth"
 
 gem 'sentry-raven'
-gem 'uglifier'
-gem 'coffee-rails'
-gem "compass-rails"
-gem 'rails-i18n'
-gem 'jquery-rails'
-gem 'pg'
-gem 'rails', '>= 4.2.0'
-gem 'quiet_assets'
-gem 'sass-rails'
-gem 'newrelic_rpm'
-gem 'haml-rails'
-gem 'kaminari'
-gem 'breakpoint'
-gem 'mobile-fu'
-gem 'jbuilder'
-gem 'rack-tracker'
-gem 'gravatar_image_tag'
-gem 'redcarpet'
-gem 'puma'
-gem "omniauth"
-gem "omniauth-twitter"
-gem "omniauth-facebook"
-gem 'rails_admin'
+# gem 'quiet_assets' Doesn't work anymore
 gem 'pebble_timeline'
-gem 'chameleon', git: 'https://github.com/stephanpavlovic/chameleon.git' #path: '/Users/stephanpavlovic/code/chameleon'
-gem 'carrierwave'
-gem 'mini_magick'
-gem 'fog'
 gem 'mandrill_mailer'
+gem 'chameleon', git: 'https://github.com/stephanpavlovic/chameleon.git' #path: '/Users/stephanpavlovic/code/chameleon'
 
 group :development do
   gem 'better_errors'
@@ -43,7 +45,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'jazz_fingers'
 end

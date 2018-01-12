@@ -1,4 +1,4 @@
-class Team < ActiveRecord::Base
+class Team < ApplicationRecord
   belongs_to :player1, class_name: "User"
   belongs_to :player2, class_name: "User"
 

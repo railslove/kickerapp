@@ -1,4 +1,4 @@
-class Match < ActiveRecord::Base
+class Match < ApplicationRecord
 
   belongs_to :winner_team, class_name: "Team"
   belongs_to :loser_team, class_name: "Team"

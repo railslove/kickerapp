@@ -13,7 +13,7 @@
     / --------------------------------
     %meta{:content => "website", :property => "og:type"}/
     %meta{:content => url_for(:only_path => false), :property => "og:url"}/
-    %meta{:content => asset_url("open-graph-logo.png"), :property => "og:image"}/
+    %meta{:content => asset_url("open-graph-logo.png", skip_pipeline: true), :property => "og:image"}/
     / <meta property="fb:admins" content="500108777"/>
     %meta{name: "description", :content => meta_description}/
     %meta{:content => meta_title, :property => "og:site_name"}/

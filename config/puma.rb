@@ -37,7 +37,7 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 # are forked to prevent connection leakage.
 #
 # before_fork do
-#   ActiveRecord::Base.connection_pool.disconnect! if defined?(ActiveRecord)
+#   ActiveRecord.connection_pool.disconnect! if defined?(ActiveRecord)
 # end
 
 # The code in the `on_worker_boot` will be called if you are using
@@ -48,7 +48,7 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 # cannot share connections between processes.
 #
 # on_worker_boot do
-#   ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
+#   ActiveRecord.establish_connection if defined?(ActiveRecord)
 # end
 #
 

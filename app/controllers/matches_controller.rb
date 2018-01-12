@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class MatchesController < ApplicationController
-  before_filter :require_league
+  before_action :require_league
   has_mobile_fu false
 
   def index

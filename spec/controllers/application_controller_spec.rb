@@ -29,7 +29,7 @@ describe ApplicationController, type: :controller do
 
   describe 'require_league' do
     controller do
-      before_filter :require_league
+      before_action :require_league
       def index
         render text: 'welcome to your league'
       end

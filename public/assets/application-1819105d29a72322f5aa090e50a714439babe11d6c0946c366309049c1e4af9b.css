@@ -1,0 +1,4878 @@
+@charset "UTF-8";
+@import url(//fonts.googleapis.com/css?family=Oswald:300);
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,600);
+@font-face {
+  font-family: 'fontello';
+  src: url("/assets/fontello-45d66e5e3a5cba320b0d6a0d834a77fb51d4b6c125043100dc74a5059bc30a79.eot?19993728");
+  src: url("/assets/fontello-45d66e5e3a5cba320b0d6a0d834a77fb51d4b6c125043100dc74a5059bc30a79.eot?19993728#iefix") format("embedded-opentype"), url("/assets/fontello-98f876e6890a57e2b2fcaa1f76fff1bc620c54d2cc78e618917122ecb08e0732.woff?19993728") format("woff"), url("/assets/fontello-29b9878961a744c563620b6b0c21d9be28f2a0f902ac2dbb387174e72e5793e6.ttf?19993728") format("truetype"), url("/assets/fontello-44b4eb581d141b4b42fcfceb54ad94f010588aea6de6bffaa47c8b321dd2fd57.svg?19993728#fontello") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url(font-path('fontello.svg?19993728#fontello')) format('svg');
+  }
+}
+*/
+/* line 22, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/fontello.scss */
+.icon-facebook:before, .icon-twitter:before, .icon-star-empty:before, .icon-award:before, .m-badge-icon.as-longest_winning i:before, .icon-rocket:before, .m-badge-icon.as-winning_streak i:before, .icon-medkit:before, .icon-users:before, .m-badge-icon.as-most_teams i:before, .icon-lightbulb:before, .m-badge-icon.as-last_one i:before, .icon-star:before, .m-badge-icon.as-crawling i:before, .icon-user-add:before, .icon-plus:before, .icon-user:before, .icon-male:before, .m-user-select:before, .icon-calendar-empty:before, .icon-thumbs-up:before, .icon-thumbs-down:before, .icon-pencil:before, .m-user-select:after {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+/* line 53, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/fontello.scss */
+.icon-facebook:before {
+  content: '\e800';
+}
+
+/* '' */
+/* line 54, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/fontello.scss */
+.icon-twitter:before {
+  content: '\e801';
+}
+
+/* '' */
+/* line 55, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/fontello.scss */
+.icon-star-empty:before {
+  content: '\e802';
+}
+
+/* '' */
+/* line 56, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/fontello.scss */
+.icon-award:before, .m-badge-icon.as-longest_winning i:before {
+  content: '\e803';
+}
+
+/* '' */
+/* line 57, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/fontello.scss */
+.icon-rocket:before, .m-badge-icon.as-winning_streak i:before {
+  content: '\e804';
+}
+
+/* '' */
+/* line 58, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/fontello.scss */
+.icon-medkit:before {
+  content: '\e805';
+}
+
+/* '' */
+/* line 59, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/fontello.scss */
+.icon-users:before, .m-badge-icon.as-most_teams i:before {
+  content: '\e806';
+}
+
+/* '' */
+/* line 60, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/fontello.scss */
+.icon-lightbulb:before, .m-badge-icon.as-last_one i:before {
+  content: '\e807';
+}
+
+/* '' */
+/* line 61, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/fontello.scss */
+.icon-star:before, .m-badge-icon.as-crawling i:before {
+  content: '\e808';
+}
+
+/* '' */
+/* line 62, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/fontello.scss */
+.icon-user-add:before {
+  content: '\e809';
+}
+
+/* '' */
+/* line 63, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/fontello.scss */
+.icon-plus:before {
+  content: '\e80a';
+}
+
+/* '' */
+/* line 64, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/fontello.scss */
+.icon-user:before {
+  content: '\e80b';
+}
+
+/* '' */
+/* line 65, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/fontello.scss */
+.icon-male:before, .m-user-select:before {
+  content: '\e80c';
+}
+
+/* '' */
+/* line 66, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/fontello.scss */
+.icon-calendar-empty:before {
+  content: '\e80d';
+}
+
+/* '' */
+/* line 67, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/fontello.scss */
+.icon-thumbs-up:before {
+  content: '\e80e';
+}
+
+/* '' */
+/* line 68, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/fontello.scss */
+.icon-thumbs-down:before {
+  content: '\e80f';
+}
+
+/* '' */
+/* line 69, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/fontello.scss */
+.icon-pencil:before {
+  content: '\e810';
+}
+
+/* '' */
+/**
+ * selectize.css (v0.11.0)
+ * Copyright (c) 2013 Brian Reavis & contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
+ * file except in compliance with the License. You may obtain a copy of the License at:
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
+ * ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ *
+ * @author Brian Reavis <brian@thirdroute.com>
+ */
+/* line 17, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-control.plugin-drag_drop.multi > .selectize-input > div.ui-sortable-placeholder {
+  visibility: visible !important;
+  background: #f2f2f2 !important;
+  background: rgba(0, 0, 0, 0.06) !important;
+  border: 0 none !important;
+  -webkit-box-shadow: inset 0 0 12px 4px #ffffff;
+  box-shadow: inset 0 0 12px 4px #ffffff;
+}
+
+/* line 25, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-control.plugin-drag_drop .ui-sortable-placeholder::after {
+  content: '!';
+  visibility: hidden;
+}
+
+/* line 29, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-control.plugin-drag_drop .ui-sortable-helper {
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* line 33, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-dropdown-header {
+  position: relative;
+  padding: 5px 8px;
+  border-bottom: 1px solid #d0d0d0;
+  background: #f8f8f8;
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
+}
+
+/* line 42, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-dropdown-header-close {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  color: #303030;
+  opacity: 0.4;
+  margin-top: -12px;
+  line-height: 20px;
+  font-size: 20px !important;
+}
+
+/* line 52, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-dropdown-header-close:hover {
+  color: #000000;
+}
+
+/* line 55, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-dropdown.plugin-optgroup_columns .optgroup {
+  border-right: 1px solid #f2f2f2;
+  border-top: 0 none;
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 63, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-dropdown.plugin-optgroup_columns .optgroup:last-child {
+  border-right: 0 none;
+}
+
+/* line 66, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-dropdown.plugin-optgroup_columns .optgroup:before {
+  display: none;
+}
+
+/* line 69, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-dropdown.plugin-optgroup_columns .optgroup-header {
+  border-top: 0 none;
+}
+
+/* line 72, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-control.plugin-remove_button [data-value] {
+  position: relative;
+  padding-right: 24px !important;
+}
+
+/* line 76, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-control.plugin-remove_button [data-value] .remove {
+  z-index: 1;
+  /* fixes ie bug (see #392) */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 17px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+  color: inherit;
+  text-decoration: none;
+  vertical-align: middle;
+  display: inline-block;
+  padding: 2px 0 0 0;
+  border-left: 1px solid #d0d0d0;
+  -webkit-border-radius: 0 2px 2px 0;
+  -moz-border-radius: 0 2px 2px 0;
+  border-radius: 0 2px 2px 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 100, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-control.plugin-remove_button [data-value] .remove:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* line 103, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-control.plugin-remove_button [data-value].active .remove {
+  border-left-color: #cacaca;
+}
+
+/* line 106, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-control.plugin-remove_button .disabled [data-value] .remove:hover {
+  background: none;
+}
+
+/* line 109, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-control.plugin-remove_button .disabled [data-value] .remove {
+  border-left-color: #ffffff;
+}
+
+/* line 112, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-control {
+  position: relative;
+}
+
+/* line 115, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-dropdown,
+.selectize-input,
+.selectize-input input {
+  color: #303030;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 18px;
+  -webkit-font-smoothing: inherit;
+}
+
+/* line 124, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-input,
+.selectize-control.single .selectize-input.input-active {
+  background: #ffffff;
+  cursor: text;
+  display: inline-block;
+}
+
+/* line 130, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-input {
+  border: 1px solid #d0d0d0;
+  padding: 8px 8px;
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/* line 147, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-control.multi .selectize-input.has-items {
+  padding: 6px 8px 3px;
+}
+
+/* line 150, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-input.full {
+  background-color: #ffffff;
+}
+
+/* line 153, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-input.disabled,
+.selectize-input.disabled * {
+  cursor: default !important;
+}
+
+/* line 157, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-input.focus {
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* line 161, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-input.dropdown-active {
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
+}
+
+/* line 166, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-input > * {
+  vertical-align: baseline;
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+
+/* line 173, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-control.multi .selectize-input > div {
+  cursor: pointer;
+  margin: 0 3px 3px 0;
+  padding: 2px 6px;
+  background: #f2f2f2;
+  color: #303030;
+  border: 0 solid #d0d0d0;
+}
+
+/* line 181, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-control.multi .selectize-input > div.active {
+  background: #e8e8e8;
+  color: #303030;
+  border: 0 solid #cacaca;
+}
+
+/* line 186, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-control.multi .selectize-input.disabled > div,
+.selectize-control.multi .selectize-input.disabled > div.active {
+  color: #7d7d7d;
+  background: #ffffff;
+  border: 0 solid #ffffff;
+}
+
+/* line 192, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-input > input {
+  padding: 0 !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  max-width: 100% !important;
+  margin: 0 2px 0 0 !important;
+  text-indent: 0 !important;
+  border: 0 none !important;
+  background: none !important;
+  line-height: inherit !important;
+  -webkit-user-select: auto !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+/* line 206, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-input > input::-ms-clear {
+  display: none;
+}
+
+/* line 209, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-input > input:focus {
+  outline: none !important;
+}
+
+/* line 212, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-input::after {
+  content: ' ';
+  display: block;
+  clear: left;
+}
+
+/* line 217, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-input.dropdown-active::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  background: #f0f0f0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* line 227, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-dropdown {
+  position: absolute;
+  z-index: 10;
+  border: 1px solid #d0d0d0;
+  background: #ffffff;
+  margin: -1px 0 0 0;
+  border-top: 0 none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 0 0 3px 3px;
+  -moz-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
+}
+
+/* line 243, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-dropdown [data-selectable] {
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* line 247, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-dropdown [data-selectable] .highlight {
+  background: rgba(125, 168, 208, 0.2);
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+}
+
+/* line 253, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-dropdown [data-selectable],
+.selectize-dropdown .optgroup-header {
+  padding: 5px 8px;
+}
+
+/* line 257, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-dropdown .optgroup:first-child .optgroup-header {
+  border-top: 0 none;
+}
+
+/* line 260, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-dropdown .optgroup-header {
+  color: #303030;
+  background: #ffffff;
+  cursor: default;
+}
+
+/* line 265, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-dropdown .active {
+  background-color: #f5fafd;
+  color: #495c68;
+}
+
+/* line 269, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-dropdown .active.create {
+  color: #495c68;
+}
+
+/* line 272, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-dropdown .create {
+  color: rgba(48, 48, 48, 0.5);
+}
+
+/* line 275, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-dropdown-content {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 200px;
+}
+
+/* line 280, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-control.single .selectize-input,
+.selectize-control.single .selectize-input input {
+  cursor: pointer;
+}
+
+/* line 284, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-control.single .selectize-input.input-active,
+.selectize-control.single .selectize-input.input-active input {
+  cursor: text;
+}
+
+/* line 288, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-control.single .selectize-input:after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  margin-top: -3px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 5px 0 5px;
+  border-color: #808080 transparent transparent transparent;
+}
+
+/* line 301, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-control.single .selectize-input.dropdown-active:after {
+  margin-top: -4px;
+  border-width: 0 5px 5px 5px;
+  border-color: transparent transparent #808080 transparent;
+}
+
+/* line 306, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-control.rtl.single .selectize-input:after {
+  left: 15px;
+  right: auto;
+}
+
+/* line 310, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-control.rtl .selectize-input > input {
+  margin: 0 4px 0 -2px !important;
+}
+
+/* line 313, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.css */
+.selectize-control .selectize-input.disabled {
+  opacity: 0.5;
+  background-color: #fafafa;
+}
+
+/**
+ * selectize.default.css (v0.11.0) - Default Theme
+ * Copyright (c) 2013 Brian Reavis & contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this
+ * file except in compliance with the License. You may obtain a copy of the License at:
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF
+ * ANY KIND, either express or implied. See the License for the specific language
+ * governing permissions and limitations under the License.
+ *
+ * @author Brian Reavis <brian@thirdroute.com>
+ */
+/* line 16, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.plugin-drag_drop.multi > .selectize-input > div.ui-sortable-placeholder {
+  visibility: visible !important;
+  background: #f2f2f2 !important;
+  background: rgba(0, 0, 0, 0.06) !important;
+  border: 0 none !important;
+  -webkit-box-shadow: inset 0 0 12px 4px #ffffff;
+  box-shadow: inset 0 0 12px 4px #ffffff;
+}
+
+/* line 24, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.plugin-drag_drop .ui-sortable-placeholder::after {
+  content: '!';
+  visibility: hidden;
+}
+
+/* line 28, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.plugin-drag_drop .ui-sortable-helper {
+  -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* line 32, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-dropdown-header {
+  position: relative;
+  padding: 5px 8px;
+  border-bottom: 1px solid #d0d0d0;
+  background: #f8f8f8;
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
+}
+
+/* line 41, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-dropdown-header-close {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  color: #303030;
+  opacity: 0.4;
+  margin-top: -12px;
+  line-height: 20px;
+  font-size: 20px !important;
+}
+
+/* line 51, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-dropdown-header-close:hover {
+  color: #000000;
+}
+
+/* line 54, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-dropdown.plugin-optgroup_columns .optgroup {
+  border-right: 1px solid #f2f2f2;
+  border-top: 0 none;
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 62, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-dropdown.plugin-optgroup_columns .optgroup:last-child {
+  border-right: 0 none;
+}
+
+/* line 65, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-dropdown.plugin-optgroup_columns .optgroup:before {
+  display: none;
+}
+
+/* line 68, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-dropdown.plugin-optgroup_columns .optgroup-header {
+  border-top: 0 none;
+}
+
+/* line 71, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.plugin-remove_button [data-value] {
+  position: relative;
+  padding-right: 24px !important;
+}
+
+/* line 75, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.plugin-remove_button [data-value] .remove {
+  z-index: 1;
+  /* fixes ie bug (see #392) */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 17px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+  color: inherit;
+  text-decoration: none;
+  vertical-align: middle;
+  display: inline-block;
+  padding: 2px 0 0 0;
+  border-left: 1px solid #0073bb;
+  -webkit-border-radius: 0 2px 2px 0;
+  -moz-border-radius: 0 2px 2px 0;
+  border-radius: 0 2px 2px 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 99, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.plugin-remove_button [data-value] .remove:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* line 102, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.plugin-remove_button [data-value].active .remove {
+  border-left-color: #00578d;
+}
+
+/* line 105, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.plugin-remove_button .disabled [data-value] .remove:hover {
+  background: none;
+}
+
+/* line 108, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.plugin-remove_button .disabled [data-value] .remove {
+  border-left-color: #aaaaaa;
+}
+
+/* line 111, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control {
+  position: relative;
+}
+
+/* line 114, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-dropdown,
+.selectize-input,
+.selectize-input input {
+  color: #303030;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 18px;
+  -webkit-font-smoothing: inherit;
+}
+
+/* line 123, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-input,
+.selectize-control.single .selectize-input.input-active {
+  background: #ffffff;
+  cursor: text;
+  display: inline-block;
+}
+
+/* line 129, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-input {
+  border: 1px solid #d0d0d0;
+  padding: 8px 8px;
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/* line 146, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.multi .selectize-input.has-items {
+  padding: 5px 8px 2px;
+}
+
+/* line 149, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-input.full {
+  background-color: #ffffff;
+}
+
+/* line 152, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-input.disabled,
+.selectize-input.disabled * {
+  cursor: default !important;
+}
+
+/* line 156, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-input.focus {
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* line 160, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-input.dropdown-active {
+  -webkit-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
+}
+
+/* line 165, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-input > * {
+  vertical-align: baseline;
+  display: -moz-inline-stack;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+
+/* line 172, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.multi .selectize-input > div {
+  cursor: pointer;
+  margin: 0 3px 3px 0;
+  padding: 2px 6px;
+  background: #1da7ee;
+  color: #ffffff;
+  border: 1px solid #0073bb;
+}
+
+/* line 180, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.multi .selectize-input > div.active {
+  background: #92c836;
+  color: #ffffff;
+  border: 1px solid #00578d;
+}
+
+/* line 185, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.multi .selectize-input.disabled > div,
+.selectize-control.multi .selectize-input.disabled > div.active {
+  color: #ffffff;
+  background: #d2d2d2;
+  border: 1px solid #aaaaaa;
+}
+
+/* line 191, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-input > input {
+  padding: 0 !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  max-width: 100% !important;
+  margin: 0 1px !important;
+  text-indent: 0 !important;
+  border: 0 none !important;
+  background: none !important;
+  line-height: inherit !important;
+  -webkit-user-select: auto !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+/* line 205, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-input > input::-ms-clear {
+  display: none;
+}
+
+/* line 208, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-input > input:focus {
+  outline: none !important;
+}
+
+/* line 211, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-input::after {
+  content: ' ';
+  display: block;
+  clear: left;
+}
+
+/* line 216, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-input.dropdown-active::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  background: #f0f0f0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* line 226, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-dropdown {
+  position: absolute;
+  z-index: 10;
+  border: 1px solid #d0d0d0;
+  background: #ffffff;
+  margin: -1px 0 0 0;
+  border-top: 0 none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 0 0 3px 3px;
+  -moz-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
+}
+
+/* line 242, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-dropdown [data-selectable] {
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* line 246, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-dropdown [data-selectable] .highlight {
+  background: rgba(125, 168, 208, 0.2);
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+}
+
+/* line 252, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-dropdown [data-selectable],
+.selectize-dropdown .optgroup-header {
+  padding: 5px 8px;
+}
+
+/* line 256, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-dropdown .optgroup:first-child .optgroup-header {
+  border-top: 0 none;
+}
+
+/* line 259, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-dropdown .optgroup-header {
+  color: #303030;
+  background: #ffffff;
+  cursor: default;
+}
+
+/* line 264, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-dropdown .active {
+  background-color: #f5fafd;
+  color: #495c68;
+}
+
+/* line 268, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-dropdown .active.create {
+  color: #495c68;
+}
+
+/* line 271, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-dropdown .create {
+  color: rgba(48, 48, 48, 0.5);
+}
+
+/* line 274, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-dropdown-content {
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 200px;
+}
+
+/* line 279, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.single .selectize-input,
+.selectize-control.single .selectize-input input {
+  cursor: pointer;
+}
+
+/* line 283, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.single .selectize-input.input-active,
+.selectize-control.single .selectize-input.input-active input {
+  cursor: text;
+}
+
+/* line 287, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.single .selectize-input:after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  margin-top: -3px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 5px 0 5px;
+  border-color: #808080 transparent transparent transparent;
+}
+
+/* line 300, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.single .selectize-input.dropdown-active:after {
+  margin-top: -4px;
+  border-width: 0 5px 5px 5px;
+  border-color: transparent transparent #808080 transparent;
+}
+
+/* line 305, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.rtl.single .selectize-input:after {
+  left: 15px;
+  right: auto;
+}
+
+/* line 309, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.rtl .selectize-input > input {
+  margin: 0 4px 0 -2px !important;
+}
+
+/* line 312, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control .selectize-input.disabled {
+  opacity: 0.5;
+  background-color: #fafafa;
+}
+
+/* line 316, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.multi .selectize-input.has-items {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/* line 320, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.multi .selectize-input.disabled [data-value] {
+  color: #999;
+  text-shadow: none;
+  background: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/* line 327, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.multi .selectize-input.disabled [data-value],
+.selectize-control.multi .selectize-input.disabled [data-value] .remove {
+  border-color: #e6e6e6;
+}
+
+/* line 331, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.multi .selectize-input.disabled [data-value] .remove {
+  background: none;
+}
+
+/* line 334, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.multi .selectize-input [data-value] {
+  text-shadow: 0 1px 0 rgba(0, 51, 83, 0.3);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #1b9dec;
+  background-image: -moz-linear-gradient(top, #1da7ee, #178ee9);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#1da7ee), to(#178ee9));
+  background-image: -webkit-linear-gradient(top, #1da7ee, #178ee9);
+  background-image: -o-linear-gradient(top, #1da7ee, #178ee9);
+  background-image: linear-gradient(to bottom, #1da7ee, #178ee9);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1da7ee', endColorstr='#ff178ee9', GradientType=0);
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.03);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), inset 0 1px rgba(255, 255, 255, 0.03);
+}
+
+/* line 350, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.multi .selectize-input [data-value].active {
+  background-color: #0085d4;
+  background-image: -moz-linear-gradient(top, #008fd8, #0075cf);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#008fd8), to(#0075cf));
+  background-image: -webkit-linear-gradient(top, #008fd8, #0075cf);
+  background-image: -o-linear-gradient(top, #008fd8, #0075cf);
+  background-image: linear-gradient(to bottom, #008fd8, #0075cf);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff008fd8', endColorstr='#ff0075cf', GradientType=0);
+}
+
+/* line 360, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.single .selectize-input {
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  background-color: #f9f9f9;
+  background-image: -moz-linear-gradient(top, #fefefe, #f2f2f2);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fefefe), to(#f2f2f2));
+  background-image: -webkit-linear-gradient(top, #fefefe, #f2f2f2);
+  background-image: -o-linear-gradient(top, #fefefe, #f2f2f2);
+  background-image: linear-gradient(to bottom, #fefefe, #f2f2f2);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffefefe', endColorstr='#fff2f2f2', GradientType=0);
+}
+
+/* line 372, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-control.single .selectize-input,
+.selectize-dropdown.single {
+  border-color: #b8b8b8;
+}
+
+/* line 376, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-dropdown .optgroup-header {
+  padding-top: 7px;
+  font-weight: bold;
+  font-size: 0.85em;
+}
+
+/* line 381, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-dropdown .optgroup {
+  border-top: 1px solid #f0f0f0;
+}
+
+/* line 384, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/selectize.default.css */
+.selectize-dropdown .optgroup:first-child {
+  border-top: 0 none;
+}
+
+/* Chartist.js 0.3.1
+ * Copyright © 2014 Gion Kunz
+ * Free to use under the WTFPL license.
+ * http://www.wtfpl.net/
+ */
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart .ct-label, .ct-chart .ct-label.ct-horizontal {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, 0.4);
+  font-size: .75rem;
+  text-align: left;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart .ct-label.ct-vertical {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: rgba(0, 0, 0, 0.4);
+  color: rgba(0, 0, 0, 0.4);
+  font-size: .75rem;
+  text-align: right;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart .ct-grid {
+  stroke: rgba(0, 0, 0, 0.2);
+  stroke-width: 1px;
+  stroke-dasharray: 2px;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart .ct-point {
+  stroke-width: 10px;
+  stroke-linecap: round;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart .ct-line {
+  fill: none;
+  stroke-width: 4px;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart .ct-area {
+  stroke: none;
+  fill-opacity: .1;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart .ct-bar {
+  fill: none;
+  stroke-width: 10px;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart .ct-slice.ct-donut {
+  fill: none;
+  stroke-width: 60px;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart .ct-series.ct-series-a .ct-bar, .ct-chart .ct-series.ct-series-a .ct-line, .ct-chart .ct-series.ct-series-a .ct-point, .ct-chart .ct-series.ct-series-a .ct-slice.ct-donut {
+  stroke: #d70206;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart .ct-series.ct-series-a .ct-area, .ct-chart .ct-series.ct-series-a .ct-slice:not(.ct-donut) {
+  fill: #d70206;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart .ct-series.ct-series-b .ct-bar, .ct-chart .ct-series.ct-series-b .ct-line, .ct-chart .ct-series.ct-series-b .ct-point, .ct-chart .ct-series.ct-series-b .ct-slice.ct-donut {
+  stroke: #F05B4F;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart .ct-series.ct-series-b .ct-area, .ct-chart .ct-series.ct-series-b .ct-slice:not(.ct-donut) {
+  fill: #F05B4F;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart .ct-series.ct-series-c .ct-bar, .ct-chart .ct-series.ct-series-c .ct-line, .ct-chart .ct-series.ct-series-c .ct-point, .ct-chart .ct-series.ct-series-c .ct-slice.ct-donut {
+  stroke: #F4C63D;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart .ct-series.ct-series-c .ct-area, .ct-chart .ct-series.ct-series-c .ct-slice:not(.ct-donut) {
+  fill: #F4C63D;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart .ct-series.ct-series-d .ct-bar, .ct-chart .ct-series.ct-series-d .ct-line, .ct-chart .ct-series.ct-series-d .ct-point, .ct-chart .ct-series.ct-series-d .ct-slice.ct-donut {
+  stroke: #453D3F;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart .ct-series.ct-series-d .ct-area, .ct-chart .ct-series.ct-series-d .ct-slice:not(.ct-donut) {
+  fill: #453D3F;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-square {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-square:before {
+  display: block;
+  float: left;
+  content: "";
+  width: 0;
+  height: 0;
+  padding-bottom: 100%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-square:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-square > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-minor-second {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-minor-second:before {
+  display: block;
+  float: left;
+  content: "";
+  width: 0;
+  height: 0;
+  padding-bottom: 93.75%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-minor-second:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-minor-second > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-second {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-second:before {
+  display: block;
+  float: left;
+  content: "";
+  width: 0;
+  height: 0;
+  padding-bottom: 88.8888888889%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-second:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-second > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-minor-third {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-minor-third:before {
+  display: block;
+  float: left;
+  content: "";
+  width: 0;
+  height: 0;
+  padding-bottom: 83.3333333333%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-minor-third:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-minor-third > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-third {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-third:before {
+  display: block;
+  float: left;
+  content: "";
+  width: 0;
+  height: 0;
+  padding-bottom: 80%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-third:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-third > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-perfect-fourth {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-perfect-fourth:before {
+  display: block;
+  float: left;
+  content: "";
+  width: 0;
+  height: 0;
+  padding-bottom: 75%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-perfect-fourth:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-perfect-fourth > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-perfect-fifth {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-perfect-fifth:before {
+  display: block;
+  float: left;
+  content: "";
+  width: 0;
+  height: 0;
+  padding-bottom: 66.6666666667%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-perfect-fifth:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-perfect-fifth > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-minor-sixth {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-minor-sixth:before {
+  display: block;
+  float: left;
+  content: "";
+  width: 0;
+  height: 0;
+  padding-bottom: 62.5%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-minor-sixth:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-minor-sixth > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-golden-section {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-golden-section:before {
+  display: block;
+  float: left;
+  content: "";
+  width: 0;
+  height: 0;
+  padding-bottom: 61.804697157%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-golden-section:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-golden-section > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-sixth {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-sixth:before {
+  display: block;
+  float: left;
+  content: "";
+  width: 0;
+  height: 0;
+  padding-bottom: 60%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-sixth:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-sixth > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-minor-seventh {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-minor-seventh:before {
+  display: block;
+  float: left;
+  content: "";
+  width: 0;
+  height: 0;
+  padding-bottom: 56.25%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-minor-seventh:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-minor-seventh > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-seventh {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-seventh:before {
+  display: block;
+  float: left;
+  content: "";
+  width: 0;
+  height: 0;
+  padding-bottom: 53.3333333333%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-seventh:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-seventh > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-octave {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-octave:before {
+  display: block;
+  float: left;
+  content: "";
+  width: 0;
+  height: 0;
+  padding-bottom: 50%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-octave:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-octave > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-tenth {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-tenth:before {
+  display: block;
+  float: left;
+  content: "";
+  width: 0;
+  height: 0;
+  padding-bottom: 40%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-tenth:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-tenth > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-eleventh {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-eleventh:before {
+  display: block;
+  float: left;
+  content: "";
+  width: 0;
+  height: 0;
+  padding-bottom: 37.5%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-eleventh:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-eleventh > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-twelfth {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-twelfth:before {
+  display: block;
+  float: left;
+  content: "";
+  width: 0;
+  height: 0;
+  padding-bottom: 33.3333333333%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-twelfth:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-major-twelfth > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-double-octave {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-double-octave:before {
+  display: block;
+  float: left;
+  content: "";
+  width: 0;
+  height: 0;
+  padding-bottom: 25%;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-double-octave:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/vendor/assets/stylesheets/chartist.css */
+.ct-chart.ct-double-octave > svg {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/base/_element_defaults.sass */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 100;
+  color: #454548;
+  background: #fafafa;
+  font-size: 18px;
+  letter-spacing: 0.2px;
+}
+
+/* line 10, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/base/_element_defaults.sass */
+img {
+  border: none;
+}
+
+/* line 12, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/base/_element_defaults.sass */
+a {
+  text-decoration: none;
+}
+/* line 14, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/base/_element_defaults.sass */
+a:hover {
+  text-decoration: underline;
+}
+
+/* line 16, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/base/_element_defaults.sass */
+div {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 18, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/base/_element_defaults.sass */
+img {
+  border: none;
+}
+
+/* line 20, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/base/_element_defaults.sass */
+ul {
+  padding-left: 0;
+  list-style-type: none;
+  margin: 0;
+}
+
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 26, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/base/_element_defaults.sass */
+  .hide-mobile {
+    display: none;
+  }
+}
+
+/* line 2, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/base/_plugin_overrides.sass */
+.selectize-control.single .selectize-input {
+  background: #008EAD;
+  border-color: #008EAD;
+  border-radius: 0;
+  box-shadow: none;
+  color: #FFF;
+}
+/* line 9, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/base/_plugin_overrides.sass */
+.selectize-control.single .selectize-input input::-webkit-input-placeholder {
+  color: #FFF;
+}
+/* line 11, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/base/_plugin_overrides.sass */
+.selectize-control.single .selectize-input input:-moz-placeholder {
+  color: #FFF;
+}
+/* line 13, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/base/_plugin_overrides.sass */
+.selectize-control.single .selectize-input input::-moz-placeholder {
+  color: #FFF;
+}
+/* line 15, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/base/_plugin_overrides.sass */
+.selectize-control.single .selectize-input .item {
+  color: #FFF;
+}
+/* line 17, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/base/_plugin_overrides.sass */
+.selectize-control.single .selectize-input:after {
+  border-color: #FFF transparent transparent;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_content.sass */
+.l-content-wrapper {
+  width: 1020px;
+  margin: 0 auto;
+  *zoom: 1;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_content.sass */
+  .l-content-wrapper {
+    width: 100%;
+    padding: 0 10px;
+  }
+}
+/* line 38, /Users/slogmen/.gem/ruby/2.4.2/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
+.l-content-wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 4, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_content.sass */
+.l-content-wrapper .l-content {
+  width: 800px;
+  float: left;
+}
+/* line 7, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_content.sass */
+.as-sidebar-hidden .l-content-wrapper .l-content {
+  width: 1020px;
+}
+/* line 9, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_content.sass */
+.l-content-wrapper .l-sidebar {
+  width: 200px;
+  float: right;
+  margin-left: 20px;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 14, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_content.sass */
+  .l-content-wrapper .l-sidebar {
+    display: none;
+  }
+  /* line 16, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_content.sass */
+  .l-content-wrapper .l-content {
+    width: 100%;
+  }
+  /* line 18, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_content.sass */
+  .as-sidebar-hidden .l-content-wrapper .l-content {
+    width: 100%;
+  }
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_footer.sass */
+.l-footer {
+  background: url(/assets/stange-cce6f2990eb48e6b4594bbef8e93cde64372716225dbd38432d0424ace7fdb09.svg) repeat-x left 128px;
+  background-size: 1px 47px;
+  position: relative;
+  margin-top: 20px;
+}
+/* line 6, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_footer.sass */
+.l-footer .l-footer--wrapper {
+  width: 1152px;
+  margin: 0 auto;
+  position: relative;
+}
+/* line 10, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_footer.sass */
+.l-footer .l-footer--wrapper .karl-kicker {
+  width: 360px;
+  left: 800px;
+  position: relative;
+  cursor: pointer;
+}
+/* line 15, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_footer.sass */
+.l-footer .l-footer--wrapper .karl-kicker .karl-kicker--text {
+  position: absolute;
+  font-size: 16px;
+  top: 120px;
+  left: 20px;
+  width: 170px;
+}
+/* line 21, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_footer.sass */
+.l-footer .l-footer--wrapper .karl-kicker svg {
+  height: 360px;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_footer.sass */
+  .l-footer {
+    background-position: left 34px;
+    margin-top: 20px;
+  }
+  /* line 26, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_footer.sass */
+  .l-footer .l-footer--wrapper {
+    width: 100%;
+  }
+  /* line 28, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_footer.sass */
+  .l-footer .l-footer--wrapper .karl-kicker {
+    display: none;
+  }
+  /* line 30, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_footer.sass */
+  .l-footer .l-footer--wrapper .c-footer-content {
+    position: relative;
+  }
+  /* line 33, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_footer.sass */
+  .l-footer .l-footer--wrapper .c-footer-content .c-footer-links .c-footer-link {
+    display: block;
+    margin-bottom: 10px;
+  }
+  /* line 36, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_footer.sass */
+  .l-footer .l-footer--wrapper .c-footer-content .c-footer--railslove {
+    margin-top: 22px;
+  }
+  /* line 39, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_footer.sass */
+  .l-footer .l-footer--wrapper .c-footer-content .c-footer--railslove svg path {
+    fill: #FFF;
+  }
+  /* line 41, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_footer.sass */
+  .l-footer .l-footer--wrapper .c-footer-content .c-sharing--button {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+  }
+}
+
+/* line 45, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_footer.sass */
+.c-footer-content {
+  text-align: center;
+  color: #000;
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
+  font-size: 16px;
+  width: 100%;
+  text-transform: uppercase;
+}
+/* line 54, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_footer.sass */
+.c-footer-content .c-footer--railslove {
+  margin-top: 5px;
+}
+/* line 56, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_footer.sass */
+.c-footer-content .c-footer--railslove svg {
+  height: 30px;
+}
+/* line 58, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_footer.sass */
+.c-footer-content .c-footer--railslove svg path {
+  fill: #000;
+}
+/* line 60, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_footer.sass */
+.c-footer-content .c-footer-links {
+  margin: 10px 0;
+}
+/* line 62, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_footer.sass */
+.c-footer-content .c-footer-links .c-footer-link {
+  display: inline-block;
+  margin: 0 10px;
+}
+/* line 65, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_footer.sass */
+.c-footer-content .c-footer-links .c-footer-link a {
+  font-size: 16px;
+  color: #000;
+}
+
+/* line 69, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_footer.sass */
+.c-sharing {
+  text-align: center;
+  margin-bottom: 20px;
+}
+/* line 72, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_footer.sass */
+.c-sharing .c-sharing--button {
+  width: 90px;
+  background: #FFF;
+  color: #FFF;
+  text-decoration: underline;
+  padding: 10px;
+  cursor: pointer;
+  display: inline-block;
+}
+/* line 80, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_footer.sass */
+.c-sharing .c-sharing--button.as-facebook {
+  margin-right: 2px;
+  background: #475c91;
+}
+/* line 83, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_footer.sass */
+.c-sharing .c-sharing--button.as-twitter {
+  background: #2daae2;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_header.sass */
+.l-header-wrapper {
+  background-color: #FFF;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px #999;
+  *zoom: 1;
+}
+/* line 38, /Users/slogmen/.gem/ruby/2.4.2/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
+.l-header-wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 7, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_header.sass */
+.l-header-wrapper .l-header {
+  width: 1020px;
+  margin: 0 auto;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 7, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/layout/_header.sass */
+  .l-header-wrapper .l-header {
+    width: 100%;
+    padding: 0 10px;
+  }
+}
+
+/* line 2, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_badges.sass */
+#leagues_badges .c-users-table {
+  width: 100%;
+}
+/* line 4, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_badges.sass */
+#leagues_badges td {
+  text-align: center;
+}
+/* line 7, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_badges.sass */
+#leagues_badges thead i {
+  color: #89898b;
+}
+/* line 9, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_badges.sass */
+#leagues_badges thead a i {
+  color: #454548;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+#pages_landing {
+  background-image: linear-gradient(#daf4fb, #daf4fb 500px, #7d8b52 500px, #7d8b52);
+}
+/* line 4, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+#pages_landing:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 60px;
+  top: 444px;
+  background: url(/assets/rasen-4e3a278f76be0b880f5c36e512de2104e583a5bbe889d41506d6d9deeb1ea60f.svg) repeat-x left center;
+  background-size: 30px 53px;
+  z-index: 0;
+}
+/* line 14, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+#pages_landing .l-content-wrapper {
+  width: 1152px;
+  background: #7D8B52;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 14, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+  #pages_landing .l-content-wrapper {
+    width: 100%;
+    padding: 0;
+  }
+}
+/* line 21, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+#pages_landing .c-language-toggler svg {
+  width: 36px;
+  height: 18px;
+  position: fixed;
+  top: 20px;
+  right: 10%;
+}
+/* line 27, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+#pages_landing .c-footer-content {
+  color: #FFF;
+}
+/* line 29, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+#pages_landing .c-footer-content a {
+  color: #FFF;
+}
+/* line 32, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+#pages_landing .c-footer-content svg path {
+  fill: #FFF;
+}
+/* line 34, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+#pages_landing .c-sharing--button {
+  color: #7D8B52;
+  background: #FFF;
+}
+/* line 37, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+#pages_landing .c-sharing--button.as-facebook {
+  color: #7D8B52;
+}
+/* line 39, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+#pages_landing .c-sharing--button.as-facebook:hover {
+  color: #FFF;
+  background: #475c91;
+}
+/* line 42, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+#pages_landing .c-sharing--button.as-twitter {
+  color: #7D8B52;
+}
+/* line 44, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+#pages_landing .c-sharing--button.as-twitter:hover {
+  color: #FFF;
+  background: #2daae2;
+}
+
+/* line 48, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--header {
+  background: #DAF4FB url(/assets/header-a829e820238d0021b75af1a89cb511a4c0323b7c04b8265dbb9e3e3afe8e3380.svg) no-repeat center center;
+  background-size: 101%;
+  height: 712px;
+  position: relative;
+  font-family: "Oswald", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+/* line 55, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--header .c-landing--header--button {
+  position: absolute;
+  right: 40px;
+  top: 110px;
+}
+/* line 59, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--header .c-landing--header--button img {
+  height: 180px;
+}
+/* line 61, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--header .c-landing--header--button .c-landing--header--button--text {
+  position: absolute;
+  color: #FFF;
+  left: 50px;
+  top: 60px;
+  font-size: 22px;
+  width: 220px;
+  text-align: center;
+  transform: rotate(2deg);
+  -webkit-transform: rotate(2deg);
+}
+/* line 72, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--header .c-landing--header--button:hover .c-landing--header--button--text {
+  color: #454548;
+}
+/* line 74, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--header .c-landing--header--headbox {
+  width: 680px;
+  margin: 0 auto;
+  overflow: hidden;
+  *zoom: 1;
+  text-align: center;
+  font-size: 22px;
+}
+/* line 80, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--header .c-landing--header--headbox img {
+  display: block;
+  margin: 20px 0;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 74, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+  .c-landing .c-landing--header .c-landing--header--headbox {
+    width: 100%;
+  }
+  /* line 85, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+  .c-landing .c-landing--header .c-landing--header--headbox img {
+    width: 100%;
+  }
+}
+/* line 87, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--header .c-landing--header--league-button {
+  position: absolute;
+  left: 450px;
+  top: 580px;
+  font-size: 28px;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 48, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+  .c-landing .c-landing--header {
+    height: 500px;
+    background-size: 100%;
+    background-position: bottom left;
+    margin-bottom: 100px;
+  }
+  /* line 99, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+  .c-landing .c-landing--header .c-landing--header--league-button {
+    left: 0;
+    width: 100%;
+    top: 510px;
+    text-align: center;
+  }
+  /* line 104, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+  .c-landing .c-landing--header .c-landing--header--button {
+    top: 250px;
+    left: 0;
+    width: 100%;
+    max-width: 450px;
+  }
+  /* line 109, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+  .c-landing .c-landing--header .c-landing--header--button img {
+    width: 100%;
+  }
+  /* line 111, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+  .c-landing .c-landing--header .c-landing--header--button .c-landing--header--button--text {
+    font-size: 16px;
+    left: 0px;
+    top: 70px;
+  }
+}
+/* line 115, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--headline {
+  text-align: center;
+  font-weight: bold;
+  color: #FFF;
+  text-transform: uppercase;
+  text-shadow: 1px 1px #788c4b;
+  font-size: 20px;
+  margin: 20px auto 40px;
+  background: #7D8B52;
+  position: relative;
+  z-index: 2;
+  width: 800px;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 115, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+  .c-landing .c-landing--headline {
+    width: 100%;
+    margin-top: 60px;
+  }
+}
+/* line 130, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--headline .c-landing--headline--text {
+  text-transform: none;
+  font-size: 18px;
+  margin: 20px 0;
+  font-weight: normal;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+/* line 137, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--badges {
+  overflow: hidden;
+  *zoom: 1;
+  height: 640px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  background: url(/assets/feld-53bd46dba68b1f30e843941b3743e8f8da4a61de047075427f5adaf21ba14fb8.png) no-repeat top center;
+}
+/* line 144, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--badges .c-landing--badge {
+  width: 220px;
+  position: absolute;
+}
+/* line 147, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--badges .c-landing--badge .m-badge-icon {
+  margin: 10px auto;
+}
+/* line 149, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--badges .c-landing--badge .c-landing--badge--text {
+  color: #FFF;
+  text-shadow: 1px 1px #788c4b;
+  text-align: center;
+}
+/* line 153, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--badges .c-landing--badge.as-crawling {
+  left: 15%;
+}
+/* line 155, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--badges .c-landing--badge.as-longest_winning {
+  left: 41%;
+}
+/* line 157, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--badges .c-landing--badge.as-most_teams {
+  right: 15%;
+}
+/* line 159, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--badges .c-landing--badge.as-winning_streak {
+  left: 30%;
+  top: 200px;
+}
+/* line 162, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--badges .c-landing--badge.as-last_one {
+  right: 30%;
+  top: 200px;
+}
+/* line 165, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--badges .c-landing--badge.as-crawler {
+  left: 34.5%;
+  top: 400px;
+  width: 33%;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 137, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+  .c-landing .c-landing--badges {
+    height: inherit;
+  }
+  /* line 172, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+  .c-landing .c-landing--badges .c-landing--badge.as-crawling, .c-landing .c-landing--badges .c-landing--badge.as-last_one, .c-landing .c-landing--badges .c-landing--badge.as-winning_streak, .c-landing .c-landing--badges .c-landing--badge.as-crawler, .c-landing .c-landing--badges .c-landing--badge.as-most_teams, .c-landing .c-landing--badges .c-landing--badge.as-longest_winning {
+    position: relative;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: inherit;
+  }
+}
+/* line 178, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--feature {
+  overflow: hidden;
+  *zoom: 1;
+  width: 800px;
+  margin: 0 auto;
+}
+/* line 182, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--feature .c-landing--feature--image {
+  float: left;
+  margin-right: 20px;
+}
+/* line 185, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--feature .c-landing--feature--image img {
+  width: 250px;
+}
+/* line 187, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--feature .c-landing--feature--text {
+  float: left;
+  width: 530px;
+  color: #FFF;
+}
+/* line 192, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--feature.as-switched .c-landing--feature--image {
+  float: right;
+  margin-right: 0;
+}
+/* line 195, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--feature.as-switched .c-landing--feature--text {
+  text-align: right;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 178, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+  .c-landing .c-landing--feature {
+    width: 100%;
+    font-size: 16px;
+  }
+  /* line 200, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+  .c-landing .c-landing--feature .c-landing--feature--text {
+    width: 100%;
+    padding: 0 10px;
+    text-align: center;
+  }
+  /* line 205, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+  .c-landing .c-landing--feature.as-switched .c-landing--feature--text {
+    text-align: center;
+  }
+}
+/* line 207, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--screens {
+  overflow: hidden;
+  *zoom: 1;
+  width: 1000px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+/* line 212, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--screens .c-landing--screen {
+  float: left;
+  position: relative;
+  width: 50%;
+}
+/* line 216, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--screens .c-landing--screen .c-landing--screen--number {
+  position: absolute;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background: #76AEC1;
+  color: #FFF;
+  left: 60px;
+  margin-top: -10px;
+}
+/* line 227, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing--screens .c-landing--screen .c-landing--screen--text {
+  color: #FFF;
+  margin: 20px 40px;
+  text-align: center;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 207, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+  .c-landing .c-landing--screens {
+    width: 100%;
+  }
+  /* line 233, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+  .c-landing .c-landing--screens .c-landing--screen {
+    float: none;
+    width: 100%;
+  }
+  /* line 236, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+  .c-landing .c-landing--screens .c-landing--screen .c-landing--screen--number {
+    left: 20px;
+  }
+  /* line 238, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+  .c-landing .c-landing--screens .c-landing--screen img {
+    width: 100%;
+  }
+}
+/* line 240, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing-people {
+  display: flex;
+  justify-content: space-between;
+}
+/* line 243, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing-people h4 {
+  margin-top: 0;
+}
+/* line 245, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_landing.sass */
+.c-landing .c-landing-people .c-landing-person {
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_league_new.sass */
+.c-league-new {
+  width: 550px;
+  margin-left: 250px;
+}
+/* line 4, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_league_new.sass */
+.c-league-new .m-label {
+  text-transform: uppercase;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_league_new.sass */
+  .c-league-new {
+    width: 100%;
+    margin: 0;
+    position: relative;
+  }
+  /* line 10, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_league_new.sass */
+  .c-league-new .m-input {
+    width: 100%;
+  }
+}
+
+/* line 2, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_leagues_show.sass */
+#leagues_show .c-matches--match-notice {
+  margin: 50px auto 10px;
+  width: 500px;
+  max-width: 100%;
+}
+
+/* line 6, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_leagues_show.sass */
+.c-matches--ranking-notice {
+  margin-top: 50px;
+}
+
+/* line 10, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_leagues_show.sass */
+#leagues_new .m-label, #leagues_create .m-label {
+  width: 180px;
+}
+
+/* line 2, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+#matches_new #new_match, #matches_shuffle #new_match {
+  *zoom: 1;
+}
+/* line 38, /Users/slogmen/.gem/ruby/2.4.2/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
+#matches_new #new_match:after, #matches_shuffle #new_match:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 4, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+#matches_new .l-content-wrapper, #matches_shuffle .l-content-wrapper {
+  padding: 0;
+}
+/* line 6, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+#matches_new .c-mobile-buttons, #matches_shuffle .c-mobile-buttons {
+  text-align: center;
+}
+/* line 8, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+#matches_new .c-mobile-buttons .m-button, #matches_shuffle .c-mobile-buttons .m-button {
+  width: 100%;
+}
+/* line 10, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+#matches_new .c-mobile-buttons .m-button.as-yellow, #matches_shuffle .c-mobile-buttons .m-button.as-yellow {
+  background: #F3D959;
+}
+/* line 12, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+#matches_new .c-mobile-buttons .m-link, #matches_shuffle .c-mobile-buttons .m-link {
+  text-transform: uppercase;
+  color: #76AEC1;
+  padding: 10px 0;
+  display: block;
+  background: #FFF;
+}
+/* line 18, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+#matches_new .c-mobile-close, #matches_shuffle .c-mobile-close {
+  background: #000;
+  color: #FFF;
+  width: 30px;
+  height: 30px;
+  line-height: 28px;
+  border-radius: 100%;
+  text-align: center;
+}
+/* line 26, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+#matches_new .m-team-select, #matches_shuffle .m-team-select {
+  width: 330px;
+  float: left;
+  position: relative;
+}
+/* line 30, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+#matches_new .input-rows, #matches_shuffle .input-rows {
+  float: left;
+  width: 133px;
+  margin-top: 13px;
+  position: relative;
+}
+/* line 35, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+#matches_new .input-rows input[type=text], #matches_shuffle .input-rows input[type=text] {
+  background: #DAF4FB;
+  border: 1px solid #008EAD;
+}
+/* line 38, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+#matches_new .input-rows input[type=checkbox], #matches_shuffle .input-rows input[type=checkbox] {
+  position: relative;
+  top: -10px;
+}
+/* line 41, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+#matches_new .input-rows .m-button, #matches_shuffle .input-rows .m-button {
+  margin-top: 20px;
+}
+/* line 43, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+#matches_new .input-rows .m-form--row, #matches_shuffle .input-rows .m-form--row {
+  margin-bottom: 10px;
+}
+/* line 45, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+#matches_new .input-rows.as-mobile-visible, #matches_shuffle .input-rows.as-mobile-visible {
+  position: absolute;
+  display: block;
+  z-index: 2;
+  width: 100%;
+  background: #FFF;
+  padding-top: 40px;
+  margin-top: -100px;
+  border-top: 2px solid #F3D959;
+  box-shadow: 0 0 20px #454548;
+}
+/* line 55, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+#matches_new .input-rows.as-mobile-visible .m-form--row, #matches_shuffle .input-rows.as-mobile-visible .m-form--row {
+  width: 140px;
+  margin: 0 auto;
+}
+/* line 58, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+#matches_new .input-rows.as-mobile-visible .m-form--row .m-input.as-short, #matches_shuffle .input-rows.as-mobile-visible .m-form--row .m-input.as-short {
+  width: 40px;
+  font-size: 30px;
+}
+/* line 61, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+#matches_new .input-rows.as-mobile-visible .m-button, #matches_shuffle .input-rows.as-mobile-visible .m-button {
+  width: 100%;
+  border-radius: 0;
+  background: #F3D959;
+  margin-bottom: 0;
+}
+/* line 66, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+#matches_new .input-rows.as-mobile-visible .c-mobile-close, #matches_shuffle .input-rows.as-mobile-visible .c-mobile-close {
+  position: absolute;
+  right: 40px;
+  top: 20px;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 30, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+  #matches_new .input-rows, #matches_shuffle .input-rows {
+    display: none;
+  }
+}
+/* line 72, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+#matches_new .as-live, #matches_new.as-mobile-end, #matches_shuffle .as-live, #matches_shuffle.as-mobile-end {
+  display: none;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 75, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+  #matches_new .m-team-select, #matches_shuffle .m-team-select {
+    width: 100%;
+    float: none;
+    overflow: hidden;
+    *zoom: 1;
+  }
+  /* line 79, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+  #matches_new .m-team-select .m-headline, #matches_shuffle .m-team-select .m-headline {
+    display: none;
+  }
+  /* line 81, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+  #matches_new .m-user-select, #matches_shuffle .m-user-select {
+    width: 50%;
+    margin-right: 0;
+  }
+  /* line 84, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+  #matches_new .m-user-list, #matches_new .team-header--members, #matches_shuffle .m-user-list, #matches_shuffle .team-header--members {
+    width: 92px;
+  }
+  /* line 86, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+  #matches_new .m-user-list .m-user, #matches_new .team-header--members .m-user, #matches_shuffle .m-user-list .m-user, #matches_shuffle .team-header--members .m-user {
+    width: 42px;
+    height: 42px;
+    padding: 0px;
+  }
+  /* line 90, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+  #matches_new .m-user-list .m-user img, #matches_new .team-header--members .m-user img, #matches_shuffle .m-user-list .m-user img, #matches_shuffle .team-header--members .m-user img {
+    width: 40px;
+    height: 40px;
+  }
+  /* line 93, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+  #matches_new .input-rows, #matches_shuffle .input-rows {
+    width: 110px;
+  }
+}
+
+/* line 96, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+[data-behavior=crawling-check] {
+  display: none;
+}
+/* line 98, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+[data-behavior=crawling-check]:checked + .c-crawling {
+  background-color: #F0765E;
+}
+
+/* line 101, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+.c-crawling {
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  background-color: #89898b;
+  background-image: url(/assets/krabbel-icon-white-b3805a6a1cce7ab96334b47e406f6a017d5d977174bac2d57bf92029126093db.png);
+  background-position: 40% 40%;
+  background-repeat: no-repeat;
+  background-size: 90%;
+  border-radius: 100%;
+}
+
+/* line 113, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+#matches_edit .score {
+  position: relative;
+  top: 14px;
+}
+
+/* line 116, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+.hidden_inputs {
+  display: none;
+}
+
+/* line 119, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_match_new.sass */
+#matches_edit .c-crawling {
+  position: relative;
+  top: 5px;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_static.sass */
+#pages_imprint, #pages_faq {
+  background-image: linear-gradient(#daf4fb, #daf4fb 100px, #7d8b52 100px, #7d8b52);
+}
+/* line 3, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_static.sass */
+#pages_imprint:before, #pages_faq:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  left: 0;
+  height: 60px;
+  background: url(/assets/rasen-4e3a278f76be0b880f5c36e512de2104e583a5bbe889d41506d6d9deeb1ea60f.svg) repeat-x left center;
+  background-size: 30px 53px;
+}
+/* line 13, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_static.sass */
+#pages_imprint .c-footer-content, #pages_faq .c-footer-content {
+  color: #FFF;
+}
+/* line 15, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_static.sass */
+#pages_imprint .c-footer-content a, #pages_faq .c-footer-content a {
+  color: #FFF;
+}
+/* line 18, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_static.sass */
+#pages_imprint .c-footer-content svg path, #pages_faq .c-footer-content svg path {
+  fill: #FFF;
+}
+
+/* line 21, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_static.sass */
+#pages_kpis .kpi-list {
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 23, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_static.sass */
+#pages_kpis .kpi-list li {
+  float: left;
+  margin-right: 20px;
+  border: 2px solid #000;
+  background: #76AEC1;
+  padding: 10px;
+  color: #FFF;
+  text-align: center;
+}
+/* line 31, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_static.sass */
+#pages_kpis .kpi-list li .kpi-list--type {
+  font-weight: bold;
+}
+/* line 33, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_static.sass */
+#pages_kpis .kpi-list li .kpi-list--value {
+  font-size: 40px;
+}
+
+/* line 2, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_team_index.sass */
+.c-team-table .m-user-list, .c-team-table .team-header--members {
+  overflow: hidden;
+  *zoom: 1;
+  width: 160px;
+}
+/* line 5, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/controllers/_team_index.sass */
+.c-team-table .m-user-list .m-user, .c-team-table .team-header--members .m-user {
+  float: left;
+}
+
+/* line 9, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge {
+  display: block;
+  border: 3px solid #ACC86B;
+  background: #FFF;
+  padding: 10px;
+  margin: 0 20px 20px 0;
+}
+/* line 15, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge .m-badge--logo {
+  font-size: 40px;
+}
+/* line 17, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge .m-badge--logo .svg-icon {
+  height: 40px;
+  margin-left: 5px;
+}
+/* line 20, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge .m-badge--logo, .m-badge .m-badge--image {
+  float: left;
+}
+/* line 22, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge .m-badge--title {
+  clear: both;
+}
+/* line 24, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge hr {
+  border-color: #ACC86B;
+}
+/* line 26, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge.as-crawling {
+  border-color: #E2969A;
+}
+/* line 4, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge.as-crawling .m-badge--logo i:before {
+  color: #E2969A;
+}
+/* line 7, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge.as-crawling .m-badge--logo .svg-icon .svg-path {
+  fill: #E2969A;
+}
+/* line 28, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge.as-longest_winning {
+  border-color: #76AEC1;
+}
+/* line 4, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge.as-longest_winning .m-badge--logo i:before {
+  color: #76AEC1;
+}
+/* line 7, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge.as-longest_winning .m-badge--logo .svg-icon .svg-path {
+  fill: #76AEC1;
+}
+/* line 30, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge.as-most_teams {
+  border-color: #ACC86B;
+}
+/* line 4, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge.as-most_teams .m-badge--logo i:before {
+  color: #ACC86B;
+}
+/* line 7, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge.as-most_teams .m-badge--logo .svg-icon .svg-path {
+  fill: #ACC86B;
+}
+/* line 32, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge.as-winning_streak {
+  border-color: #F3D959;
+}
+/* line 4, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge.as-winning_streak .m-badge--logo i:before {
+  color: #F3D959;
+}
+/* line 7, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge.as-winning_streak .m-badge--logo .svg-icon .svg-path {
+  fill: #F3D959;
+}
+/* line 34, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge.as-last_one {
+  border-color: #F0765E;
+}
+/* line 4, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge.as-last_one .m-badge--logo i:before {
+  color: #F0765E;
+}
+/* line 7, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge.as-last_one .m-badge--logo .svg-icon .svg-path {
+  fill: #F0765E;
+}
+/* line 36, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge.as-crawler {
+  border-color: #FFAA64;
+}
+/* line 4, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge.as-crawler .m-badge--logo i:before {
+  color: #FFAA64;
+}
+/* line 7, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge.as-crawler .m-badge--logo .svg-icon .svg-path {
+  fill: #FFAA64;
+}
+
+/* line 39, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge-list {
+  *zoom: 1;
+}
+/* line 38, /Users/slogmen/.gem/ruby/2.4.2/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
+.m-badge-list:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 41, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge-list .m-badge {
+  float: left;
+  width: 370px;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 41, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+  .m-badge-list .m-badge {
+    width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+/* line 53, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background: #000;
+  text-align: center;
+}
+/* line 59, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge-icon i {
+  font-size: 60px;
+  color: #FFF;
+}
+/* line 62, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge-icon.as-crawling {
+  background: #FFAA64;
+}
+/* line 50, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge-icon.as-crawling i {
+  color: #ffeee0;
+}
+/* line 66, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge-icon.as-longest_winning {
+  background: #F3D959;
+}
+/* line 50, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge-icon.as-longest_winning i {
+  color: #fdf7de;
+}
+/* line 70, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge-icon.as-most_teams {
+  background: #ACC86B;
+}
+/* line 50, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge-icon.as-most_teams i {
+  color: #eef4e1;
+}
+/* line 74, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge-icon.as-winning_streak {
+  background: #76AEC1;
+}
+/* line 50, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge-icon.as-winning_streak i {
+  color: #e4eff3;
+}
+/* line 78, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge-icon.as-last_one {
+  background: #F0765E;
+}
+/* line 50, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge-icon.as-last_one i {
+  color: #fce4df;
+}
+/* line 82, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge-icon.as-crawler {
+  background: #E2969A;
+  background: #E2969A url(/assets/krabbel-icon-3226d24481b662c9e4d3cadbbfce6e74e7d0bb6d7a9e8e036bce97a7565a64f5.png) no-repeat center center;
+  background-size: 80%;
+}
+/* line 50, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_badge.sass */
+.m-badge-icon.as-crawler i {
+  color: #f9eaeb;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_big_notice.sass */
+.m-big-notice {
+  font-size: 26px;
+  color: #FFF;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  background: #CBED52;
+  padding: 40px 20px;
+  border-radius: 2px;
+  max-width: 100%;
+  -moz-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  -webkit-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+/* line 12, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_big_notice.sass */
+.m-big-notice .m-big-notice--text {
+  margin-bottom: 20px;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_big_notice.sass */
+  .m-big-notice {
+    width: 100%;
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}
+/* line 17, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_big_notice.sass */
+.m-big-notice.as-secondary {
+  background: #89898b;
+  font-size: 16px;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_box.sass */
+.m-box {
+  background: #FFF;
+  border: 1px solid #76AEC1;
+  padding: 20px 40px 40px;
+  position: relative;
+}
+/* line 6, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_box.sass */
+.m-box .m-box--headline {
+  border-bottom: 1px solid #76AEC1;
+  padding-bottom: 10px;
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+}
+/* line 11, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_box.sass */
+.m-box .m-box--button {
+  width: 100%;
+  text-align: center;
+  border-radius: 0;
+  position: absolute;
+  margin: 0px -40px;
+}
+/* line 17, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_box.sass */
+.m-box .m-box--input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* line 20, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_box.sass */
+.m-boxes {
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 22, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_box.sass */
+.m-boxes .m-box {
+  float: left;
+  width: 49%;
+}
+/* line 25, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_box.sass */
+.m-boxes .m-box:first-child {
+  margin-right: 2%;
+}
+/* line 27, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_box.sass */
+.m-boxes .m-box--circle {
+  position: absolute;
+  margin-top: 110px;
+  left: calc(50% - 30px);
+  z-index: 1;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 20, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_box.sass */
+  .m-boxes {
+    width: 100%;
+  }
+  /* line 34, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_box.sass */
+  .m-boxes .m-box--circle {
+    display: none;
+  }
+  /* line 36, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_box.sass */
+  .m-boxes .m-box {
+    width: 100%;
+    float: none;
+    margin-bottom: 20px;
+  }
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_button.sass */
+.m-button_twitter, .m-button_facebook, .m-button {
+  font-size: 18px;
+  border: none;
+  background-color: #76AEC1;
+  padding: 10px;
+  color: #FFF;
+  cursor: pointer;
+  display: inline-block;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  border-radius: 3px;
+  font-family: "Oswald", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+/* line 14, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_button.sass */
+.m-button_twitter:hover, .m-button_facebook:hover, .m-button:hover {
+  background-color: #6a9dae;
+  text-decoration: none;
+}
+/* line 17, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_button.sass */
+.margin-bottom.m-button_twitter, .margin-bottom.m-button_facebook, .m-button.margin-bottom {
+  margin-bottom: 20px;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_button.sass */
+  .m-button_twitter, .m-button_facebook, .m-button {
+    font-weight: 400;
+  }
+  /* line 21, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_button.sass */
+  .with-full-width.m-button_twitter, .with-full-width.m-button_facebook, .m-button.with-full-width {
+    width: 100%;
+  }
+}
+/* line 23, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_button.sass */
+.as-secondary.m-button_twitter, .as-secondary.m-button_facebook, .m-button.as-secondary {
+  background: #FFAA64;
+}
+/* line 25, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_button.sass */
+.as-disabled.m-button_twitter, .as-disabled.m-button_facebook, .m-button.as-disabled {
+  background: #89898b;
+  pointer-events: none;
+  color: #cbcbce;
+}
+
+/* line 29, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_button.sass */
+.m-button_twitter {
+  background-color: #78cdf0;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+}
+/* line 35, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_button.sass */
+.m-button_twitter:hover {
+  background-color: #6cb9d8;
+}
+
+/* line 38, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_button.sass */
+.m-button_facebook {
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+  background-color: #537bbd;
+}
+/* line 44, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_button.sass */
+.m-button_facebook:hover {
+  background-color: #4b6faa;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_circle.sass */
+.m-circle {
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  background: #F3D959;
+  color: #FFF;
+  border-radius: 100%;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_date_navigation.sass */
+.m-date-navigation {
+  display: flex;
+  padding: 1rem 0;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+/* line 7, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_date_navigation.sass */
+.m-date-navigation .current {
+  flex: 1;
+  text-align: center;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_flash.sass */
+.m-flash {
+  margin-bottom: 20px;
+  width: 100%;
+}
+/* line 4, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_flash.sass */
+.m-flash .m-flash--notice, .m-flash .m-flash--alert {
+  font-weight: bold;
+  text-align: center;
+  color: #FFF;
+  padding: 5px 0;
+}
+/* line 9, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_flash.sass */
+.m-flash .m-flash--notice {
+  background-color: #ACC86B;
+}
+/* line 11, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_flash.sass */
+.m-flash .m-flash--alert {
+  background-color: #F0765E;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_form.sass */
+.m-form--row {
+  margin: 20px 0;
+}
+/* line 3, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_form.sass */
+.m-form--row input[type=file] {
+  vertical-align: middle;
+  margin-top: -3px;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_header_image.sass */
+.m-header-image {
+  width: 100%;
+  height: 300px;
+  background-size: contain;
+  background-position: center;
+  background-color: #FFF;
+  background-repeat: no-repeat;
+  margin: -10px 0px 50px 0px;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_headline.sass */
+.m-headline {
+  text-transform: uppercase;
+  font-size: 18px;
+  font-family: "Oswald", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+/* line 5, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_headline.sass */
+.m-icon-headline {
+  text-align: center;
+  font-weight: bold;
+  color: #FFF;
+  text-transform: uppercase;
+  text-shadow: 1px 1px #788c4b;
+  font-size: 20px;
+  margin: 40px auto;
+  background: #7D8B52;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  font-family: "Oswald", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+/* line 19, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_headline.sass */
+.m-icon-headline .m-icon-headline--head:before {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: #FFF;
+  box-shadow: 1px 1px 3px #788c4b;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+/* line 28, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_headline.sass */
+.m-icon-headline .m-icon-headline--head:after {
+  position: relative;
+  content: "";
+  height: 8px;
+  width: 150px;
+  background: #7D8B52;
+  display: block;
+  margin: 0 auto;
+  top: -32px;
+  z-index: 2;
+}
+/* line 38, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_headline.sass */
+.m-icon-headline .m-icon-headline--icon {
+  display: block;
+  position: absolute;
+  margin-top: -40px;
+  font-size: 30px;
+  text-align: center;
+  width: 100%;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_input.sass */
+.m-input {
+  border: 1px solid #89898b;
+  padding: 10px;
+  font-size: 18px;
+  width: 300px;
+}
+/* line 6, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_input.sass */
+.m-input.as-centered {
+  text-align: center;
+}
+/* line 8, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_input.sass */
+.m-input.as-short {
+  width: 26px;
+  padding: 10px 5px;
+}
+/* line 11, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_input.sass */
+.m-input.as-colored {
+  border: 1px solid #008EAD;
+  background: #DAF4FB;
+}
+/* line 14, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_input.sass */
+.m-input.as-colored::-webkit-input-placeholder {
+  color: #008EAD;
+}
+/* line 16, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_input.sass */
+.m-input.as-colored:-moz-placeholder {
+  color: #008EAD;
+}
+/* line 18, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_input.sass */
+.m-input.as-colored::-moz-placeholder {
+  color: #008EAD;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_input.sass */
+  .m-input {
+    -webkit-appearance: none;
+    font-size: 16px;
+    width: 100%;
+  }
+  /* line 24, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_input.sass */
+  .m-input.as-short {
+    padding: 5px;
+    width: 20px;
+  }
+}
+
+/* line 29, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_input.sass */
+.field_with_errors {
+  display: inline-block;
+}
+/* line 31, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_input.sass */
+.field_with_errors .m-input {
+  border: 1px solid #F0765E;
+  background: #fce4df;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_karl.sass */
+.m-karl-crawl--wrapper {
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  height: 100vw;
+  background: rgba(0, 0, 0, 0.8);
+  left: 0;
+  top: 0;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_karl.sass */
+  .m-karl-crawl--wrapper {
+    display: none;
+  }
+}
+/* line 11, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_karl.sass */
+.m-karl-crawl--wrapper .m-karl-crawl--close {
+  position: absolute;
+  right: 60px;
+  top: 60px;
+  width: 100px;
+  height: 100px;
+  line-height: 80px;
+  border-radius: 100%;
+  text-align: center;
+  font-size: 40px;
+  background: #FFF;
+  border: 10px solid #cbcbce;
+  cursor: pointer;
+}
+/* line 24, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_karl.sass */
+.m-karl-crawl--wrapper .m-karl-crawl--close:hover {
+  background: #cbcbce;
+  border-color: #FFF;
+  color: #FFF;
+}
+
+/* line 28, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_karl.sass */
+.m-karl-crawl {
+  width: 440px;
+  left: calc(50% - 220px);
+  position: absolute;
+  z-index: 4;
+}
+/* line 33, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_karl.sass */
+.m-karl-crawl img {
+  width: 100%;
+}
+/* line 35, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_karl.sass */
+.m-karl-crawl .m-karl-crawl--content {
+  position: absolute;
+  top: 213px;
+  height: 200px;
+  left: 40px;
+  width: 241px;
+}
+/* line 41, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_karl.sass */
+.m-karl-crawl .m-karl-crawl--content .m-karl-crawl--text--headline {
+  color: #F3D959;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+/* line 47, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_karl.sass */
+.m-karl-crawl .m-karl-crawl--content .m-karl-crawl--text--description {
+  padding: 0 10px;
+  text-align: center;
+}
+/* line 51, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_karl.sass */
+.m-karl-crawl .m-karl-crawl--content .m-karl-crawl--buttons {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 0;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 57, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_karl.sass */
+.m-karl-crawl .m-karl-crawl--content .m-karl-crawl--buttons .c-sharing--button {
+  width: 50%;
+  box-sizing: border-box;
+  display: block;
+  float: left;
+}
+/* line 62, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_karl.sass */
+.m-karl-crawl .m-karl-crawl--content .m-karl-crawl--buttons .c-sharing--button.as-facebook {
+  margin: 0;
+  border-bottom-left-radius: 3px;
+}
+/* line 65, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_karl.sass */
+.m-karl-crawl .m-karl-crawl--content .m-karl-crawl--buttons .c-sharing--button.as-twitter {
+  border-bottom-right-radius: 3px;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_label.sass */
+.m-label {
+  font-size: 18px;
+  min-width: 150px;
+  display: inline-block;
+}
+
+/* line 13, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list {
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 15, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league {
+  float: left;
+  width: 240px;
+  margin: 0 20px 20px 0;
+}
+/* line 19, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(4n) {
+  margin-right: 0;
+}
+/* line 21, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+2) {
+  color: #c2ae47;
+}
+/* line 3, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+2) .m-league--header {
+  background: #F3D959;
+}
+/* line 5, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+2) .m-league--body {
+  background: #f9ecac;
+}
+/* line 7, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+2) .m-league--icon {
+  font-size: 36px;
+}
+/* line 10, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+2):hover .m-league--body {
+  background: #f5e17a;
+}
+/* line 23, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+3) {
+  color: #b5787b;
+}
+/* line 3, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+3) .m-league--header {
+  background: #E2969A;
+}
+/* line 5, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+3) .m-league--body {
+  background: #f1cbcd;
+}
+/* line 7, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+3) .m-league--icon {
+  font-size: 36px;
+}
+/* line 10, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+3):hover .m-league--body {
+  background: #e8abae;
+}
+/* line 25, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+4) {
+  color: #cc8850;
+}
+/* line 3, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+4) .m-league--header {
+  background: #FFAA64;
+}
+/* line 5, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+4) .m-league--body {
+  background: #ffd5b2;
+}
+/* line 7, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+4) .m-league--icon {
+  font-size: 36px;
+}
+/* line 10, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+4):hover .m-league--body {
+  background: #ffbb83;
+}
+/* line 27, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+5) {
+  color: #c05e4b;
+}
+/* line 3, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+5) .m-league--header {
+  background: #F0765E;
+}
+/* line 5, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+5) .m-league--body {
+  background: #f8bbaf;
+}
+/* line 7, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+5) .m-league--icon {
+  font-size: 36px;
+}
+/* line 10, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+5):hover .m-league--body {
+  background: #f3917e;
+}
+/* line 29, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+6) {
+  color: #8aa056;
+}
+/* line 3, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+6) .m-league--header {
+  background: #ACC86B;
+}
+/* line 5, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+6) .m-league--body {
+  background: #d6e4b5;
+}
+/* line 7, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+6) .m-league--icon {
+  font-size: 36px;
+}
+/* line 10, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league-list .m-league:nth-child(6n+6):hover .m-league--body {
+  background: #bdd389;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 15, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+  .m-league-list .m-league {
+    width: 100%;
+  }
+}
+
+/* line 33, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league {
+  display: block;
+  color: #FFF;
+  text-align: center;
+  position: relative;
+  color: #5e8b9a;
+}
+/* line 3, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league .m-league--header {
+  background: #76AEC1;
+}
+/* line 5, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league .m-league--body {
+  background: #bbd7e0;
+}
+/* line 7, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league .m-league--icon {
+  font-size: 36px;
+}
+/* line 10, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league:hover .m-league--body {
+  background: #91becd;
+}
+/* line 39, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league .m-league--header {
+  padding: 8px;
+  text-transform: uppercase;
+  color: #FFF;
+  position: absolute;
+  width: 100%;
+  min-height: 24px;
+  line-height: 18px;
+}
+/* line 47, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league .m-league--body {
+  padding: 57px 10px 40px;
+  height: 210px;
+}
+/* line 50, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league .m-league--fact {
+  font-size: 30px;
+}
+/* line 52, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league .m-league--icon {
+  font-size: 36px;
+}
+/* line 54, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league:hover {
+  text-decoration: none;
+}
+/* line 57, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_league.sass */
+.m-league.as-new .m-league--icon {
+  margin-top: 40px;
+  display: block;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_link.sass */
+.m-link {
+  color: #ACC86B;
+  cursor: pointer;
+  font-family: "Oswald", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+/* line 5, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_link.sass */
+.m-link.as-negative {
+  color: #F0765E;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_logo.sass */
+.m-logo {
+  font-size: 30px;
+  color: #76AEC1;
+  float: left;
+}
+/* line 5, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_logo.sass */
+.m-logo a {
+  color: #76AEC1;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_logo.sass */
+  .m-logo {
+    font-weight: bold;
+  }
+}
+
+/* line 9, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_logo.sass */
+.as-header-logo {
+  height: 40px;
+}
+/* line 11, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_logo.sass */
+.as-header-logo svg {
+  height: 50px;
+  margin-top: -5px;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+.m-match-list {
+  overflow: hidden;
+  *zoom: 1;
+  padding: 20px;
+  border: 1px solid #76AEC1;
+  background: #FFF;
+  clear: both;
+}
+/* line 7, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+.m-match-list .m-match {
+  margin-bottom: 10px;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 10, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+  .m-match-list .m-match {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+/* line 13, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+.m-match-list--group {
+  overflow: hidden;
+  *zoom: 1;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #76AEC1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* line 20, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+.m-match-list--headline {
+  clear: both;
+  color: #76AEC1;
+}
+
+/* line 23, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+.m-match {
+  position: relative;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 26, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+.m-match .m-match--team {
+  border-top: 5px solid #F0765E;
+  float: left;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 30, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+.m-match .m-match--team .m-match--team--member {
+  float: left;
+}
+/* line 34, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+.m-match .m-match--team.as-winner {
+  border-color: #ACC86B;
+  margin-right: 10px;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 38, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+  .m-match .m-match--team .m-user-image {
+    width: 60px;
+    height: 60px;
+  }
+  /* line 41, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+  .m-match .m-match--team .m-user-image svg {
+    width: 60px;
+  }
+}
+/* line 43, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+.m-match .m-match--score {
+  background: #FFF;
+  width: 56px;
+  height: 56px;
+  text-align: center;
+  border-radius: 100%;
+  z-index: 2;
+  color: #000;
+  position: absolute;
+  left: calc(50% - 28px);
+  top: 20px;
+  transition: 0.1s ease-in-out all;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 0 8px #CCC;
+}
+/* line 60, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+.m-match .m-match--score .m-match--score--difference {
+  color: #ACC86B;
+  position: relative;
+  top: 0px;
+  transition: 0.1s ease-in-out all;
+}
+/* line 65, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+.m-match .m-match--score.as-winner, .m-match .m-match--score.as-loser {
+  color: #FFF;
+}
+/* line 67, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+.m-match .m-match--score.as-winner .m-match--score--difference, .m-match .m-match--score.as-loser .m-match--score--difference {
+  color: #FFF;
+}
+/* line 69, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+.m-match .m-match--score.as-winner {
+  background: #ACC86B;
+}
+/* line 71, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+.m-match .m-match--score.as-loser {
+  background: #F0765E;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 43, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+  .m-match .m-match--score {
+    top: 7px;
+  }
+}
+/* line 75, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+.m-match .m-match--actions {
+  *zoom: 1;
+  text-align: center;
+  clear: both;
+  position: relative;
+  display: flex;
+}
+/* line 38, /Users/slogmen/.gem/ruby/2.4.2/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
+.m-match .m-match--actions:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 81, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+.m-match .m-match--actions .m-link {
+  flex: 1;
+  color: #FFF;
+  background: #F0765E;
+  display: block;
+  text-align: center;
+  border: 1px solid #FFF;
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 5px;
+}
+/* line 91, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+.m-match .m-match--actions .m-link.as-facebook {
+  background: #475c91;
+}
+/* line 93, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+.m-match .m-match--actions .m-link.as-twitter {
+  background: #2daae2;
+}
+/* line 9, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/base/_global_mixins.sass */
+.m-match .m-match--actions {
+  opacity: 0;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+/* line 13, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/base/_global_mixins.sass */
+.m-match:hover .m-match--actions {
+  opacity: 1;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 98, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+  .m-match.as-single .m-match--score {
+    left: 40px;
+  }
+}
+/* line 101, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+.m-match.as-crawling .m-match--team {
+  position: relative;
+}
+/* line 103, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+.m-match.as-crawling .m-match--team:before {
+  content: "";
+  background: rgba(240, 118, 94, 0.8) url(/assets/krabbel-icon-white-b3805a6a1cce7ab96334b47e406f6a017d5d977174bac2d57bf92029126093db.png) no-repeat center center;
+  background-size: cover;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  display: block;
+  position: absolute;
+  z-index: 2;
+  left: calc(50% - 15px);
+  top: calc(50% - 15px);
+}
+/* line 116, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+.m-match.as-crawling .m-match--team.as-winner:before {
+  display: none;
+}
+/* line 119, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match.sass */
+.m-match:hover .m-match--score {
+  transform: scale(1.25);
+  transform-origin: center 70%;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match_cup.sass */
+.m-match-cup {
+  border-collapse: collapse;
+}
+/* line 3, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match_cup.sass */
+.m-match-cup .as-right {
+  text-align: right;
+}
+
+/* line 7, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match_cup.sass */
+.m-match-cup--match.as-crawling {
+  background-color: #CBED52;
+}
+
+/* line 10, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match_cup.sass */
+.m-match-cup--day--data {
+  background-color: #fafafa;
+  margin: 40px 0 10px;
+  padding: 5px 10px;
+  font-size: 1.25rem;
+}
+
+/* line 17, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match_cup.sass */
+.m-match-cup--day:first-child .m-match-cup--day--data {
+  margin-top: 0;
+}
+
+/* line 20, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match_cup.sass */
+.m-match-cup--team {
+  white-space: nowrap;
+}
+/* line 22, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match_cup.sass */
+.m-match-cup--team .m-user {
+  display: inline-block;
+}
+
+/* line 25, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match_cup.sass */
+.m-match-cup--team_name {
+  padding: 5px 10px;
+}
+
+/* line 28, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match_cup.sass */
+.m-match-cup--numbers {
+  text-align: center;
+  padding: 5px 20px;
+}
+
+/* line 32, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match_cup.sass */
+.m-match-cup--score {
+  font-size: 2rem;
+  padding: 0 5px;
+}
+
+/* line 36, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match_cup.sass */
+.as-negative .m-match-cup--score {
+  color: #F0765E;
+}
+
+/* line 39, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match_cup.sass */
+.as-positive .m-match-cup--score {
+  color: #ACC86B;
+}
+
+/* line 42, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match_cup.sass */
+.m-match-cup--score--difference {
+  font-size: 0.675rem;
+  margin-top: 0.1rem;
+}
+
+/* line 46, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match_cup.sass */
+.as-negative .m-match-cup--score--difference span {
+  background-color: #F0765E;
+  color: #fff;
+  padding: 2px 5px;
+  border-radius: 2px;
+}
+
+/* line 52, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_match_cup.sass */
+.as-positive .m-match-cup--score--difference span {
+  background-color: #ACC86B;
+  color: #fff;
+  padding: 2px 5px;
+  border-radius: 2px;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_navigation.sass */
+.m-navigation {
+  float: right;
+  margin-top: 10px;
+  font-size: 16px;
+}
+/* line 5, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_navigation.sass */
+.m-navigation .m-navigation--item {
+  float: left;
+  margin-right: 20px;
+  text-transform: uppercase;
+  font-family: "Oswald", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+/* line 10, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_navigation.sass */
+.m-navigation .m-navigation--item a {
+  color: #76AEC1;
+}
+/* line 12, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_navigation.sass */
+.m-navigation .m-navigation--item:last-child {
+  margin-right: 0;
+}
+/* line 14, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_navigation.sass */
+.m-navigation .m-navigation--item.as-mobile-only {
+  display: none;
+}
+/* line 16, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_navigation.sass */
+.m-navigation .m-navigation--item.as-flag svg {
+  width: 26px;
+  height: 13px;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_navigation.sass */
+  .m-navigation {
+    display: none;
+    width: 100%;
+  }
+  /* line 22, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_navigation.sass */
+  .m-navigation .m-navigation--item {
+    margin-right: 0;
+    float: none;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px 0;
+  }
+  /* line 28, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_navigation.sass */
+  .m-navigation .m-navigation--item.as-mobile-only {
+    display: block;
+  }
+}
+
+/* line 31, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_navigation.sass */
+.m-navigation-trigger {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+/* line 37, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_navigation.sass */
+.m-navigation-trigger:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 30px;
+  height: 3px;
+  background: #76AEC1;
+  cursor: pointer;
+  box-shadow: 0 6px 0 0 #76AEC1, 0 12px 0 0 #76AEC1;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 31, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_navigation.sass */
+  .m-navigation-trigger {
+    display: block;
+    float: right;
+  }
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_profile.sass */
+.m-profile-teams {
+  margin-bottom: 20px;
+  *zoom: 1;
+}
+/* line 3, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_profile.sass */
+.m-profile-teams a {
+  color: #000;
+}
+/* line 38, /Users/slogmen/.gem/ruby/2.4.2/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
+.m-profile-teams:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 6, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_profile.sass */
+.m-profile-teams .m-profile-teams--best-worst {
+  padding: 20px;
+  border: 1px solid #76AEC1;
+  background: #FFF;
+  *zoom: 1;
+  float: right;
+  margin-right: 40px;
+}
+/* line 38, /Users/slogmen/.gem/ruby/2.4.2/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
+.m-profile-teams .m-profile-teams--best-worst:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 13, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_profile.sass */
+.m-profile-teams .m-profile-teams--best-worst i {
+  color: #FFF;
+  border-radius: 100%;
+  padding: 2px;
+}
+/* line 17, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_profile.sass */
+.m-profile-teams .m-profile-teams--best-worst i.as-green {
+  background-color: #ACC86B;
+}
+/* line 19, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_profile.sass */
+.m-profile-teams .m-profile-teams--best-worst i.as-red {
+  background-color: #F0765E;
+}
+/* line 21, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_profile.sass */
+.m-profile-teams .m-profile-teams--partner {
+  color: #89898b;
+  font-size: 16px;
+  max-width: 175px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 3px 0;
+}
+/* line 29, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_profile.sass */
+.m-profile-teams .m-profile-teams--type {
+  font-size: 14px;
+}
+/* line 31, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_profile.sass */
+.m-profile-teams .m-profile-teams--best {
+  margin-right: 20px;
+}
+/* line 33, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_profile.sass */
+.m-profile-teams .m-profile-teams--best, .m-profile-teams .m-profile-teams--worst, .m-profile-teams .m-profile-basics {
+  float: left;
+}
+/* line 34, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_profile.sass */
+.m-profile-teams .m-profile-teams--best h4, .m-profile-teams .m-profile-teams--worst h4, .m-profile-teams .m-profile-basics h4 {
+  margin-top: 0;
+}
+
+/* line 38, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_profile.sass */
+.m-profile-basics {
+  *zoom: 1;
+}
+/* line 38, /Users/slogmen/.gem/ruby/2.4.2/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
+.m-profile-basics:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 40, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_profile.sass */
+.m-profile-basics .m-profile-basics--user {
+  height: 115px;
+  width: 115px;
+}
+/* line 43, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_profile.sass */
+.m-profile-basics .m-profile-basics--user .m-user-image svg {
+  width: 115px;
+}
+/* line 45, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_profile.sass */
+.m-profile-basics .m-user, .m-profile-basics .m-profile-basics--values {
+  float: left;
+  margin-right: 20px;
+}
+
+/* line 48, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_profile.sass */
+.m-profile-basics--value {
+  font-size: 13px;
+  color: #000;
+}
+/* line 51, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_profile.sass */
+.m-profile-basics--value span {
+  color: #89898b;
+}
+/* line 53, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_profile.sass */
+.m-profile-basics--value .as-positive {
+  color: #ACC86B;
+  font-weight: bold;
+}
+/* line 56, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_profile.sass */
+.m-profile-basics--value .as-negative {
+  font-weight: bold;
+  color: #F0765E;
+}
+
+/* line 59, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_profile.sass */
+.m-profile-chart {
+  border: 1px solid #76AEC1;
+  margin-right: 40px;
+}
+
+/* line 2, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_ranking.sass */
+.m-ranking .m-ranking--item {
+  clear: both;
+  font-family: "Oswald", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+/* line 9, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/base/_global_mixins.sass */
+.m-ranking .m-ranking--item .m-ranking--item--place {
+  opacity: 0;
+  -moz-transition: opacity 0.25s ease-in-out;
+  -o-transition: opacity 0.25s ease-in-out;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+}
+/* line 13, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/base/_global_mixins.sass */
+.m-ranking .m-ranking--item:hover .m-ranking--item--place {
+  opacity: 1;
+}
+/* line 6, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_ranking.sass */
+.m-ranking .m-ranking--item a {
+  color: #000;
+}
+/* line 8, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_ranking.sass */
+.m-ranking .m-ranking--item a:hover {
+  text-decoration: none;
+}
+/* line 10, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_ranking.sass */
+.m-ranking .m-ranking--item .m-ranking--item--image {
+  float: left;
+  margin-right: 10px;
+}
+/* line 13, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_ranking.sass */
+.m-ranking .m-ranking--item .m-ranking--item--image img, .m-ranking .m-ranking--item .m-ranking--item--image .m-user-image, .m-ranking .m-ranking--item .m-ranking--item--image svg {
+  width: 60px;
+  height: 60px;
+}
+/* line 16, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_ranking.sass */
+.m-ranking .m-ranking--item .m-ranking--item--place {
+  position: absolute;
+  z-index: 3;
+  font-size: 40px;
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  background: #76AEC1;
+  color: #FFF;
+}
+/* line 25, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_ranking.sass */
+.m-ranking .m-ranking--item .m-ranking--item--score {
+  font-size: 18px;
+  color: #76AEC1;
+}
+/* line 28, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_ranking.sass */
+.m-ranking .m-ranking--item .m-ranking--item--score .m-ranking--item--score--quota {
+  float: left;
+  margin-right: 2px;
+}
+/* line 31, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_ranking.sass */
+.m-ranking .m-ranking--item .m-ranking--item--balance {
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-top: 16px;
+  margin-bottom: 1px;
+}
+/* line 38, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_ranking.sass */
+.m-ranking .m-ranking--item:last-child {
+  border-bottom: none;
+}
+/* line 40, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_ranking.sass */
+.m-ranking .m-ranking--item .m-ranking--item--badge {
+  float: left;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  padding: 0;
+  margin-right: 2px;
+}
+/* line 47, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_ranking.sass */
+.m-ranking .m-ranking--item .m-ranking--item--badge i {
+  position: relative;
+  top: -6px;
+  font-size: 12px;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 52, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_ranking.sass */
+  .m-ranking .m-ranking--item .m-ranking--item--place {
+    opacity: 1;
+  }
+  /* line 54, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_ranking.sass */
+  .m-ranking .m-ranking--item .m-ranking--item--image {
+    margin-left: 60px;
+  }
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_row.sass */
+.m-row {
+  *zoom: 1;
+}
+/* line 38, /Users/slogmen/.gem/ruby/2.4.2/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
+.m-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 3, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_row.sass */
+.m-row .m-row--left {
+  float: left;
+  width: 50%;
+  padding-right: 10px;
+}
+/* line 7, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_row.sass */
+.m-row .m-row--right {
+  float: right;
+  width: 50%;
+  padding-left: 10px;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 12, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_row.sass */
+  .m-row .m-row--left, .m-row .m-row--right {
+    width: 95%;
+    float: none;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+}
+/* line 18, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_row.sass */
+.m-row .m-item, .m-row .m-item--whole, .m-row .m-item--half, .m-row .m-item--third, .m-row .m-item--fourth {
+  float: left;
+}
+/* line 21, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_row.sass */
+.m-row .m-item--whole {
+  width: 100%;
+}
+/* line 25, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_row.sass */
+.m-row .m-item--half {
+  width: 50%;
+}
+/* line 29, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_row.sass */
+.m-row .m-item--third {
+  width: 33.333%;
+}
+/* line 33, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_row.sass */
+.m-row .m-item--fourth {
+  width: 25%;
+}
+
+/* line 2, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_score.sass */
+.m-score.as-positive {
+  color: #ACC86B;
+}
+/* line 4, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_score.sass */
+.m-score.as-negative {
+  color: #F0765E;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_scoring.sass */
+.m-scoring {
+  overflow: hidden;
+  *zoom: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: none;
+  z-index: 1;
+}
+/* line 10, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_scoring.sass */
+.m-scoring.as-visible {
+  display: block;
+}
+/* line 12, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_scoring.sass */
+.m-scoring .m-scoring--close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border-radius: 100%;
+  background: #454548;
+  color: #FFF;
+  text-align: center;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  font-size: 26px;
+}
+
+/* line 25, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_scoring.sass */
+.m-scoring--team {
+  background: #F3D959;
+  color: #FFF;
+  position: absolute;
+  text-align: center;
+  height: 120px;
+  width: 250px;
+  margin: 0 auto;
+  border-radius: 140px 140px 0 0;
+  bottom: -18px;
+  left: calc(50% - 125px);
+  transform: scaleY(0.7);
+  z-index: 1;
+}
+/* line 38, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_scoring.sass */
+.m-scoring--team i {
+  position: absolute;
+  font-size: 40px;
+  top: 20px;
+  left: 100px;
+  transform: scaleY(1.4);
+}
+/* line 44, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_scoring.sass */
+.m-scoring--team.as-bottom {
+  border-radius: 0 0 140px 140px;
+  top: -18px;
+}
+/* line 47, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_scoring.sass */
+.m-scoring--team:active {
+  background: #f0ce29;
+}
+
+/* line 50, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_scoring.sass */
+.m-scoring--count {
+  position: absolute;
+  background: #FFF;
+  width: 100%;
+  height: 46px;
+  text-align: center;
+  z-index: 1;
+}
+/* line 57, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_scoring.sass */
+.m-scoring--count .m-scoring--count--close {
+  position: absolute;
+  top: -130px;
+  right: 20px;
+}
+/* line 61, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_scoring.sass */
+.m-scoring--count .m-scoring--count--numbers {
+  margin-top: -10px;
+}
+/* line 63, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_scoring.sass */
+.m-scoring--count .m-scoring--count--numbers input[type=text] {
+  display: inline;
+  font-size: 30px;
+  width: 20px;
+  padding: 10px;
+  text-align: center;
+  border: none;
+  background: transparent;
+  color: #76AEC1;
+}
+/* line 72, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_scoring.sass */
+.m-scoring--count .m-scoring--count--numbers .c-crawling {
+  position: relative;
+  top: 5px;
+  width: 30px;
+  height: 30px;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_settings.sass */
+.b-settings {
+  background: #333333;
+  color: white;
+  min-height: 100vh;
+}
+/* line 5, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_settings.sass */
+.b-settings .b-settings--row {
+  background: #484848;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+/* line 9, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_settings.sass */
+.b-settings .b-settings--row textarea {
+  width: 80vw;
+}
+/* line 11, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_settings.sass */
+.b-settings .b-settings--row label {
+  display: block;
+  margin-bottom: 5px;
+}
+/* line 14, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_settings.sass */
+.b-settings .b-settings--headline {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+/* line 17, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_settings.sass */
+.b-settings .b-settings--button {
+  background: #EC6039;
+  min-width: 320px;
+  margin-top: 5px;
+}
+
+/* line 18, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+.a-social-buttons {
+  margin-left: 0;
+  margin-right: 0;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 18, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+  .a-social-buttons {
+    width: 100%;
+  }
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 18, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+  .a-social-buttons {
+    width: 100%;
+  }
+}
+
+/* line 26, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+.a-social-button.a-social-button {
+  padding: 0;
+}
+
+/* line 29, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+.a-social-button {
+  border-top: 1px solid #89898b;
+  border-right: 1px solid #89898b;
+  text-align: center;
+  transition: 0.2s ease-in-out background;
+  position: relative;
+}
+/* line 35, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+.a-social-button .a-social-button--link {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  display: block;
+  padding: 20px 0;
+}
+/* line 42, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+.a-social-button .a-social-button--icon {
+  display: inline;
+  content: "";
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+/* line 48, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+.a-social-button .a-social-button--icon .svg-path {
+  fill: #000;
+}
+/* line 50, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+.a-social-button .a-social-button--text {
+  display: inline;
+  position: relative;
+  top: -15px;
+  text-decoration: underline;
+  color: #000;
+}
+/* line 2, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+.a-social-button.as-facebook:hover {
+  background: #475c91;
+}
+/* line 4, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+.a-social-button.as-facebook:hover .a-social-button--text {
+  color: #FFF;
+}
+/* line 6, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+.a-social-button.as-facebook:hover .svg-path {
+  fill: #FFF;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 56, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+  .a-social-button.as-facebook {
+    background: #475c91;
+    color: #FFF;
+  }
+  /* line 11, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+  .a-social-button.as-facebook .svg-path {
+    fill: #FFF;
+  }
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 56, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+  .a-social-button.as-facebook {
+    background: #475c91;
+  }
+  /* line 15, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+  .a-social-button.as-facebook .svg-path {
+    fill: #FFF;
+  }
+}
+/* line 2, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+.a-social-button.as-twitter:hover {
+  background: #2daae2;
+}
+/* line 4, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+.a-social-button.as-twitter:hover .a-social-button--text {
+  color: #FFF;
+}
+/* line 6, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+.a-social-button.as-twitter:hover .svg-path {
+  fill: #FFF;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 58, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+  .a-social-button.as-twitter {
+    background: #2daae2;
+    color: #FFF;
+  }
+  /* line 11, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+  .a-social-button.as-twitter .svg-path {
+    fill: #FFF;
+  }
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 58, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+  .a-social-button.as-twitter {
+    background: #2daae2;
+  }
+  /* line 15, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+  .a-social-button.as-twitter .svg-path {
+    fill: #FFF;
+  }
+}
+/* line 2, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+.a-social-button.as-google:hover {
+  background: #d94a3a;
+}
+/* line 4, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+.a-social-button.as-google:hover .a-social-button--text {
+  color: #FFF;
+}
+/* line 6, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+.a-social-button.as-google:hover .svg-path {
+  fill: #FFF;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 60, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+  .a-social-button.as-google {
+    background: #d94a3a;
+    color: #FFF;
+  }
+  /* line 11, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+  .a-social-button.as-google .svg-path {
+    fill: #FFF;
+  }
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 60, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+  .a-social-button.as-google {
+    background: #d94a3a;
+  }
+  /* line 15, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+  .a-social-button.as-google .svg-path {
+    fill: #FFF;
+  }
+}
+/* line 2, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+.a-social-button.as-linkedin:hover {
+  background: #0274b3;
+}
+/* line 4, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+.a-social-button.as-linkedin:hover .a-social-button--text {
+  color: #FFF;
+}
+/* line 6, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+.a-social-button.as-linkedin:hover .svg-path {
+  fill: #FFF;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 62, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+  .a-social-button.as-linkedin {
+    background: #0274b3;
+    color: #FFF;
+  }
+  /* line 11, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+  .a-social-button.as-linkedin .svg-path {
+    fill: #FFF;
+  }
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 62, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+  .a-social-button.as-linkedin {
+    background: #0274b3;
+  }
+  /* line 15, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+  .a-social-button.as-linkedin .svg-path {
+    fill: #FFF;
+  }
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 29, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+  .a-social-button {
+    border: 2px solid #FFF;
+    border-right: none;
+  }
+  /* line 67, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+  .a-social-button .a-social-button--icon {
+    margin-right: 0;
+  }
+  /* line 69, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_social_button.sass */
+  .a-social-button .a-social-button--text {
+    display: none;
+  }
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_static_content.sass */
+.m-static-content {
+  padding-top: 100px;
+  color: #FFF;
+  width: 820px;
+  margin: 0 auto;
+}
+/* line 6, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_static_content.sass */
+.m-static-content .m-static-content--headline {
+  margin: 40px 0;
+  text-align: center;
+  font-size: 22px;
+}
+/* line 10, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_static_content.sass */
+.m-static-content .m-static-content--body {
+  font-size: 18px;
+}
+/* line 12, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_static_content.sass */
+.m-static-content .m-static-content--body h1, .m-static-content .m-static-content--body h2, .m-static-content .m-static-content--body h3, .m-static-content .m-static-content--body h4 {
+  text-transform: uppercase;
+}
+/* line 14, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_static_content.sass */
+.m-static-content .m-static-content--body blockquote {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_table.sass */
+.m-table {
+  background: #FFF;
+  border: 1px solid #76AEC1;
+  padding: 20px;
+  color: #89898b;
+  font-size: 16px;
+}
+/* line 7, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_table.sass */
+.m-table a {
+  color: #89898b;
+}
+/* line 10, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_table.sass */
+.m-table .m-table--head td {
+  background: #c8dfe6;
+  color: #76AEC1;
+}
+/* line 13, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_table.sass */
+.m-table .m-table--head td .svg-icon {
+  height: 20px;
+}
+/* line 15, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_table.sass */
+.m-table .m-table--head td .svg-icon .svg-path {
+  fill: #454548;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 10, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_table.sass */
+  .m-table .m-table--head td {
+    font-weight: bold;
+  }
+}
+/* line 21, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_table.sass */
+.m-table .m-table--row:nth-child(2n) {
+  background: #e4eff3;
+}
+/* line 23, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_table.sass */
+.m-table td {
+  padding: 5px;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 25, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_table.sass */
+  .m-table td.hide-mobile {
+    display: none;
+  }
+}
+/* line 28, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_table.sass */
+.m-table td.number {
+  text-align: right;
+}
+/* line 30, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_table.sass */
+.m-table td.as-current {
+  background: #76AEC1;
+  color: #FFF;
+}
+/* line 33, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_table.sass */
+.m-table td.as-large {
+  font-size: 22px;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 35, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_table.sass */
+  .m-table.as-full-column {
+    font-weight: bold;
+    width: 100%;
+  }
+  /* line 39, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_table.sass */
+  .m-table.as-full-column td {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_team_header.sass */
+.team-header {
+  margin-bottom: 20px;
+  overflow: hidden;
+  *zoom: 1;
+}
+
+/* line 4, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_team_header.sass */
+.team-header--members {
+  float: left;
+  margin-right: 20px;
+}
+
+/* line 8, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_team_header.sass */
+.team-header--name {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #89898b;
+}
+
+/* line 1, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+.m-user-list, .team-header--members {
+  *zoom: 1;
+}
+/* line 38, /Users/slogmen/.gem/ruby/2.4.2/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
+.m-user-list:after, .team-header--members:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 3, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+.m-user-list .m-user, .team-header--members .m-user {
+  float: left;
+  cursor: pointer;
+  opacity: 0.55;
+  border: 2px solid transparent;
+}
+/* line 8, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+.m-user-list .m-user:hover, .team-header--members .m-user:hover, .m-user-list .m-user.as-selected, .team-header--members .m-user.as-selected {
+  opacity: 1;
+}
+/* line 10, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+.m-user-list .m-user.as-active, .team-header--members .m-user.as-active {
+  opacity: 1;
+  border-color: #FFAA64;
+}
+/* line 13, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+.m-user-list input, .team-header--members input {
+  display: none;
+}
+
+/* line 15, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+.selects {
+  clear: both;
+  position: relative;
+}
+/* line 18, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+.selects .m-user-select {
+  float: left;
+}
+/* line 20, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+.selects .m-user-select:first-child {
+  margin-right: 10px;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 23, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+  .selects select {
+    width: 100%;
+  }
+}
+
+/* line 25, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+.m-user {
+  width: 80px;
+  height: 80px;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 25, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+  .m-user {
+    width: 25%;
+  }
+}
+/* line 30, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+.m-user .m-user-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 34, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+.m-user-image {
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  display: inline-block;
+}
+/* line 39, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+.m-user-image.as-default {
+  position: relative;
+}
+/* line 42, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+.m-user-image.as-default .m-user-image--default-image {
+  position: absolute;
+  z-index: 1;
+}
+/* line 45, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+.m-user-image.as-default svg {
+  width: 80px;
+}
+/* line 47, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+.m-user-image.as-default .m-user-image--default-name {
+  position: absolute;
+  z-index: 2;
+  top: 40%;
+  text-align: center;
+  width: 100%;
+  color: #FFF;
+  font-size: 24px;
+  text-shadow: 0 0 3px #000;
+}
+
+/* line 57, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+.m-user-select {
+  width: 150px;
+  height: 150px;
+  background: #76AEC1;
+  background-size: cover;
+  position: relative;
+  margin-top: 40px;
+  cursor: pointer;
+}
+/* line 65, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+.m-user-select:hover {
+  background-color: #F3D959;
+}
+/* line 67, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+.m-user-select .selectize-control {
+  position: absolute;
+  top: -30px;
+  width: 100%;
+}
+/* line 71, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+.m-user-select:before, .m-user-select:after {
+  display: block;
+  color: #FFF;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+/* line 77, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+.m-user-select:after {
+  content: "";
+  font-size: 20px;
+  margin-top: -10px;
+  margin-left: -25px;
+}
+/* line 83, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+.m-user-select:before {
+  font-size: 50px;
+  margin-top: -25px;
+  margin-left: -10px;
+}
+/* line 89, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+.m-user-select.has-image:before, .m-user-select.has-image:after {
+  display: none;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 57, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+  .m-user-select {
+    margin-top: 0;
+    width: 140px;
+    height: 140px;
+  }
+  /* line 95, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/modules/_user.sass */
+  .m-user-select select {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+  }
+}
+
+/* line 2, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/_shame.sass */
+#leagues_index .l-content {
+  width: inherit;
+  float: none;
+}
+
+/* line 5, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/_shame.sass */
+#history {
+  width: 95%;
+}
+
+/* line 8, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/_shame.sass */
+#stats {
+  *zoom: 1;
+}
+/* line 38, /Users/slogmen/.gem/ruby/2.4.2/gems/compass-core-1.0.3/stylesheets/compass/utilities/general/_clearfix.scss */
+#stats:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 10, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/_shame.sass */
+#stats #games {
+  float: left;
+  width: 50%;
+  height: 300px;
+}
+/* line 14, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/_shame.sass */
+#stats #crawls {
+  float: left;
+  width: 50%;
+  height: 300px;
+}
+@media (min-width: 0) and (max-width: 760px) {
+  /* line 19, /Users/slogmen/RailsCode/kickerapp/app/assets/stylesheets/_shame.sass */
+  #stats #games, #stats #crawls {
+    width: 100%;
+    float: none;
+  }
+}

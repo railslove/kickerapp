@@ -27,7 +27,7 @@ class MatchesController < ApplicationController
     param = {}
     matches = create_matches_from_params(params)
     if !matches.map(&:errors).map(&:empty?).reduce(:&)
-      redirect_to new_league_match_path(current_league, params), alert: "#{t('matches.create.failure')} #{matches.map(&:errors).inspect}"
+      redirect_to new_league_match_path(current_league, params.permit.to_h), alert: "#{t('matches.create.failure')} #{matches.map(&:errors).inspect}"
     else
       matches.first.update_team_streaks
       tracker do |t|

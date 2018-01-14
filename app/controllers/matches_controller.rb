@@ -102,7 +102,7 @@ class MatchesController < ApplicationController
   def create_matches_from_params(params)
     league = League.find_by!(slug: params[:league_id])
     matches = []
-    ActiveRecord.transaction do
+    ApplicationRecord.transaction do
       3.times do |i| #Three possible sets
         set = params["set#{i+1}"]
         if set.first.present? && set.last.present? # If the set has been played

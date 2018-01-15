@@ -32,44 +32,6 @@ feature 'create new match' do
       expect(page).to have_content '6:3'
       expect(page).to have_content '7:5'
     end
-    scenario 'invalid entries with same player in both teams' do
-      pending 'code fix required'
-      visit new_league_match_path('the-league')
-
-      select 'Player 1', from: 'team1_player1'
-      select 'Player 2', from: 'team1_player2'
-      select 'Player 1', from: 'team2_player1'
-      select 'Player 4', from: 'team2_player2'
-
-      fill_in 'set1_team1', with: '6'
-      fill_in 'set1_team2', with: '3'
-      fill_in 'set2_team1', with: '7'
-      fill_in 'set2_team2', with: '5'
-
-      click_button 'Eintragen'
-
-      expect(current_path).to eql new_league_match_path('the-league')
-      expect(page).to have_content 'Das Spiel konnte nicht gespeichert werden.'
-    end
-    scenario 'invalid entries' do
-      pending 'code fix required'
-      visit new_league_match_path('the-league')
-
-      select 'Player 1', from: 'team1_player1'
-      select 'Player 2', from: 'team1_player2'
-      select 'Player 1', from: 'team2_player1'
-      select 'Player 4', from: 'team2_player2'
-
-      fill_in 'set1_team1', with: '6'
-      fill_in 'set1_team2', with: '3'
-      fill_in 'set2_team1', with: '7'
-      fill_in 'set2_team2', with: '5'
-
-      click_button 'Eintragen'
-
-      expect(current_path).to eql new_league_match_path('the-league')
-      expect(page).to have_content 'Das Spiel konnte nicht gespeichert werden.'
-    end
   end
 
   context 'with 2 players' do

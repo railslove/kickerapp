@@ -48,6 +48,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'jazz_fingers'
+  gem 'byebug'
 end
 
 group :test do
@@ -56,6 +57,7 @@ group :test do
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'timecop'
+  gem 'rails-controller-testing'
 end
 
 group :production do

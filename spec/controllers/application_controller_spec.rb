@@ -31,7 +31,7 @@ describe ApplicationController, type: :controller do
     controller do
       before_action :require_league
       def index
-        render text: 'welcome to your league'
+        render plain: 'welcome to your league'
       end
     end
 

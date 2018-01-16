@@ -30,14 +30,10 @@ RailsAdmin.config do |config|
           bindings[:object].contact_email.split('@').last
         end
       end
+      field :matches_count
       field :users do
-        formatted_value do
-            bindings[:object].users.count
-        end
-      end
-      field :matches do
-        formatted_value do
-            bindings[:object].matches.count
+        pretty_value do
+          bindings[:object].users.count
         end
       end
     end

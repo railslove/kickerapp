@@ -35,7 +35,7 @@ describe User, type: :model do
   describe ".win_percentage" do
     it "takes the QuotaCalculator" do
       user = FactoryBot.build(:user, number_of_wins: 3, number_of_losses: 7)
-      QuotaCalculator.stub(:win_lose_quota).and_return(20)
+      allow(QuotaCalculator). to receive(:win_lose_quota).and_return(20)
       expect(user.win_percentage).to eq(20)
     end
   end
@@ -43,7 +43,7 @@ describe User, type: :model do
   describe ".set_elo_quota" do
     context "win" do
       before do
-        QuotaCalculator.stub(:elo_quota).and_return(5)
+        allow(QuotaCalculator).to receive(:elo_quota).and_return(5)
       end
       it "calculates without crawling" do
         match = double(win_for?: true, winner_team: double("w_team", elo_quota: 1200), loser_team: double("l_team", elo_quota: 1200), crawling: false, difference: 5)
@@ -59,14 +59,14 @@ describe User, type: :model do
       end
       it "updates the difference on a match" do
         match = FactoryBot.create(:match, winner_team: FactoryBot.create(:team), loser_team: FactoryBot.create(:team))
-        Team.any_instance.stub(:elo_quota).and_return(1200)
+        allow_any_instance_of(Team).to receive(:elo_quota).and_return(1200)
         subject.set_elo_quota(match)
         expect(match.difference).to eql(5)
       end
     end
     context "lose" do
       before do
-        QuotaCalculator.stub(:elo_quota).and_return(-5)
+        allow(QuotaCalculator).to receive(:elo_quota).and_return(-5)
       end
       it "calculates without crawling" do
         match = double(win_for?: false, winner_team: double("w_team", elo_quota: 1200), loser_team: double("l_team", elo_quota: 1200), crawling: false, difference: 5)

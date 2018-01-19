@@ -20,7 +20,7 @@ gem 'puma'
 gem 'rack-tracker'
 gem 'rails_admin'
 gem 'rails-i18n'
-gem 'rails', '~> 5.0', '>= 5.0.6'
+gem 'rails', '~> 5.1', '>= 5.1.4'
 gem 'redcarpet'
 gem 'sass-rails'
 gem 'uglifier'
@@ -28,6 +28,8 @@ gem "compass-rails"
 gem "omniauth-facebook"
 gem "omniauth-twitter"
 gem "omniauth"
+gem 'webpacker', '~> 3.0'
+gem 'react-rails', '~> 2.4', '>= 2.4.3'
 
 gem 'sentry-raven'
 # gem 'quiet_assets' Doesn't work anymore
@@ -42,6 +44,7 @@ group :development do
   gem 'spring'
   gem "spring-commands-rspec"
   gem 'fontello_rails_converter'
+  gem 'listen'
 end
 
 group :development, :test do

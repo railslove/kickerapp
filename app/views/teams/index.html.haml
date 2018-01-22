@@ -1,21 +1,24 @@
-%table.m-table.c-team-table
-  %thead.m-table--head
-    %tr.m-table--row
-      %td
-      %td
-      %td.hide-mobile= t('common.player')
-      %td.hide-mobile= t('common.quota')
-      %td.hide-mobile= t('common.games')
-      %td= t('common.points')
+-# %table.m-table.c-team-table
+-#   %thead.m-table--head
+-#     %tr.m-table--row
+-#       %td
+-#       %td
+-#       %td.hide-mobile= t('common.player')
+-#       %td.hide-mobile= t('common.quota')
+-#       %td.hide-mobile= t('common.games')
+-#       %td= t('common.points')
 
-  %tbody.m-table--body
-    - @teams.each_with_index do |team, i|
-      %tr.m-table--row
-        %td= i+1
-        %td.hide-mobile.m-user-list
-          .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
-          .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
-        %td= link_to team.name, [current_league, team]
-        %td.hide-mobile.as-large= "#{team.percentage}%"
-        %td.hide-mobile.as-large= team.number_of_games
-        %td.as-large= team.value
+-#   %tbody.m-table--body
+-#     - @teams.each_with_index do |team, i|
+-#       %tr.m-table--row
+-#         %td= i+1
+-#         %td.hide-mobile.m-user-list
+-#           .m-user.as-selected{title: team.users.first.name}= user_image(team.users.first)
+-#           .m-user.as-selected{title: team.users.last.name}= user_image(team.users.last) if team.double?
+-#         %td= link_to team.name, [current_league, team]
+-#         %td.hide-mobile.as-large= "#{team.percentage}%"
+-#         %td.hide-mobile.as-large= team.number_of_games
+-#         %td.as-large= team.value
+
+-# TODO: Check if JSON.parse here really is the way to go!
+= react_component "Teams", teams: JSON.parse(render(template: "teams/index.json.jbuilder")), players: current_league.users.order(name: :asc).map{ |user| {id: user.id, name: user.name}}

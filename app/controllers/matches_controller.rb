@@ -127,6 +127,6 @@ class MatchesController < ApplicationController
   end
 
   def match_params
-    params.permit!
+    params.permit(team1:{}, team2:{})
   end
 end

@@ -49,10 +49,6 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
     awesome_print (1.8.0)
-    babel-source (5.8.35)
-    babel-transpiler (0.7.0)
-      babel-source (>= 4.0, < 6)
-      execjs (~> 2.0)
     better_errors (2.4.0)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -102,7 +98,6 @@ GEM
       sass-rails (< 5.1)
       sprockets (< 4.0)
     concurrent-ruby (1.0.5)
-    connection_pool (2.2.1)
     coolline (0.5.0)
       unicode_utils (~> 1.4)
     crass (1.0.3)
@@ -418,8 +413,6 @@ GEM
     rack-pjax (1.0.0)
       nokogiri (~> 1.5)
       rack (>= 1.1)
-    rack-proxy (0.6.3)
-      rack
     rack-test (0.8.2)
       rack (>= 1.0, < 3)
     rack-tracker (1.5.0)
@@ -483,12 +476,6 @@ GEM
       json (>= 1.8)
       nokogiri (~> 1.5)
       trollop (~> 2.1)
-    react-rails (2.4.3)
-      babel-transpiler (>= 0.7.0)
-      connection_pool
-      execjs
-      railties (>= 3.2)
-      tilt
     redcarpet (3.4.0)
     remotipart (1.3.1)
     representable (3.0.4)
@@ -567,10 +554,6 @@ GEM
       unf_ext
     unf_ext (0.0.7.4)
     unicode_utils (1.4.0)
-    webpacker (3.2.0)
-      activesupport (>= 4.2)
-      rack-proxy (>= 0.6.1)
-      railties (>= 4.2)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.3)
@@ -620,7 +603,6 @@ DEPENDENCIES
   rails-i18n
   rails_12factor
   rails_admin
-  react-rails (~> 2.4, >= 2.4.3)
   redcarpet
   rspec-rails
   sass-rails
@@ -631,7 +613,6 @@ DEPENDENCIES
   spring-commands-rspec
   timecop
   uglifier
-  webpacker (~> 3.0)
 
 RUBY VERSION
    ruby 2.4.2p198

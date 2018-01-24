@@ -28,8 +28,6 @@ gem "compass-rails"
 gem "omniauth-facebook"
 gem "omniauth-twitter"
 gem "omniauth"
-gem 'webpacker', '~> 3.0'
-gem 'react-rails', '~> 2.4', '>= 2.4.3'
 
 gem 'sentry-raven'
 # gem 'quiet_assets' Doesn't work anymore

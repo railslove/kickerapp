@@ -6,8 +6,6 @@ development: &default
   pool: 5
   timeout: 5000
   host: localhost
-  # user:
-  # password:
 
 test:
   <<: *default

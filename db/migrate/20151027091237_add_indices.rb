@@ -1,4 +1,4 @@
-class AddIndices < ActiveRecord::Migration
+class AddIndices < ActiveRecord::Migration[4.2]
   def change
     # Create a sorted index to minimize result set size when counting data from past 2 weeks
     add_index :matches, :date, order: { date: :desc }

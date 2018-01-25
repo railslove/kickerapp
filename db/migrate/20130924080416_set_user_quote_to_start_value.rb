@@ -1,4 +1,4 @@
-class SetUserQuoteToStartValue < ActiveRecord::Migration
+class SetUserQuoteToStartValue < ActiveRecord::Migration[4.2]
   def change
     change_column :users, :quote, :integer, default: 1200
   end

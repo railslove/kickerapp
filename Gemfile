@@ -39,8 +39,6 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'smurfville'
-  gem 'spring'
-  gem "spring-commands-rspec"
   gem 'fontello_rails_converter'
   gem 'listen'
 end

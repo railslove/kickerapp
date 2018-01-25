@@ -1,4 +1,4 @@
-class AdminMailer < ActionMailer
+class AdminMailer < ApplicationMailer
 
   def new_league(league_id)
     @league = League.find(league_id)

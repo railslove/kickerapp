@@ -1,7 +1,7 @@
 language: ruby
 bundler_args: --without development non_travis
 rvm:
-  - 2.3.4
+  - 2.4.2
 before_script:
   - "bundle exec rake db:create"
   - "bundle exec rake db:migrate"

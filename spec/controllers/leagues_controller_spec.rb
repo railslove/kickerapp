@@ -12,7 +12,7 @@ describe LeaguesController, type: :controller do
       end
 
       specify do
-        post :create, league: { name: 'Hammerwerfers Bockenbruch!', slug: 'Hammerwerfers Bockenbruch!', contact_email: 'contact@hammerwerfer.de' }
+        post :create, params: {league: { name: 'Hammerwerfers Bockenbruch!', slug: 'Hammerwerfers Bockenbruch!', contact_email: 'contact@hammerwerfer.de' }}
         expect(response).to redirect_to new_league_user_path('hammerwerfers-bockenbruch')
         expect(flash[:notice]).to eql I18n.t('leagues.create.success')
       end
@@ -20,8 +20,8 @@ describe LeaguesController, type: :controller do
 
     context 'unsuccessful' do
       specify do
-        FactoryGirl.create(:league, slug: 'test')
-        post :create, league: { name: 'Hammerwerfers Bocklemünd', slug: 'test' }
+        FactoryBot.create(:league, slug: 'test')
+        post :create, params: {league: { name: 'Hammerwerfers Bocklemünd', slug: 'test' }}
         expect(response).to be_success
         expect(response).to render_template 'leagues/new'
         expect(flash[:alert]).to eql I18n.t('leagues.create.failure')
@@ -31,8 +31,8 @@ describe LeaguesController, type: :controller do
   end
 
   describe 'index' do
-    let(:league1) { FactoryGirl.create(:league, slug: 'league1') }
-    let(:league2) { FactoryGirl.create(:league, slug: 'league2') }
+    let(:league1) { FactoryBot.create(:league, slug: 'league1') }
+    let(:league2) { FactoryBot.create(:league, slug: 'league2') }
     before do
       session[:league_slug] = 'the-league'
       get :index
@@ -48,13 +48,13 @@ describe LeaguesController, type: :controller do
   end
 
   describe 'show' do
-    let!(:league) { FactoryGirl.create(:league, slug: 'the-league') }
-    let(:match1) { FactoryGirl.create(:match, league: league) }
-    let(:match2) { FactoryGirl.create(:match, league: league) }
+    let!(:league) { FactoryBot.create(:league, slug: 'the-league') }
+    let(:match1) { FactoryBot.create(:match, league: league) }
+    let(:match2) { FactoryBot.create(:match, league: league) }
     context 'simple cases' do
       before do
         expect(controller).to receive(:set_current_league).with('the-league')
-        get :show, id: 'the-league'
+        get :show, params: {id: 'the-league'}
       end
       it{ expect(response).to be_success }
       it{ expect(response).to render_template 'leagues/show' }
@@ -63,16 +63,17 @@ describe LeaguesController, type: :controller do
       it{ expect(assigns[:matches]).to include match2 }
     end
     it 'marks a newly added crawling_match' do
-      get :show, id: 'the-league', crawl_id: match1.id
+      get :show, params: {id: 'the-league', crawl_id: match1.id}
+
       expect(assigns[:crawling_match]).to eql(match1)
     end
   end
 
   describe 'badges' do
-    let!(:league) { FactoryGirl.create(:league, slug: 'the-league') }
+    let!(:league) { FactoryBot.create(:league, slug: 'the-league') }
     before do
       expect(controller).to receive(:set_current_league).with('the-league')
-      get :badges, id: 'the-league'
+      get :badges, params: {id: 'the-league'}
     end
     it{ expect(response).to be_success }
     it{ expect(response).to render_template 'leagues/badges' }

@@ -1,4 +1,4 @@
-class League < ActiveRecord::Base
+class League < ApplicationRecord
   BASE_SCORE = 1_200
 
   mount_uploader :header_image, LeagueHeaderImageUploader

@@ -1,14 +1,13 @@
 language: ruby
 bundler_args: --without development non_travis
 rvm:
-  - 2.3.4
+  - 2.4.2
+before_install:
+  - cp config/database.yml.travis config/database.yml
 before_script:
-  - "bundle exec rake db:create"
-  - "bundle exec rake db:migrate"
+  - "RAILS_ENV=test bundle exec rake db:create"
+  - "RAILS_ENV=test bundle exec rake db:migrate"
+script: bundle exec rspec
 branches:
   only:
     - master
-notifications:
-  campfire: railslovehq:ef17dd0832a81839be6015cefdaf3ecc08316ccb@350507
-  on_success: change
-  on_failure: always

@@ -43,6 +43,7 @@ group :development do
   gem 'smurfville'
   gem 'fontello_rails_converter'
   gem 'listen'
+  gem 'faker', '~> 1.8', '>= 1.8.7'
 end
 
 group :development, :test do

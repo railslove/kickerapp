@@ -28,6 +28,7 @@ gem "compass-rails"
 gem "omniauth-facebook"
 gem "omniauth-twitter"
 gem "omniauth"
+gem "react-rails"
 
 gem 'sentry-raven'
 # gem 'quiet_assets' Doesn't work anymore

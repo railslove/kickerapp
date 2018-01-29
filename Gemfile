@@ -29,6 +29,7 @@ gem "omniauth-facebook"
 gem "omniauth-twitter"
 gem "omniauth"
 gem "react-rails"
+gem 'webpacker', '~> 3.0'
 
 gem 'sentry-raven'
 # gem 'quiet_assets' Doesn't work anymore

@@ -50,7 +50,8 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'jazz_fingers'
-  gem 'byebug'
+  gem 'pry-rails'
+  gem 'pry-byebug'
 end
 
 group :test do

@@ -412,6 +412,8 @@ GEM
     pry-doc (0.11.1)
       pry (~> 0.9)
       yard (~> 0.9)
+    pry-rails (0.3.6)
+      pry (>= 0.10.4)
     public_suffix (3.0.1)
     puma (3.11.0)
     rack (2.0.3)
@@ -584,7 +586,6 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   breakpoint
-  byebug
   capybara
   carrierwave
   chameleon!
@@ -612,6 +613,8 @@ DEPENDENCIES
   omniauth-twitter
   pebble_timeline
   pg (~> 0.18)
+  pry-byebug
+  pry-rails
   puma
   rack-tracker
   rails (~> 5.1, >= 5.1.4)

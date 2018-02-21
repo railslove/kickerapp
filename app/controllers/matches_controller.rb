@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class MatchesController < ApplicationController
-  before_filter :require_league
+  before_action :require_league
   has_mobile_fu false
 
   def index
@@ -25,7 +25,7 @@ class MatchesController < ApplicationController
 
   def create
     param = {}
-    matches = create_matches_from_params(params)
+    matches = create_matches_from_params
     if !matches.map(&:errors).map(&:empty?).reduce(:&)
       redirect_to new_league_match_path(current_league, params), alert: "#{t('matches.create.failure')} #{matches.map(&:errors).inspect}"
     else
@@ -34,7 +34,7 @@ class MatchesController < ApplicationController
         t.google_analytics :send, { type: 'event', category: 'match', action: 'create', label: current_league.name, value: matches.map(&:crawling).any?}
       end
       if is_mobile_device?
-        redirect_to new_league_match_path(current_league, team1: params["team1"], team2: params["team2"], created: true)
+        redirect_to new_league_match_path(current_league, team1: match_params["team1"], team2: match_params["team2"], created: true)
       else
         param[:crawl_id] = matches.select(&:crawling).last.id if matches.map(&:crawling).any?
         redirect_to league_path(current_league, param), notice: t('.success')
@@ -99,10 +99,10 @@ class MatchesController < ApplicationController
 
   private
 
-  def create_matches_from_params(params)
+  def create_matches_from_params
     league = League.find_by!(slug: params[:league_id])
     matches = []
-    ActiveRecord::Base.transaction do
+    ApplicationRecord.transaction do
       3.times do |i| #Three possible sets
         set = params["set#{i+1}"]
         if set.first.present? && set.last.present? # If the set has been played
@@ -124,5 +124,9 @@ class MatchesController < ApplicationController
 
   def force_mobile_html
     session[:mobile_view] = true
+  end
+
+  def match_params
+    params.permit(team1:{}, team2:{})
   end
 end

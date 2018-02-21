@@ -1,7 +1,7 @@
-class HistoryEntry < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :league
-  belongs_to :match
+class HistoryEntry < ApplicationRecord
+  belongs_to :user, optional: true
+  belongs_to :league, optional: true
+  belongs_to :match, optional: true
 
   def self.track(match)
     ranking = match.active_user_ranking.map(&:id)

@@ -1,4 +1,4 @@
-class CreateHistoryEntries < ActiveRecord::Migration
+class CreateHistoryEntries < ActiveRecord::Migration[4.2]
   def change
     create_table :history_entries do |t|
       t.references :user, index: true

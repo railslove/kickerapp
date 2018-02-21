@@ -4,7 +4,7 @@ describe League, type: :model do
 
   describe 'scopes' do
     specify '.by_matches' do
-      expect(League.by_matches.to_sql).to eql "SELECT \"leagues\".* FROM \"leagues\"  ORDER BY matches_count DESC"
+      expect(League.by_matches.to_sql).to eql "SELECT \"leagues\".* FROM \"leagues\" ORDER BY matches_count DESC"
     end
   end
 
@@ -18,8 +18,8 @@ describe League, type: :model do
 
   describe 'create' do
     it 'does not allow duplicated ' do
-      FactoryGirl.create(:league, slug: 'test')
-      expect { FactoryGirl.create(:league, slug: 'Test') }.to raise_error(ActiveRecord::RecordInvalid)
+      FactoryBot.create(:league, slug: 'test')
+      expect { FactoryBot.create(:league, slug: 'Test') }.to raise_error(ActiveRecord::RecordInvalid)
     end
   end
 

@@ -1,4 +1,4 @@
-class SetMatchesCountForExistingLeagues < ActiveRecord::Migration
+class SetMatchesCountForExistingLeagues < ActiveRecord::Migration[4.2]
   def up
     League.find_each do |league|
       League.reset_counters(league.id, :matches)

@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_filter :require_league
+  before_action :require_league
 
   def index
     @teams = current_league.team_ranking

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'create new user' do
-  let!(:league) { FactoryGirl.create(:league, name: 'The League', slug: 'the-league') }
+  let!(:league) { FactoryBot.create(:league, name: 'The League', slug: 'the-league') }
 
   context 'using manual registration' do
     scenario 'with correct entries' do

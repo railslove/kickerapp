@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
 
-  before_filter :require_league
+  before_action :require_league
 
   def new
     @user = User.new

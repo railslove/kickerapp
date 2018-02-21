@@ -63,7 +63,7 @@ feature 'view a league\'s badges page' do
     let!(:player5) { create :user, league: league, name: 'Player 5' }
 
     background do
-      league.users.combination(2).each do |players|
+      league.users.to_a.combination(2).each do |players|
         create :team, league: league, player1: players.first, player2: players.second
       end
       # give player2 a higher team count

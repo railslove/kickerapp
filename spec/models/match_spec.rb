@@ -4,7 +4,7 @@ describe Match, type: :model do
 
   describe "#create_from_set" do
     before do
-      @users = FactoryGirl.create_list(:user, 4)
+      @users = FactoryBot.create_list(:user, 4)
       @set_params = {
         score: ["8", "10"],
         crawling: true,
@@ -43,28 +43,28 @@ describe Match, type: :model do
   describe ".revert_points" do
     before do
       @match = Match.new(difference: 5)
-      @match.winner_team = FactoryGirl.create(:team, number_of_wins: 5)
-      @match.loser_team = FactoryGirl.create(:team, number_of_losses: 5)
+      @match.winner_team = FactoryBot.create(:team, number_of_wins: 5)
+      @match.loser_team = FactoryBot.create(:team, number_of_losses: 5)
       @match.save
     end
 
     it 'subtracts the difference for the winner team' do
-      @match.winner_team.player1 = FactoryGirl.create(:user)
-      @match.loser_team.player1 = FactoryGirl.create(:user)
+      @match.winner_team.player1 = FactoryBot.create(:user)
+      @match.loser_team.player1 = FactoryBot.create(:user)
       @match.revert_points
       expect(@match.winner_team.users.select{|u| u.quota == 1192}.count).to eq(1)
     end
 
     it 'adds the difference for the loser team' do
-      @match.winner_team.player1 = FactoryGirl.create(:user)
-      @match.loser_team.player1 = FactoryGirl.create(:user)
+      @match.winner_team.player1 = FactoryBot.create(:user)
+      @match.loser_team.player1 = FactoryBot.create(:user)
       @match.revert_points
       expect(@match.loser_team.users.select{|u| u.quota == 1208}.count).to eq(1)
     end
 
     it "updates the counts for the teams" do
-      @match.loser_team.player1 = FactoryGirl.create(:user)
-      @match.winner_team.player1 = FactoryGirl.create(:user)
+      @match.loser_team.player1 = FactoryBot.create(:user)
+      @match.winner_team.player1 = FactoryBot.create(:user)
       @match.revert_points
       expect(@match.winner_team.number_of_wins).to eq(5)
       expect(@match.loser_team.number_of_losses).to eq(5)
@@ -74,10 +74,10 @@ describe Match, type: :model do
   describe '.update_team_streaks' do
     before do
       @match = Match.new(difference: 5)
-      @match.winner_team = FactoryGirl.create(:team, number_of_wins: 5)
-      @match.loser_team = FactoryGirl.create(:team, number_of_losses: 5)
-      @match.winner_team.player1 = FactoryGirl.create(:user)
-      @match.loser_team.player1 = FactoryGirl.create(:user)
+      @match.winner_team = FactoryBot.create(:team, number_of_wins: 5)
+      @match.loser_team = FactoryBot.create(:team, number_of_losses: 5)
+      @match.winner_team.player1 = FactoryBot.create(:user)
+      @match.loser_team.player1 = FactoryBot.create(:user)
       @match.save
     end
 
@@ -97,8 +97,8 @@ describe Match, type: :model do
   describe ".swap_teams" do
     it "swaps winner and loser team" do
       @match = Match.new(difference: 5)
-      team_1 = FactoryGirl.create(:team)
-      team_2 = FactoryGirl.create(:team)
+      team_1 = FactoryBot.create(:team)
+      team_2 = FactoryBot.create(:team)
       @match.winner_team = team_1
       @match.loser_team = team_2
       @match.swap_teams
@@ -108,10 +108,10 @@ describe Match, type: :model do
 
   describe 'team_players_validation' do
     it 'validates that players from both teams are different' do
-      @players = FactoryGirl.create_list(:user, 4)
+      @players = FactoryBot.create_list(:user, 4)
       @match = Match.new
-      @match.winner_team = FactoryGirl.create(:team, player1: @players[0], player2: @players[1])
-      @match.loser_team = FactoryGirl.create(:team, player1: @players[1], player2: @players[3])
+      @match.winner_team = FactoryBot.create(:team, player1: @players[0], player2: @players[1])
+      @match.loser_team = FactoryBot.create(:team, player1: @players[1], player2: @players[3])
       expect(@match.valid?).to eq(false)
     end
   end

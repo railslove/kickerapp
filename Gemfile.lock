@@ -1,9 +1,3 @@
-GIT
-  remote: https://github.com/stephanpavlovic/chameleon.git
-  revision: 79932faa55712c6bb9551670045d36a20b4b5d23
-  specs:
-    chameleon (0.2.3)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -568,7 +562,6 @@ DEPENDENCIES
   byebug
   capybara
   carrierwave
-  chameleon!
   coffee-rails
   compass-rails
   database_cleaner

@@ -33,7 +33,6 @@ gem 'sentry-raven'
 # gem 'quiet_assets' Doesn't work anymore
 gem 'pebble_timeline'
 gem 'mandrill_mailer'
-gem 'chameleon', git: 'https://github.com/stephanpavlovic/chameleon.git' #path: '/Users/stephanpavlovic/code/chameleon'
 
 group :development do
   gem 'better_errors'

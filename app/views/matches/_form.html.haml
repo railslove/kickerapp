@@ -15,10 +15,10 @@
   .input-rows
     - 3.times do |i|
       .m-form--row
-        = text_field_tag "set#{i+1}[]", @sets.try(:[], i).try(:first) || '', id: "set#{i+1}_team1", class: 'm-input as-short as-centered', tabindex: i * 2 + 1, maxlength: 2
+        = number_field_tag "set#{i+1}[]", @sets.try(:[], i).try(:first) || '', id: "set#{i+1}_team1", class: 'm-input as-short as-centered', tabindex: i * 2 + 1, maxlength: 2
         = check_box_tag "crawling#{i+1}", true, @crawlings.try(:[], i), data: { behavior: 'crawling-check' }
         %label{:for => "crawling#{i+1}", class: "c-crawling", title: 'Checkbox auswählen, wenn gekrabbelt wurde'}
-        = text_field_tag "set#{i+1}[]", @sets.try(:[], i).try(:second) || '', id: "set#{i+1}_team2", class: 'm-input as-short as-centered', tabindex: i * 2 + 2, maxlength: 2
+        = number_field_tag "set#{i+1}[]", @sets.try(:[], i).try(:second) || '', id: "set#{i+1}_team2", class: 'm-input as-short as-centered', tabindex: i * 2 + 2, maxlength: 2
     = f.submit t('.enter'), class: "m-button"
     - if is_mobile_device?
       .c-mobile-close{ data: { behavior: 'mobile-scoring-close' } } X
@@ -27,10 +27,10 @@
     .m-scoring--count.as-live
       .m-scoring--count--numbers
         %span{ data: { behavior: 'team1-counter'} }
-          = text_field_tag "set1[]", @sets.try(:first).try(:first) || 0, data: { behavior: 'disable-end' }
+          = number_field_tag "set1[]", @sets.try(:first).try(:first) || 0, data: { behavior: 'disable-end' }
         = ':'
         %span{ data: { behavior: 'team2-counter'} }
-          = text_field_tag "set1[]", @sets.try(:first).try(:second) || 0, data: { behavior: 'disable-end' }
+          = number_field_tag "set1[]", @sets.try(:first).try(:second) || 0, data: { behavior: 'disable-end' }
         = check_box_tag "crawling4", true, @crawlings.try(:first), name: 'crawling1', data: { behavior: 'crawling-check' }, data: { behavior: 'disable-end' }
         %label{:for => "crawling4", class: "c-crawling"}
         .m-scoring--count--close.c-mobile-close{ data: { behavior: 'mobile-scoring-close' } } X

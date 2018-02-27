@@ -32,6 +32,9 @@
           = lowest_quota
           = t('common.points')
           = "(#{@user.quota - lowest_quota})"
+        .m-profile-basics--value
+          %span= t('users.matches_played')
+          = @user.matches.count
   - if @user.teams.any?
     .m-profile-teams--best-worst
       .m-profile-teams--best

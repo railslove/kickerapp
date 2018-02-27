@@ -8,7 +8,6 @@ RailsAdmin.config do |config|
   config.model League do
     field :name
     field :slug
-    field :users
     field :contact_email
     field :created_at do
       pretty_value do
@@ -23,6 +22,21 @@ RailsAdmin.config do |config|
       end
     end
     field :header_image, :carrierwave
+    list do
+      field :name
+      field :slug
+      field :contact_email do
+        pretty_value do
+          bindings[:object].contact_email.split('@').last
+        end
+      end
+      field :matches_count
+      field :users do
+        pretty_value do
+          bindings[:object].users.count
+        end
+      end
+    end
   end
 
   config.model Match do

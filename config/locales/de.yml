@@ -82,6 +82,7 @@ de:
     elo: Elo Punkte
     current_winning_streak: Aktuelle Siegesserie
     longest_winning_streak: Längste Siegesserie
+    matches_played: Anzahl der Spiele
     trend: Trend
     point_high: Höchststand
     point_low: Tiefstand

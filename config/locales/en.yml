@@ -88,6 +88,7 @@ en:
     edit: Edit player
     name: Name
     elo: Elo Points
+    matches_played: Matches played
     current_winning_streak: Current winning streak
     longest_winning_streak: Longest winnng streak
     trend: Trend

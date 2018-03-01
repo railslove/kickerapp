@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import i18n from "../services/i18n"
 import Team from "./Team"
 import PlayerSelect from "./PlayerSelect"
 
@@ -15,8 +16,8 @@ class Teams extends React.Component {
 
   teamList = () => {
     let teamListItems = []
-    this.state.teams.forEach( (team) => {
-      teamListItems.push(<Team key={team.id} data={team} />)
+    this.state.teams.forEach( (team, index) => {
+      teamListItems.push(<Team key={team.id} data={team} index={index}/>)
     })
 
     return teamListItems
@@ -34,9 +35,15 @@ class Teams extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className='c-team'>
+        {/* <span className='c-team-filter-label'>{i18n.t('js.team.filter_label')}</span> */}
         <PlayerSelect players={this.props.players} filterTeams={this.filterTeams}/>
-        {this.teamList()}
+
+        <table width="100%" className="c-team-table">
+          <tbody>
+            {this.teamList()}
+          </tbody>
+        </table>
         <p></p>
       </div>
     )

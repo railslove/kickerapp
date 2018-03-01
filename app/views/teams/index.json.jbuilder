@@ -1,6 +1,8 @@
 json.array! @teams do |team|
   json.id team.id
   json.games team.number_of_games
+  json.wins team.number_of_wins
+  json.losses team.number_of_losses
   json.quota team.percentage
   json.score team.score
   json.name team.name

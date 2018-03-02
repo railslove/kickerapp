@@ -1,0 +1,24 @@
+de:
+  common:
+    all: Allen
+    change: Ändern
+    crawled: Gekrabbelt
+    faq: FAQ
+    games: Spiele
+    imprint: Impressum
+    leagues: Ligen-Übersicht
+    let_crawl: Krabbeln lassen
+    loses: Niederlagen
+    new_league: Neue Liga
+    new_match: Spiel eintragen
+    new_user: Spieler hinzufügen
+    number_of_players: Anzahl Spieler
+    number_of_matches: Anzahl Spiele
+    player: Spieler
+    points: Punkte
+    quota: Quote
+    share: Teilen
+    tweet: Tweet
+    wins: Siege
+  team:
+    filter_label: Teams mit

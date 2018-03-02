@@ -1,0 +1,24 @@
+en:
+  common:
+    all: All
+    change: Edit
+    crawled: Crawled
+    faq: FAQ
+    games: Games
+    imprint: Imprint
+    leagues: Leagues
+    let_crawl: Let crawl
+    loses: Looses
+    new_league: New league
+    new_match: New match
+    new_user: Add player
+    number_of_players: Players
+    number_of_matches: Matches
+    player: Player
+    points: Points
+    quota: Quota
+    share: Share
+    tweet: Tweet
+    wins: Wins
+  team:
+    filter_label: Teams with

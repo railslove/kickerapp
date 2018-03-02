@@ -3,10 +3,13 @@
     "@rails/webpacker": "^3.2.1",
     "babel-preset-react": "^6.24.1",
     "coffeescript": "1.12.7",
+    "i18n-js": "^3.0.3",
+    "json-loader": "^0.5.7",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react_ujs": "^2.4.3"
+    "react_ujs": "^2.4.3",
+    "yaml-loader": "^0.5.0"
   },
   "devDependencies": {
     "webpack-dev-server": "^2.11.1"

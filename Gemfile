@@ -6,7 +6,7 @@ ruby '2.4.2'
 gem 'breakpoint'
 gem 'carrierwave'
 gem 'coffee-rails'
-gem 'fog'
+gem 'fog', '1.41.0' # 1.42. depends on a newer version of json which breaks mandrill-mailer
 gem 'gravatar_image_tag'
 gem 'haml-rails'
 gem 'jbuilder'

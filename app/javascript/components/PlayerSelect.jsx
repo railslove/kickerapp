@@ -1,4 +1,6 @@
 import React from "react"
+import I18n from "i18n-js"
+
 
 const PlayerSelect = (props) => {
   const options = props.players.map((player) => {
@@ -9,7 +11,7 @@ const PlayerSelect = (props) => {
 
   return (
     <select onChange={(event) => { props.filterTeams(parseInt(event.target.value)) }}>
-      <option>All</option>
+      <option>{I18n.t('common.all')}</option>
       {options}
     </select>
   )

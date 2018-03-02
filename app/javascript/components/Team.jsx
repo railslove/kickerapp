@@ -1,4 +1,5 @@
 import React from 'react'
+import I18n from 'i18n-js'
 
 const Team = (props) => {
   return (
@@ -27,25 +28,25 @@ const Team = (props) => {
       <td>
         <div className="c-team-table-stats">
           <div>{props.data.wins}</div>
-          <div className="c-team-table-label">Siege</div>
+          <div className="c-team-table-label">{I18n.t('common.wins')}</div>
         </div>
       </td>
       <td>
         <div className="c-team-table-stats">
           <div>{props.data.losses}</div>
-          <div className="c-team-table-label">Niederlagen</div>
+          <div className="c-team-table-label">{I18n.t('common.loses')}</div>
         </div>
       </td>
       <td>
         <div className="c-team-table-stats">
           <div>{props.data.quota}%</div>
-          <div className="c-team-table-label">Quote</div>
+          <div className="c-team-table-label">{I18n.t('common.quota')}</div>
         </div>
       </td>
       <td>
         <div className="c-team-table-stats">
           <div><b>{props.data.score}</b></div>
-          <div className="c-team-table-label"><b>Punkte</b></div>
+          <div className="c-team-table-label"><b>{I18n.t('common.points')}</b></div>
         </div>
       </td>
     </tr>

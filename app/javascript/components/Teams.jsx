@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
-import i18n from "../services/i18n"
 import Team from "./Team"
+import I18n from "i18n-js"
 import PlayerSelect from "./PlayerSelect"
 
 class Teams extends React.Component {
@@ -36,7 +36,7 @@ class Teams extends React.Component {
   render () {
     return (
       <div className='c-team'>
-        {/* <span className='c-team-filter-label'>{i18n.t('js.team.filter_label')}</span> */}
+        <span className='c-team-filter-label'>{I18n.t('team.filter_label')}</span>
         <PlayerSelect players={this.props.players} filterTeams={this.filterTeams}/>
 
         <table width="100%" className="c-team-table">

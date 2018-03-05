@@ -4,7 +4,7 @@ import I18n from 'i18n-js'
 const Team = (props) => {
   return (
     <tr>
-      <td><div className="c-team-table-rank">{props.index + 1}</div></td>
+      <td><div className="c-team-table-rank">{props.data.rank}</div></td>
       <td>
         <div className="c-team-table-player-image">
           <img src={'https://ungif.apps.railslabs.com/ungif?url=' + props.data.player1.image} alt="" />

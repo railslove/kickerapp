@@ -1,5 +1,6 @@
-json.array! @teams do |team|
+json.array! @teams.each_with_index.to_a do |(team, index)|
   json.id team.id
+  json.rank index + 1
   json.games team.number_of_games
   json.wins team.number_of_wins
   json.losses team.number_of_losses

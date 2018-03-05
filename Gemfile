@@ -6,7 +6,7 @@ ruby '2.4.2'
 gem 'breakpoint'
 gem 'carrierwave'
 gem 'coffee-rails'
-gem 'fog'
+gem 'fog', '1.41.0' # 1.42. depends on a newer version of json which breaks mandrill-mailer
 gem 'gravatar_image_tag'
 gem 'haml-rails'
 gem 'jbuilder'
@@ -28,6 +28,9 @@ gem "compass-rails"
 gem "omniauth-facebook"
 gem "omniauth-twitter"
 gem "omniauth"
+gem "react-rails"
+gem 'webpacker', '~> 3.0'
+gem 'i18n-js'
 
 gem 'sentry-raven'
 # gem 'quiet_assets' Doesn't work anymore
@@ -41,13 +44,15 @@ group :development do
   gem 'smurfville'
   gem 'fontello_rails_converter'
   gem 'listen'
+  gem 'faker', '~> 1.8', '>= 1.8.7'
 end
 
 group :development, :test do
   gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'jazz_fingers'
-  gem 'byebug'
+  gem 'pry-rails'
+  gem 'pry-byebug'
 end
 
 group :test do

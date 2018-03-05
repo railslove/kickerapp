@@ -1,6 +1,36 @@
-.c-team-table
-  .m-user-list
-    +clearfix
-    width: 160px
-    .m-user
-      float: left
+.c-team
+  &-filter-label
+    margin: 0 1em
+    font-size: .7em
+  &-table
+    padding: 0 .5em .5em .5em
+    border-collapse: separate
+    border-spacing: 0 .75em
+    color: $dark-grey
+    td
+      background: $white
+      padding: .5em .25em
+      font-size: .9em
+      color: $dark-grey
+      text-align: center
+      b
+        color: $dark-grey
+        font-weight: bold
+      .c-team-table-player-name
+        text-align: left
+        padding-left: 0
+      .c-team-table-player-image
+        width: 55px
+        display: flex
+        flex-wrap: nowrap
+        align-items: center
+        img
+          width: 100%
+      .c-team-table-rank
+        // text-align: center
+      .c-team-table-label
+        font-size: .6em
+    &-rank
+      color: $dark-blue
+    &-stats
+      color: $grey

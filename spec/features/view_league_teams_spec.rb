@@ -10,7 +10,9 @@ feature 'view a league\'s teams' do
   let!(:team2) { create :team, league: league, player1: player3, player2: player4}
   let!(:match) { create :match, winner_team: team1, loser_team: team2 }
 
+
   scenario 'shows all teams ranked best first' do
+    pending 'setup js engine'
     visit league_teams_path('the-league')
 
     expect(page).to have_selector('table')

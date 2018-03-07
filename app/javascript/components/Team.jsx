@@ -17,12 +17,12 @@ const Team = (props) => {
       </td>
       <td>
         <div className="c-team-table-player-image">
-          <img src={'https://ungif.apps.railslabs.com/ungif?url=' + props.data.player2.image} alt="" />
+          { props.data.player2 && <img src={'https://ungif.apps.railslabs.com/ungif?url=' + props.data.player2.image} alt="" /> }
         </div>
       </td>
       <td>
         <div className="c-team-table-player-name">
-          {props.data.player2.name}
+          { props.data.player2 && props.data.player2.name}
         </div>
       </td>
       <td>

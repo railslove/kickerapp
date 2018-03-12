@@ -278,6 +278,9 @@ GEM
     formatador (0.2.5)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    graphiql-rails (1.4.9)
+      rails
+    graphql (1.7.13)
     gravatar_image_tag (1.2.0)
     haml (5.0.4)
       temple (>= 0.8.0)
@@ -413,6 +416,7 @@ GEM
     public_suffix (3.0.2)
     puma (3.11.2)
     rack (2.0.4)
+    rack-cors (1.0.2)
     rack-mobile-detect (0.4.0)
       rack
     rack-pjax (1.0.0)
@@ -591,6 +595,8 @@ DEPENDENCIES
   faker (~> 1.8, >= 1.8.7)
   fog (= 1.41.0)
   fontello_rails_converter
+  graphiql-rails
+  graphql
   gravatar_image_tag
   haml-rails
   i18n-js
@@ -612,6 +618,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma
+  rack-cors
   rack-tracker
   rails (~> 5.1, >= 5.1.4)
   rails-controller-testing

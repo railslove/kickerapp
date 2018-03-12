@@ -58,12 +58,12 @@ class League < ApplicationRecord
     active_user_ranking.last
   end
 
-  def active_user_ranking
+  def active_user_ranking(date = 2.weeks.ago)
     users
       .select('DISTINCT users.*')
       .joins('LEFT JOIN teams ON (teams.player1_id = users.id OR teams.player2_id = users.id)')
       .joins('LEFT JOIN matches ON (matches.winner_team_id = teams.id OR matches.loser_team_id = teams.id)')
-      .where('DATE > ?', 2.weeks.ago)
+      .where('DATE > ?', date)
       .reorder('quota DESC')
   end
 

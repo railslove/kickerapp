@@ -31,6 +31,8 @@ gem "omniauth"
 gem "react-rails"
 gem 'webpacker', '~> 3.0'
 gem 'i18n-js'
+gem 'graphql'
+gem 'rack-cors', require: 'rack/cors'
 
 gem 'sentry-raven'
 # gem 'quiet_assets' Doesn't work anymore
@@ -66,3 +68,5 @@ end
 group :production do
   gem 'rails_12factor'
 end
+
+gem 'graphiql-rails', group: :development

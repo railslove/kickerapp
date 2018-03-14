@@ -42,7 +42,7 @@ class LeaguesController < ApplicationController
     @league = League.find_by!(slug: params[:id])
     set_current_league(@league.slug)
     @order = params[:order] || 'longest_winning_streak_games'
-    @users = @league.users.order("#{@order} desc").select{|user| user.active? }
+    @users = @league.users.order("#{@order} desc").order(updated_at: :desc).select{|user| user.active? }
   end
 
   def table

@@ -5,6 +5,10 @@ Types::LeagueType = GraphQL::ObjectType.define do
   field :slug, !types.String
   field :name, !types.String
   field :matches_count, types.Int
+  field :longest_winning_streak, Types::UserType
+  field :longest_winning_streak_ever, Types::UserType
+  field :top_crawler, Types::UserType
+  field :worst_crawler, Types::UserType
   field :matches, types[Types::MatchType] do
     argument :limit, types.Int, default_value: 10, prepare: -> (limit, ctx) { [limit, 50].min }
     resolve ->(obj, args, ctx) {

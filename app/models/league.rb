@@ -47,7 +47,7 @@ class League < ApplicationRecord
   end
 
   def longest_winning_streak_ever
-    users.order('longest_winning_streak_games desc').take
+    users.order('longest_winning_streak_games desc').order(longest_winning_streak: :desc).take
   end
 
   def most_teams

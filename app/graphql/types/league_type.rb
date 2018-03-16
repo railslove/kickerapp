@@ -27,7 +27,7 @@ Types::LeagueType = GraphQL::ObjectType.define do
   end
   field :teams, types[Types::TeamType] do
     resolve ->(obj, args, ctx) {
-      obj.team_ranking
+      obj.team_ranking.first(100)
     }
   end
 end

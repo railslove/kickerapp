@@ -69,4 +69,4 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'graphiql-rails', group: :development
+gem 'graphiql-rails'

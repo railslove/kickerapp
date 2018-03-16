@@ -8,7 +8,6 @@ Types::MutationType = GraphQL::ObjectType.define do
     argument :image, types.String
 
     resolve ->(o,args,c) {
-      byebug
       league = League.find_by(slug: args[:leagueSlug])
       league.users.create(name: args[:name], email: args[:email], image: args[:image])
     }

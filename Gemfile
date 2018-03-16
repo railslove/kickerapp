@@ -45,6 +45,7 @@ group :development do
   gem 'smurfville'
   gem 'fontello_rails_converter'
   gem 'listen'
+  gem 'graphiql-rails'
   gem 'faker', '~> 1.8', '>= 1.8.7'
 end
 
@@ -69,4 +70,3 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'graphiql-rails'

@@ -31,16 +31,16 @@ Types::MutationType = GraphQL::ObjectType.define do
     argument :player2_id, types.Int
     argument :player3_id, !types.Int
     argument :player4_id, types.Int
-    argument :score_1, !types.Int
-    argument :score_2, !types.Int
+    argument :score1, !types.Int
+    argument :score2, !types.Int
     resolve ->(_obj, args, _ctx) {
       league = League.find_by(slug: args[:leagueSlug])
       team1 = Team.find_or_create_by(player1_id: args[:player1_id], player2_id: args[:player2_id])
       team2 = Team.find_or_create_by(player1_id: args[:player3_id], player2_id: args[:player4_id])
-      if args[:score_1] > args[:score_2]
-        match = league.matches.create(winner_team: team1, loser_team: team2, date: Time.now, score: "#{args[:score_1]}:#{args[:score_2]}")
-      elsif args[:score_1] < args[:score_2]
-        match = league.matches.create(winner_team: team2, loser_team: team1, date: Time.now, score: "#{args[:score_2]}:#{args[:score_1]}")
+      if args[:score1] > args[:score2]
+        match = league.matches.create(winner_team: team1, loser_team: team2, date: Time.now, score: "#{args[:score1]}:#{args[:score2]}")
+      elsif args[:score1] < args[:score2]
+        match = league.matches.create(winner_team: team2, loser_team: team1, date: Time.now, score: "#{args[:score2]}:#{args[:score1]}")
       end
       match
     }

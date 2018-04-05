@@ -4,6 +4,7 @@ class Match < ApplicationRecord
   belongs_to :loser_team, class_name: "Team", optional: true
 
   belongs_to :league, counter_cache: true, optional: true
+  belongs_to :day_match, optional: true
 
   default_scope lambda {order("date DESC")}
 

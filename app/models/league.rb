@@ -7,6 +7,7 @@ class League < ApplicationRecord
   has_many :matches
   has_many :teams
   has_many :users
+  has_many :day_matches
 
   validates :name, presence: true
   validates :slug, presence: true, uniqueness: true

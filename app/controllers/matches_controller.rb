@@ -117,6 +117,7 @@ class MatchesController < ApplicationController
           HistoryEntry.track(match) if match.persisted?
         end
       end
+      DayMatch.create_and_calculate(matches, league)
       league.update_badges
     end
     matches

@@ -1,5 +1,7 @@
 de:
   admin:
+    table_headers:
+      last_created: Last
     toggle_navigation: Toogle
     js:
       true: True
@@ -58,6 +60,7 @@ de:
       created_at: "Date/Time"
       item: "Item"
       message: "Message"
+      last_created: Last
     actions:
       dashboard:
         title: "Site Administration"

@@ -49,6 +49,14 @@ RailsAdmin.config do |config|
     field :crawling
   end
 
+  config.model DayMatch do
+    field :date
+    field :winner_team
+    field :loser_team
+    field :league
+    field :difference
+  end
+
   # config.included_models = %w{
   #   Match User Team League
   # }

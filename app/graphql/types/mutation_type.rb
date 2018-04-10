@@ -34,7 +34,7 @@ Types::MutationType = GraphQL::ObjectType.define do
     argument :score1, !types.Int
     argument :score2, !types.Int
     resolve ->(_obj, args, _ctx) {
-      league = League.find_by(slug: args[:leagueSlug])
+      league = League.find_by!(slug: args[:leagueSlug])
       team1 = Team.find_or_create_by(player1_id: args[:player1_id], player2_id: args[:player2_id])
       team2 = Team.find_or_create_by(player1_id: args[:player3_id], player2_id: args[:player4_id])
       if args[:score1] > args[:score2]

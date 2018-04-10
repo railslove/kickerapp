@@ -14,7 +14,7 @@ class DayMatch < ApplicationRecord
       difference = difference + (match.difference * (team1 == match.winner_team ? 1 : -1))
     end
     if difference < 0
-      day_match.update_attributes(winner_team: team2, loser_team: team1, difference: difference)
+      day_match.update_attributes(winner_team: team2, loser_team: team1, difference: difference.abs)
     else
       day_match.update_attributes(winner_team: team1, loser_team: team2, difference: difference)
     end

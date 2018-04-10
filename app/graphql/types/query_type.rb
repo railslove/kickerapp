@@ -10,4 +10,5 @@ Types::QueryType = GraphQL::ObjectType.define do
       leagues
     }
   end
+
 end

@@ -29,6 +29,7 @@ class MatchesController < ApplicationController
     if !matches.map(&:errors).map(&:empty?).reduce(:&)
       redirect_to new_league_match_path(current_league, match_params), alert: "#{t('matches.create.failure')} #{matches.map(&:errors).inspect}"
     else
+      current_league.touch
       matches.first.update_team_streaks
       tracker do |t|
         t.google_analytics :send, { type: 'event', category: 'match', action: 'create', label: current_league.name, value: matches.map(&:crawling).any?}

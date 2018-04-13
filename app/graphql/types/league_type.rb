@@ -16,7 +16,7 @@ Types::LeagueType = GraphQL::ObjectType.define do
     }
   end
   field :day_matches, types[Types::DayMatchType] do
-    argument :limit, types.Int, default_value: 30, prepare: -> (limit, ctx) { [limit, 50].min }
+    argument :limit, types.Int, default_value: 50, prepare: -> (limit, ctx) { [limit, 100].min }
     resolve ->(obj, args, ctx) {
       obj.day_matches.order(created_at: :desc).first(args[:limit])
     }

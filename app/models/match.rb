@@ -55,7 +55,7 @@ class Match < ApplicationRecord
   end
 
   def calculate_user_quotas
-    quota_change = QuotaCalculator.elo_quota(winner_team.elo_quota, loser_team.elo_quota , 1 )
+    quota_change = QuotaCalculator.elo_quota(winner_team.quota, loser_team.quota , 1 )
 
     if self.crawling == true
       quota_change = quota_change + 5
@@ -68,8 +68,11 @@ class Match < ApplicationRecord
       user.set_elo_quota(self)
     end
 
-    winner_team.update_attributes(number_of_wins: winner_team.number_of_wins + 1)
-    loser_team.update_attributes(number_of_losses: loser_team.number_of_losses + 1)
+    winner_team.add_win(quota_change)
+    loser_team.add_loss(quota_change)
+
+    # winner_team.update_attributes(number_of_wins: winner_team.number_of_wins + 1)
+    # loser_team.update_attributes(number_of_losses: loser_team.number_of_losses + 1)
   end
 
   def revert_points

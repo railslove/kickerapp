@@ -70,12 +70,11 @@ class League < ApplicationRecord
 
   def team_ranking
     teams
-    .select("teams.*, COUNT(matches.*) AS games_played, #{BASE_SCORE} + SUM(CASE WHEN matches.loser_team_id = teams.id THEN matches.difference * -1 ELSE matches.difference END) AS score")
     .joins('RIGHT JOIN matches ON (matches.winner_team_id = teams.id OR matches.loser_team_id = teams.id)')
     .for_doubles
     .includes(:player1, :player2)
     .group('teams.id')
-    .order('score DESC')
+    .order('quota DESC')
   end
 
   private

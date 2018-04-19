@@ -5,7 +5,7 @@ json.array! @teams.each_with_index.to_a do |(team, index)|
   json.wins team.number_of_wins
   json.losses team.number_of_losses
   json.quota team.percentage
-  json.score team.score
+  json.score team.quota
   json.name team.name
   json.url league_team_url(current_league, team)
   json.player1 do

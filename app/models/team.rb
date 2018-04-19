@@ -113,6 +113,14 @@ class Team < ApplicationRecord
     self['score'] || (League::BASE_SCORE + wins.sum(:difference) - losses.sum(:difference))
   end
 
+  def add_win(difference)
+    self.update_attributes(number_of_wins: self.number_of_wins + 1, quota: self.quota + difference)
+  end
+
+  def add_loss(difference)
+    self.update_attributes(number_of_losses: self.number_of_losses + 1, quota: self.quota - difference)
+  end
+
   private
 
   def players_validation

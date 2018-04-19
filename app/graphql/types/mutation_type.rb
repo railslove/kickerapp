@@ -40,9 +40,9 @@ Types::MutationType = GraphQL::ObjectType.define do
       matches = []
       args[:scores].each do |scores|
         if scores[:score1] > scores[:score2]
-          match = league.matches.create(winner_team: team1, loser_team: team2, date: Time.now, score: "#{scores[:score1]}:#{scores[:score2]}")
+          match = league.matches.create(crawling: scores[:crawling], winner_team: team1, loser_team: team2, date: Time.now, score: "#{scores[:score1]}:#{scores[:score2]}")
         elsif scores[:score1] < scores[:score2]
-          match = league.matches.create(winner_team: team2, loser_team: team1, date: Time.now, score: "#{scores[:score2]}:#{scores[:score1]}")
+          match = league.matches.create(crawling: scores[:crawling], winner_team: team2, loser_team: team1, date: Time.now, score: "#{scores[:score2]}:#{scores[:score1]}")
         end
         matches << match
       end
@@ -58,6 +58,10 @@ Types::MutationType = GraphQL::ObjectType.define do
 
     argument :score2, !types.Int do
       description "GuestTeam Score"
+    end
+
+    argument :crawling, !types.Boolean do
+      description "crawling"
     end
   end
 end

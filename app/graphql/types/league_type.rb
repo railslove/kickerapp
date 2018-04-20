@@ -28,7 +28,7 @@ Types::LeagueType = GraphQL::ObjectType.define do
   end
   field :users, types[Types::UserType] do
     resolve ->(obj, args, ctx) {
-      obj.users.order(quota: :desc)
+      obj.users.order(updated_at: :desc)
     }
   end
   field :teams, types[Types::TeamType] do

@@ -108,6 +108,10 @@ class Team < ApplicationRecord
     played > 0 ? (wins / played * 100).round : 0
   end
 
+  def get_quota
+    self.users.size > 1 ? quota : self.users.first.quota
+  end
+
   # Use values from database if available, otherwise fetch data
   def value
     self['score'] || (League::BASE_SCORE + wins.sum(:difference) - losses.sum(:difference))

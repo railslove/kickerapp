@@ -55,7 +55,7 @@ class Match < ApplicationRecord
   end
 
   def calculate_user_quotas
-    quota_change = QuotaCalculator.elo_quota(winner_team.quota, loser_team.quota , 1 )
+    quota_change = QuotaCalculator.elo_quota(winner_team.get_quota, loser_team.get_quota , 1 )
 
     if self.crawling == true
       quota_change = quota_change + 5

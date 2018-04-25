@@ -28,9 +28,3 @@
   = "(Aktuell: #{values.last})"
 - values[values.length-1] = (values.last.to_f / Date.today.wday * 5).round if Date.today.wday < 5 if values.length > 0
 .ct-chart.ct-double-octave{data: {labels: @matches_per_week.map{|matches| "KW#{matches.first}"}, values: values}}
-
-/ %h4 Spiele pro Liga/ pro Woche
-
-/ - values = @matches_per_week.map(&:last)
-
-/ .ct-chart.ct-double-octave{data: {labels: @matches_per_week.map{|matches| "KW#{matches.first}"}, values: values}}

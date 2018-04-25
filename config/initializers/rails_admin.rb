@@ -9,6 +9,12 @@ RailsAdmin.config do |config|
     field :name
     field :slug
     field :contact_email
+    field :matches_count
+    field :users do
+      pretty_value do
+        bindings[:object].users.count
+      end
+    end
     field :created_at do
       pretty_value do
         I18n.l(bindings[:object].created_at, format: '%Y/%m/%d')

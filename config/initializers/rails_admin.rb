@@ -6,7 +6,6 @@ RailsAdmin.config do |config|
   end
 
   config.model League do
-    field :name
     field :slug
     field :contact_email
     field :matches_count
@@ -15,16 +14,16 @@ RailsAdmin.config do |config|
         bindings[:object].users.count
       end
     end
-    field :created_at do
-      pretty_value do
-        I18n.l(bindings[:object].created_at, format: '%Y/%m/%d')
-      end
-    end
-
     field :updated_at do
       pretty_value do
         date = bindings[:object].matches.try(:first).try(:date) || bindings[:object].updated_at
         I18n.l(date, format: '%Y/%m/%d')
+      end
+    end
+    field :name
+    field :created_at do
+      pretty_value do
+        I18n.l(bindings[:object].created_at, format: '%Y/%m/%d')
       end
     end
     field :header_image, :carrierwave

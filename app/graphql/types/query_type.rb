@@ -11,4 +11,11 @@ Types::QueryType = GraphQL::ObjectType.define do
     }
   end
 
+  field :players, Types::UserType do
+    argument :id, types.Int, prepare: -> (id, ctx) { id }
+    resolve -> (obj, args, ctx) {
+      User.find(args[:id])
+    }
+  end
+
 end

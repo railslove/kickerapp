@@ -14,4 +14,29 @@ Types::UserType = GraphQL::ObjectType.define do
   field :winning_streak, types.Int
   field :number_of_crawls, types.Int
   field :number_of_crawlings, types.Int
+  field :highest_quota, types.Int do
+    resolve ->(obj, args, ctx) {
+      obj.history_entries.order('quota desc').take.quota
+    }
+  end
+
+  field :lowest_quota, types.Int do
+    resolve ->(obj, args, ctx) {
+      obj.history_entries.order('quota asc').take.quota
+    }
+  end
+
+  field :best_partner, Types::UserType do
+    resolve ->(obj, args, ctx) {
+      team = obj.teams.for_doubles.ranked.sort_by(&:value).reverse.first
+      team.partner_for(obj)
+    }
+  end
+
+  field :worst_partner, Types::UserType do
+    resolve ->(obj, args, ctx) {
+      team = obj.teams.for_doubles.ranked.sort_by(&:value).first
+      team.partner_for(obj)
+    }
+  end
 end

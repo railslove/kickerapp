@@ -1,5 +1,6 @@
 de:
   common:
+    all_players: Alle Spieler
     change: Ändern
     crawled: Gekrabbelt
     faq: FAQ
@@ -17,6 +18,7 @@ de:
     points: Punkte
     quota: Quote
     share: Teilen
+    sure: Wirklich löschen?
     tweet: Tweet
     wins: Siege
   date:
@@ -78,6 +80,7 @@ de:
     good_with: ist der beste Partner
     bad_with: der schlechteste
     edit: "Spieler bearbeiten"
+    delete: Spieler löschen
     name: Name
     elo: Elo Punkte
     current_winning_streak: Aktuelle Siegesserie
@@ -86,6 +89,8 @@ de:
     trend: Trend
     point_high: Höchststand
     point_low: Tiefstand
+    destroy:
+      success: Spieler erfolgreich gelöscht
   social:
     facebook:
       match_share: '%{teams} spielten %{score} auf %{url}'

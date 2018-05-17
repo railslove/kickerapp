@@ -88,6 +88,19 @@ class Match < ApplicationRecord
     self.save
   end
 
+  def remove_points
+    winner_team.users.each do |winner|
+      winner.update_attributes(quota: (winner.quota - self.difference), number_of_wins: winner.number_of_wins - 1)
+    end
+    winner_team.update_attributes(number_of_wins: winner_team.number_of_wins - 1)
+
+    loser_team.users.each do |loser|
+      loser.update_attributes(quota: (loser.quota + self.difference), number_of_losses: loser.number_of_losses - 1)
+    end
+    loser_team.update_attributes(number_of_losses: loser_team.number_of_losses - 1)
+    self.save
+  end
+
   def update_team_streaks
     [ winner_team, loser_team ].each do |team|
       team.users.each do |user|

@@ -68,6 +68,12 @@ class UsersController < ApplicationController
     @teams = Team.for_doubles.ranked.sort_by(&:value).reverse
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.delete if @user.number_of_games == 0
+    redirect_to current_league, notice: t('users.destroy.success')
+  end
+
   private
 
   def user_params

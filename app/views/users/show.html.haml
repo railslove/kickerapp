@@ -1,6 +1,7 @@
 %p
   = link_to t('users.edit'), edit_league_user_path(current_league, @user), class: 'm-button'
-
+  - if @user.number_of_games == 0
+    = link_to t('users.delete'), league_user_path(current_league, @user), class: 'm-button as-secondary', method: :delete, data: { confirm: t('common.sure') }
 .m-profile-teams
   .m-profile-basics
     %h4= @user.name

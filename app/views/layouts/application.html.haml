@@ -40,6 +40,8 @@
       .l-sidebar
         - unless @hide_sidebar
           - if league_present?
-            = render 'users/list', users: current_league.active_user_ranking
+            .uMargin= render 'users/list', users: current_league.active_user_ranking
+            %br
+            = link_to t('common.all_players'), league_users_path(current_league), class: 'm-button as-small'
     = render 'layouts/footer'
     = render 'layouts/javascript'

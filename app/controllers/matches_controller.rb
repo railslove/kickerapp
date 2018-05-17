@@ -70,7 +70,7 @@ class MatchesController < ApplicationController
 
   def destroy
     @match = Match.find(params[:id])
-    @match.revert_points
+    @match.remove_points
     @match.destroy
     redirect_to league_path(current_league), notice: "Dieser Satz wurde gelöscht."
   end

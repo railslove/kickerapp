@@ -20,5 +20,9 @@ de:
     share: Teilen
     tweet: Tweet
     wins: Siege
+  cookies:
+    ok: Nagut
+    text: Wir nutzen Cookies, um den Service unserer Webseite optimal zu gestalten. Stimmst du der Verwendung dieser Cookies und der damit verbundenen Verarbeitung deiner persönlichen Daten zu?
+    more: Weitere Infos
   team:
     filter_label: Teams mit

@@ -20,5 +20,9 @@ en:
     share: Share
     tweet: Tweet
     wins: Wins
+  cookies:
+    ok: Sure
+    text: Jesus, I don't even know what to write here. Just click that button there. We won't bug you anymore. I promise. ----->
+    more: Further details
   team:
     filter_label: Teams with

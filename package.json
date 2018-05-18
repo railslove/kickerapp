@@ -7,6 +7,7 @@
     "json-loader": "^0.5.7",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
+    "react-cookie-banner": "^4.0.0",
     "react-dom": "^16.2.0",
     "react_ujs": "^2.4.3",
     "yaml-loader": "^0.5.0"

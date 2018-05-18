@@ -33,6 +33,10 @@ class PagesController < ApplicationController
     render 'pages/static'
   end
 
+  def privacy_policy
+    render 'pages/static'
+  end
+
   def kpis
     start_date = Date.parse('01.01.2017')
     @active_leagues = League.where.not(name: 'Railslove').select{|l|(l.matches.count > 10) && (l.matches.first.date > 14.days.ago)}

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get 'imprint' => 'pages#imprint', as: 'imprint'
   get 'faq' => 'pages#faq', as: 'faq'
+  get 'privacy_policy' => 'pages#privacy_policy', as: 'privacy_policy'
 
   get 'kpis' => 'pages#kpis', as: 'kpis'
 

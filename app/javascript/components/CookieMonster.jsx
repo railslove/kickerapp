@@ -29,7 +29,7 @@ const styles = {
   },
   message: {
     display: 'block',
-    padding: '9px 67px',
+    padding: '19px 67px',
     lineHeight: 1.3,
     textAlign: 'left',
     marginRight: 244,

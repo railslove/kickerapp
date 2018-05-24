@@ -5,7 +5,7 @@ import cookieImg from 'images/cookie.png'
 
 const styles = {
   banner: {
-    background: `rgba(52, 64, 81, 0.88) url(${cookieImg}) 20px 50% no-repeat`,
+    background: `rgba(52, 64, 81, 0.88) url(${cookieImg}) 20px 20px no-repeat`,
     backgroundSize: '30px 30px',
     backgroundColor: '',
     fontSize: '15px',
@@ -25,14 +25,16 @@ const styles = {
     fontWeight: 600,
     opacity: 1,
     right: 20,
-    marginTop: -18
+    marginTop: -18,
+    position: 'initial',
+    marginBottom: '20px'
   },
   message: {
     display: 'block',
-    padding: '19px 67px',
+    padding: '20px',
+    paddingLeft: '65px',
     lineHeight: 1.3,
-    textAlign: 'left',
-    marginRight: 244,
+    textAlign: 'justify',
     color: 'white'
   },
   link: {

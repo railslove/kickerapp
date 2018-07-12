@@ -46,9 +46,8 @@ class PagesController < ApplicationController
     @active_league_counts = []
     (1..26).to_a.reverse.each do |i|
       date = i.weeks.ago
-      leagues = @active_leagues.where('created_at < ?', date).select{|l| l.matches.first.date > date}.count
-      arr = [date.to_date.cweek, leagues]
-      @active_league_counts << arr
+      leagues = @active_leagues.where('created_at < ?', date).select{|l| l.matches.first.date > (date - 14.days)}.count
+      @active_league_counts << [date.to_date.cweek, leagues]
     end
     @active_leagues = @active_leagues.select{|l| l.matches.first.date > 14.days.ago}
   end

@@ -1,5 +1,4 @@
 class KpiCalculator
-  attr_accessor :number_of_weeks
   def initialize(number_of_weeks)
     @number_of_weeks = number_of_weeks
   end

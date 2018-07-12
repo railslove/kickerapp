@@ -10,7 +10,7 @@ describe ApplicationController, type: :controller do
       end
 
       specify do
-        I18n.locale = :es
+        I18n.locale = :en
         controller.send(:set_locale)
         expect(I18n.locale).to eql I18n.default_locale
       end

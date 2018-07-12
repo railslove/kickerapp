@@ -20,7 +20,7 @@ js_extend: false
 
 translations:
   - file: "app/assets/javascripts/i18n/translations.js"
-    only: ["*.js", "*.common"]
+    only: ["*.js", "*.common", '*.cookies']
     # namespace: 'Translations'
 
 #

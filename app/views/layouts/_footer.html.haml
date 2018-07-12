@@ -11,12 +11,16 @@
       .c-footer-links
         .c-footer-link= link_to t('common.imprint'), imprint_path, class: 'm-link'
         .c-footer-link= link_to t('common.faq'), faq_path, class: 'm-link'
+        .c-footer-link= link_to t('common.privacy_policy'), privacy_policy_path, class: 'm-link'
         .c-footer-link= link_to t('common.leagues'), ligen_path, class: 'm-link'
       .c-sharing
-        - url = url_for(:only_path => false)
-        %a.c-sharing--button.as-facebook{ data: { behavior: 'fb-share-page', link: url, caption: meta_title } }
+        - url = url_for(only_path: false)
+        = link_to "http://www.facebook.com/sharer.php?u=#{url}", class: 'c-sharing--button as-facebook', data: { behavior: 'js-link' } do
           %i.icon-facebook
           = t('common.share')
         = link_to "http://twitter.com/share?text=@kicker_cool&url=#{url}", class: 'c-sharing--button as-twitter', data: { behavior: 'js-link' } do
           %i.icon-twitter
           = t('common.tweet')
+
+
+= react_component 'CookieMonster'

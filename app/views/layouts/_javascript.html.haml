@@ -2,19 +2,3 @@
 = javascript_pack_tag 'application'
 = yield :javascript
 %script{:src => "//userlike-cdn-widgets.s3-eu-west-1.amazonaws.com/a07e4be318a364031bfcb487b7e92145e79c985102a39d5e14f65f0616b77ba5.js", :type => "text/javascript"}
-:javascript
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '454715457990828',
-      xfbml      : true,
-      version    : 'v2.1'
-    });
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk/debug.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));

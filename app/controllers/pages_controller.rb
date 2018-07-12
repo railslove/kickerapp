@@ -39,11 +39,12 @@ class PagesController < ApplicationController
 
   def kpis
     start_date = 6.month.ago
-    @active_leagues = League.where.not(name: 'Railslove').select{|l|(l.matches.count > 10) && (l.matches.first.date > 14.days.ago)}
-
+    @active_leagues = League.where.not(name: 'Railslove').where('matches_count > 10')# && (l.matches.first.date > 14.days.ago)}
     @user_per_week = User.reorder(:created_at).where('created_at > ?',start_date).group_by{|u| u.created_at.to_date.cweek}.map{|w|[w.first, w.last.count]}
     matches = Match.reorder(:date).where('date > ?',start_date).where(league_id: @active_leagues.map(&:id))
     @matches_per_week = matches.group_by{|m| m.date.to_date.cweek}.map{|w|[w.first, w.last.count]}
+    @active_leagues_per_week = @active_leagues.group_by{|l| l.matches.first.date.to_date.cweek}.map{|w|[w.first, w.last.count]}
+    @active_leagues = @active_leagues.select{|l| l.matches.first.date > 14.days.ago}
   end
 
 end

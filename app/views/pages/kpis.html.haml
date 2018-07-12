@@ -19,6 +19,11 @@
 
 %h2 KPIs
 %h3 Alle KPIs beziehen sich auf aktive Ligen
+
+%h4 Aktive Ligen
+.ct-chart.ct-double-octave{data: {labels: @active_leagues_per_week.map{|league| "KW#{league.first}"}, values: @active_leagues_per_week.map(&:last)}}
+
+
 %h4 Neue User pro Woche
 .ct-chart.ct-double-octave{data: {labels: @user_per_week.map{|users| "KW#{users.first}"}, values: @user_per_week.map(&:last)}}
 

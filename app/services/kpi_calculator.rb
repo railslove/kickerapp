@@ -1,11 +1,11 @@
 class KpiCalculator
-  attr_accessor :number_of_weeks, :league_count
+  attr_accessor :number_of_weeks
   def initialize(number_of_weeks)
     @number_of_weeks = number_of_weeks
   end
 
-  def active_league_count
-    possible_leagues = League.where.not(name: 'Railslove').where('matches_count > 10')
+  def active_league_count(match_threshold)
+    possible_leagues = League.where.not(name: 'Railslove').where('matches_count > ?', match_threshold)
     league_count = []
     (1..@number_of_weeks).to_a.reverse.each do |i|
       date = i.weeks.ago

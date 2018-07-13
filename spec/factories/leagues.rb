@@ -3,7 +3,9 @@
 FactoryBot.define do
   factory :league do
     name 'Railslove'
-    slug 'railslove'
+    sequence :slug do |n|
+      "railslove#{n}"
+    end
     contact_email 'contact@railslove.com'
   end
 end

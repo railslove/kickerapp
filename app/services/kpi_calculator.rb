@@ -4,7 +4,7 @@ class KpiCalculator
   end
 
   def active_league_count(match_threshold)
-    possible_leagues = League.where.not(name: 'Railslove').where('matches_count > ?', match_threshold)
+    possible_leagues = League.where.not(name: 'Railslove').where('matches_count >= ?', match_threshold)
     league_count = []
     (1..@number_of_weeks).to_a.reverse.each do |i|
       date = i.weeks.ago

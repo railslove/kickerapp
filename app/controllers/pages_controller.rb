@@ -43,7 +43,7 @@ class PagesController < ApplicationController
     @user_per_week = User.reorder(:created_at).where('created_at > ?',start_date).group_by{|u| u.created_at.to_date.cweek}.map{|w|[w.first, w.last.count]}
     matches = Match.reorder(:date).where('date > ?',start_date).where(league_id: @active_leagues.map(&:id))
     @matches_per_week = matches.group_by{|m| m.date.to_date.cweek}.map{|w|[w.first, w.last.count]}
-    @active_league_count = KpiCalculator.new(26).active_league_count(10)
+    @active_league_count = KpiCalculator.new(number_of_weeks: 26).active_league_count(10)
     @active_leagues = @active_leagues.select{|l| l.matches.first.date > 14.days.ago}
   end
 

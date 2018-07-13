@@ -3,6 +3,8 @@ class KpiCalculator
     @number_of_weeks = number_of_weeks
   end
 
+  # The outcome of this methos is used for drawing a graph, first value is the calendar week, the second the number of active leagues is that week.
+  # The .reverse is used to have the oldest week at the first position
   def active_league_count(match_threshold)
     possible_leagues = League.where.not(name: 'Railslove').where('matches_count >= ?', match_threshold)
     league_count = []

@@ -33,6 +33,7 @@ gem 'webpacker', '~> 3.0'
 gem 'i18n-js'
 gem 'graphql'
 gem 'rack-cors', require: 'rack/cors'
+gem "sprockets", ">= 3.7.2"
 
 gem 'sentry-raven'
 # gem 'quiet_assets' Doesn't work anymore
@@ -69,4 +70,3 @@ end
 group :production do
   gem 'rails_12factor'
 end
-

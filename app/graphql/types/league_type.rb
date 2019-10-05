@@ -26,6 +26,7 @@ Types::LeagueType = GraphQL::ObjectType.define do
       obj.active_user_ranking
     }
   end
+  
   field :users, types[Types::UserType] do
     resolve ->(obj, args, ctx) {
       obj.users.order(updated_at: :desc)

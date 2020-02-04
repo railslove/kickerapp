@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.4.2'
+ruby '2.6.5'
 
 # wellknown
 gem 'breakpoint'
@@ -15,7 +15,7 @@ gem 'kaminari'
 gem 'mini_magick'
 gem 'mobile-fu'
 gem 'newrelic_rpm'
-gem 'pg', '~> 0.18'
+gem 'pg', '~> 1'
 gem 'puma'
 gem 'rack-tracker'
 gem 'rails_admin'
@@ -27,6 +27,8 @@ gem 'uglifier'
 gem "compass-rails"
 gem "omniauth-facebook"
 gem "omniauth-twitter"
+gem 'tzinfo-data'
+
 gem "omniauth"
 gem "react-rails"
 gem 'webpacker', '~> 3.0'

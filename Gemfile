@@ -18,11 +18,11 @@ gem 'newrelic_rpm'
 gem 'pg', '~> 1'
 gem 'puma'
 gem 'rack-tracker'
-gem 'rails_admin'
+gem 'rails_admin', '~> 2'
 gem 'rails-i18n'
-gem 'rails', '~> 5.1', '>= 5.1.4'
+gem 'rails', '~> 6'
 gem 'redcarpet'
-gem 'sass-rails'
+gem 'sass-rails', '~> 6'
 gem 'uglifier'
 gem "compass-rails"
 gem "omniauth-facebook"
@@ -31,11 +31,11 @@ gem 'tzinfo-data'
 
 gem "omniauth"
 gem "react-rails"
-gem 'webpacker', '~> 3.0'
+gem 'webpacker', '~> 4.0'
 gem 'i18n-js'
 gem 'graphql'
 gem 'rack-cors', require: 'rack/cors'
-gem "sprockets", ">= 3.7.2"
+gem "sprockets", "~> 4.0"
 
 gem 'sentry-raven'
 # gem 'quiet_assets' Doesn't work anymore

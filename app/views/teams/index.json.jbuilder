@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.array! @teams.each_with_index.to_a do |(team, index)|
   json.id team.id
   json.rank index + 1

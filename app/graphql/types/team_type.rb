@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Types::TeamType = GraphQL::ObjectType.define do
   name 'Team'
   field :id, !types.ID
@@ -8,7 +10,7 @@ Types::TeamType = GraphQL::ObjectType.define do
   field :name, types.String
   field :percentage, types.Int
   field :score, types.Int do
-    resolve ->(obj, args, ctx) {
+    resolve ->(obj, _args, _ctx) {
       obj.value
     }
   end

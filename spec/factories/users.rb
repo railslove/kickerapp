@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryBot.define do
@@ -8,7 +10,7 @@ FactoryBot.define do
     number_of_crawlings 1
     winning_streak 1
     quota 1200
-    name "MyString"
+    name 'MyString'
     email 'peter@pan.de'
   end
 end

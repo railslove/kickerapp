@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MigrateOldLeagueWithContactEmail < ActiveRecord::Migration[4.2]
   def change
     League.all.each do |league|

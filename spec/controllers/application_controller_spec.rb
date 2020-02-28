@@ -1,9 +1,9 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe ApplicationController, type: :controller do
-
   describe 'set_locale' do
-
     context 'reset to default locale' do
       before do
         allow(controller).to receive(:params).and_return({})
@@ -18,11 +18,11 @@ describe ApplicationController, type: :controller do
 
     context 'change locale' do
       before do
-        allow(controller).to receive(:params).and_return({ locale: 'en'})
+        allow(controller).to receive(:params).and_return(locale: 'en')
       end
 
       specify do
-        expect{ controller.send(:set_locale) }.to change{ I18n.locale }.from(I18n.default_locale).to(:en)
+        expect { controller.send(:set_locale) }.to change { I18n.locale }.from(I18n.default_locale).to(:en)
       end
     end
   end
@@ -65,21 +65,21 @@ describe ApplicationController, type: :controller do
         session[:league_slug] = 'the-league'
         expect(controller).to receive(:set_current_league).with('the-league')
       end
-      it{ expect(controller.current_league).to eql league }
+      it { expect(controller.current_league).to eql league }
     end
 
     context 'league slug is passed to params[:league_id]' do
       before do
-        allow(controller).to receive(:params).and_return({ league_id: 'the-league' })
+        allow(controller).to receive(:params).and_return(league_id: 'the-league')
         expect(controller).to receive(:set_current_league).with('the-league')
       end
-      it{ expect(controller.current_league).to eql league }
+      it { expect(controller.current_league).to eql league }
     end
 
     context 'league slug is passed to params[:league_id] and set in session' do
       before do
         session[:league] = 'another-league'
-        allow(controller).to receive(:params).and_return({ league_id: 'the-league' })
+        allow(controller).to receive(:params).and_return(league_id: 'the-league')
         expect(controller).to receive(:set_current_league).with('the-league')
       end
       it 'params[:league_id] should override session[:league]' do
@@ -88,13 +88,12 @@ describe ApplicationController, type: :controller do
     end
 
     context 'league slug is not set' do
-      it{ expect(controller.current_league).to be_nil }
+      it { expect(controller.current_league).to be_nil }
     end
   end
 
   describe 'clear_current_league' do
-    before{ session[:league_slug] = 'the-league' }
-    it{ expect{ controller.send(:clear_current_league) }.to change{ session[:league_slug] }.from('the-league').to(nil) }
+    before { session[:league_slug] = 'the-league' }
+    it { expect { controller.send(:clear_current_league) }.to change { session[:league_slug] }.from('the-league').to(nil) }
   end
-
 end

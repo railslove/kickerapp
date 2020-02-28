@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class KpiCalculator
   def initialize(number_of_weeks:)
     @number_of_weeks = number_of_weeks
@@ -10,7 +12,7 @@ class KpiCalculator
     league_count = []
     (1..@number_of_weeks).to_a.reverse.each do |i|
       date = i.weeks.ago
-      leagues = possible_leagues.where('created_at < ?', date).select{|l| l.matches.first.date > (date - 14.days)}.count
+      leagues = possible_leagues.where('created_at < ?', date).select { |l| l.matches.first.date > (date - 14.days) }.count
       league_count << [date.to_date.cweek, leagues]
     end
     league_count

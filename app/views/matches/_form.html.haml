@@ -31,7 +31,7 @@
         = ':'
         %span{ data: { behavior: 'team2-counter'} }
           = number_field_tag "set1[]", @sets.try(:first).try(:second) || 0, data: { behavior: 'disable-end' }
-        = check_box_tag "crawling4", true, @crawlings.try(:first), name: 'crawling1', data: { behavior: 'crawling-check' }, data: { behavior: 'disable-end' }
+        = check_box_tag "crawling4", true, @crawlings.try(:first), name: 'crawling1', data: { behavior: 'crawling-check disable-end' }
         %label{:for => "crawling4", class: "c-crawling"}
         .m-scoring--count--close.c-mobile-close{ data: { behavior: 'mobile-scoring-close' } } X
     .c-mobile-buttons

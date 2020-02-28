@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddLeagueIdToDayMatches < ActiveRecord::Migration[5.1]
   def change
     add_column :day_matches, :league_id, :integer

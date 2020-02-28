@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BaseMailer < MandrillMailer::TemplateMailer
   include Rails.application.routes.url_helpers
   default from: 'kicker@railslove.com', from_name: "Railslove #{ENV['GAME_TYPE'].capitalize} App"
@@ -7,7 +9,7 @@ class BaseMailer < MandrillMailer::TemplateMailer
   DEFAULT_ARGS = {
     important: false,
     inline_css: true
-  }
+  }.freeze
 
   private
 

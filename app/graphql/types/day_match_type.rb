@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Types::DayMatchType = GraphQL::ObjectType.define do
   name 'DayMatch'
   field :id, !types.ID

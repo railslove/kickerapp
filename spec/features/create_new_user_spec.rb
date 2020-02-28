@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 feature 'create new user' do
@@ -33,17 +35,15 @@ feature 'create new user' do
 
   context 'using facebook' do
     scenario 'with valid credentials' do
-      set_omniauth({
-        provider: :facebook,
-        uuid: '1234',
-        facebook: {
-          name: 'Karl Facebook',
-          email: 'karl.facebook@example.com',
-          image: 'http://example.com/facebook/karl.facebook.jpg'
-        }
-      })
+      set_omniauth(provider: :facebook,
+                   uuid: '1234',
+                   facebook: {
+                     name: 'Karl Facebook',
+                     email: 'karl.facebook@example.com',
+                     image: 'http://example.com/facebook/karl.facebook.jpg'
+                   })
 
-      visit league_path('the-league') #workaround to save the league in the session
+      visit league_path('the-league') # workaround to save the league in the session
 
       visit new_league_user_path('the-league')
       find('.m-button_facebook').click
@@ -61,9 +61,9 @@ feature 'create new user' do
     end
 
     scenario 'with invalid credentials' do
-      set_invalid_omniauth({ provider: :facebook })
+      set_invalid_omniauth(provider: :facebook)
 
-      visit league_path('the-league') #workaround to save the league in the session
+      visit league_path('the-league') # workaround to save the league in the session
 
       visit new_league_user_path('the-league')
       find('.m-button_facebook').click
@@ -75,15 +75,13 @@ feature 'create new user' do
 
   context 'using twitter' do
     scenario 'with valid credentials' do
-      set_omniauth({
-        provider: :twitter,
-        uuid: '1234',
-        twitter: {
-          name: "Karl Twitter",
-          email: "karl.twitter@example.com",
-          image: "http://example.com/twitter/karl.twitter.jpg"
-        }
-      })
+      set_omniauth(provider: :twitter,
+                   uuid: '1234',
+                   twitter: {
+                     name: 'Karl Twitter',
+                     email: 'karl.twitter@example.com',
+                     image: 'http://example.com/twitter/karl.twitter.jpg'
+                   })
 
       visit new_league_user_path('the-league')
       find('.m-button_twitter').click
@@ -101,7 +99,7 @@ feature 'create new user' do
     end
 
     scenario 'with invalid credentials' do
-      set_invalid_omniauth({ provider: :twitter })
+      set_invalid_omniauth(provider: :twitter)
 
       visit new_league_user_path('the-league')
       find('.m-button_twitter').click

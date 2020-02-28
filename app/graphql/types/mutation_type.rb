@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Types::MutationType = GraphQL::ObjectType.define do
   name 'Mutation'
   field :addPlayer, Types::UserType do
@@ -33,7 +35,6 @@ Types::MutationType = GraphQL::ObjectType.define do
     argument :player4_id, types.Int
     argument :scores, types[ScoreInputType]
     resolve ->(_obj, args, _ctx) {
-
       league = League.find_by!(slug: args[:leagueSlug])
       team1 = Team.find_or_create_by(player1_id: args[:player1_id], player2_id: args[:player2_id])
       team2 = Team.find_or_create_by(player1_id: args[:player3_id], player2_id: args[:player4_id])
@@ -53,15 +54,15 @@ Types::MutationType = GraphQL::ObjectType.define do
   ScoreInputType = GraphQL::InputObjectType.define do
     name 'ScoreInputType'
     argument :score1, !types.Int do
-      description "HomeTeam Score"
+      description 'HomeTeam Score'
     end
 
     argument :score2, !types.Int do
-      description "GuestTeam Score"
+      description 'GuestTeam Score'
     end
 
     argument :crawling, !types.Boolean do
-      description "crawling"
+      description 'crawling'
     end
   end
 end

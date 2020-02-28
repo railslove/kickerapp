@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # usage:
 #
 # it { should permit_params(:email, :name) }
@@ -26,7 +28,7 @@ module StrongParameterMatcher
     end
 
     def matches?(controller)
-      @klass_name     ||= controller.class.name.gsub("Controller", "").classify
+      @klass_name     ||= controller.class.name.gsub('Controller', '').classify
       @model          ||= @klass_name.constantize
       @params_method  ||= "#{@klass_name.underscore}_params".to_sym
 
@@ -37,19 +39,19 @@ module StrongParameterMatcher
 
       permitted_params.each do |param|
         controller.params = action_controller_parameters(param)
-        errors_permitted << param unless controller.send(@params_method).has_key?(param)
+        errors_permitted << param unless controller.send(@params_method).key?(param)
       end
 
-      return errors_protected.empty? && errors_permitted.empty?
+      errors_protected.empty? && errors_permitted.empty?
     end
 
     def failure_message
-      msg = "expected "
-      if !errors_protected.empty?
-        msg << "#{errors_protected} to be protected but is permitted"
-      else
-        msg << "#{errors_permitted} to be permitted but is not"
-      end
+      msg = 'expected '
+      msg << if !errors_protected.empty?
+               "#{errors_protected} to be protected but is permitted"
+             else
+               "#{errors_permitted} to be permitted but is not"
+             end
     end
 
     def description
@@ -57,13 +59,14 @@ module StrongParameterMatcher
     end
 
     private
-      def protected_params
-        @model.column_names - permitted_params.map(&:to_s)
-      end
 
-      def action_controller_parameters(param)
-        ActionController::Parameters.new(@klass_name.underscore.to_sym => {param => "random"})
-      end
+    def protected_params
+      @model.column_names - permitted_params.map(&:to_s)
+    end
+
+    def action_controller_parameters(param)
+      ActionController::Parameters.new(@klass_name.underscore.to_sym => { param => 'random' })
+    end
   end
 
   def permit_params(*keys)

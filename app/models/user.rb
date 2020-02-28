@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-  belongs_to :league, optional: true
+  belongs_to :league, optional: true, counter_cache: true
   has_many :history_entries
 
   scope :ranked, lambda { order("quota DESC") }

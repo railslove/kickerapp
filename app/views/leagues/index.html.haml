@@ -13,8 +13,7 @@
           %div= t('common.number_of_players')
           .m-league--fact
             %i.icon-user.m-league--icon
-            = league.users.count
+            = league.users.size
         %div
           %div= t('common.number_of_matches')
-          .m-league--fact= league.matches.count
-
+          .m-league--fact= league.matches.size

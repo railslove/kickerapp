@@ -371,7 +371,6 @@ GEM
     multipart-post (2.0.0)
     nested_form (0.3.2)
     netrc (0.11.0)
-    newrelic_rpm (4.8.0.341)
     nio4r (2.2.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
@@ -609,7 +608,6 @@ DEPENDENCIES
   mandrill_mailer
   mini_magick
   mobile-fu
-  newrelic_rpm
   omniauth
   omniauth-facebook
   omniauth-twitter
@@ -641,4 +639,4 @@ RUBY VERSION
    ruby 2.4.2p198
 
 BUNDLED WITH
-   1.16.1
+   2.0.2

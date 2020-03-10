@@ -14,7 +14,7 @@ blocks:
         - name: semaphore@apps.railslabs.com
       env_vars:
         - name: DOKKU_REMOTE
-          value: dokku@dokku.railslabs.com:kickerapp
+          value: dokku@dokku.railslabs.com:kicker-app
       jobs:
         - name: Push to git remote
           commands:

@@ -1,0 +1,66 @@
+version: v1.0
+name: Fintech weekly
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Install dependencies
+    task:
+      jobs:
+        - name: yarn install and cache
+          commands:
+            - checkout
+            - cache restore node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum yarn.lock),node-modules-$SEMAPHORE_GIT_BRANCH,node-modules-master
+            - sem-version node 10.13.0
+            - yarn install
+            - cache store node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum yarn.lock) node_modules
+        - name: bundler install and cache
+          commands:
+            - checkout
+            - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
+            - sem-version ruby 2.4.2
+            - gem install bundler -v '~> 2.0'
+            - bundle install --deployment --jobs 4 --retry 3 --path vendor/bundle
+            - cache store gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock) vendor/bundle
+
+  - name: Rails tests
+    task:
+      env_vars:
+        - name: DATABASE_URL
+          value: postgresql://postgres@localhost/kickerapp_test
+        - name: RAILS_ENV
+          value: test
+      prologue:
+        commands:
+          - checkout
+          - cache restore gems-$SEMAPHORE_GIT_BRANCH-$(checksum Gemfile.lock),gems-$SEMAPHORE_GIT_BRANCH-,gems-master-
+          - cache restore node-modules-$SEMAPHORE_GIT_BRANCH-$(checksum yarn.lock),node-modules-$SEMAPHORE_GIT_BRANCH,node-modules-master
+          - sem-version node 10.13.0
+          - sem-version ruby 2.4.2
+          - gem install bundler -v '~> 2.0'
+          - sem-service start postgres
+          # Bundler requires `install` to run even though cache has been
+          # restored, but generally this is not the case with other package
+          # managers. Installation will not actually run and command will
+          # finish quickly:
+          - bundle install --deployment --jobs 4 --retry 3 --path vendor/bundle
+          - cp -v config/database.yml.travis config/database.yml
+      jobs:
+        - name: Rails tests
+          commands:
+            - bundle exec rake db:create
+            - bundle exec rake db:migrate --trace
+            - bundle exec rake db:test:prepare
+            - bundle exec rake webpacker:yarn_install
+            - bundle exec rails webpacker:compile
+            - bundle exec rails assets:precompile
+
+promotions:
+  - name: Production deploy
+    pipeline_file: dokku-production.yml
+    auto_promote_on:
+      - result: passed
+        branch:
+          - master

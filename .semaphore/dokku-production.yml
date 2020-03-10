@@ -1,7 +1,7 @@
 # based on https://docs.semaphoreci.com/article/100-heroku-deployment
 
 version: v1.0
-name: Production deployment to dokku.railslabs.com
+name: CD Kicker App to dokku.railslabs.com
 agent:
   machine:
     type: e1-standard-2

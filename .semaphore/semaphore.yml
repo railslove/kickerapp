@@ -1,5 +1,5 @@
 version: v1.0
-name: Fintech weekly
+name: CI Kicker App
 agent:
   machine:
     type: e1-standard-2

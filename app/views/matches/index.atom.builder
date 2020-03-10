@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 atom_feed do |feed|
-  feed.title "Railslove Kicker Matches"
+  feed.title 'Railslove Kicker Matches'
   feed.updated @matches.first.present? ? @matches.first.date : Date.today
 
   @matches.each do |match|

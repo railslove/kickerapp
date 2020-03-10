@@ -1,46 +1,46 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Match, type: :model do
-
-  describe "#create_from_set" do
+  describe '#create_from_set' do
     before do
       @users = FactoryBot.create_list(:user, 4)
       @set_params = {
-        score: ["8", "10"],
+        score: %w[8 10],
         crawling: true,
         team1: { player1: @users[0].id.to_s, player2: @users[1].id.to_s },
         team2: { player1: @users[2].id.to_s, player2: @users[3].id.to_s }
       }
     end
 
-    it "creates a new match" do
+    it 'creates a new match' do
       expect(Match.count).to eql(0)
       expect(Match.create_from_set(@set_params)).to eq(Match.last)
     end
 
-    it "assignes the correct teams" do
+    it 'assignes the correct teams' do
       match = Match.create_from_set(@set_params)
-      expect(match.score).to eql("10:8")
+      expect(match.score).to eql('10:8')
     end
 
-    it "creates teams if nessesary" do
+    it 'creates teams if nessesary' do
       Match.create_from_set(@set_params)
       team = Team.for_users(@users[0], @users[1])
       team = Team.for_users(@users[2], @users[3])
       expect(Team.count).to eql(2)
     end
-
   end
 
-  describe ".score_for_set" do
-    specify { expect(subject.score_for_set(6,2)).to eq("6:2") }
+  describe '.score_for_set' do
+    specify { expect(subject.score_for_set(6, 2)).to eq('6:2') }
   end
 
-  describe ".crawling_for_set" do
+  describe '.crawling_for_set' do
     specify { expect(subject.crawling_for_set(crawling: true)).to eq(true) }
   end
 
-  describe ".revert_points" do
+  describe '.revert_points' do
     before do
       @match = Match.new(difference: 5)
       @match.winner_team = FactoryBot.create(:team, number_of_wins: 5)
@@ -52,17 +52,17 @@ describe Match, type: :model do
       @match.winner_team.player1 = FactoryBot.create(:user)
       @match.loser_team.player1 = FactoryBot.create(:user)
       @match.revert_points
-      expect(@match.winner_team.users.select{|u| u.quota == 1192}.count).to eq(1)
+      expect(@match.winner_team.users.select { |u| u.quota == 1192 }.count).to eq(1)
     end
 
     it 'adds the difference for the loser team' do
       @match.winner_team.player1 = FactoryBot.create(:user)
       @match.loser_team.player1 = FactoryBot.create(:user)
       @match.revert_points
-      expect(@match.loser_team.users.select{|u| u.quota == 1208}.count).to eq(1)
+      expect(@match.loser_team.users.select { |u| u.quota == 1208 }.count).to eq(1)
     end
 
-    it "updates the counts for the teams" do
+    it 'updates the counts for the teams' do
       @match.loser_team.player1 = FactoryBot.create(:user)
       @match.winner_team.player1 = FactoryBot.create(:user)
       @match.revert_points
@@ -94,8 +94,8 @@ describe Match, type: :model do
     end
   end
 
-  describe ".swap_teams" do
-    it "swaps winner and loser team" do
+  describe '.swap_teams' do
+    it 'swaps winner and loser team' do
       @match = Match.new(difference: 5)
       team_1 = FactoryBot.create(:team)
       team_2 = FactoryBot.create(:team)

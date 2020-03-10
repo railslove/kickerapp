@@ -1,8 +1,7 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-
-  FLASH_TYPES = [:success, :notice, :alert]
+  FLASH_TYPES = %i[success notice alert].freeze
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -12,7 +11,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   def require_league
-    if !current_league
+    unless current_league
       redirect_to root_path, alert: 'Bitte wähle zuerst eine Liga'
     end
   end
@@ -33,11 +32,8 @@ class ApplicationController < ActionController::Base
 
   private
 
-    def set_locale
-      if params[:locale]
-        session[:locale] = params[:locale]
-      end
-      I18n.locale = session[:locale] || I18n.default_locale
-    end
-
+  def set_locale
+    session[:locale] = params[:locale] if params[:locale]
+    I18n.locale = session[:locale] || I18n.default_locale
+  end
 end

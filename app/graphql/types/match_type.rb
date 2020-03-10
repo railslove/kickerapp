@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 Types::MatchType = GraphQL::ObjectType.define do
   name 'Match'
   field :id, !types.ID
   field :score, !types.String
   field :crawling, !types.Boolean do
-    resolve ->(obj, args, ctx) {
+    resolve ->(obj, _args, _ctx) {
       obj.crawling.present?
     }
   end

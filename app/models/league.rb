@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 class League < ApplicationRecord
   BASE_SCORE = 1_200
 
   mount_uploader :header_image, LeagueHeaderImageUploader
 
-  has_many :history_entries
-  has_many :matches
-  has_many :teams
-  has_many :users
-  has_many :day_matches
+  has_many :history_entries, dependent: :destroy
+  has_many :matches, dependent: :destroy
+  has_many :teams, dependent: :destroy
+  has_many :users, dependent: :destroy
+  has_many :day_matches, dependent: :destroy
 
   validates :name, presence: true
   validates :slug, presence: true, uniqueness: true
@@ -15,10 +17,10 @@ class League < ApplicationRecord
 
   before_validation :sanitize_slug
 
-  scope :by_matches, lambda { order('matches_count DESC') }
+  scope :by_matches, -> { order('matches_count DESC') }
 
   def to_param
-    self.slug
+    slug
   end
 
   def update_badges
@@ -70,17 +72,17 @@ class League < ApplicationRecord
 
   def team_ranking
     teams
-    .joins('RIGHT JOIN matches ON (matches.winner_team_id = teams.id OR matches.loser_team_id = teams.id)')
-    .for_doubles
-    .includes(:player1, :player2)
-    .group('teams.id')
-    .order('quota DESC')
+      .joins('RIGHT JOIN matches ON (matches.winner_team_id = teams.id OR matches.loser_team_id = teams.id)')
+      .for_doubles
+      .includes(:player1, :player2)
+      .group('teams.id')
+      .order('quota DESC')
   end
 
   private
 
   def sanitize_slug
-    self.slug = self.slug.downcase.parameterize
+    self.slug = slug.downcase.parameterize
   end
 
   def ensure_user(user)
@@ -88,10 +90,10 @@ class League < ApplicationRecord
   end
 
   def reset_all_user_badges
-    users.update_all(most_wins: false, top_crawler: false, worst_crawler: false, longest_winning_streak: false, most_teams: false, longest_winning_streak_ever: false )
+    users.update_all(most_wins: false, top_crawler: false, worst_crawler: false, longest_winning_streak: false, most_teams: false, longest_winning_streak_ever: false)
   end
 
   def reset_user_accounts
-    users.update_all(quota: 1200, winning_streak: 0, number_of_crawls: 0, number_of_crawlings: 0, longest_winning_streak_games: 0 )
+    users.update_all(quota: 1200, winning_streak: 0, number_of_crawls: 0, number_of_crawlings: 0, longest_winning_streak_games: 0)
   end
 end

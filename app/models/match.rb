@@ -1,12 +1,13 @@
-class Match < ApplicationRecord
+# frozen_string_literal: true
 
-  belongs_to :winner_team, class_name: "Team", optional: true
-  belongs_to :loser_team, class_name: "Team", optional: true
+class Match < ApplicationRecord
+  belongs_to :winner_team, class_name: 'Team', optional: true
+  belongs_to :loser_team, class_name: 'Team', optional: true
 
   belongs_to :league, counter_cache: true, optional: true
   belongs_to :day_match, optional: true
 
-  default_scope lambda {order("date DESC")}
+  default_scope -> { order('date DESC') }
 
   validates :winner_team, presence: true
   validates :loser_team, presence: true
@@ -14,17 +15,17 @@ class Match < ApplicationRecord
 
   after_create :calculate_user_quotas
 
-  scope :by_date, -> date { where("date::timestamp::date = ?", date) }
-  scope :for_team, lambda { |team_id| where("(winner_team_id = #{team_id} OR loser_team_id = #{team_id})")}
-  scope :wins_for_team, lambda { |team_id| where("winner_team_id = #{team_id}")}
-  scope :losses_for_team, lambda { |team_id| where("loser_team_id = #{team_id}")}
-  scope :including_teams, -> { includes(loser_team: [:player1, :player2], winner_team: [:player1, :player2]) }
-  scope :by_user, -> id {
+  scope :by_date, ->(date) { where('date::timestamp::date = ?', date) }
+  scope :for_team, ->(team_id) { where("(winner_team_id = #{team_id} OR loser_team_id = #{team_id})") }
+  scope :wins_for_team, ->(team_id) { where("winner_team_id = #{team_id}") }
+  scope :losses_for_team, ->(team_id) { where("loser_team_id = #{team_id}") }
+  scope :including_teams, -> { includes(loser_team: %i[player1 player2], winner_team: %i[player1 player2]) }
+  scope :by_user, ->(id) {
     joins('LEFT JOIN teams ON (matches.winner_team_id = teams.id OR matches.loser_team_id = teams.id)')
-    .where('teams.player1_id = :id OR teams.player2_id = :id', id: id)
+      .where('teams.player1_id = :id OR teams.player2_id = :id', id: id)
   }
-  scope :lost_by, -> id { joins(:loser_team).where('teams.player1_id = :id OR teams.player2_id = :id', id: id) }
-  scope :won_by, -> id { joins(:winner_team).where('teams.player1_id = :id OR teams.player2_id = :id', id: id) }
+  scope :lost_by, ->(id) { joins(:loser_team).where('teams.player1_id = :id OR teams.player2_id = :id', id: id) }
+  scope :won_by, ->(id) { joins(:winner_team).where('teams.player1_id = :id OR teams.player2_id = :id', id: id) }
 
   after_commit :publish_created_notification, on: :create
   after_commit :publish_updated_notification, on: :update
@@ -55,16 +56,14 @@ class Match < ApplicationRecord
   end
 
   def calculate_user_quotas
-    quota_change = QuotaCalculator.elo_quota(winner_team.get_quota, loser_team.get_quota , 1 )
+    quota_change = QuotaCalculator.elo_quota(winner_team.get_quota, loser_team.get_quota, 1)
 
-    if self.crawling == true
-      quota_change = quota_change + 5
-    end
+    quota_change += 5 if crawling == true
 
     self.difference = quota_change
-    self.save
+    save
 
-    self.users.each do |user|
+    users.each do |user|
       user.set_elo_quota(self)
     end
 
@@ -77,32 +76,32 @@ class Match < ApplicationRecord
 
   def revert_points
     winner_team.users.each do |winner|
-      winner.update_attributes(quota: (winner.quota - self.difference))
+      winner.update_attributes(quota: (winner.quota - difference))
     end
     winner_team.update_attributes(number_of_wins: winner_team.number_of_wins - 1)
 
     loser_team.users.each do |loser|
-      loser.update_attributes(quota: (loser.quota + self.difference))
+      loser.update_attributes(quota: (loser.quota + difference))
     end
     loser_team.update_attributes(number_of_losses: loser_team.number_of_losses - 1)
-    self.save
+    save
   end
 
   def remove_points
     winner_team.users.each do |winner|
-      winner.update_attributes(quota: (winner.quota - self.difference), number_of_wins: winner.number_of_wins - 1)
+      winner.update_attributes(quota: (winner.quota - difference), number_of_wins: winner.number_of_wins - 1)
     end
     winner_team.update_attributes(number_of_wins: winner_team.number_of_wins - 1)
 
     loser_team.users.each do |loser|
-      loser.update_attributes(quota: (loser.quota + self.difference), number_of_losses: loser.number_of_losses - 1)
+      loser.update_attributes(quota: (loser.quota + difference), number_of_losses: loser.number_of_losses - 1)
     end
     loser_team.update_attributes(number_of_losses: loser_team.number_of_losses - 1)
-    self.save
+    save
   end
 
   def update_team_streaks
-    [ winner_team, loser_team ].each do |team|
+    [winner_team, loser_team].each do |team|
       team.users.each do |user|
         user.calculate_current_streak!
         user.calculate_longest_streak!
@@ -111,8 +110,8 @@ class Match < ApplicationRecord
   end
 
   def swap_teams
-    old_winner = self.winner_team
-    self.winner_team = self.loser_team
+    old_winner = winner_team
+    self.winner_team = loser_team
     self.loser_team = old_winner
   end
 
@@ -129,7 +128,7 @@ class Match < ApplicationRecord
   end
 
   def scores
-    score.split(":").map(&:to_i)
+    score.split(':').map(&:to_i)
   end
 
   def active_user_ranking
@@ -143,15 +142,15 @@ class Match < ApplicationRecord
   end
 
   def content
-    CommentGenerator.random(self.scores.first, self.scores.last, self.crawling, (self.id % 3 == 0))
+    CommentGenerator.random(scores.first, scores.last, crawling, (id % 3 == 0))
   end
 
   def winner
-    self.winner_team.users
+    winner_team.users
   end
 
   def loser
-    self.loser_team.users
+    loser_team.users
   end
 
   # Make stuff more attractive for displaying it
@@ -178,7 +177,7 @@ class Match < ApplicationRecord
   private
 
   def self.user_ids_for_score(set_params, select_score)
-    set_params["team#{ (set_params[:score].index(select_score)) + 1 }".to_sym].values.reject(&:blank?)
+    set_params["team#{set_params[:score].index(select_score) + 1}".to_sym].values.reject(&:blank?)
   end
 
   def team_players_validation
@@ -188,10 +187,10 @@ class Match < ApplicationRecord
   end
 
   def publish_created_notification
-    ActiveSupport::Notifications.publish('match:created', { record: self, status: :created })
+    ActiveSupport::Notifications.publish('match:created', record: self, status: :created)
   end
 
   def publish_updated_notification
-    ActiveSupport::Notifications.publish('match:updated', { record: self, status: :updated })
+    ActiveSupport::Notifications.publish('match:updated', record: self, status: :updated)
   end
 end

@@ -1,0 +1,26 @@
+# based on https://docs.semaphoreci.com/article/100-heroku-deployment
+
+version: v1.0
+name: Production deployment to dokku.railslabs.com
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: Production deploy
+    task:
+      secrets:
+        - name: semaphore@apps.railslabs.com
+      env_vars:
+        - name: DOKKU_REMOTE
+          value: dokku@dokku.railslabs.com:kickerapp
+      jobs:
+        - name: Push to git remote
+          commands:
+            - checkout --use-cache
+            - ssh-keyscan -H dokku.railslabs.com >> ~/.ssh/known_hosts
+            - chmod 600 ~/.ssh/semaphore@apps.railslabs.com
+            - ssh-add ~/.ssh/semaphore@apps.railslabs.com
+            - git remote add dokku $DOKKU_REMOTE
+            - git push dokku -f $SEMAPHORE_GIT_BRANCH:master

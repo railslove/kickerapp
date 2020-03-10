@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
-module ApplicationHelper
-  def user_image(user, size = '80x80')
+  def user_image(user, _size='80x80')
     if user.image.present?
-      image_tag("https://ungif.apps.railslabs.com/ungif?url=#{user.image}&size=#{size}", class: 'm-user-image')
+      image_tag(user.image, class: 'm-user-image')
     else
       color = Digest::MD5.hexdigest(user.name).first(6)
       content_tag :div, class: 'm-user-image as-default ', 'data-fill' => "##{color}" do

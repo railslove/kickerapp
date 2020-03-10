@@ -2,7 +2,7 @@
   - matches.group_by{|m| m.date.to_date}.each do |date, matches|
     %h2.m-headline.m-match-list--headline
       %i.icon-calendar-empty
-      = l(date, format: :short)
+      = l(date, format: :long)
     .m-match-list--group
       - matches.each do |match|
         - single = match.winner_team.users.count == 1

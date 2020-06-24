@@ -419,7 +419,7 @@ GEM
       pry (>= 0.10.4)
     public_suffix (3.0.2)
     puma (3.12.4)
-    rack (2.2.2)
+    rack (2.2.3)
     rack-cors (1.0.5)
       rack (>= 1.6.0)
     rack-mobile-detect (0.4.0)

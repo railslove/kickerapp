@@ -12,6 +12,7 @@ Types::QueryType = GraphQL::ObjectType.define do
       leagues
     }
   end
+  
 
   field :players, Types::UserType do
     argument :id, types.Int, prepare: ->(id, _ctx) { id }

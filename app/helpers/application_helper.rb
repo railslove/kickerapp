@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+module ApplicationHelper
   def user_image(user, _size='80x80')
     if user.image.present?
       image_tag(user.image, class: 'm-user-image')
@@ -62,7 +62,7 @@
       :de
     else
       I18n.default_locale
-      end
+    end
   end
 
   def picturefill_image_tag(regular, retina, options = {})

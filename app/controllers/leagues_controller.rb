@@ -19,7 +19,7 @@ class LeaguesController < ApplicationController
       tracker do |t|
         t.google_analytics :send, type: 'event', category: 'league', action: 'create', label: @league.name, value: @league.contact_email
       end
-      LeagueMailer.welcome(@league, I18n.locale).deliver
+      # LeagueMailer.welcome(@league, I18n.locale).deliver
       redirect_to new_league_user_path(@league), notice: t('leagues.create.success')
     else
       flash.now[:alert] = t('leagues.create.failure')

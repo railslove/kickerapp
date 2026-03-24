@@ -362,7 +362,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_magick (4.9.4)
     mini_mime (1.0.0)
-    mini_portile2 (2.4.0)
+    mini_portile2 (2.8.9)
     minitest (5.11.3)
     mobile-fu (1.4.0)
       rack-mobile-detect
@@ -373,8 +373,9 @@ GEM
     nested_form (0.3.2)
     netrc (0.11.0)
     nio4r (2.2.0)
-    nokogiri (1.10.9)
-      mini_portile2 (~> 2.4.0)
+    nokogiri (1.15.7)
+      mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
     oauth (0.5.4)
     oauth2 (1.4.0)
       faraday (>= 0.8, < 0.13)
@@ -419,6 +420,7 @@ GEM
       pry (>= 0.10.4)
     public_suffix (3.0.2)
     puma (3.12.4)
+    racc (1.8.1)
     rack (2.2.2)
     rack-cors (1.0.5)
       rack (>= 1.6.0)
@@ -654,7 +656,7 @@ DEPENDENCIES
   webpacker (~> 3.0)
 
 RUBY VERSION
-   ruby 2.5.9p229
+   ruby 2.7.8p225
 
 BUNDLED WITH
    2.1.4

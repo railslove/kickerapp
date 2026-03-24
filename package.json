@@ -1,10 +1,14 @@
 {
+  "resolutions": {
+    "node-sass": "4.14.1"
+  },
   "dependencies": {
     "@rails/webpacker": "^3.2.1",
     "babel-preset-react": "^6.24.1",
     "coffeescript": "1.12.7",
     "i18n-js": "^3.0.3",
     "json-loader": "^0.5.7",
+    "node-sass": "4.14.1",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-cookie-banner": "^4.0.0",
